@@ -1,4 +1,5 @@
 .venv/
+credentials.md
 .venv-training/
 .venv-hosting/
 __pycache__/

@@ -1,4 +1,10 @@
-# Talos
+# Duet 2
+
+Duet 2 starts from the supplied Talos source archive and will add original scene assets, interface changes, new randomized demonstrations, and evaluated policy improvements. Current status: baseline imported; runtime reproduction and new feature work are pending.
+
+See [implementation plan](docs/DUET_IMPLEMENTATION_PLAN.md) and [progress tracker](docs/DUET_PROGRESS.md). The original project documentation follows. Its results, models, and recordings describe Talos, not newly measured Duet 2 results. Preserve upstream attribution and license notices.
+
+## Original Talos documentation
 
 **Voice to action at the dinner table.** Two SO-101 robot arms execute learned dinner-setting skills in a physical MuJoCo simulation.
 
