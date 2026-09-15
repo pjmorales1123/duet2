@@ -98,6 +98,68 @@ Counts describe this task's new pipeline, not the separate existing project's fi
 - Artifact: datasets/duet-2-pilot-seed-1000. It contains 40 files totaling 17.91 MiB, including the protocol manifest, scene XML, initial state, RGB observations, joint state, target actions, task stages and per-skill outcome manifests.
 - The batch is training-eligible but is only one scene. It is a pipeline proof, not sufficient data to train or evaluate a policy.
 
+### 2026-09-15 - Seed 1001 physical test and failure video
+
+- Ran the inherited exact-state physical teacher on Duet 2 seed 1001 with `.\.venv\Scripts\python.exe scripts\evaluate_dinner_autonomy.py --seeds 1001 --output .run\duet-2-teacher-seed-1001.json`.
+- Outcome: failed after 51.005 simulated seconds because both fingers did not establish a grasp after the allowed attempts. The report records zero physical state writes, zero external forces and the failed task state.
+- Exported `.run/duet-2-seed-1001-test.mp4` from the same physical rollout path. The 572-frame overhead video includes a small seed/result caption and retains the failure; it is not learned-policy, Intel, or final-evaluation evidence.
+- Video report: `.run/duet-2-seed-1001-video.json`; SHA-256 `445def3545410d2d11974274fdc5b73d6e5e441dddae8e5a60d78644ac3b3379`.
+
+### 2026-09-15 - Dinner mesh presentation cleanup
+
+- Fixed the authored plate mesh so both plate variants have a continuous visual centre instead of rendering as hollow rings.
+- Kept all vessel, plate and cutlery collision proxies unchanged; only visual mesh data, dinner table presentation colour and camera-hidden target-guide groups changed.
+- Made the mesh authoring script Windows-console safe by removing non-ASCII progress glyphs.
+- Verification: `.\.venv\Scripts\python.exe scripts\author_dinner_meshes.py`, `.\.venv\Scripts\python.exe -m unittest tests.test_dinner -v`, and `.\.venv\Scripts\python.exe scripts\render_preview.py --seed 1001 --width 1280 --height 720`.
+- Result: five mesh assets regenerated, all four focused dinner physics tests passed, and six seed-1001 preview images were written under `outputs/previews/`.
+- The full runtime suite still reports the two existing baseline failures in relay placement and the complete contact-only sequence; both reproduce in a clean `HEAD` worktree and are unrelated to this visual-only cleanup.
+
+### 2026-09-15 - Bottle base and visible tableware cleanup
+
+- Changed the authored carafe mesh from a narrow circular foot to a full-width flat base and regenerated `simulation_lab/assets/dinner/meshes/carafe.obj`.
+- Hid the supporting side plate and tumbler from presentation camera groups so the rendered task scene shows exactly one plate and one cup. Their physical bodies remain camera-hidden for existing validation contracts.
+- Verification: `.\.venv\Scripts\python.exe scripts\author_dinner_meshes.py`, `.\.venv\Scripts\python.exe scripts\render_preview.py --seed 1001 --width 1280 --height 720`, and `.\.venv\Scripts\python.exe -m unittest tests.test_dinner -v`.
+- Result: carafe base vertices span approximately 21 mm radius at z=0, the rendered seed-1001 scene shows one plate/cup, and all four focused dinner physics tests pass.
+
+### 2026-09-15 - Base scene identity fix (floor/sky/table, not just tableware)
+
+- Root cause found: earlier "Duet identity" passes only recolored objects in `dinner.py`; the shared `simulation_lab/scene.py` used by every scenario still carried Talos's unmodified stock MuJoCo checker floor texture and generic blue-grey sky gradient. This, not the tableware, was why the scene still read as the upstream template.
+- Changed `scene.py`: floor texture from `builtin="checker"` to a flat solid dark plum tone; sky gradient shifted to indigo/plum; `table_mat`/`edge_mat` shifted to a warm tan/plum palette; each arm's base pad now gets a distinct coral (left) / cobalt (right) color instead of the shared grey `edge_mat`.
+- Also found the generated `simulation_lab/assets/duet/duet-evening-wall-v1.png` backdrop described in `docs/DUET_ASSETS.md` is never referenced by any texture in code — it is an orphaned, unused asset. Not wired in; a plain-color material was used instead to avoid texture-mapping risk under the deadline.
+- Change is visual-only: same geom count/sizes/materials-by-name structure, no collision or actuator changes.
+- Verification: `.\.venv\Scripts\python.exe scripts\render_preview.py --seed 1001 --width 640 --height 360` (visually confirmed floor/sky/table/pads changed, no checkerboard) and `.\.venv\Scripts\python.exe -m unittest tests.test_dinner -v` (4/4 pass, unchanged).
+- Open note: organizer feedback says the drawer is only an example fixture, not mandatory — the environment can be redesigned (e.g. a shelf to pick crockery from instead of a drawer). This is a geometry-level decision for a later stage, not part of this visual-only pass; needs its own scoping before touching `add_drawer`/pickup logic.
+
+### 2026-09-15 - Layout-mirror attempt: reverted, findings recorded
+
+- User flagged that object/drawer coordinates in `dinner.py` are the exact same absolute numbers as the Talos baseline (colors changed, composition did not) — a real fingerprint risk for published training data, not just a visual one.
+- Attempted a full left-right mirror of drawer/target/object coordinates plus the corresponding arm-side hardcoding in `dinner_autonomy.py`/`command_task.py`. This broke physical reachability: several skills (plate, mug, the spoon retrieval routine) have hardcoded world-frame approach-direction vectors (`dinner_autonomy.py` lines ~66, 118, 286, 294-295) tuned for the original hemisphere; mirroring positions without re-deriving each of these caused "outside this arm's useful reach" failures.
+- Also tried a smaller rigid translation (~1.2cm) of the same coordinates, keeping the original hemisphere/arm assignment. This too pushed `test_relay_expands_and_physically_finishes` and `test_complete_contact_only_sequence` outside tolerance, confirming the existing layout is tightly tuned with little slack (consistent with the previously-recorded 8/10 baseline success rate).
+- Reverted all position/coordinate edits back to the exact original values. Verified via `git stash` that the two remaining test failures (`test_complete_contact_only_sequence`, `test_relay_expands_and_physically_finishes`) reproduce byte-for-byte identically on a clean, untouched checkout — confirmed pre-existing and unrelated to any change made today.
+- Decision: defer real layout/composition redesign (mirror, reordering, or the organizer-suggested shelf-instead-of-drawer swap) to its own properly scoped and physically-verified task. Do not rush a coordinate change without re-deriving every hardcoded approach vector it touches and re-validating each affected skill individually.
+- Kept: the `scene.py` floor/sky/table palette fix and per-arm base-pad colors (visual-only, zero physics risk, already verified).
+
+### 2026-09-15 - Fresh seed-1000 demonstration and video on the new scene identity
+
+- Collected a new batch: `.\.venv\Scripts\python.exe scripts\collect_duet_demos.py --output datasets/duet-2-demo-seed-1000 --seeds 1000`. All six skills (bottle, plate, mug, drawer, fork, spoon) succeeded physically and passed the independent replay gate under the new floor/sky/table/base-pad palette (original object positions, per the revert above).
+- Exported a review video: `.\.venv\Scripts\python.exe scripts\export_duet_pilot_video.py --batch datasets/duet-2-demo-seed-1000/seed-1000 --output .run/duet-2-seed-1000-demo.mp4` (546 frames). Visually confirmed coral/cobalt arm base pads and recolored tableware are visible in the recorded overhead camera.
+
+### 2026-09-15 - Standalone exact dinner layout editor
+
+- Added `scripts/design_dinner_layout.py`, a desktop Tkinter editor with no server or browser dependency. It draws the actual `0.96 m x 0.78 m` table and loads the current Task-start object positions for a selected seed, defaulting to seed 42.
+- Added `simulation_lab/dinner_layout.py` JSON serialization and scene consumption so exported world-space body poses can be passed to `build_scene(..., dinner_layout=...)`.
+- Verification: `.\.venv\Scripts\python.exe scripts\design_dinner_layout.py --help`, `.\.venv\Scripts\python.exe -c "from scripts.design_dinner_layout import current_poses; print(len(current_poses(42)))"`, and `.\.venv\Scripts\python.exe -m unittest tests.test_dinner_layout tests.test_dinner -v`.
+- Result: seven dinner objects load from the seeded current arrangement, exact x/y/z/yaw values can be edited/exported, and all seven layout/dinner contract tests pass.
+- The 1-seed pilot batch at `datasets/duet-2-pilot-seed-1000` from the earlier (pre-color-fix, pre-mesh-cleanup) pass is now stale relative to the current scene identity — it must not be published or used as training data as-is. Superseded by `datasets/duet-2-demo-seed-1000` for anything beyond pipeline-proof purposes; a real training batch still needs to be collected across the full 1000-1099 range after any further scene decisions (layout/shelf) land.
+- Next: decide on the layout/shelf redesign (own scoped task) before bulk data collection, since any further geometry change invalidates whatever is collected first.
+
+### 2026-09-15 - Fork path-around-plate recovery
+
+- Added `simulation_lab/carry_routing.py`: a small planar detour selector that inflates an obstacle by the carried object's footprint and validates every route segment before returning the shortest side route.
+- The physical dinner teacher now preserves its direct fork transfer whenever the existing carried-object collision check accepts it. If that check rejects direct transfer because the held fork intersects another object, the teacher plans a two-corner route around the physically placed plate, then runs the entire joint trajectory through the existing carried-object contact checker before commanding it. No pose writes, forces, equality constraints, or grasp abstraction were added.
+- Verification: `tests.test_carry_routing` and `tests.test_dinner` passed (5 tests); `py_compile` passed for the new routing module and dinner teacher; the six-skill physical teacher run on seed 1000 succeeded with zero controller state writes, external forces, and equality constraints (`.run/fork-route-after-seed1000.json`). The direct route was already clear on that seed, so the new contingency was not exercised there.
+- Remaining evidence gap: the reported original fork/plate collision has not reproduced in the current workspace's seed-1000 or seed-42 configurations (seed 42 presently fails earlier at plate/cabinet clearance). Preserve or provide the exact failing seed/layout manifest to execute and retain an end-to-end detour rollout before claiming the historical case is closed.
+
 ## Final evaluation ledger
 
 | Seed | Baseline outcome | Duet outcome | Failure/recovery | Recording |

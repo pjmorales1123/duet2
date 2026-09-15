@@ -3,6 +3,7 @@ import math
 import mujoco
 import numpy as np
 from .autonomy import LiftReturn, ArmIK, PlanningError, OPEN
+from .carry_routing import plan_disc_detour
 from .scene import HOME
 
 CLOSED = -.170
@@ -189,6 +190,29 @@ class DinnerTask(LiftReturn):
             self._check_path(points, actual_grip, allow_tube=True, carry=carry, support=self.base_geom if stage == 'lower' else None)
         self._move(stage, points, grip, duration)
 
+    def _move_fork_around_plate(self, destination_center):
+        """Carry a grasped fork around the placed plate after direct transit is blocked."""
+        plate = next(item for item in self.layout['objects'] if item['id'] == 'plate')
+        start_center = self.data.xpos[self.body].copy()
+        plate_center = self.data.xpos[self.model.body(plate['body']).id].copy()
+        # The plate rim plus the fork's long carried footprint and a 10 mm buffer.
+        clearance = plate['size_m'][0] / 2 + self.tube['size_m'][1] / 2 + .010
+        route = plan_disc_detour(start_center[:2], destination_center[:2], plate_center[:2], clearance)
+        reference = self._carry_reference()
+        current_point = self.ik.point(self.data)
+        q = self.data.qpos[self.offset:self.offset+5].copy()
+        paths = []
+        for xy in route[1:]:
+            center = np.array([xy[0], xy[1], destination_center[2]])
+            point, _ = self._point_for_center(center, reference, q)
+            path = self._cartesian(current_point, point, q, CLOSED, check=False)
+            paths.append(path)
+            current_point, q = point, path[-1]
+        points = np.vstack(paths)
+        self._check_path(points, float(self.data.qpos[self.offset+5]), True, carry=reference)
+        self._move('transit', points, CLOSED, 7.)
+        self.metrics['fork_transit_route'] = 'plate detour'
+
     def update(self, targets):
         if not self.active:
             return
@@ -279,13 +303,23 @@ class DinnerTask(LiftReturn):
                         return
                     center = self.destination_position.copy()
                     center[2] = self.destination_position[2]+.03 if self.tube["id"] == "plate" else self.data.xpos[self.body,2]
+                    if self.tube['id'] == 'mug':
+                        # The pick-orientation wrist-roll constraint was tuned only for
+                        # the mug's original narrow target; carrying to a different spot
+                        # needs the solver free to choose its own roll, not the grasp one.
+                        self.ik.x_target = None
                     point, _ = self._point_for_center(center, self._carry_reference(), self.data.qpos[self.offset:self.offset+5])
                     self._move_point('align', point, CLOSED, 4.)
             elif self.stage == 'clearance' and done:
                 center = self.data.xpos[self.body].copy()
                 center[0] = -.10 if self.tube["id"] == "spoon" else self.destination_position[0]
                 point, _ = self._point_for_center(center, self._carry_reference(), self.data.qpos[self.offset:self.offset+5])
-                self._move_point('transit', point, CLOSED, 4.)
+                try:
+                    self._move_point('transit', point, CLOSED, 4.)
+                except PlanningError as exc:
+                    if self.tube['id'] != 'fork' or 'carried tube' not in str(exc):
+                        raise
+                    self._move_fork_around_plate(center)
             elif self.stage == 'transit' and done and self.tube['id'] == 'spoon':
                 point = self.ik.point(self.data).copy()
                 q = self.data.qpos[self.offset:self.offset+5].copy()
