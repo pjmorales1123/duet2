@@ -101,7 +101,7 @@ def geom(parent, name, kind, size, pos=(0, 0, 0), **attrs):
     return ET.SubElement(parent, "geom", name=name, type=kind, size=vec(size), pos=vec(pos), **{k: str(v) for k, v in attrs.items()})
 
 
-def build_scene(seed: int = 42, count: int = 3, racks: list[RackPose] | None = None, practice: bool = False, transfer_side: str | None = None, scenario: str = "chemistry", dinner_preset: str = "task", drawer_open: bool = False) -> tuple[str, dict]:
+def build_scene(seed: int = 42, count: int = 3, racks: list[RackPose] | None = None, practice: bool = False, transfer_side: str | None = None, scenario: str = "chemistry", dinner_preset: str = "task", drawer_open: bool = False, dinner_variation: str = "duet_v1") -> tuple[str, dict]:
     if scenario not in ("chemistry", "dinner"):
         raise ValueError("Choose the dinner or chemistry scene.")
     if scenario == "dinner" and (racks is not None or practice or transfer_side is not None):
@@ -125,10 +125,8 @@ def build_scene(seed: int = 42, count: int = 3, racks: list[RackPose] | None = N
     ET.SubElement(visual, "rgba", haze="0.16 0.20 0.26 1")
     root.append(deepcopy(source.find("default")))
     asset = deepcopy(source.find("asset"))
-    for mesh in asset.findall("mesh"):
-        filename = mesh.get("file")
-        if (ASSETS / "assets" / "lod" / filename).exists():
-            mesh.set("file", f"lod/{filename}")
+    # Use source meshes for presentation and RGB training data. The optional LOD
+    # assets make the robot visibly faceted and are reserved for a later speed mode.
     root.append(asset)
     ET.SubElement(asset, "texture", name="sky", type="skybox", builtin="gradient", rgb1="0.15 0.21 0.29", rgb2="0.04 0.07 0.12", width="512", height="3072")
     ET.SubElement(asset, "texture", name="floor_tex", type="2d", builtin="checker", width="512", height="512", rgb1="0.18 0.22 0.28", rgb2="0.20 0.24 0.30")
@@ -154,7 +152,7 @@ def build_scene(seed: int = 42, count: int = 3, racks: list[RackPose] | None = N
             geom(world, f"grid_{axis}_{index}", "box", size, position, rgba="0.28 0.42 0.47 0.25", contype="0", conaffinity="0")
 
     actuator = ET.SubElement(root, "actuator")
-    for side, x, color in [("left", -0.25, (0.10, 0.58, 0.66)), ("right", 0.25, (0.90, 0.57, 0.16))]:
+    for side, x, color in [("left", -0.25, (0.88, 0.89, 0.90)), ("right", 0.25, (0.88, 0.89, 0.90))]:
         geom(world, f"{side}_base_pad", "box", (0.058, 0.055, 0.009), (x, -0.235, TABLE_Z + 0.009), material="edge_mat")
         body = deepcopy(source.find("./worldbody/body"))
         for element in body.iter():
@@ -225,5 +223,5 @@ def build_scene(seed: int = 42, count: int = 3, racks: list[RackPose] | None = N
     layout = {"seed": seed, "scenario": scenario, "racks": rack_records, "slots": slot_records, "tubes": tube_records, "table_z": TABLE_Z, "practice": practice, "transfer_side": transfer_side}
     if scenario == "dinner":
         from .dinner import add_dinner_scene
-        layout.update(add_dinner_scene(root, seed, dinner_preset, drawer_open))
+        layout.update(add_dinner_scene(root, seed, dinner_preset, drawer_open, dinner_variation))
     return ET.tostring(root, encoding="unicode"), layout

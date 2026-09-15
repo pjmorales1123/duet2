@@ -1,4 +1,4 @@
-"""Original procedural dinner assets and a passive cutlery drawer.
+"""Duet 2 procedural dinner assets and a passive cutlery drawer.
 
 All lengths are metres and masses are kilograms. Hollow vessels use separate
 wall segments: no convex collision hull closes their mouths or handles.
@@ -7,22 +7,25 @@ No runtime object placement, attachments, or liquid dynamics are implemented.
 from __future__ import annotations
 
 import math
+from pathlib import Path
 import xml.etree.ElementTree as ET
 
 import mujoco
 import numpy as np
 
 from .scene import TABLE_Z, geom, vec
+from .duet_variation import sample_dinner_variation
 
 DRAWER_TRAVEL = .120
+DUET_ASSETS = Path(__file__).parent / "assets" / "duet"
 OBJECTS = {
-    "plate": {"label": "Blue-rim plate", "kind": "plate", "mass_kg": .065, "size_m": [.132, .132, .024], "color": "#719acb", "grasp_local_m": [0, -.061, .010], "grasp_width_m": .009},
-    "side_plate": {"label": "Gold-rim side plate", "kind": "plate", "mass_kg": .045, "size_m": [.106, .106, .012], "color": "#dfac65", "grasp_local_m": [0, -.048, .009], "grasp_width_m": .009},
-    "mug": {"label": "Teal mug", "kind": "mug", "mass_kg": .045, "size_m": [.077, .050, .064], "color": "#54b9b1", "grasp_local_m": [.047, 0, .041], "grasp_width_m": .008},
-    "glass": {"label": "Clear drinking glass", "kind": "glass", "mass_kg": .035, "size_m": [.048, .048, .074], "color": "#b3dcdf", "grasp_local_m": [0, 0, .045], "grasp_width_m": .048},
-    "bottle": {"label": "Amber water bottle", "kind": "bottle", "mass_kg": .080, "size_m": [.048, .048, .140], "color": "#cf995b", "grasp_local_m": [0, 0, .128], "grasp_width_m": .022},
-    "fork": {"label": "Fork", "kind": "fork", "mass_kg": .012, "size_m": [.017, .110, .016], "color": "#cad5de", "grasp_local_m": [0, 0, .008], "grasp_width_m": .009},
-    "spoon": {"label": "Spoon", "kind": "spoon", "mass_kg": .014, "size_m": [.022, .110, .016], "color": "#cad5de", "grasp_local_m": [0, 0, .008], "grasp_width_m": .009},
+    "plate": {"label": "Coral dinner plate", "kind": "plate", "mass_kg": .065, "size_m": [.132, .132, .024], "color": "#cf5047", "grasp_local_m": [0, -.061, .010], "grasp_width_m": .009},
+    "side_plate": {"label": "Sunset side plate", "kind": "plate", "mass_kg": .045, "size_m": [.106, .106, .012], "color": "#f2b74d", "grasp_local_m": [0, -.048, .009], "grasp_width_m": .009},
+    "mug": {"label": "Cobalt cup", "kind": "mug", "mass_kg": .045, "size_m": [.077, .050, .064], "color": "#5b7dd1", "grasp_local_m": [.047, 0, .041], "grasp_width_m": .008},
+    "glass": {"label": "Moonlit tumbler", "kind": "glass", "mass_kg": .035, "size_m": [.048, .048, .074], "color": "#c4d3ff", "grasp_local_m": [0, 0, .045], "grasp_width_m": .048},
+    "bottle": {"label": "Plum carafe", "kind": "bottle", "mass_kg": .080, "size_m": [.048, .048, .140], "color": "#5b294c", "grasp_local_m": [0, 0, .128], "grasp_width_m": .022},
+    "fork": {"label": "Service fork", "kind": "fork", "mass_kg": .012, "size_m": [.017, .110, .016], "color": "#b5bdd3", "grasp_local_m": [0, 0, .008], "grasp_width_m": .009},
+    "spoon": {"label": "Service spoon", "kind": "spoon", "mass_kg": .014, "size_m": [.022, .110, .016], "color": "#b5bdd3", "grasp_local_m": [0, 0, .008], "grasp_width_m": .009},
 }
 
 
@@ -136,30 +139,30 @@ def add_drawer(world, opened):
             "actuated": False, "closed_origin_m": list(base)}
 
 
-def add_dinner_scene(root, seed, preset="task", drawer_open=False):
+def add_dinner_scene(root, seed, preset="task", drawer_open=False, variation_profile="duet_v1"):
     if preset not in ("task", "reference"):
         raise ValueError("Choose the task start or reference dinner layout.")
     if preset == "reference" and drawer_open:
         raise ValueError("The target example keeps the drawer closed to clear the glass setting. Choose Task start to inspect the open drawer.")
     world, asset = root.find("worldbody"), root.find("asset")
-    root.set("model", "talos_dual_so101_dinner")
-    rng = np.random.default_rng(seed ^ 0xD177E2)
+    root.set("model", "duet_2_dual_so101_dinner")
+    variation = sample_dinner_variation(seed, tuple(OBJECTS), variation_profile)
     materials = {
-        "ceramic": (".95 .95 .90 1", ".3"), "plate_blue": (".33 .51 .76 1", ".35"),
-        "plate_gold": (".81 .56 .28 1", ".35"), "mug_teal": (".06 .53 .49 1", ".4"),
-        "clear_glass": (".66 .87 .92 .30", ".75"), "glass_rim": (".62 .84 .89 .8", ".6"),
-        "amber_glass": (".55 .32 .13 .78", ".6"), "bottle_label": (".96 .91 .72 1", ".1"),
-        "steel": (".72 .78 .83 1", ".85"), "drawer_wood": (".37 .21 .12 1", ".2"),
-        "drawer_lining": (".20 .28 .27 1", ".1"),
+        "ceramic": (".98 .94 .87 1", ".24"), "plate_blue": (".81 .31 .28 1", ".28"),
+        "plate_gold": (".95 .72 .30 1", ".30"), "mug_teal": (".16 .34 .69 1", ".38"),
+        "clear_glass": (".74 .82 .98 .30", ".72"), "glass_rim": (".80 .86 1 .82", ".55"),
+        "amber_glass": (".36 .16 .28 .82", ".56"), "bottle_label": (".97 .60 .25 1", ".1"),
+        "steel": (".66 .69 .79 1", ".80"), "drawer_wood": (".17 .10 .21 1", ".18"),
+        "drawer_lining": (".10 .12 .26 1", ".08"),
     }
     for name, (rgba, specular) in materials.items():
         ET.SubElement(asset, "material", name=name, rgba=rgba, specular=specular, shininess=".65")
-    asset.find("material[@name='table_mat']").set("rgba", ".69 .53 .37 1")
+    # Keep the neutral studio table: it maximizes object/robot readability in RGB data.
+    asset.find("material[@name='table_mat']").set("rgba", ".72 .79 .81 1")
+    asset.find("texture[@name='sky']").set("rgb1", vec(variation.backdrop_rgba[:3]))
     for grid in list(world.findall("geom")):
         if grid.get("name", "").startswith("grid_"):
             world.remove(grid)
-    # Visual placemats and target outlines have no contact or mass.
-    geom(world, "linen_runner", "box", (.455, .145, .00015), (0, -.005, TABLE_Z+.0002), rgba=".84 .83 .73 1", contype="0", conaffinity="0")
     targets = [
         {"id": "plate_place", "label": "Plate setting", "object_id": "plate", "position_m": [-.060, -.025, TABLE_Z], "radius_m": .074},
         {"id": "side_plate_place", "label": "Side plate setting", "object_id": "side_plate", "position_m": [.110, -.025, TABLE_Z], "radius_m": .060},
@@ -174,7 +177,7 @@ def add_dinner_scene(root, seed, preset="task", drawer_open=False):
             geom(world, target["id"], "box", ((.061, .014, .00015) if target["object_id"] == "spoon" else (.014, .061, .00015)), (x, y, z+.0006), rgba=".50 .51 .43 .55", contype="0", conaffinity="0")
         else:
             marker = ET.SubElement(world, "body", name=target["id"], pos=vec((x, y, z+.0006)))
-            ring(marker, target["id"]+"_outline", target["radius_m"], .0015, .0003, 0, "drawer_lining", segments=40)
+            ring(marker, target["id"]+"_outline", target["radius_m"], .0015, .0003, 0, "plate_gold", segments=40)
             for g in marker.findall("geom"):
                 g.set("contype", "0"); g.set("conaffinity", "0")
     drawer = add_drawer(world, drawer_open)
@@ -192,24 +195,23 @@ def add_dinner_scene(root, seed, preset="task", drawer_open=False):
             yaw = 0.
         elif object_id in ("fork", "spoon"):
             position = np.array([-.280 + (-.023 if object_id == "fork" else .023), .165-drawer["initial_open_m"], TABLE_Z+.030])
-            position[:2] += rng.uniform(-.003, .003, 2)
-            yaw = float(rng.uniform(-.07, .07))
+            position[:2] += variation.object_offsets_m[object_id]
+            yaw = variation.object_yaw_rad[object_id]
         else:
             position = np.array([*positions[object_id], TABLE_Z+.001])
-            position[:2] += rng.uniform(-.009, .009, 2)
+            position[:2] += variation.object_offsets_m[object_id]
             if drawer_open and object_id == "plate":
                 position[0] += .020
-            yaw = float(rng.uniform(-.12, .12))
-        records.append(make_object(world, object_id, position, yaw, float(rng.uniform(.92, 1.08)), float(rng.uniform(.9, 1.1))))
-    # Mild reproducible lighting perturbation; geometry/dimensions stay fixed.
-    brightness = float(rng.uniform(.92, 1.06))
-    world.find("light").set("diffuse", vec(np.array([.75, .77, .8])*brightness))
+            yaw = variation.object_yaw_rad[object_id]
+        records.append(make_object(world, object_id, position, yaw, variation.mass_scales[object_id], variation.friction_scales[object_id]))
+    world.find("light").set("diffuse", vec(np.array([.75, .77, .8])*variation.light_multiplier))
     return {"objects": records, "targets": targets, "drawer": drawer,
             "dinner_preset": preset, "drawer_open": drawer_open,
-            "randomization": {"object_xy_m": .009, "mass_fraction": .08, "friction_fraction": .10, "light_multiplier": brightness},
-            "challenge": {"title": "Set the dinner table", "autonomy_available": True,
+            "randomization": variation.manifest(),
+            "challenge": {"title": "Duet dinner service", "autonomy_available": True,
                           "instruction": "Open the drawer, place the plate and cutlery, then coordinate both arms to serve a drink.",
-                          "next_skill": "Learn camera/language control from verified demonstrations."}}
+                          "next_skill": "Train from verified, split-aware demonstrations across randomized scenes."},
+            "duet_scene": {"theme": "clean studio service", "asset_revision": "duet-clean-studio-v2"}}
 
 
 def dinner_state(model, data, layout):

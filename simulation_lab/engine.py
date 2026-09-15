@@ -58,7 +58,7 @@ class LabEngine:
         self.render_stopping = context.Event()
         self.render_process = context.Process(target=render_worker, args=(self.render_inputs, self.render_outputs, self.render_stopping, width, height, fps, render_delay_s), name="benchlab-camera", daemon=True)
         self.render_stats = {"fps": 0., "frame_work_ms": 0., "frame_simulation_time_s": 0.}
-        self.running, self.camera, self.shadows = True, "center", False
+        self.running, self.camera, self.shadows = True, "center", True
         self.motion_started: float | None = None
         self.generation = 0
         self.real_time_factor = 1.

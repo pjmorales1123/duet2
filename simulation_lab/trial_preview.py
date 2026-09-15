@@ -31,7 +31,7 @@ class TrialPreview:
                 data.qpos[:], data.qvel[:], data.ctrl[:], data.time = qpos, qvel, ctrl, simulation_time
                 mujoco.mj_forward(model, data)
                 renderer.update_scene(data, camera=camera, scene_option=option)
-                renderer.scene.flags[mujoco.mjtRndFlag.mjRND_SHADOW] = False
+                renderer.scene.flags[mujoco.mjtRndFlag.mjRND_SHADOW] = True
                 self.outputs.put((True, renderer.render().copy()))
         except Exception as exc:
             self.outputs.put((False, type(exc).__name__))

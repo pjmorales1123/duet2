@@ -51,8 +51,8 @@ def main():
         result=run(seed)
         trials.append(result)
         print(seed,result['status'],result['task']['message'],flush=True)
-        report={'schema':'talos.dinner-teacher-evaluation.v1','mujoco':mujoco.__version__,
-                'scope':'Exact-state physical teacher. Not a trained policy, Intel benchmark, or official ten-seed video submission.',
+        report={'schema':'duet-2.dinner-teacher-evaluation.v1','mujoco':mujoco.__version__,
+                'scope':'Duet 2 exact-state physical baseline. Not a trained policy, Intel benchmark, or official ten-seed video submission.',
                 'passed':sum(r['status']=='succeeded' for r in trials),'total':len(trials),'trials':trials}
         args.output.parent.mkdir(parents=True,exist_ok=True)
         args.output.write_text(json.dumps(report,indent=2)+'\n',encoding='utf-8')

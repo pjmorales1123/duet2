@@ -6,6 +6,21 @@ See [implementation plan](docs/DUET_IMPLEMENTATION_PLAN.md) and [progress tracke
 
 ## Original Talos documentation
 
+## Duet 2 experiments
+
+Duet 2 uses a declared split: training seeds 1000-1099, validation seeds
+2000-2019, and final evaluation seeds 3000-3009. The final ten seeds must
+never be used to create demonstrations, calibrate quantization, or select
+policy weights.
+
+```powershell
+python scripts/collect_duet_demos.py --output datasets/duet-2-train --seeds 1000,1001,1002
+```
+
+The collector retains the inherited physical teacher and replay checks, then
+writes a Duet 2 protocol manifest alongside each batch. This command creates
+new data; run it only after the baseline and scene changes are verified.
+
 **Voice to action at the dinner table.** Two SO-101 robot arms execute learned dinner-setting skills in a physical MuJoCo simulation.
 
 ![Talos cover illustration](submission/cover.png)
