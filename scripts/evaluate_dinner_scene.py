@@ -17,12 +17,11 @@ from simulation_lab.scene import HOME, build_scene
 
 
 def load(seed=42, preset="task", opened=False):
-    xml, layout = build_scene(seed=seed, scenario="dinner", dinner_preset=preset, drawer_open=opened)
+    xml, layout = build_scene(seed=seed, scenario="dinner", dinner_preset=preset, drawer_open=False)
     model = mujoco.MjModel.from_xml_string(xml)
     data = mujoco.MjData(model)
     data.qpos[:12] = HOME*2
     data.ctrl[:] = HOME*2
-    data.joint("drawer_slide").qpos[0] = layout["drawer"]["initial_open_m"]
     mujoco.mj_forward(model, data)
     return model, data, layout
 
@@ -44,9 +43,9 @@ def stability(model, data, layout, seconds=5.):
     passed = (np.isfinite(data.qpos).all() and initial_penetration < .0005 and
               all(r["tilt_deg"] < 5 and r["position_m"][2] > layout["table_z"]-.003 and
                   r["speed_m_s"] < .003 and r["angular_speed_rad_s"] < .15 for r in records))
-    return {"seed": layout["seed"], "preset": layout["dinner_preset"], "drawer_open": layout["drawer_open"],
+    return {"seed": layout["seed"], "preset": layout["dinner_preset"], "source_zone": layout["source_zone"],
             "passed": bool(passed), "seconds": seconds, "initial_penetration_mm": initial_penetration*1000,
-            "objects": records, "drawer_position_m": float(data.joint("drawer_slide").qpos[0])}
+            "objects": records}
 
 
 def candidate_reach(model, data, layout):
@@ -83,8 +82,8 @@ def main():
     args = parser.parse_args()
     trials = []
     for seed in [*range(10), 42]:
-        for preset, opened in (("task", False), ("task", True), ("reference", False)):
-            m, d, layout = load(seed, preset, opened)
+        for preset in ("task", "reference"):
+            m, d, layout = load(seed, preset)
             trials.append(stability(m, d, layout))
     m, d, layout = load(42, "task", True)
     stability(m, d, layout)
@@ -97,7 +96,7 @@ def main():
     print(f"Scene stability: {result['passed']}/{result['total']}. Saved {args.output}")
     for t in trials:
         if not t["passed"]:
-            print("FAILED", t["seed"], t["preset"], t["drawer_open"], "penetration", t["initial_penetration_mm"])
+            print("FAILED", t["seed"], t["preset"], "penetration", t["initial_penetration_mm"])
             print(t["objects"])
     for c in result["reach"]["candidates"]:
         if all(p.get("ik") and not p.get("blocking_contacts") for p in c["points"].values()):

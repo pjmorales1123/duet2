@@ -137,7 +137,6 @@ class LabEngine:
         data.qpos[:12] = target
         data.ctrl[:] = target
         if scenario == "dinner":
-            data.qpos[model.joint("drawer_slide").qposadr[0]] = layout["drawer"]["initial_open_m"]
             if bottle_start == 'sideways':
                 angle = np.pi/4
                 c,s = np.cos(angle/2),np.sin(angle/2)
@@ -220,8 +219,18 @@ class LabEngine:
             if self.task.active:raise ValueError('A goal is already running. Cancel it first.')
             if self.motion_started is not None:
                 raise ValueError("Wait for the motion test to finish or reset the scene before starting a goal.")
-            if payload.get("record") and self.recorder is not None and self.recorder.snapshot()["busy"]:
+            if payload.get('record') and self.recorder is not None and self.recorder.snapshot()["busy"]:
                 raise ValueError("The previous demonstration is still being saved. Wait or turn off recording.")
+            if payload.get('record'):
+                from .duet_protocol import is_training_seed
+                if not is_training_seed(self.layout.get('seed', -1)):
+                    raise ValueError(
+                        f"Seed {self.layout.get('seed')} is in the "
+                        f"{'validation' if self.layout.get('seed', -1) in range(2000, 2020) else 'evaluation or undeclared'} "
+                        "split. Recording is only permitted on training seeds 1000–1099. "
+                        "Change the seed or disable recording."
+                    )
+
             if payload.get('record'):
                 from .storage import require_space,GIB
                 from .recording import EPISODE_ROOT
@@ -236,18 +245,29 @@ class LabEngine:
             if payload.get("record"):
                 if self.recorder is None:
                     self.recorder = EpisodeRecorder()
-                self.task.recording_id = self.recorder.start(self.xml, self.layout, self.task.snapshot(), self.data.time,
-                                                              images=payload.get("record_images", True))
+                self.task.recording_id = self.recorder.start(
+                    self.xml, self.layout, self.task.snapshot(), self.data.time,
+                    images=payload.get("record_images", True),
+                    trajectory_kind='physical_teacher_demonstration',
+                )
             self.running = True
 
     def _language_command(self,payload):
-        from .language import parse_command
+        from .language import parse_command, instruction_metadata
         from .command_task import CommandSequence
         plan=parse_command(payload['text'],getattr(self,'last_command_object',None))
         if plan.get('control')=='cancel':
             self._task_command({'action':'cancel'});return
         if self.layout.get('scenario')!='dinner':raise ValueError('Language commands use the dinner scene.')
+        if self.layout.get('source_zone') and payload.get('mode', 'programmed') != 'programmed':
+            raise ValueError('This cabinet scene uses simulator-pose skills. The inherited learned models require their original layout.')
         if self.task.active:raise ValueError('A task is running. Say stop or wait for it to finish.')
+        # Partition guard — language commands also must not produce training demos on wrong splits.
+        if payload.get('record'):
+            from .duet_protocol import require_partition
+            require_partition((self.layout['seed'],), 'training')
+        if payload.get('record') and self.recorder is not None and self.recorder.snapshot()['busy']:
+            raise ValueError('The previous demonstration is still being saved. Wait or turn off recording.')
         if payload.get('mode')=='learned_dinner_wide':
             try:from .wide_bottle_task import make_sequence
             except ImportError:raise ValueError('Use the training Python environment for wider bottle control.') from None
@@ -273,7 +293,7 @@ class LabEngine:
         elif payload.get('mode') in ('learned_bottle','learned_bottle_legacy'):
             steps=plan['steps']
             if len(steps)!=1 or steps[0]['kind']!='dinner_place' or steps[0]['object_id']!='bottle' or steps[0]['arm']=='right' or (steps[0].get('destination') or {}).get('kind','default')!='default':
-                raise ValueError('This learned model currently supports “place the bottle” with the left arm and its trained destination. Other instructions require the programmed mode.')
+                raise ValueError('This learned model currently supports "place the bottle" with the left arm and its trained destination. Other instructions require the programmed mode.')
             try:from .learned_task import LearnedBottleTask,DEFAULT_CHECKPOINT,LEGACY_CHECKPOINT
             except ImportError:raise ValueError('Use the training Python environment to enable learned control.') from None
             checkpoint=LEGACY_CHECKPOINT if payload.get('mode')=='learned_bottle_legacy' else DEFAULT_CHECKPOINT
@@ -284,6 +304,17 @@ class LabEngine:
         if hasattr(self.task,'close'):self.task.close()
         self.task=candidate;self.motion_started=None;self.running=True
         self.last_command_object=plan.get('last_object')
+        # Attach recording if requested and seed is in the training split.
+        if payload.get('record'):
+            if self.recorder is None:
+                self.recorder = EpisodeRecorder()
+            lang_meta = instruction_metadata(plan)
+            self.task.recording_id = self.recorder.start(
+                self.xml, self.layout, self.task.snapshot(), self.data.time,
+                images=payload.get('record_images', True),
+                language_metadata=lang_meta,
+                trajectory_kind='language_command_execution',
+            )
 
     def _finish_recording(self):
         if self.recorder is not None and not self.task.active and getattr(self.task, "recording_id", None) == self.recorder.snapshot()["id"]:
@@ -358,9 +389,9 @@ class LabEngine:
         snapshot.update(dinner_state(self.model, self.data, self.layout))
         if getattr(self.task,'kind',None)=='learned_bottle':snapshot['controller']='learned_bottle'
         if getattr(self.task,'kind',None) in ('learned_dinner','learned_dinner_sequence','learned_bottle_wide'):snapshot['controller']='learned_dinner'
-        snapshot['learned_dinner_available']=self.dinner_suite.is_file()
-        snapshot['visual_mug_available']=(RUN_DIR.parent/'models/dinner_visual_mug_v1/profile.json').is_file()
-        snapshot['wide_bottle_available']=(RUN_DIR.parent/'models/bottle_wide_v1/profile.json').is_file()
+        snapshot['learned_dinner_available']=False
+        snapshot['visual_mug_available']=False
+        snapshot['wide_bottle_available']=False
         with self.lock:
             snapshot.update(self.render_stats)
             snapshot["frame_id"] = self.frame_id

@@ -13,11 +13,16 @@ CANONICAL_LAYOUT_PATH = Path(__file__).parents[1] / "config" / "dinner-layout.js
 
 
 def canonical_dinner_layout() -> dict:
-    """Load the user-approved cabinet-source object poses."""
-    return load_dinner_layout(
+    """Load the user-approved final table poses, requiring every dinner item."""
+    expected = ("plate", "side_plate", "mug", "glass", "bottle", "fork", "spoon")
+    result = load_dinner_layout(
         CANONICAL_LAYOUT_PATH,
-        ("plate", "side_plate", "mug", "glass", "bottle", "fork", "spoon"),
+        expected,
     )
+    missing = set(expected)-set(result['objects'])
+    if missing:
+        raise ValueError('Canonical dinner layout is missing: '+', '.join(sorted(missing)))
+    return result
 
 
 def layout_document(

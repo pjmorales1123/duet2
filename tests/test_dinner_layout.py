@@ -50,8 +50,9 @@ class DinnerLayoutTests(unittest.TestCase):
     def test_default_editor_poses_are_the_intended_table_arrangement(self):
         reference = current_poses(42)
         task = current_poses(42, "task")
-        self.assertAlmostEqual(reference["fork"]["position_m"][0], -.160, places=3)
-        self.assertAlmostEqual(reference["spoon"]["position_m"][1], -.155, places=3)
+        final = canonical_dinner_layout()['objects']
+        self.assertAlmostEqual(reference["fork"]["position_m"][0], final['fork']['position_m'][0], places=3)
+        self.assertAlmostEqual(reference["spoon"]["position_m"][1], final['spoon']['position_m'][1], places=3)
         self.assertGreater(task["fork"]["position_m"][2], TABLE_Z + .02)
         self.assertGreater(task["spoon"]["position_m"][2], TABLE_Z + .02)
 

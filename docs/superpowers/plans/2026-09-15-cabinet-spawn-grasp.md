@@ -4,7 +4,16 @@
 
 **Goal:** Replace the drawer workflow with a cabinet-zone source layout and pick rotated objects from their live simulator spawn frames.
 
-**Architecture:** A versioned dinner-layout configuration supplies approved source poses. The scene renders a visual-only cabinet zone while the table remains the physical support. The dinner teacher transforms local cutlery grasp axes through each item's live MuJoCo rotation, retains IK/contact validation, and executes a five-skill workflow without a drawer dependency.
+**Architecture:** A versioned dinner-layout configuration supplies approved FINAL poses. cabinet_source.py supplies separate accessible seeded starts. The scene renders a visual-only cabinet zone with physical cutlery ledges. The dinner teacher transforms local cutlery grasp axes through live rotation, validates grasp/placement/release reach, and executes five skills without a drawer.
+
+## Execution record (2026-09-15)
+
+- [x] Tasks 1–4 implemented: final configuration, cabinet source, pose-based grasps, five-skill controller and commands.
+- [x] Task 5 interface/schema checks: no drawer controls, incompatible learned models disabled, browser drawer refusal and set-table acceptance verified.
+- [x] Physical checks: complete five-skill success on seeds 42, 1000, 1001, 1002; 28 runtime regression tests passed, plus 3 server/web contract tests.
+- [x] Final live-browser completion: seed 42, text instruction, five skills succeeded; saved-action replay seed 1000 passed 5/5; 465-frame video exported and visually inspected. Exact commands and artifacts are recorded in docs/DUET_PROGRESS.md.
+
+The detailed original steps below are retained as the pre-implementation plan, not literal implementation claims. Necessary corrections: the user's JSON is a FINAL layout, not starts; exact carry-center IK replaces iterative wrist-offset guessing; pickup candidates must also permit placement/retreat; thin-cutlery jaw opening avoids neighboring objects without an unstable far-handle grip. No training or final ten-seed evaluation claimed.
 
 **Tech Stack:** Python 3.12, NumPy, MuJoCo, `unittest`, existing static web UI.
 

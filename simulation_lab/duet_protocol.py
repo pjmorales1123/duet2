@@ -37,6 +37,14 @@ def partition_for(seed: int) -> SeedPartition:
     raise ValueError(f"Seed {seed} is outside the declared Duet 2 protocol.")
 
 
+def is_training_seed(seed: int) -> bool:
+    """Return True only when this seed belongs to the declared training split."""
+    try:
+        return partition_for(seed).name == "training"
+    except ValueError:
+        return False
+
+
 def require_partition(seeds: Iterable[int], expected: str) -> tuple[int, ...]:
     """Reject duplicates and cross-split use before a costly simulation run."""
     declared = tuple(int(seed) for seed in seeds)

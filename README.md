@@ -21,6 +21,39 @@ The collector retains the inherited physical teacher and replay checks, then
 writes a Duet 2 protocol manifest alongside each batch. This command creates
 new data; run it only after the baseline and scene changes are verified.
 
+### Exact dinner table layouts
+
+Use the standalone coordinate editor to drag dinner items on a true-to-scale
+tabletop. It does not start the server or require a browser. By default it
+loads the intended Target example arrangement for seed 42, with the fork and
+spoon already on the tabletop, then exports the free-body origin and yaw in
+metres/radians using the same world frame as the simulator:
+
+```powershell
+.\.venv\Scripts\python.exe scripts\design_dinner_layout.py --seed 42 --output .run\dinner-layout.json
+.\.venv\Scripts\python.exe scripts\render_preview.py --seed 42 --layout .run\dinner-layout.json
+```
+
+Use `--seed N` to load another seeded arrangement. Use `--arrangement task`
+only when you specifically want the starting state with the fork and spoon in
+the drawer. The exported file can be fed directly to a scene:
+
+```python
+from simulation_lab.scene import build_scene
+xml, layout = build_scene(
+    seed=42,
+    scenario="dinner",
+    dinner_preset="task",
+    dinner_layout=".run/dinner-layout.json",
+)
+```
+
+The table is centred at `(0, 0.07, 0.76)` and measures `0.96 m x 0.78 m`.
+The editor also draws both robot bases and current gripper positions. The
+export includes their settled base/gripper coordinates and joint positions,
+while `objects.*.position_m` remains the exact object body origin used by the
+scene, not screen pixels or rounded grid cells.
+
 **Voice to action at the dinner table.** Two SO-101 robot arms execute learned dinner-setting skills in a physical MuJoCo simulation.
 
 ![Talos cover illustration](submission/cover.png)
@@ -74,6 +107,14 @@ See [the evidence index](docs/EVIDENCE.md) for exact protocols, outcomes, limita
 | `submission/` | Current cover, presentation and submission text |
 
 The release contains one current presentation. Historical slides, stopped experiments and complete success/failure traces are preserved in the [development archive](docs/ARCHIVE.md). A shallow clone avoids downloading that large history. Credentials, virtual environments, personal recordings and editing files are excluded from Git.
+
+## Drawer-free simulator workflow
+
+The dinner scene now picks bottle, plate, mug, fork and spoon from an open cabinet zone and arranges them using `config/dinner-layout.json` (your final layout). Seeds vary the source positions and yaw independently. Grasp planning reads actual simulator poses, rotates object-local grasp frames, selects an arm, checks collision clearance and verifies real finger contact. Thin cutlery uses a narrow jaw opening to permit balanced grasps beside the plate and mug. This is exact-state programmed control, not a newly trained vision policy; historic learned models are disabled for the new cabinet scene.
+
+Run `.\.venv\Scripts\python.exe -m simulation_lab.server --port 8765`, open `http://127.0.0.1:8765`, and choose **Run all five skills** or enter **set the table**. Glass and side plate stay fixed. Reset before repeating the complete arrangement. Individual skills require preceding scene changes when their destinations are occupied.
+
+Headless verification: `.\.venv\Scripts\python.exe scripts/evaluate_dinner_autonomy.py --seeds 42,1000,1001,1002 --output .run/cabinet-evaluation.json`.
 
 ## Licenses and attribution
 

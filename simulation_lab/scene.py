@@ -6,11 +6,17 @@ from dataclasses import asdict, dataclass
 from pathlib import Path
 import math
 import xml.etree.ElementTree as ET
+from collections.abc import Mapping
 
 import numpy as np
 
 ASSETS = Path(__file__).parent / "assets" / "so101"
 TABLE_Z = 0.76
+TABLE_CENTER_X = 0.0
+TABLE_CENTER_Y = 0.07
+TABLE_HALF_X = 0.48
+TABLE_HALF_Y = 0.39
+TABLE_SIZE_M = (TABLE_HALF_X * 2, TABLE_HALF_Y * 2)
 HOME = [0.0, -0.70, 0.80, 0.20, 0.0, 0.65]
 JOINTS = ["shoulder_pan", "shoulder_lift", "elbow_flex", "wrist_flex", "wrist_roll", "gripper"]
 JOINT_LABELS = ["Base turn", "Shoulder", "Elbow", "Wrist bend", "Wrist rotation", "Gripper"]
@@ -101,7 +107,7 @@ def geom(parent, name, kind, size, pos=(0, 0, 0), **attrs):
     return ET.SubElement(parent, "geom", name=name, type=kind, size=vec(size), pos=vec(pos), **{k: str(v) for k, v in attrs.items()})
 
 
-def build_scene(seed: int = 42, count: int = 3, racks: list[RackPose] | None = None, practice: bool = False, transfer_side: str | None = None, scenario: str = "chemistry", dinner_preset: str = "task", drawer_open: bool = False, dinner_variation: str = "duet_v1") -> tuple[str, dict]:
+def build_scene(seed: int = 42, count: int = 3, racks: list[RackPose] | None = None, practice: bool = False, transfer_side: str | None = None, scenario: str = "chemistry", dinner_preset: str = "task", drawer_open: bool = False, dinner_variation: str = "duet_v1", dinner_layout: str | Mapping | None = None) -> tuple[str, dict]:
     if scenario not in ("chemistry", "dinner"):
         raise ValueError("Choose the dinner or chemistry scene.")
     if scenario == "dinner" and (racks is not None or practice or transfer_side is not None):
@@ -128,32 +134,33 @@ def build_scene(seed: int = 42, count: int = 3, racks: list[RackPose] | None = N
     # Use source meshes for presentation and RGB training data. The optional LOD
     # assets make the robot visibly faceted and are reserved for a later speed mode.
     root.append(asset)
-    ET.SubElement(asset, "texture", name="sky", type="skybox", builtin="gradient", rgb1="0.15 0.21 0.29", rgb2="0.04 0.07 0.12", width="512", height="3072")
-    ET.SubElement(asset, "texture", name="floor_tex", type="2d", builtin="checker", width="512", height="512", rgb1="0.18 0.22 0.28", rgb2="0.20 0.24 0.30")
-    ET.SubElement(asset, "material", name="floor_mat", texture="floor_tex", texrepeat="8 8", reflectance="0.05")
-    ET.SubElement(asset, "material", name="table_mat", rgba="0.72 0.79 0.81 1", specular="0.25", shininess="0.3")
-    ET.SubElement(asset, "material", name="edge_mat", rgba="0.07 0.12 0.17 1", specular="0.45")
+    ET.SubElement(asset, "texture", name="sky", type="skybox", builtin="gradient", rgb1="0.18 0.14 0.24", rgb2="0.05 0.04 0.09", width="512", height="3072")
+    ET.SubElement(asset, "texture", name="floor_tex", type="2d", builtin="flat", width="512", height="512", rgb1="0.16 0.13 0.16", rgb2="0.16 0.13 0.16")
+    ET.SubElement(asset, "material", name="floor_mat", texture="floor_tex", texrepeat="1 1", reflectance="0.05")
+    ET.SubElement(asset, "material", name="table_mat", rgba="0.78 0.72 0.68 1", specular="0.25", shininess="0.3")
+    ET.SubElement(asset, "material", name="edge_mat", rgba="0.17 0.09 0.14 1", specular="0.45")
     ET.SubElement(asset, "material", name="tube_mat", rgba="0.71 0.88 0.94 0.78", specular="0.6", shininess="0.8")
     world = ET.SubElement(root, "worldbody")
     ET.SubElement(world, "light", pos="-0.7 -0.3 2.5", dir="0.2 0.2 -1", diffuse="0.75 0.77 0.8", castshadow="true")
     ET.SubElement(world, "light", pos="0.8 0.6 1.8", dir="-0.4 -0.3 -1", diffuse="0.5 0.55 0.6", castshadow="false")
     geom(world, "floor", "plane", (3, 3, 0.1), material="floor_mat")
-    geom(world, "table", "box", (0.48, 0.39, 0.022), (0, 0.07, TABLE_Z - 0.022), material="table_mat", friction="0.8 0.01 0.001")
-    geom(world, "table_edge", "box", (0.483, 0.393, 0.009), (0, 0.07, TABLE_Z - 0.048), material="edge_mat")
+    geom(world, "table", "box", (TABLE_HALF_X, TABLE_HALF_Y, 0.022), (TABLE_CENTER_X, TABLE_CENTER_Y, TABLE_Z - 0.022), material="table_mat", friction="0.8 0.01 0.001")
+    geom(world, "table_edge", "box", (TABLE_HALF_X + .003, TABLE_HALF_Y + .003, 0.009), (TABLE_CENTER_X, TABLE_CENTER_Y, TABLE_Z - 0.048), material="edge_mat")
     for x in [-0.42, 0.42]:
-        for y in [-0.24, 0.38]:
+        for y in [TABLE_CENTER_Y - .31, TABLE_CENTER_Y + .31]:
             geom(world, f"leg_{x}_{y}", "box", (0.02, 0.02, 0.34), (x, y, 0.36), material="edge_mat")
     # Thin reference grid is visual only, so it cannot interfere with contacts.
     for axis in (0, 1):
         for index in range(-4, 5):
             coordinate = index * 0.10
             size = (0.0005, 0.35, 0.0001) if axis == 0 else (0.45, 0.0005, 0.0001)
-            position = (coordinate, 0.07, TABLE_Z + 0.0001) if axis == 0 else (0, coordinate + 0.07, TABLE_Z + 0.0001)
+            position = (coordinate, TABLE_CENTER_Y, TABLE_Z + 0.0001) if axis == 0 else (TABLE_CENTER_X, coordinate + TABLE_CENTER_Y, TABLE_Z + 0.0001)
             geom(world, f"grid_{axis}_{index}", "box", size, position, rgba="0.28 0.42 0.47 0.25", contype="0", conaffinity="0")
 
     actuator = ET.SubElement(root, "actuator")
+    pad_rgba = {"left": "0.82 0.36 0.33 1", "right": "0.33 0.52 0.62 1"}
     for side, x, color in [("left", -0.25, (0.88, 0.89, 0.90)), ("right", 0.25, (0.88, 0.89, 0.90))]:
-        geom(world, f"{side}_base_pad", "box", (0.058, 0.055, 0.009), (x, -0.235, TABLE_Z + 0.009), material="edge_mat")
+        geom(world, f"{side}_base_pad", "box", (0.058, 0.055, 0.009), (x, -0.235, TABLE_Z + 0.009), rgba=pad_rgba[side])
         body = deepcopy(source.find("./worldbody/body"))
         for element in body.iter():
             if "name" in element.attrib:
@@ -223,5 +230,5 @@ def build_scene(seed: int = 42, count: int = 3, racks: list[RackPose] | None = N
     layout = {"seed": seed, "scenario": scenario, "racks": rack_records, "slots": slot_records, "tubes": tube_records, "table_z": TABLE_Z, "practice": practice, "transfer_side": transfer_side}
     if scenario == "dinner":
         from .dinner import add_dinner_scene
-        layout.update(add_dinner_scene(root, seed, dinner_preset, drawer_open, dinner_variation))
+        layout.update(add_dinner_scene(root, seed, dinner_preset, drawer_open, dinner_variation, dinner_layout))
     return ET.tostring(root, encoding="unicode"), layout

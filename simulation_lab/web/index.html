@@ -44,26 +44,25 @@
             <label for="seed">Seed<input id="seed" type="number" value="42" min="0" max="2147483647" step="1" required></label>
             <label for="rack-count" id="rack-count-wrap" hidden>Racks<select id="rack-count"><option value="2">2 racks</option><option value="3" selected>3 racks</option><option value="4">4 racks</option></select></label>
             <label for="dinner-preset" id="dinner-preset-wrap">Arrangement<select id="dinner-preset"><option value="task">Task start</option><option value="reference">Target example</option></select></label>
-            <label for="drawer-start" id="drawer-start-wrap">Drawer at reset<select id="drawer-start"><option value="closed">Closed</option><option value="open">Open for inspection</option></select></label>
             <label for="bottle-start" id="bottle-start-wrap">Bottle at reset<select id="bottle-start"><option value="upright">Upright</option><option value="wide_left">Left reach practice</option><option id="wide-bottle-start-option" value="wide_rectangle" disabled>Wider region · varies with seed</option><option value="sideways">Sideways practice</option></select></label>
             <button type="submit">Load seed</button><button type="button" id="shuffle" class="accent">New arrangement <span aria-hidden="true">↗</span></button>
           </form>
         </div>
-        <p class="viewer-note" id="viewer-note">Physical tableware and a passive drawer. The target example is a reset preset, not an autonomous result.</p>
+        <p class="viewer-note" id="viewer-note">Pick from the open cabinet zone and arrange the tableware. Target example shows the requested layout.</p>
       </section>
       <aside class="control-panel" aria-label="Experiment controls">
         <section class="dinner-panel" aria-labelledby="command-heading">
-          <h2 id="command-heading">Tell Talos what to do</h2>
+          <h2 id="command-heading">Give Duet 2 an instruction</h2>
         <p>Try “place the bottle”, “set the table” or “pass the bottle to the right arm”. The relay uses a shared table area for release and regrasp. Left and right follow the overhead view.</p>
-          <form id="command-form"><label for="command-mode">Controller</label><select id="command-mode"><option value="programmed">Programmed physical skills</option><option value="learned_bottle">Learned upright bottle · OpenVINO</option><option id="learned-dinner-option" value="learned_dinner" disabled>Learned dinner sequence · candidate</option><option id="visual-mug-option" value="learned_dinner_visual" disabled>Learned dinner · live mug vision</option><option id="wide-bottle-option" value="learned_dinner_wide" disabled>Learned dinner · wider bottle + live mug</option><option value="learned_bottle_legacy">Original bottle model · sideways practice</option></select><label for="command-text">Instruction</label><textarea id="command-text" rows="3" maxlength="500" placeholder="Place the bottle" required></textarea><button id="send-command" class="primary">Run instruction</button><button id="voice-command" type="button" disabled>Voice setup pending</button></form>
+          <form id="command-form"><label for="command-mode">Controller</label><select id="command-mode"><option value="programmed">Programmed physical skills</option><option value="learned_bottle">Learned upright bottle · OpenVINO</option><option id="learned-dinner-option" value="learned_dinner" disabled>Learned dinner sequence · candidate</option><option id="visual-mug-option" value="learned_dinner_visual" disabled>Learned dinner · live mug vision</option><option id="wide-bottle-option" value="learned_dinner_wide" disabled>Learned dinner · wider bottle + live mug</option><option value="learned_bottle_legacy">Original bottle model · sideways practice</option></select><label for="command-text">Instruction</label><textarea id="command-text" rows="3" maxlength="500" placeholder="Place the bottle" required></textarea><label class="record-toggle" id="command-record-wrap"><input id="command-record" type="checkbox" checked> Record this run (training seeds only)</label><button id="send-command" class="primary">Run instruction</button><button id="voice-command" type="button" disabled>Voice setup pending</button></form>
           <p id="policy-description">The upright model uses overhead bottle localization and motor feedback. The original model uses three initial views and supports familiar sideways practice. Programmed skills use simulator positions.</p>
           <p id="command-feedback" role="status">Choose the controller for your next instruction. Each learned mode lists its supported tasks when selected.</p>
         </section>
         <section class="dinner-panel" id="dinner-panel" aria-labelledby="dinner-heading">
           <div class="goal-heading"><h2 id="dinner-heading">Set the dinner table</h2><span id="dinner-status" class="goal-status">READY</span></div>
           <p class="goal-intro">Arrange the bottle, plate, mug and cutlery. Use an instruction to transfer the bottle between the arms through a shared table area.</p>
-          <div class="milestone-note"><strong id="active-controller-label">Physical skills · exact simulator state</strong><p id="active-controller-description">Move the bottle, plate and mug, open the drawer, then place the fork and spoon. Each grasp and placement is checked.</p></div>
-          <label for="dinner-goal" class="block-label">Goal<select id="dinner-goal"><option value="set_table">Run all six skills</option><option value="bottle">Place bottle</option><option value="plate">Place plate</option><option value="mug">Place mug</option><option value="drawer">Open drawer</option><option value="fork">Retrieve and place fork</option><option value="spoon">Retrieve and place spoon</option></select></label>
+          <div class="milestone-note"><strong id="active-controller-label">Physical skills · simulator poses</strong><p id="active-controller-description">The seed sets the cabinet starts. Gripper poses follow each item's position and rotation.</p></div>
+          <label for="dinner-goal" class="block-label">Goal<select id="dinner-goal"><option value="set_table">Run all five skills</option><option value="bottle">Place bottle</option><option value="plate">Place plate</option><option value="mug">Place mug</option><option value="fork">Pick and place fork</option><option value="spoon">Pick and place spoon</option></select></label>
           <div class="goal-actions"><button id="start-dinner" class="primary" disabled>Start dinner goal</button><button id="cancel-dinner" disabled>Cancel</button></div>
           <button id="load-sideways">Load sideways bottle practice</button>
           <div class="goal-stage"><strong id="dinner-stage">Ready for a goal</strong><span id="dinner-elapsed">0 s</span></div>
@@ -71,8 +70,7 @@
           <p id="dinner-message" role="status" aria-live="polite">Load Task start, seed 42, for the baseline demonstration.</p>
           <ol id="dinner-results"></ol>
           <p class="small-note">Cancel pauses physics, including held objects. Reset before repeating the full sequence or after a failure. Individual skills require the preceding scene changes.</p>
-          <div class="drawer-state"><span>Cutlery drawer</span><strong id="drawer-state">Closed</strong></div>
-          <p class="small-note">The drawer has a physical handle and no motor. The robot pulls it; Open for inspection is only a reset preset.</p>
+          <p class="small-note">The open cabinet zone provides accessible starts. Cutlery rests on physical ledges to expose the handles.</p>
           <h3 class="inventory-heading">Tableware · live positions</h3><div id="object-inventory" class="object-inventory"></div>
           <details class="target-legend"><summary>Placement guide</summary><p>Blue plate left, gold side plate right. Fork beside the blue plate; spoon across the front. Mug and glass at the round markers. The bottle stays in the serving area.</p></details>
           <p class="small-note">Small, lightweight rigid props. Vessels are hollow; liquid flow is not simulated. Choose learned or programmed control in the instruction panel.</p>

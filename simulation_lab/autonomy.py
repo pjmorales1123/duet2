@@ -76,14 +76,18 @@ class ArmIK:
             point = self.point(self.data)
             rotation = self.data.xmat[self.body].reshape(3, 3)
             axis = rotation[:, self.axis_index] if self.axis_local is None else rotation @ self.axis_local
-            error = np.r_[position - point, .08 * (self.axis_target - axis)]
+            error = position - point
+            if self.axis_target is not None:
+                error = np.r_[error, .08 * (self.axis_target - axis)]
             if self.x_target is not None:
                 xaxis = self.data.xmat[self.body].reshape(3, 3)[:, 0]
                 error = np.r_[error, .08*(self.x_target-xaxis)]
             if np.linalg.norm(error) < 1e-5:
                 return q
             mujoco.mj_jac(self.model, self.data, self.jp, self.jr, point, self.body)
-            jac = np.vstack((self.jp[:, self.indices], -.08 * skew(axis) @ self.jr[:, self.indices]))
+            jac = self.jp[:, self.indices]
+            if self.axis_target is not None:
+                jac = np.vstack((jac, -.08 * skew(axis) @ self.jr[:, self.indices]))
             if self.x_target is not None:
                 jac = np.vstack((jac, -.08*skew(xaxis) @ self.jr[:, self.indices]))
             delta = jac.T @ np.linalg.solve(jac @ jac.T + np.eye(len(error)) * 1e-5, error)
@@ -236,14 +240,17 @@ class LiftReturn:
                 rotation.T @ self.data.xmat[self.body].reshape(3, 3))
 
     def _point_for_center(self, center, reference, initial):
-        q = initial.copy()
-        for _ in range(5):
-            self.ik.data.qpos[self.offset:self.offset+5] = q
-            mujoco.mj_kinematics(self.model, self.ik.data)
-            rotation = self.ik.data.xmat[self.ik.body].reshape(3, 3)
-            point = np.asarray(center)-rotation @ reference[0]
-            q = self.ik.solve(point, q)
-        return point, q
+        # Solve at the held object's center directly; repeated wrist-offset
+        # guesses diverge when a new destination changes the wrist rotation.
+        grasp_point = self.ik.grasp_point.copy()
+        self.ik.grasp_point = grasp_point + reference[0]
+        try:
+            q = self.ik.solve(np.asarray(center), initial)
+        finally:
+            self.ik.grasp_point = grasp_point
+        self.ik.data.qpos[self.offset:self.offset+5] = q
+        mujoco.mj_kinematics(self.model, self.ik.data)
+        return self.ik.point(self.ik.data).copy(), q
 
     def _check_path(self, points, grip, allow_tube=False, carry=None, support=None):
         scratch = self.ik.data

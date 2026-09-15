@@ -72,7 +72,6 @@ class Reset(BaseModel):
     # selected scenario; the server's initial scene is dinner.
     scenario: Literal["dinner", "chemistry"] = "chemistry"
     dinner_preset: Literal["task", "reference"] = "task"
-    drawer_open: bool = False
     bottle_start: Literal['upright', 'sideways', 'wide_left', 'wide_rectangle'] = 'upright'
 
 
@@ -82,7 +81,7 @@ class TaskCommand(BaseModel):
     arm: Literal["auto", "left", "right"] = "auto"
     tube_id: str | None = Field(default=None, pattern=r"^[A-D][1-6]$")
     object_id: Literal["bottle","plate","mug","fork","spoon"] | None = None
-    kind: Literal["lift_return", "transfer", "set_table", "dinner_place", "drawer_open"] = "lift_return"
+    kind: Literal["lift_return", "transfer", "set_table", "dinner_place"] = "lift_return"
     destination_slot: str | None = Field(default=None, pattern=r"^[A-D][1-6]$")
     record: bool = False
     record_images: bool = True
@@ -97,6 +96,7 @@ class Rack(BaseModel):
 class LanguageCommand(BaseModel):
     model_config=ConfigDict(extra='forbid')
     text:str=Field(min_length=1,max_length=500)
+    record:bool=False
     mode:Literal['programmed','learned_bottle','learned_bottle_legacy','learned_dinner','learned_dinner_visual','learned_dinner_wide']='programmed'
 
 

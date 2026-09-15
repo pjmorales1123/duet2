@@ -17,12 +17,14 @@ $('command-mode').addEventListener('change',()=>{
 initSpeech({button:$('voice-command'),feedback:$('command-feedback'),onTranscript:async text=>{
   $('command-text').value=text;
   // Only a final transcript is executed, never a changing partial hypothesis.
-  try{const next=await api('/api/command',{text,mode:$('command-mode').value});updateState(next);$('command-feedback').textContent='Speechmatics: '+text+' — '+next.task.message;}
+  const record=$('command-record')?.checked ?? false;
+  try{const next=await api('/api/command',{text,mode:$('command-mode').value,record});updateState(next);$('command-feedback').textContent='Speechmatics: '+text+' — '+next.task.message;}
   catch(error){$('command-feedback').textContent='Speechmatics: '+text+' — '+error.message;}
 }});
 $('command-form').addEventListener('submit',async event=>{
   event.preventDefault();$('send-command').disabled=true;
-  try {const next=await api('/api/command',{text:$('command-text').value,mode:$('command-mode').value});updateState(next);$('command-feedback').textContent='Instruction accepted. '+(next.task.message||'');}
+  const record=$('command-record')?.checked ?? false;
+  try {const next=await api('/api/command',{text:$('command-text').value,mode:$('command-mode').value,record});updateState(next);$('command-feedback').textContent='Instruction accepted. '+(next.task.message||'');}
   catch(error){$('command-feedback').textContent=error.message;}
   finally{$('send-command').disabled=false;}
 });
@@ -50,6 +52,11 @@ function updateState(next) {
   const previousVersion = state?.scene_version;
   state = next;
   const dinner = state.scenario === 'dinner';
+  const cabinet = dinner && Boolean(state.source_zone);
+  for (const option of $('command-mode').options) {
+    if (option.value === 'learned_bottle' || option.value === 'learned_bottle_legacy') option.disabled = cabinet;
+  }
+  if (cabinet && $('command-mode').selectedOptions[0]?.disabled) $('command-mode').value = 'programmed';
   $('runtime-mode').textContent=state.task.visual_feedback_profile|| (state.controller==='learned_dinner'?'Neural dinner skills · camera-grounded sequence':state.controller==='learned_bottle'?'OpenVINO neural bottle policy · physical success monitor':state.task.active?'Programmed physical skills · simulator positions':'Runs on this PC · Manual control');
   $('learned-dinner-option').disabled=!state.learned_dinner_available;
   $('visual-mug-option').disabled=!state.visual_mug_available;
@@ -61,6 +68,7 @@ function updateState(next) {
     ? 'Live mug vision adds stereo correction during mug placement. Other learned skills use initial camera observations and motor feedback. The original dinner suite and programmed controls remain available.'
     : state.learned_dinner_available
     ? 'The dinner candidate combines six neural skills with camera-based preparation checks. Bottle-only models remain available. Programmed skills use simulator positions.'
+    : cabinet ? 'Cabinet mode uses live simulator positions and rotations to choose physical grasps and arrange your saved dinner layout. Original learned models are not compatible with these new starting positions.'
     : 'The upright model uses overhead bottle localization and motor feedback. The original model uses three initial views and supports familiar sideways practice. Programmed skills use simulator positions.';
   connected = true;
   $('status-dot').className = 'status-dot connected';
@@ -68,7 +76,7 @@ function updateState(next) {
   $('engine-label').textContent = state.engine;
   $('shadows').checked = state.shadows;
   $('camera-name').textContent = state.camera_label;
-  $('camera-frame').alt = `${state.camera_label}: two SO-101 robot arms and ${dinner ? 'a dinner table with dishes, vessels and a cutlery drawer' : `${state.rack_count} test-tube racks`}`;
+  $('camera-frame').alt = `${state.camera_label}: two SO-101 robot arms and ${dinner ? 'an open cabinet source zone with tableware' : `${state.rack_count} test-tube racks`}`;
   $('scene-label').textContent = `Seed ${state.seed} · ${dinner ? `${state.dinner_preset === 'reference' ? 'Target example' : 'Task start'} · ${state.object_count} items` : `${state.tube_count} tubes`}`;
   $('sim-time').textContent = `t = ${state.simulation_time_s.toFixed(2)} s`;
   $('fps').textContent = state.fps.toFixed(1);
@@ -91,7 +99,7 @@ function updateState(next) {
   });
   if (!controlsReady) {
     makeJointControls(); syncSceneControls(); controlsReady = true;
-    if (dinner && state.task.status !== 'idle') $('dinner-goal').value = state.task.kind === 'set_table' ? 'set_table' : state.task.kind === 'drawer_open' ? 'drawer' : state.task.object_id || 'bottle';
+    if (dinner && state.task.status !== 'idle') $('dinner-goal').value = state.task.kind === 'set_table' ? 'set_table' : state.task.object_id || 'bottle';
     if (state.task.status !== 'idle' && !dinner) {
       $('goal-kind').value = state.task.kind;
       $('goal-arm').value = state.task.arm || 'auto';
@@ -109,7 +117,6 @@ function updateState(next) {
 }
 
 function updateDinner() {
-  $('drawer-state').textContent = `${Math.max(0, state.drawer.open_m * 100).toFixed(1)} / ${(state.drawer.travel_m * 100).toFixed(1)} cm open`;
   for (const item of state.objects) {
     const row = document.querySelector(`[data-object="${item.id}"]`);
     if (!row) continue;
@@ -122,13 +129,10 @@ function sceneFormMode() {
   const dinner = $('scenario').value === 'dinner';
   $('rack-count-wrap').hidden = dinner;
   $('dinner-preset-wrap').hidden = !dinner;
-  $('drawer-start-wrap').hidden = !dinner;
   const reference = dinner && $('dinner-preset').value === 'reference';
   $('bottle-start-wrap').hidden = !dinner;
   $('bottle-start').disabled = reference || !dinner;
-  $('drawer-start').disabled = reference;
-  $('drawer-start').title = reference ? 'The target example keeps the drawer closed to clear the glass setting.' : '';
-  if (reference) { $('drawer-start').value = 'closed'; $('bottle-start').value = 'upright'; }
+  if (reference) $('bottle-start').value = 'upright';
 }
 
 function updateTask() {
@@ -137,14 +141,14 @@ function updateTask() {
     const learned=task.kind==='learned_bottle';
     const dinnerLearned=task.policy_mode==='learned_dinner';
     $('active-controller-label').textContent=dinnerLearned?'Learned dinner · '+(task.policy_details?.neural_runtime||'neural model'):learned?'Learned bottle · OpenVINO':'Physical skills · exact simulator state';
-    $('active-controller-description').textContent=dinnerLearned?'Camera observations condition each neural skill. Motor feedback regulates movement; physical checks require release and parked arms before chaining.':learned?(task.policy_details?.visual_encoder==='bottle_rgb_geometry'?'Initial overhead bottle localization conditions a learned trajectory. Motor feedback controls progress; an independent physical monitor checks success.':'Three initial camera views condition the original neural trajectory. Motor feedback controls progress; an independent physical monitor checks success.'):'Move the bottle, plate and mug, open the drawer, then place the fork and spoon. Each grasp and placement is checked.';
+    $('active-controller-description').textContent=dinnerLearned?'Camera observations condition each neural skill. Motor feedback regulates movement; physical checks require release and parked arms before chaining.':learned?(task.policy_details?.visual_encoder==='bottle_rgb_geometry'?'Initial overhead bottle localization conditions a learned trajectory. Motor feedback controls progress; an independent physical monitor checks success.':'Three initial camera views condition the original neural trajectory. Motor feedback controls progress; an independent physical monitor checks success.'):'Pick five items from the open cabinet using their live positions and rotations, then place them in the saved dinner layout. Every grasp and release is physically checked.';
     $('dinner-status').textContent = task.status.toUpperCase();
     $('dinner-status').className = `goal-status ${task.status}`;
     $('dinner-stage').textContent = task.status === 'succeeded' ? 'Dinner goal complete' : task.stage_label;
     $('dinner-elapsed').textContent = `${task.elapsed_s.toFixed(1)} s`;
     $('dinner-progress').value = task.progress;
     $('dinner-message').textContent = task.message;
-    $('start-dinner').disabled = task.active || goalBusy || !connected || state.dinner_preset !== 'task' || ($('dinner-goal').value === 'set_table' && state.drawer.open_m > .008);
+    $('start-dinner').disabled = task.active || goalBusy || !connected || state.dinner_preset !== 'task';
     $('cancel-dinner').disabled = !task.active || goalBusy || !connected;
     $('dinner-goal').disabled = task.active || goalBusy;
     const resultsKey = JSON.stringify((task.results || []).map(r => [r.skill,r.status]));
@@ -271,7 +275,6 @@ function syncSceneControls() {
   $('rack-tab').hidden = dinner;
   if (dinner) {
     $('dinner-preset').value = state.dinner_preset;
-    $('drawer-start').value = state.drawer_open ? 'open' : 'closed';
     $('bottle-start').value=state.bottle_start||'upright';
     document.querySelector('[data-panel="arms"]').click();
     $('object-inventory').replaceChildren(...state.objects.map(item => {
@@ -285,7 +288,7 @@ function syncSceneControls() {
     }));
   }
   sceneFormMode();
-  $('viewer-note').textContent = dinner ? 'Physical tableware and a passive drawer. The target example is a reset preset, not an autonomous result.' : 'A rigid-body learning scene. Tubes have gravity and collisions; the colored contents are visual markers.';
+  $('viewer-note').textContent = dinner ? 'Pick from the open cabinet source zone. Target example shows the requested arrangement.' : 'A rigid-body learning scene. Tubes have gravity and collisions; the colored contents are visual markers.';
   $('seed').value = state.seed;
   if (!dinner) $('rack-count').value = state.rack_count;
   slotOptionsKey = ''; syncGoalSlots();
@@ -328,7 +331,7 @@ async function resetScene(seed, rackCount) {
   try {
     $('loading').hidden = false;
     updateState(await api('/api/reset', {seed, rack_count: rackCount, scenario: $('scenario').value,
-      dinner_preset: $('dinner-preset').value, drawer_open: $('drawer-start').value === 'open',
+      dinner_preset: $('dinner-preset').value,
       bottle_start:$('scenario').value==='dinner'&&$('dinner-preset').value==='task'?$('bottle-start').value:'upright'}));
     syncSceneControls();
   } catch (error) { notice(error.message); }
@@ -345,10 +348,10 @@ async function sendGoal(action) {
       const selected = $('dinner-goal').value;
       if($('command-mode').value!=='programmed') {
         endpoint='/api/command';
-        payload={mode:$('command-mode').value,text:selected==='set_table'?'set the table':selected==='drawer'?'open the drawer':`place the ${selected}`};
+        payload={mode:$('command-mode').value,text:selected==='set_table'?'set the table':`place the ${selected}`};
       } else {
-        payload = {action, kind: selected === 'set_table' ? 'set_table' : selected === 'drawer' ? 'drawer_open' : 'dinner_place',
-          object_id: ['set_table','drawer'].includes(selected) ? null : selected, arm:'auto', record:false};
+        payload = {action, kind: selected === 'set_table' ? 'set_table' : 'dinner_place',
+          object_id: selected === 'set_table' ? null : selected, arm:'auto', record:false};
       }
     } else if (action === 'start') {
       const kind = $('goal-kind').value;
@@ -406,7 +409,7 @@ $('reset-scene').addEventListener('click', async () => {
   if (!state) return;
   clearTimeout(jointTimer);
   if (state.scenario === 'dinner') {
-    try { updateState(await api('/api/reset', {scenario: 'dinner', seed: state.seed, dinner_preset: state.dinner_preset, drawer_open: state.drawer_open,bottle_start:state.bottle_start||'upright'})); }
+    try { updateState(await api('/api/reset', {scenario: 'dinner', seed: state.seed, dinner_preset: state.dinner_preset,bottle_start:state.bottle_start||'upright'})); }
     catch (error) { notice(error.message); }
     return;
   }

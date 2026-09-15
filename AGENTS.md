@@ -11,3 +11,5 @@ Use real grasp/contact physics. No teleportation or hidden teacher fallback in l
 All secrets stay in ignored .env. credentials.md is ignored and records configured services. No new accounts are configured. Fetch primary library documentation before API changes; Context7 and sequential-thinking were unavailable at kickoff. The /init command was unavailable, so these instructions were authored manually.
 
 Validate UI changes in a browser and control changes through physical rollouts. Hardware and performance claims require actual logs. User reports organizer acceptance of 8th-generation Intel; report the exact machine accurately.
+
+Cabinet dinner uses config/dinner-layout.json as final destinations, not spawn poses. cabinet_source.py generates seeded starts; spawn_grasp.py transforms object-local grasp axes. The exact-state physical controller runs bottle/plate/mug/fork/spoon with no drawer. Historic learned models and six-skill recordings retain their original scene contract and must not be presented as cabinet results.

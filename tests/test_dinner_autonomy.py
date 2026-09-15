@@ -23,17 +23,17 @@ class DinnerAutonomyTests(unittest.TestCase):
         self.assertEqual(result['external_forces'],0)
         self.assertEqual(result['equality_constraints'],0)
         self.assertEqual(result['actuators'],12)
-        self.assertEqual(result['task']['completed_steps'],['bottle','plate','mug','drawer','fork','spoon'])
+        self.assertEqual(result['task']['completed_steps'],['bottle','plate','mug','fork','spoon'])
         for step in result['task']['results']:
             self.assertLess(step['metrics']['other_arm_max_motion_deg'],1.)
-            if step['skill']=='drawer':
-                self.assertGreater(step['metrics']['drawer_open_m'],.105)
-            else:
-                self.assertGreaterEqual(step['metrics']['hold_verified_s'],1.5)
-                self.assertLess(step['metrics']['placement_xy_error_mm'],6.)
-                self.assertLess(step['metrics']['placement_z_error_mm'],3.)
+            self.assertGreaterEqual(step['metrics']['hold_verified_s'],1.5)
+            self.assertLess(step['metrics']['placement_xy_error_mm'],6.)
+            self.assertLess(step['metrics']['placement_z_error_mm'],3.)
+            if step['skill'] in ('fork', 'spoon'):
+                self.assertTrue(step['metrics']['open_gripper_destination_checked'])
+                self.assertEqual(step['metrics']['grasp_local_m'], [0, 0, .008])
 
-    def test_closed_drawer_and_invalid_object_are_rejected(self):
+    def test_invalid_object_rejected_and_fork_has_no_drawer_dependency(self):
         m,d,t,target=setup()
         with self.assertRaises(ValueError):t.start(kind='dinner_place',object_id='glass')
         with self.assertRaises(ValueError):t.start(kind='drawer_open',side='right')
@@ -41,9 +41,8 @@ class DinnerAutonomyTests(unittest.TestCase):
         t.start(kind='dinner_place',object_id='fork')
         before=d.qpos.copy()
         t.update(target)
-        self.assertEqual(t.status,'failed')
-        self.assertIn('Open the drawer',t.message)
-        self.assertTrue(t.request_pause)
+        self.assertEqual(t.status,'running',t.message)
+        self.assertEqual(t.stage,'approach')
         np.testing.assert_array_equal(before,d.qpos)
 
     def test_cancel_and_servo_timeout(self):

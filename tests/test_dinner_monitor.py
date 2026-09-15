@@ -8,12 +8,11 @@ from simulation_lab.scene import HOME, build_scene
 
 class DinnerMonitorTests(unittest.TestCase):
     def test_unmoved_scene_and_manually_open_reset_do_not_count_as_manipulation(self):
-        for skill, opened in [('bottle', False), ('drawer', True)]:
+        for skill in ('bottle', 'plate', 'mug', 'fork', 'spoon'):
             with self.subTest(skill=skill):
-                xml, layout = build_scene(seed=42, scenario='dinner', dinner_preset='task', drawer_open=opened)
+                xml, layout = build_scene(seed=42, scenario='dinner', dinner_preset='task')
                 model = mujoco.MjModel.from_xml_string(xml); data = mujoco.MjData(model)
                 data.qpos[:12] = HOME*2; data.ctrl[:] = HOME*2
-                if opened: data.joint('drawer_slide').qpos[0] = .12
                 mujoco.mj_forward(model, data)
                 monitor = DinnerPhysicalMonitor(model, data, layout, skill, 'left')
                 for _ in range(240):

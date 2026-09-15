@@ -76,6 +76,9 @@ def main() -> None:
     output.parent.mkdir(parents=True, exist_ok=True)
 
     clips = sorted(path for path in batch.iterdir() if path.is_dir() and (path / "observations.npz").exists())
+    # Plain skill folder names must follow physical execution, not alphabetic order.
+    order = {skill: index for index, skill in enumerate(SKILL_TITLES)}
+    clips.sort(key=lambda path: order.get(path.name.split('-', 1)[-1], len(order)))
     if not clips:
         raise RuntimeError(f"No recorded skill clips found in {batch}")
 

@@ -1,5 +1,5 @@
 {
-  "schema": "talos.dinner-assets.v1",
+  "schema": "duet2.dinner-assets.v1",
   "license": "MIT",
   "source": "simulation_lab/dinner.py",
   "generator": "scripts/export_dinner_assets.py",

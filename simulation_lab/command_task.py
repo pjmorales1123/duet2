@@ -1,7 +1,7 @@
 """Command sequencing for the explicitly labeled simulator-state skill baseline."""
 from copy import deepcopy
 import numpy as np
-from .dinner_autonomy import DinnerSequence,DinnerTask,DrawerTask,SKILLS
+from .dinner_autonomy import DinnerSequence,DinnerTask,SKILLS
 from .language import CommandError
 
 def ground_destination(request,item_id,layout,positions):
@@ -48,7 +48,6 @@ class CommandSequence(DinnerSequence):
         if self.active:raise CommandError('A task is already running.')
         if self.layout.get('dinner_preset')!='task':raise CommandError('Load a dinner Task start scene first.')
         self.plan=deepcopy(plan);expanded=[]
-        drawer_ready=self.data.joint('drawer_slide').qpos[0]>.105
         for intent in plan['steps']:
             if (intent.get('destination') or {}).get('kind')=='handoff':
                 if intent['object_id']!='bottle' or intent['destination']['recipient']!='right':
@@ -62,25 +61,23 @@ class CommandSequence(DinnerSequence):
                     expanded.append({'kind':'dinner_place','object_id':'bottle','arm':arm,'destination':destination,'relay':True})
                 continue
             if intent['kind']=='set_table':
-                expanded.extend({'kind':'drawer_open' if n=='drawer' else 'dinner_place','object_id':None if n=='drawer' else n,'arm':'auto','destination':None} for n in SKILLS)
-                drawer_ready=True;continue
-            if intent['kind']=='drawer_open':drawer_ready=True
-            if intent['object_id'] in ('fork','spoon') and not drawer_ready:
-                expanded.append({'kind':'drawer_open','object_id':None,'arm':'left','destination':None});drawer_ready=True
+                expanded.extend({'kind':'dinner_place','object_id':n,'arm':'auto','destination':None} for n in SKILLS)
+                continue
+            if intent['kind']=='drawer_open':
+                raise CommandError('This scene uses an open cabinet source zone. Choose an item to place.')
             if intent['object_id'] in ('glass','side_plate'):raise CommandError('That item is not a verified physical skill yet. Choose plate, bottle, mug, fork or spoon.')
             expanded.append(intent)
-        self.intents=expanded;self.steps=['drawer' if p['kind']=='drawer_open' else p['object_id'] for p in expanded]
+        self.intents=expanded;self.steps=[p['object_id'] for p in expanded]
         self.requested_side='auto';self.kind='language_sequence';self.status='running';self._next()
     def _next(self):
         intent=self.intents[len(self.results)];name=self.steps[len(self.results)]
         layout=deepcopy(self.layout)
-        if name!='drawer':
-            positions={o['id']:self.data.body(o['body']).xpos.copy() for o in layout['objects']}
-            point=ground_destination(intent.get('destination'),name,layout,positions)
-            if point is not None:
-                layout['targets']=[t for t in layout['targets'] if t['object_id']!=name]
-                layout['targets'].append({'id':name+'_command_destination','object_id':name,'position_m':point.tolist(),'radius_m':.012})
-        self.child=DrawerTask(self.model,self.data,layout) if name=='drawer' else DinnerTask(self.model,self.data,layout)
+        positions={o['id']:self.data.body(o['body']).xpos.copy() for o in layout['objects']}
+        point=ground_destination(intent.get('destination'),name,layout,positions)
+        if point is not None:
+            layout['targets']=[t for t in layout['targets'] if t['object_id']!=name]
+            layout['targets'].append({'id':name+'_command_destination','object_id':name,'position_m':point.tolist(),'radius_m':.012})
+        self.child=DinnerTask(self.model,self.data,layout)
         self.child.start(side=intent.get('arm','auto'),object_id=name)
         self.stage=self.child.stage
     def update(self,targets):

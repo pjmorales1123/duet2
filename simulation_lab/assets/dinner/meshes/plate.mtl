@@ -1,0 +1,7 @@
+# Duet 2 dinner asset — MIT licence — Duet 2 project 2026
+newmtl plate_coral
+Kd 0.8110 0.3140 0.2780
+Ka 0.0800 0.0800 0.0800
+Ks 0.3500 0.3500 0.3500
+Ns 90.0
+d  1.0

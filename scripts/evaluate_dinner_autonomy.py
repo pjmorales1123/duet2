@@ -13,14 +13,14 @@ from simulation_lab.dinner_autonomy import DinnerSequence
 from simulation_lab.scene import HOME,build_scene
 
 
-def run(seed=42):
+def run(seed=42, object_id=None):
     model,data,layout=load(seed)
     for _ in range(200):
         mujoco.mj_step(model,data)
     data.time=0.
     task=DinnerSequence(model,data,layout)
     targets=np.array(HOME*2)
-    task.start(kind='set_table')
+    task.start(kind='dinner_place' if object_id else 'set_table', object_id=object_id)
     ticks=0
     while task.active and ticks < 120000:
         before=data.qpos.copy()
@@ -44,11 +44,12 @@ def run(seed=42):
 def main():
     parser=argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--seeds',default='42,0,1,2,3,4,5,6,7,8,9')
+    parser.add_argument('--skill', choices=('bottle','plate','mug','fork','spoon'))
     parser.add_argument('--output',type=Path,default=Path('.run/dinner-autonomy-evaluation.json'))
     args=parser.parse_args()
     trials=[]
     for seed in map(int,args.seeds.split(',')):
-        result=run(seed)
+        result=run(seed, args.skill)
         trials.append(result)
         print(seed,result['status'],result['task']['message'],flush=True)
         report={'schema':'duet-2.dinner-teacher-evaluation.v1','mujoco':mujoco.__version__,

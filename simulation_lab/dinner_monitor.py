@@ -14,13 +14,14 @@ class DinnerPhysicalMonitor:
     def __init__(self, model, data, layout, skill, side):
         self.model, self.data, self.skill, self.side = model, data, skill, side
         self.observer = DinnerTask(model, data, layout)
-        item = ({'id': 'drawer', 'body': 'cutlery_drawer'} if skill == 'drawer'
-                else next(o for o in layout['objects'] if o['id'] == skill))
+        if skill not in ('bottle', 'plate', 'mug', 'fork', 'spoon'):
+            raise ValueError('Unknown cabinet dinner skill: '+skill)
+        item = next(o for o in layout['objects'] if o['id'] == skill)
         self.observer._select_item(side, item)
         self.destination = self.observer.destination_position.copy()
         self.previous_time = float(data.time)
         self.held = self.best_hold = self.gap = self.longest_gap = self.stable = 0.
-        self.max_other = self.max_parked = self.handle_hold = self.max_opening = 0.
+        self.max_other = self.max_parked = 0.
         self.collisions = 0
         self.failure = None
         self.metrics = {}
@@ -34,23 +35,11 @@ class DinnerPhysicalMonitor:
         self.collisions += int(bool(collision))
         displacements={n:float(np.linalg.norm(d.body(n).xpos-p)) for n,p in o.others.items()}
         other = max(displacements.values(), default=0.)
-        # Cutlery moves normally with the unactuated drawer. Other objects do not.
-        if self.skill == 'drawer':
-            other = max((float(np.linalg.norm(d.body(n).xpos-p)) for n, p in o.others.items()
-                         if n not in ('fork', 'spoon')), default=0.)
         self.max_other = max(self.max_other, other)
         self.max_parked = max(self.max_parked, o.metrics['other_arm_max_motion_deg'])
         parked = (np.max(np.abs(d.qpos[:12]-np.array(HOME*2))) < .035
                   and np.max(np.abs(d.qvel[:12])) < .12)
-        if self.skill == 'drawer':
-            opening = float(d.joint('drawer_slide').qpos[0])
-            self.max_opening = max(self.max_opening, opening)
-            if both: self.handle_hold += dt
-            valid = (opening >= .105 and self.handle_hold >= .1
-                     and forces['fixed']+forces['moving'] < .02 and parked)
-            self.metrics.update(drawer_open_m=opening, max_opening_m=self.max_opening,
-                                verified_handle_contact_s=self.handle_hold)
-        else:
+        if self.skill in ('bottle', 'plate', 'mug', 'fork', 'spoon'):
             threshold = .05 if self.skill == 'bottle' else .02
             self.held = self.held+dt if both and lift > threshold and forces['external'] < .02 else 0.
             self.best_hold = max(self.best_hold, self.held)
@@ -66,7 +55,7 @@ class DinnerPhysicalMonitor:
             if self.skill in ('fork', 'spoon'):
                 rotation = body.xmat.reshape(3, 3)
                 yaw = math.atan2(rotation[1, 0], rotation[0, 0])
-                desired = -math.pi/2 if self.skill == 'spoon' else 0.
+                desired = o.destination_yaw
                 yaw_error = abs(math.atan2(math.sin(yaw-desired), math.cos(yaw-desired)))
             valid = (self.best_hold >= 1.49 and error < .008 and z_error < .004 and up > .98
                      and speed < .003 and angular < .08 and yaw_error < .175

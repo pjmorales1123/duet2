@@ -1,4 +1,4 @@
-# Talos dinner assets
+# Duet 2 dinner assets
 
 Original procedural models created September 11, 2026 with Codex assistance,
 under the repository's [MIT license](../../../LICENSE). No downloaded dinnerware

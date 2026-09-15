@@ -6,7 +6,7 @@ Replace the passive cutlery drawer with one open, table-height cabinet zone. The
 
 ## Source layout
 
-The user-supplied dinner layout is the canonical source arrangement. Its object world positions and yaw values are copied into a versioned project configuration rather than read from `.run/`. At scene construction, each listed object spawns at the configuration pose. Seed variation may only apply where the manifest explicitly permits it; it must not silently override the approved arrangement.
+The user-supplied dinner layout is the canonical FINAL arrangement, copied into versioned config/dinner-layout.json. cabinet_source.py independently chooses accessible source slots and applies seeded position/yaw variation. Glass and side plate remain fixed at final positions. Target Z is normalized to physical table support; the old elevated cutlery Z came from drawer supports and cannot remain floating. Explicit editor overrides still override initial poses only.
 
 The cabinet zone is a non-blocking, visual open-front tray boundary sized to enclose the declared source-object footprint. It has no collision geometry and never moves objects. The real table continues to provide all support contacts.
 
@@ -26,7 +26,8 @@ Fork and spoon are tabletop/cabinet-zone pickups. Their placement targets and ph
 
 ## Modules and interfaces
 
-- `config/dinner-layout.json`: versioned approved source poses.
+- `config/dinner-layout.json`: versioned approved final destinations.
+- `simulation_lab/cabinet_source.py`: independent seeded, accessible starting poses.
 - `simulation_lab/dinner.py`: cabinet-zone visual fixture and use of the canonical layout at scene creation.
 - `simulation_lab/spawn_grasp.py`: transform local grasp constraints through a live object rotation.
 - `simulation_lab/dinner_autonomy.py`: spawn-aware cutlery orientation, five-skill sequencing, and removal of drawer assumptions.

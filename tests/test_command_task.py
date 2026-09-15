@@ -50,10 +50,10 @@ class CommandTaskTests(unittest.TestCase):
         self.assertEqual(task.status,'succeeded',task.message)
         self.assertEqual(task.snapshot()['policy_mode'],'programmed_physical_skills')
         self.assertEqual(m.neq,0)
-    def test_drawer_dependency_and_occupied_destination(self):
+    def test_cabinet_has_no_drawer_dependency_and_occupied_destination(self):
         m,d,l=load(42)
-        task=CommandSequence(m,d,l);task.start_plan(parse_command('take the spoon out of the drawer and put it in the left spot'))
-        self.assertEqual(task.steps,['drawer','spoon'])
+        task=CommandSequence(m,d,l);task.start_plan(parse_command('place the spoon'))
+        self.assertEqual(task.steps,['spoon'])
         positions={o['id']:d.body(o['body']).xpos.copy() for o in l['objects']}
         positions['mug']=np.array([.11,-.025,l['table_z']])
         with self.assertRaises(CommandError):ground_destination({'kind':'spot','side':'right'},'plate',l,positions)

@@ -6,6 +6,8 @@ separate. Unsupported language never silently falls back to another movement.
 from dataclasses import dataclass,asdict
 import re
 
+LANGUAGE_SCHEMA = "duet-2.language.v1"
+
 class CommandError(ValueError):pass
 
 @dataclass
@@ -79,3 +81,19 @@ def parse_command(text,last_object=None):
         intents.append(Intent('dinner_place',item,arm,destination));context=item
     if not intents:raise CommandError('No supported action found.')
     return {'instruction':original,'interpreter':'constrained_grammar','steps':[asdict(i) for i in intents],'last_object':context}
+
+
+def instruction_metadata(parse_result: dict) -> dict:
+    """Return a stable, schema-versioned language block for inclusion in every manifest.
+
+    This grammar is bounded and deterministic.  It is not an LLM or VLA.
+    Every field is safe to persist alongside physics trajectories.
+    """
+    return {
+        'schema': LANGUAGE_SCHEMA,
+        'instruction': parse_result.get('instruction'),
+        'interpreter': parse_result.get('interpreter', 'constrained_grammar'),
+        'steps': parse_result.get('steps', []),
+        'is_llm': False,
+        'is_vla': False,
+    }

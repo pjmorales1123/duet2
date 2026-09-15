@@ -17,7 +17,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 import mujoco
 import numpy as np
 from PIL import Image
-from simulation_lab.dinner_autonomy import DinnerTask, DrawerTask, SKILLS
+from simulation_lab.dinner_autonomy import DinnerTask, SKILLS
 from simulation_lab.dinner_monitor import DinnerPhysicalMonitor
 from simulation_lab.policy_control import apply_targets
 from simulation_lab.scene import HOME, build_scene
@@ -28,6 +28,22 @@ from scripts.prepare_bottle_data import state, STATE
 def save_json(path, value):
     require_space(path, 1024**2)
     path.write_text(json.dumps(value, indent=2)+'\n', encoding='utf-8', newline='\n')
+
+
+# ponytail: hand-written paraphrases, not an LLM; enough lexical variety for a
+# first VLA fine-tune. Expand/regenerate with a real paraphraser if time allows.
+SKILL_INSTRUCTIONS = {
+    'bottle':   ["Place the bottle on the table.", "Move the carafe down.", "Put the bottle in its spot."],
+    'plate':    ["Place the dinner plate.", "Put the plate in its spot.", "Set the plate down."],
+    'mug':      ["Place the mug above the plate.", "Put the cup down.", "Set the mug in its spot."],
+    'fork':     ["Place the fork beside the plate.", "Put the fork down.", "Set the fork in its spot."],
+    'spoon':    ["Place the spoon beside the plate.", "Put the spoon down.", "Set the spoon in its spot."],
+}
+
+
+def skill_instruction(skill, seed):
+    options = SKILL_INSTRUCTIONS[skill]
+    return options[seed % len(options)]
 
 
 def render(renderer, data):
@@ -68,7 +84,7 @@ def collect_episode(model, data, layout, skill, folder, side='auto'):
     folder.mkdir()
     initial = state(model, data)
     np.save(folder/'initial-integration-state.npy', initial, allow_pickle=False)
-    task = DrawerTask(model, data, layout) if skill == 'drawer' else DinnerTask(model, data, layout)
+    task = DinnerTask(model, data, layout)
     task.start(side=side, object_id=skill)
     targets = np.array(HOME*2)
     actions, stages = [], []
@@ -93,7 +109,9 @@ def collect_episode(model, data, layout, skill, folder, side='auto'):
                 'outcome': task.snapshot(), 'training_eligible': False,
                 'teacher': 'exact-state contact-only teacher', 'replay': None,
                 'input_contract': 'Overhead RGB and motor feedback; teacher stages are offline training labels only',
-                'state_writes_during_control': 0, 'external_forces': 0, 'equality_constraints': int(model.neq)}
+                'state_writes_during_control': 0, 'external_forces': 0, 'equality_constraints': int(model.neq),
+                'language': {'schema': 'duet-2.language.v1', 'instruction': skill_instruction(skill, layout['seed']),
+                             'interpreter': 'hand_written_paraphrase', 'is_llm': False, 'is_vla': False}}
     if actions:
         raw = np.array(actions)
         # Preserve nominal full-rate actions even when compact replay fails.

@@ -132,7 +132,31 @@ class EpisodeRecorder:
         with self.lock:
             self.meta.update(values)
 
-    def start(self, xml, layout, task, start_time, images=True, image_hz=20, cameras=None):
+    VALID_TRAJECTORY_KINDS = frozenset({
+        'physical_teacher_demonstration',
+        'language_command_execution',
+        'evaluation_replay',
+    })
+
+    def start(self, xml, layout, task, start_time, images=True, image_hz=20, cameras=None,
+              language_metadata=None, trajectory_kind='physical_teacher_demonstration'):
+        if trajectory_kind not in self.VALID_TRAJECTORY_KINDS:
+            raise ValueError(
+                f'trajectory_kind must be one of {sorted(self.VALID_TRAJECTORY_KINDS)}, '
+                f'got {trajectory_kind!r}. The caller must set this explicitly; '
+                'it is never inferred from language_metadata.'
+            )
+        # Build a null language block when recording was not driven by text input.
+        # trajectory_kind is NOT changed here; the caller must pass the correct value.
+        if language_metadata is None:
+            language_metadata = {
+                'schema': 'duet-2.language.v1',
+                'instruction': None,
+                'interpreter': None,
+                'steps': [],
+                'is_llm': False,
+                'is_vla': False,
+            }
         if image_hz not in (5,10,20):
             raise ValueError('Image frequency must divide the 20 Hz observation grid: 5, 10 or 20.')
         if cameras is not None and (not cameras or len(set(cameras)) != len(cameras) or any(c not in CAMERAS for c in cameras)):
@@ -152,7 +176,9 @@ class EpisodeRecorder:
                      "images": 0, "message": "Recording actions and observations.", "path": str(self.root/episode_id)}
         self.pending.put_nowait(("start", {"xml": xml, "layout": deepcopy(layout), "task": task,
                                            "images": images, "id": episode_id, "start_time": self.start_time,
-                                           'image_hz': image_hz, 'cameras': cameras or ['overhead','left_wrist_cam','right_wrist_cam']}))
+                                           'image_hz': image_hz, 'cameras': cameras or ['overhead','left_wrist_cam','right_wrist_cam'],
+                                           'language_metadata': language_metadata,
+                                           'trajectory_kind': trajectory_kind}))
         return episode_id
 
     def capture(self, data, target, applied_ctrl, task):
@@ -224,6 +250,8 @@ class EpisodeRecorder:
                     written_actions = written_observations = 0
                     manifest = {"schema_version": 1, "id": payload["id"], "created_at": datetime.now(timezone.utc).isoformat(),
                                 "engine": "MuJoCo "+mujoco.__version__, "status": "recording", "trajectory_complete": False,
+                                "trajectory_kind": payload["trajectory_kind"],
+                                "language": payload["language_metadata"],
                                 "layout": payload["layout"], "requested_goal": payload["task"], "start_simulation_time_s": payload["start_time"],
                                 "state_model": "scene.xml", "actions": "actions.jsonl.gz", "observations": "observations.jsonl.gz",
                                 "action_hz": 200, "observation_hz": 20, "units": {"arm": "radians", "position": "metres", "time": "seconds"},
