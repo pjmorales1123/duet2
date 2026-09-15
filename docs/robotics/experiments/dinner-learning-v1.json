@@ -1,0 +1,19 @@
+{
+  "schema": "talos.dinner-learning-protocol.v1",
+  "declared_on": "2026-09-13",
+  "purpose": "Six-skill learned control and chaining feasibility before wider workspace development",
+  "skills": ["bottle", "plate", "mug", "drawer", "fork", "spoon"],
+  "training_seeds": [42, 2026091701, 2026091702, 2026091703, 2026091704, 2026091705, 2026091706, 2026091707, 2026091708],
+  "development_seeds": [2026091801, 2026091802, 2026091803, 2026091804, 2026091805, 2026091806],
+  "evaluation_seeds": [2026091901, 2026091902, 2026091903, 2026091904, 2026091905, 2026091906, 2026091907, 2026091908, 2026091909, 2026091910],
+  "evaluation_policy": "Do not inspect evaluation outcomes or generate teacher trajectories from these seeds until the candidate and inference configuration are frozen. Retain every final outcome.",
+  "initial_diagnostic": "Seed 42 feasibility collection is exposed and not a holdout. It may be included in training.",
+  "training_eligibility": "Teacher succeeds; saved float32 nominal 20 Hz motor endpoints physically replay to release and parked arms without hidden forces or state writes.",
+  "data_gate": "Inspect failures before adding further batches. No failed episode becomes training eligible by exclusion of a failed metric.",
+  "model_family": "Per-skill image-conditioned neural motion primitives, then explicit motor-feedback sequencing; continuous visual correction is a separate measured addition.",
+  "promotion": "Each advertised skill must physically succeed, all six must compose without resetting, final fresh ten-seed outcomes must be reported. A weaker skill remains unavailable rather than silently falling back to the programmed teacher.",
+  "perturbations": "Current task preset: object placement up to 9 mm, cutlery up to 3 mm, yaw, mass +/-8%, friction +/-10%, lighting 0.92-1.06. Shape/background and wider positions require separate protocols.",
+  "storage_reserve_gib": 10,
+  "expected_training_batch_max_gib": 6,
+  "preserved_baseline": "models/bottle_visual and models/bottle_primitive remain untouched"
+}

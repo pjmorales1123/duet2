@@ -1,0 +1,40 @@
+{
+  "openvino": "2026.3.0-22451-8a17657b995-releases/2026/3",
+  "source_sha256": "e762d31985627113b82e58ce7c597a2b11d57801669543bf4b637b88192f7df8",
+  "scope": "Neural network only. CPU visual encoding, joint-feedback guard and MuJoCo/rendering excluded from latency.",
+  "parity_inputs": "32 synthetic feature/time batches, not a physical success evaluation",
+  "devices": [
+    {
+      "device": "CPU",
+      "name": "AMD Ryzen 7 5800X 8-Core Processor             ",
+      "execution_devices": [
+        "CPU"
+      ],
+      "max_joint_error_rad": 3.689334150180912e-06,
+      "parity_passed": true,
+      "median_ms": 0.1460999483242631,
+      "p95_ms": 0.30787989962846046,
+      "synchronous_chunks_per_second": 6030.3568312161315,
+      "output_endpoints_per_chunk": 20,
+      "precision_hint": "<Type: 'float32'>",
+      "warmup_calls": 20,
+      "measured_calls": 300
+    },
+    {
+      "device": "GPU",
+      "name": "NVIDIA GeForce RTX 4070 (dGPU)",
+      "execution_devices": [
+        "GPU.0"
+      ],
+      "max_joint_error_rad": 8.285574551791797e-06,
+      "parity_passed": true,
+      "median_ms": 0.36174990236759186,
+      "p95_ms": 0.7195001118816436,
+      "synchronous_chunks_per_second": 2465.6149462816293,
+      "output_endpoints_per_chunk": 20,
+      "precision_hint": "<Type: 'float32'>",
+      "warmup_calls": 20,
+      "measured_calls": 300
+    }
+  ]
+}

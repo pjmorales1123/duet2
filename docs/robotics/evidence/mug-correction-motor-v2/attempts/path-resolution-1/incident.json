@@ -1,0 +1,9 @@
+{
+  "reason": "Explicit relative --protocol path was rejected by an inherited absolute-path source-hashing helper, before dataset creation. Resolve that CLI path before calling helpers.",
+  "source_sha256": "c5bf50ee005283d443e07c40618c723201484b0f8bdcb7e1e07415d0092b87ef",
+  "console_sha256": "d8c10f40fcb29240a38cb838e2ba92a50d3aad5bce4e6ae0fa0f6897f7ef676c",
+  "console": ".run/final-goal/mug-correction-motor-v2-training-data.log",
+  "data_created": false,
+  "fit_started": false,
+  "protocol_changed": false
+}

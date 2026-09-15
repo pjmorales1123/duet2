@@ -1,0 +1,23 @@
+{
+  "step": 3000,
+  "checkpoint": ".run/rgb-servo-observer-camera-v1/fit/step-003000.safetensors",
+  "checkpoint_sha256": "2d82fc20ee8bc7d209be57ca1436361c4865b3ee3fb1d49a176d2ca2df5f1109",
+  "protocol_sha256": "a9eeea6fcb3d21a1890ed6c3b8a7942a0e2a70247d8bce9480ba0ae72e1b3014",
+  "development_gate_passed": true,
+  "camera_configuration": "opposite_obliques",
+  "source_sha256": {
+    "scripts/train_rgb_servo_camera_observer.py": "65b7b7fe03e4a918ca6bb45fd0a87f7ee426a43476fdaa949a810c177d7e001c",
+    "scripts/collect_rgb_servo_camera_observer.py": "f047aa3c9ccd08d756d3fa72c08cdd16ed42ab216c26f715ccf9456d782fa85e",
+    "scripts/train_rgb_servo_observer.py": "9e74341798a9f2583f9e1291571a37a7c9a8d6fea42aeb701d3d712cde5f82dc",
+    "simulation_lab/rgb_bottle_observer.py": "45e93ab0d7930a15c82f5e84809eb0d8d7d8d376ed878558529560ff20c18d20",
+    "simulation_lab/rgb_servo_network.py": "3ef3cd8fcac1e40743893caab14fb94decf52d1c402c6ade69c342e8c97d9302",
+    "simulation_lab/rgb_servo_cameras.py": "eb750885e17ccc731ad9a80f3f5450ec2b5823c68e9dd57d9e325623d28eb3ec",
+    "simulation_lab/rgb_servo_geometry.py": "bca323458c4971bab8534e36fb6f7d5aa668df188e7573efa095ebfbca4db1ae",
+    "simulation_lab/storage.py": "adff62806bc5786ee7c374a09754d82e37474b97f4d37074551d02d3796f444f"
+  },
+  "training_report_sha256": "62722ce76bfe440070ea100dc07cb729ef43ac4555ff5a81ee6fbcb33356567c",
+  "training_completed_steps": 6000,
+  "selection_criterion": "Most eligible opposite-view development acceptances before lowest p95 error. 3000 steps accepts 221/233; 6000 accepts 219/233.",
+  "fresh_perception_exposed": false,
+  "physical_trials": 0
+}

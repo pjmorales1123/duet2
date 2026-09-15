@@ -1,0 +1,17 @@
+{
+  "schema": "talos.rgb-servo-camera-perception.v1",
+  "declared_on": "2026-09-14",
+  "parent": "docs/robotics/experiments/rgb-servo-visibility-v1.json",
+  "selected_configuration": "opposite_obliques",
+  "configurations": ["original", "opposite_obliques"],
+  "purpose": "Test the camera configuration selected on exposed V5 approach states on a fresh static perception set, with the unchanged observer and a paired original-camera comparison.",
+  "rng_seed": 2026098101,
+  "states": 256,
+  "arm_pose_sources": ["docs/robotics/evidence/rgb-servo-v5/physical/development/2026097402-nominal/states.npz", "docs/robotics/evidence/rgb-servo-v5/physical/development/2026097403-nominal/states.npz"],
+  "distribution": "The original static observer sampler: seed-42 dinner scene; 80% sampled exposed arm poses, otherwise home, plus 0.025 rad Gaussian joint noise clipped to motor ranges. Bottle x in [-0.16,0.23], y in [-0.20,0.09], lift in [0,0.08] m with 40% on table; yaw in [-0.6,0.6], tilt in [-0.07,0.07] rad. Ten percent absent. Existing light diffuse/ambient perturbations. One shared physical state per paired camera comparison; no physics rollout or new-shape claim.",
+  "observer": "Exact frozen weights and OpenVINO IR from the parent diagnostic, two confident views and rigid 103 mm keypoint fit. No thresholds, weights, calibration fitting or camera selection may change after this test is exposed.",
+  "gate": {"minimum_present_acceptance_fraction":0.90, "maximum_false_accepted_absent":0, "maximum_accepted_p95_error_mm":3.0, "maximum_accepted_error_mm":6.0},
+  "budget": {"maximum_compute_minutes":5, "maximum_new_data_mib":64, "additional_training_steps":0, "physical_trials":0, "reserve_gib":10},
+  "evidence": "Preserve every observation and outcome, exact sampled qpos/light states, per-configuration calibration, input/source/model hashes, and selected RGB previews. Save no bulk image dataset; compact states allow rendering again.",
+  "decision": "The preselected opposite-obliques configuration must pass every gate to proceed to a separately declared physical experiment. The original-camera result is a comparison, not a new candidate. Stop and retain failures if the selected configuration fails. All V3/V4/V5 physical final seeds remain unexposed."
+}

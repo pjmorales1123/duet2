@@ -1,0 +1,92 @@
+{
+  "schema": "talos.visual-mug-deployment.v1",
+  "cases": [
+    {
+      "surface": "engine",
+      "preset": "upright",
+      "seed": 42
+    },
+    {
+      "surface": "engine",
+      "preset": "wide_left",
+      "seed": 42
+    },
+    {
+      "surface": "public",
+      "preset": "upright",
+      "seed": 42
+    },
+    {
+      "surface": "public",
+      "preset": "wide_left",
+      "seed": 42
+    }
+  ],
+  "instruction": "Set the table",
+  "maximum_workers": 2,
+  "maximum_wall_seconds_per_trial": 420,
+  "source_sha256": {
+    "scripts/evaluate_visual_mug_deployment.py": "7365d2717765519424750b7283967ca9bbbe368806899956437fe3aed3fe9b92",
+    "simulation_lab/act_learning.py": "0266d6ec1db5291a14f7b0cc2bdc1e6eb977497b3d6e1342eeb0a6e6db4ff4c2",
+    "simulation_lab/autonomy.py": "0e60140b1d3dd03c278592fb975393b50f6074235280472390f3a8feda142c95",
+    "simulation_lab/bottle_vision.py": "5b6ccf6e0224bf66ef7d4c69c382384add65d90ebfeedad838be5dc756bfa9ac",
+    "simulation_lab/command_task.py": "b3861f88af0a3535569e3d911f68e0e1d566f0b1f5f24b60c79417d561ce51a4",
+    "simulation_lab/dataset.py": "1c9310a12391a957563f317f0f260ebc5ff284b9050a27b4a27fcb3143f1b2d2",
+    "simulation_lab/dinner.py": "37107bcbd85a39466dcd01b202d6661f1e3c9f705e6865de05d6fa994e562c11",
+    "simulation_lab/dinner_autonomy.py": "717c03217039a8ce5234ff8554aeb948f444fa88644aafe5e456e1bd74c17eba",
+    "simulation_lab/dinner_monitor.py": "34b2a5356ffcb5c2cf888607ceb387e51ca2ed00f6fa8fa39a897744e8bebe54",
+    "simulation_lab/dinner_vision.py": "66d0bc15b9a9f40832db56378de62c1b5355cebf583ececf7d8fa936a192360e",
+    "simulation_lab/engine.py": "7fe591389934e926b8c92395774e147530849f1e7905b228af0da7548c381603",
+    "simulation_lab/experiment_push.py": "156700845e130b86e93774c9dfae4221de5443f9855c86bd8e84d7f052a22003",
+    "simulation_lab/experiment_targets.py": "0704accb79c80d894efdf721e7a23437348c9dfe2d0d5edefd63e8b225ea9654",
+    "simulation_lab/hardware_evidence.py": "386d563af1666943fb1fcf0d545389220eb30f5808f361bbf72df4aa4a2d7222",
+    "simulation_lab/hosted_gpu.py": "668fd99bf83a52a8730179b33f93c5d319707033fecb0cf49f1bd39e2e727bb7",
+    "simulation_lab/hosted_worker.py": "60cf416fb7f6ef9f5151ccd9127fa821ddee3f65b74712f11ad11c37e6a3a5b2",
+    "simulation_lab/language.py": "8a6aa3efc5515e2da1d334432b884de297b53b1f048aba60c031d1739ddcfc1b",
+    "simulation_lab/learned_dinner.py": "5402aa9069b0a20b21c352272fbeb5dcf70d03ae555aa65d66574e5bf7975066",
+    "simulation_lab/learned_plan.py": "af91498d8f2d4cff06c829c1fc8c1075b359c00ed49e07043f8301bc4f85fcd8",
+    "simulation_lab/learned_skills.py": "3ef610a6e6d0516e8bf92d4e7f2b3d06540b49e2671682ab642239aa2cbb129b",
+    "simulation_lab/learned_task.py": "3bc2fc075d15e07d5717333fbd69541d2e76d2bd41621a71f1a6e51229d2e24f",
+    "simulation_lab/mug_correction_limits.py": "0b4db501846ff62e87cc6dbde453d6b1bf370cb12e60088e709f89068ecb2595",
+    "simulation_lab/mug_correction_motor.py": "38ca9f9d936c9ca50176c898904a680c1549df696c97475088852bc39be26313",
+    "simulation_lab/mug_correction_runtime.py": "eb580df116318a97fb2d24655d88a23be40a32beae186b0d03fbc88fc79e83f9",
+    "simulation_lab/mug_keypoint_observer.py": "dc5c76bd5b82ffb7191727690be3ac15b0003310ff0a69ef848213ce376a5fea",
+    "simulation_lab/mug_visual_control.py": "98503f8bfefff12a719e562471bd7819f192f9c20d519b4fc75ad6b5502310ae",
+    "simulation_lab/mug_visual_geometry.py": "d0840f195103bf8be317d33a2aed0f40dfe572aa8aeab1c988db08ae86e11091",
+    "simulation_lab/mug_visual_observer.py": "5d6fdd56a87035ac22eee40d20d8e09aa4b6a40f0b5695cf260243c6827a90c6",
+    "simulation_lab/mug_visual_profile.py": "a955e238d4f55a0d01eb832272f57ab2eb9d17ef37aaacb7b5ea1fca3d223d3c",
+    "simulation_lab/policy_cameras.py": "1415c5f173502017c99f651778245dae83116f4b91b7bbe8bf614cecf06b2752",
+    "simulation_lab/policy_control.py": "a418fe2619985852d4e65b40e20c18f82fd72076b4d8b9202507dda4a410b151",
+    "simulation_lab/policy_observation.py": "d15a9b72e7fb366681d29a21f598d21ffd147b1b9ba56729d296250a67b37af6",
+    "simulation_lab/primitive_policy.py": "60c009448171533385df1be82e3f64ed395f28d3e03145eb2f10ab6a791ef143",
+    "simulation_lab/public_trial.py": "2af948d565b5676c46b1d7ff23da0b16906e5a8760affdc63be27404a8d3931c",
+    "simulation_lab/recording.py": "073fc8a874a313288399f1827c2018198c92e3da2975b122655afe41aebe43a2",
+    "simulation_lab/relay_task.py": "a1387ecf36d24166b6cd356a14375aa47aceb4202687b4ccc96a3d305ab6bcd2",
+    "simulation_lab/rendering.py": "570f36b7b683c05d6c33aebc442828196db00596c10ed5e94df2b49ceccf0fcd",
+    "simulation_lab/retrieval_policy.py": "e47aab06fae8c825cccbe72dae7040edf3ee5d7b07a6537080b95efe001c6873",
+    "simulation_lab/rgb_bottle_observer.py": "45e93ab0d7930a15c82f5e84809eb0d8d7d8d376ed878558529560ff20c18d20",
+    "simulation_lab/rgb_servo_cameras.py": "eb750885e17ccc731ad9a80f3f5450ec2b5823c68e9dd57d9e325623d28eb3ec",
+    "simulation_lab/rgb_servo_controller.py": "6fb0d6ac81f717288a23aa88f60bcd84f95f0137b0660db7d35ebe2aeba7cf94",
+    "simulation_lab/rgb_servo_geometry.py": "bca323458c4971bab8534e36fb6f7d5aa668df188e7573efa095ebfbca4db1ae",
+    "simulation_lab/rgb_servo_motor.py": "3d90c40a5af68f0b04dfe5aafaa7de47f4c0b67211d40cc1a461eae2311e22b7",
+    "simulation_lab/rgb_servo_network.py": "3ef3cd8fcac1e40743893caab14fb94decf52d1c402c6ade69c342e8c97d9302",
+    "simulation_lab/rgb_servo_openvino.py": "2a091f27331304228bc57a306302cf05ced182af654a57c502b2bdea4bb1fa42",
+    "simulation_lab/rgb_servo_routing.py": "75acbf9a9e508ba24c29edc777c6ce83569d73bb9d7cbe567a2e7f40dffcafc6",
+    "simulation_lab/rgb_servo_vision.py": "498a5a52bd6fc207aa8754de074cc1c6d2ab9f10659e43f79d0aba12e9afcb1b",
+    "simulation_lab/scene.py": "b363abd064ed0983f9ba96381855f9fd079072dc48593f17fc0bf6e623468b19",
+    "simulation_lab/sequence_policy.py": "510695960009387afef87284e76e57fa0cce500acd29c380336c08cf865904a8",
+    "simulation_lab/server.py": "1db8f2dd5f2c9e234aee2144fb7d034e9d608a3791cc2c4b96223c2d99d041b4",
+    "simulation_lab/slots.py": "41755919e4d2bbfb2b023e78c09370d2fbcd740f377bdf616551aff2aa827873",
+    "simulation_lab/speech.py": "66a50562886702017bdf9e0d2a1af31dfb4531061af9b8a6c5c9f16d02cce4a0",
+    "simulation_lab/storage.py": "adff62806bc5786ee7c374a09754d82e37474b97f4d37074551d02d3796f444f",
+    "simulation_lab/__init__.py": "41d6e06b5cd49e86faaccfc822e0195485e4efed792c4ae28bdb42dc8e814220",
+    "hosting/gradio_app.py": "9ca770dfd34740b09687737da89c61f5ee9bfa2946b381091883d8cb46ae0f67"
+  },
+  "profile_sha256": "c11ec3ba426d553bcfbe1b599494b8a5c164760b71a5eab0b4f09b9ed3e76b8b",
+  "preflight": {
+    "free_bytes": 556702076928,
+    "estimated_additional_bytes": 268435456,
+    "reserve_bytes": 10737418240
+  },
+  "scope": "All four exposed entry-point checks are declared before execution; no model selection or fresh holdout."
+}

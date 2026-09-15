@@ -1,0 +1,24 @@
+{
+  "schema": "talos_joint_direct_contact_candidates_v1",
+  "declared_before_execution": true,
+  "purpose": "Develop a complete physical demonstration in a jointly randomized scene after a necessary initial-direct-contact geometry screen.",
+  "base_sampler": "Unchanged simulation_lab.random_dinner.draw; all seven items, whole shared tabletop, full yaw and all original alternative orientation families.",
+  "protocol_seed": 2026122001,
+  "candidate_seeds": "2026122001 through 2026122064 inclusive; stop at first passing candidate, without inspecting controller success.",
+  "maximum_candidates": 64,
+  "settling_steps_per_generated_candidate": 600,
+  "selection": "Stable original assess() geometry, then no object with separating-plane certificates against both full arm collision envelopes.",
+  "certificate": "Compiled serial-hinge geometry, swept shoulder circle plus remaining chain ball, exact object primitive support, contact margins and 10 micrometer numerical reserve. No IK, grasp success, per-object box or learned result enters selection.",
+  "interpretation": "Passing is necessary initial direct-contact geometry only, not a grasp/route/transfer certificate. Rejected scenes are not globally impossible: prior indirect object-assisted rearrangement is not evaluated.",
+  "original_evidence": "All original 80 joint scene resets and all development manipulation failures remain unchanged, with their original denominators. This is a new conditional development distribution, not a replacement coverage score.",
+  "execution": {
+    "controller": "Privileged shared exact-state demonstration teacher; not a learned policy.",
+    "maximum_accepted_actions": 14,
+    "physical_lookahead_attempts_per_candidate": 4,
+    "targets": "All seven unchanged dinner settings.",
+    "acceptance": "Unchanged physical grasp, lift >=25 mm, unsupported hold >=1.8 s, placement/release/parking, <=1 mm external penetration, <=0.8 mm unexpected robot contact, <=4 mm unrelated object displacement, and exact independent/continuous motor replay."
+  },
+  "preservation": "Retain every proposal recipe, invalid or separated scene, all 600 settling steps with exact independent replay, source snapshots, full passing/failing manipulation traces and observations. No model or physics changes, attachments, live state writes, external forces or overwritten evidence.",
+  "storage": "Check unused output and console log and 8 GiB expected writes plus 10 GiB reserve before launch; per-candidate and per-export checks continue.",
+  "completion": "Only all seven final physical settings in the continuously evolving scene count as a complete teacher workflow. This experiment alone cannot fulfill camera-driven coverage, learned control or recovery. No policy fit is authorized by a mere candidate or isolated primitive success."
+}

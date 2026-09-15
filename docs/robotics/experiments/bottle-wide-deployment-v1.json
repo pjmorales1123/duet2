@@ -1,0 +1,32 @@
+{
+  "schema": "talos.bottle-wide-deployment.v1",
+  "declared_on": "2026-09-14",
+  "raw_root": ".run/bottle-wide-deployment-v1",
+  "profile": "models/bottle_wide_v1/profile.json",
+  "physical_protocol": "docs/robotics/experiments/bottle-wide-physical-v1.json",
+  "physical_protocol_sha256": "07961d2203cf47d64d8bf6c29b7e3e58a19a3c2566e8a1e02828cd98077485e8",
+  "profile_sha256": "d0923c80dcd8415d3ac00abbfffcbe4868114b1069bacf380155f31b7a03779f",
+  "source_sha256": {
+    "scripts/prepare_wide_bottle_runtime.py": "d98f9eeb5ef03fcc0bb193bc36f6e8c61dadbe30a7567243600c2d57cd5370d4",
+    "simulation_lab/wide_bottle_task.py": "15825e5beef63c60446c5298a61402976a8e24c5b670e90010b08f1f9d31dbad"
+  },
+  "parity_seeds": [
+    2026112601,
+    2026112602,
+    2026112603,
+    2026112604,
+    2026112605,
+    2026112606
+  ],
+  "mode": "live",
+  "parity_gate": {
+    "required_passes": 6,
+    "maximum_absolute_qpos_qvel_target_difference": 1e-09,
+    "require_same_frame_count_and_times": true,
+    "require_same_physical_status": true
+  },
+  "maximum_simulated_seconds": 100.0,
+  "maximum_wall_seconds_per_case": 180.0,
+  "scope": "Exposed implementation regressions on the first six final scenes. They do not increase the fresh-sample denominator. Compare all recorded numeric physical/control arrays against the frozen evaluator before adding app entry points.",
+  "stop": "Preserve all six outcomes. On any mismatch do not expose the mode; diagnose separately without rewriting this gate. Fresh app/hosted entry-point checks require a separately frozen test declaration after wrapper parity passes."
+}

@@ -1,0 +1,12 @@
+{
+  "schema": "talos.raw-rgbd-mug-registration.v1",
+  "scope": "Exposed V24 raw RGB-D architectural diagnosis only; no fit, control, or generalization claim.",
+  "static_mug": {
+    "radius_m": 0.025,
+    "axis_length_m": 0.064
+  },
+  "gate": {
+    "body_origin_mm": 15.0,
+    "axis_deg": 10.0
+  }
+}

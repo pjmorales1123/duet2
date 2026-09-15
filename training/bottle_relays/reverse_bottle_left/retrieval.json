@@ -1,0 +1,177 @@
+{
+  "skill": "bottle",
+  "logical_skill": "reverse_bottle_left",
+  "episodes": [
+    "seed-2026090020",
+    "seed-2026092201",
+    "seed-2026092202",
+    "seed-2026092203",
+    "seed-2026092204",
+    "seed-2026092205",
+    "seed-2026092206",
+    "seed-2026092207",
+    "seed-2026092208",
+    "seed-2026092209",
+    "seed-2026092210",
+    "seed-2026092211",
+    "seed-2026092212"
+  ],
+  "excluded": [],
+  "arm_offset": 0,
+  "gripper_cap_nm": 0.25,
+  "visual_encoder": "bottle_rgb_geometry",
+  "visual_preprocess": "brightness_normalized",
+  "cameras": [
+    "overhead",
+    "table_left",
+    "table_right"
+  ],
+  "reconstruction_check": "initial_only",
+  "reconstruction_limit": 0.002,
+  "visual_components": 2,
+  "durations_s": {
+    "approach": 3.9,
+    "descend": 3.3,
+    "close": 5.3,
+    "lift": 3.8,
+    "hold": 1.8,
+    "align": 4.3,
+    "lower": 3.3,
+    "release": 4.3,
+    "retract": 3.3,
+    "park": 3.9,
+    "verify": 1.05
+  },
+  "lineage": [
+    {
+      "episode": "seed-2026090020",
+      "manifest_sha256": "9caf5c638ffc8cb230fad14c9a58f4329c2cd354e44b4cdcdbd768301a32d1e3"
+    },
+    {
+      "episode": "seed-2026092201",
+      "manifest_sha256": "2fd3a6934df75433d07b9093af73cfd32a0e58953882527d83a932f73fc29a72"
+    },
+    {
+      "episode": "seed-2026092202",
+      "manifest_sha256": "fdb77fb6203dea0e1794827319d78fcaba4273ac0de7369d05304884db380c91"
+    },
+    {
+      "episode": "seed-2026092203",
+      "manifest_sha256": "dae143fb82c20f0e90f1b99d21efcca21a1be0b7f8374c39b5bedadaf8be2c22"
+    },
+    {
+      "episode": "seed-2026092204",
+      "manifest_sha256": "9a42a21cede49e7509c45e1be2328add8460b3044810bf5a93c5f8393120325e"
+    },
+    {
+      "episode": "seed-2026092205",
+      "manifest_sha256": "15ee872545316b445d01d922575d89f2f842a13fd17de64e46ebddf29579d059"
+    },
+    {
+      "episode": "seed-2026092206",
+      "manifest_sha256": "338e2887ebbf1a954bc0e96d4634375626c1c45fd4809f8225f84971464f5fb1"
+    },
+    {
+      "episode": "seed-2026092207",
+      "manifest_sha256": "2a7c2336dbe6dcdbb76638322c9ce2e38fdf13af2c84cbe65dbc17fe167b92e1"
+    },
+    {
+      "episode": "seed-2026092208",
+      "manifest_sha256": "216b2ed4aa03b113c0aa79ce280d399827f32b34849822f38718d3ece299f570"
+    },
+    {
+      "episode": "seed-2026092209",
+      "manifest_sha256": "9521e5a146f7247f7234b68324ac5099cb1b89de12ca80a5c237534c3e6da72d"
+    },
+    {
+      "episode": "seed-2026092210",
+      "manifest_sha256": "de687febdd0901967db3850769e3948e9bc363bc260a4dbdb433a1b79872cdf8"
+    },
+    {
+      "episode": "seed-2026092211",
+      "manifest_sha256": "7bcab391a770e7043d535f86f4f4eade70ffc159c471a3f483e62a304f2c4e13"
+    },
+    {
+      "episode": "seed-2026092212",
+      "manifest_sha256": "60fe1d87c6ac47887c4a03b3aaf3cb90b65a254bc0c2a3464a8ae95acaf917c8"
+    }
+  ],
+  "scope": "Initial three-camera RGB-conditioned neural skill. Offline stage alignment; no runtime object pose or stage input.",
+  "feature_support": {
+    "min": [
+      0.49589183926582336,
+      0.7032771706581116,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "max": [
+      0.5021418333053589,
+      0.7116104960441589,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "description": "Train-only feature range with one pixel centroid margin; not a workspace-coverage guarantee."
+  },
+  "action_preprocessing": "Offline closed-gripper target (-0.17 rad) sustained during carry stages; physical aligned-input replay required before training.",
+  "trained_destination_m": [
+    0.1,
+    -0.115,
+    0.76
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "schema": "talos.rgb-servo-observer-evaluation.v1",
+  "declared_on": "2026-09-13",
+  "parent": "docs/robotics/experiments/rgb-servo-confidence-v1.json",
+  "evaluation_states": 256,
+  "evaluation_rng_seed": 2026095404,
+  "generator": "scripts/collect_rgb_servo_observer.py",
+  "ranges_and_calibration": "Same fixed cameras, position/tilt/lighting/robot-pose ranges as rgb-servo-observer-v2.json.",
+  "checkpoint": ".run/rgb-servo-observer-fit-v2/step-006000/model.safetensors",
+  "selection": "Checkpoint and confidence rules are frozen before this dataset is generated. Do not train or tune on these observations; retain failures and refusals.",
+  "scope": "Synthetic perception evaluation only. The separate physical controller evaluation seeds remain unexposed."
+}

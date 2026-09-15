@@ -1,0 +1,45 @@
+{
+  "schema": "talos.mug-correction-motor.v2",
+  "declared_on": "2026-09-14",
+  "purpose": "Train a differential motor map with joint-limited local step sizing, retaining every sampled position and direction from the failed fixed-step input gate. This is a prerequisite for live mug correction, not physical validation.",
+  "raw_root": ".run/mug-correction-motor-v2",
+  "model_package": "models/mug_correction_motor_v2",
+  "training_package": "training/mug_correction_motor_v2",
+  "evidence_package": "docs/robotics/evidence/mug-correction-motor-v2",
+  "prior_protocol": "docs/robotics/experiments/mug-correction-motor-v1.json",
+  "prior_protocol_sha256": "92a51fe44f3199b85227b9dc695e85ad4b7a48d072384e17f47566ceffc54af6",
+  "inherited_data": {
+    "training": {"path":"training/mug_correction_motor_v1/training/data.npz","sha256":"66b4294befe4dadaa7667e436c49304983736bda6e99d59f0b439e293d6e975a"},
+    "development": {"path":"training/mug_correction_motor_v1/development/data.npz","sha256":"552d3e0e1d7a22e144b2e5daf211d530edcd8af49ddf32f87396fff34cbb0bd8"}
+  },
+  "training_source": "training/dinner_suite/mug/retrieval.npz",
+  "training_source_sha256": "b3a144ebf3d357c1029c6abdaf44875f4e664fcc0290f0e3a8fc6379f609ed57",
+  "scene": "training/mug_release_v1/episodes/seed-42/scene.xml",
+  "tool_point_local_m": [-0.006,0,-0.092],
+  "axis_local_index": 2,
+  "data": {
+    "training_states":8192,"development_states":1024,"evaluation_states":1024,
+    "evaluation_seed":2026100203,"nominal_seconds_range":[20.35,28.4],"joint_jitter_half_range_rad":0.025,
+    "maximum_translation_norm_m":0.002,"jacobian_axis_weight_m":0.08,"damping":0.00000001,
+    "minimum_label_coverage":0.99,"maximum_label_position_error_mm":0.15,"maximum_label_axis_error":0.015,
+    "maximum_joint_step_rad":0.02,
+    "method":"Reuse all 8192/1024 exact prior configurations, requested XY directions and offline matrices, including every prior rejection. Scale each proposed matrix-generated joint delta and its requested translation by the same factor so maximum joint movement is at most 0.02 rad. Keep original requested translation, effective translation, scale, matrix and endpoint. Preserve all attempted states. New fresh states use the same phase/jitter distribution with seed 2026100203 after successful fit/export. Prior seed 2026100103 remains unexposed."
+  },
+  "step_sizing": {
+    "maximum_joint_delta_rad":0.02,"minimum_fraction":0.02,
+    "method":"For raw neural delta J_network(q) times requested translation, use factor min(1, nextafter(0.02,0)/max(abs(delta))). Apply that same scalar to delta and requested translation. This preserves direction, limits joint movement and is computed from the neural output only. Zero requested translation produces exactly zero delta. A forward-only robot guard may refuse; no inverse solver or geometric repair is permitted. Report every factor to disclose reduced step size and future speed implications."
+  },
+  "network": {
+    "architecture":"Existing untrained MugDifferentialMotorNet: five normalized joints -> 128 SiLU -> 128 SiLU -> 15 coefficients, scaled by 20 rad/m and reshaped to 5x3; multiply by requested translation then apply the declared joint limit.",
+    "coefficient_scale_rad_per_m":20.0,"initialization":"New random weights; no warm start or pretrained weights. V1 stopped before fitting.",
+    "runtime":"Measured right-arm joints and requested XY correction only. Robot-only forward geometry may refuse predictions, never repair them. No object pose, teacher, segmentation, Jacobian or inverse solver is read at deployment."
+  },
+  "training": {"updates":6000,"checkpoints":[3000,6000],"batch_size":512,"seed":2026100204,"learning_rate":0.001,"final_learning_rate":0.00001,"optimizer":"AdamW","weight_decay":0.00001,"gradient_clip_norm":5.0,"precision":"FP32 CUDA with TF32 disabled","loss":"Normalized coefficient MSE over every accepted training matrix; no development gradient updates.","selection":"Complete both checkpoints; among those passing all development gates choose smallest p95 endpoint error, then maximum error, then earlier update. Development configurations are reused exposed inputs and are labeled as such."},
+  "gate": {"minimum_accepted_fraction":0.99,"maximum_p95_position_error_mm":0.1,"maximum_position_error_mm":0.3,"maximum_axis_error":0.015},
+  "runtime_guard": {"maximum_translation_norm_m":0.002,"maximum_joint_step_rad":0.02,"maximum_position_error_mm":0.5,"maximum_axis_error":0.015,"joint_support_margin_rad":0.03},
+  "export": {"device":"OpenVINO CPU FP32","maximum_joint_delta_parity_rad":0.000001,"validation":"All 1024 exposed development inputs including joint-limited postprocessing, then all 1024 fresh inputs once. Record actual CPU; AMD execution is not Intel evidence."},
+  "budget": {"maximum_combined_gib":0.25,"maximum_generation_minutes_per_split":5,"maximum_fit_minutes":8,"maximum_torch_reserved_gib":4,"reserve_gib":10,"new_physical_trials":0},
+  "stop_rule":"Both initial label-coverage and independent geometry audits must pass before fitting. Finish both checkpoints, then stop before export/fresh on failed selection. Stop on export/fresh failure. Do not fit again, alter gates or remove configurations. No physical controller integration belongs to this protocol.",
+  "next_control_experiment":"If all gates pass, freeze a separate live-versus-frozen-image physical placement comparison with the stereo mug observer, declared timing/step limits and unchanged physical monitors; preserve baseline until physical evidence supports promotion.",
+  "retention":"Preserve every numeric input, reduced-step factor, refusal, score, both checkpoints and evaluated IR. Keep original models/evidence, 10 GiB reserve and GitHub/HF privacy. Never click final Submit."
+}

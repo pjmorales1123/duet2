@@ -1,0 +1,21 @@
+{
+  "schema": "talos.rgb-servo-package.v1",
+  "status": "experimental; not promoted",
+  "observer": "observer.safetensors",
+  "observer_sha256": "1b97d12a89d632462e27846846bae5be88d904d2c876901f05ec190f491d2851",
+  "motor": "motor.safetensors",
+  "motor_sha256": "8e979711b4edf131bd662b3b34a869d629d34c415fd8d7e13038c41ccf3f9d92",
+  "openvino": "openvino",
+  "openvino_artifact_sha256": {
+    "observer.xml": "542ac6cfe8903a66dd0c420f87bd571b49ba6873edd85cecbb87fd660b5adbe1",
+    "observer.bin": "e76bc72eceeea26360f2971211142db989fbff486770fd455f5a29d7e520bb7f",
+    "motor.xml": "6380d60a8248492dcc9fdf3c14ac169222f55223318b32a39e2ad8719ca0a0f8",
+    "motor.bin": "20f55afc49b18102131d61ffc7df7dfd17e233c5201e81fba6fa4b9627b5d497"
+  },
+  "minimum_views": 2,
+  "rigid_geometry": true,
+  "evidence": "../../docs/robotics/evidence/rgb-servo-v1/audit.json",
+  "baseline": "../dinner_suite/suite.json",
+  "license": "MIT",
+  "scope": "Known upright bottle; RGB correction during approach/descent, proprioceptive carry. Finite coverage test failed; no arbitrary-placement claim."
+}

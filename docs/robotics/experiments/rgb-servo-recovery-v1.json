@@ -1,0 +1,12 @@
+{
+  "schema": "talos.rgb-servo-recovery.v1",
+  "declared_on": "2026-09-13",
+  "parent": "docs/robotics/experiments/rgb-servo-bottle-v1.json",
+  "training_seeds": [2026095125,2026095126,2026095127,2026095128,2026095129,2026095130,2026095131,2026095132],
+  "push": "docs/robotics/experiments/rgb-servo-push-v1.json",
+  "teacher": "Offline exact-state teacher chooses an arm with kinematic solutions for start and goal, then physically approaches. At 2.3 simulated seconds, after the declared push, it replans the hover/descent from the displaced bottle. This is a privileged recovery demonstration; inference never calls this teacher.",
+  "destinations": "Explicitly add the requested bottle destination to layout.targets. The original 24 nominal episodes did not apply this request; their reports remain preserved and are labeled fallback-goal data.",
+  "replay": "Independently replay the saved float32 20 Hz endpoints with the identical disclosed force schedule, preserving physical contact/release/parking checks. Every failed or refused attempt remains in the denominator.",
+  "budget": {"new_unique_teacher_episodes": 8, "total_unique_teacher_episodes": 32, "max_new_data_mib": 256, "reserve_gib": 10},
+  "selection": "These are reserved training seeds, not physical development or evaluation seeds. No checkpoint promotion is implied by teacher success."
+}

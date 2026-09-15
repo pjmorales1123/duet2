@@ -1,0 +1,21 @@
+{
+  "schema": "talos.bottle-wide-profile.v1",
+  "files": {
+    "profile.json": "d0923c80dcd8415d3ac00abbfffcbe4868114b1069bacf380155f31b7a03779f",
+    "README.md": "a224aa382a8f5370f552017f8fc2be6718a54ec533671d815433f0c6ce65be5d",
+    "motor/experiment.json": "ee2b6c994817e5ed37b627389f46924550784c533ff15142d90c6ab51ee6051b",
+    "motor/motor-export-parity.json": "084073dd232c4e475ac8517add1993a255e828472074e8ad75d8461bf4b237f4",
+    "motor/motor.safetensors": "ad1b9b7bbb4e45b7d89e2de4149b22e9a8b9d298ea8ed66073d24639f434ccb7",
+    "motor/observer.safetensors": "1b97d12a89d632462e27846846bae5be88d904d2c876901f05ec190f491d2851",
+    "observer/artifacts.json": "39708bf93fdedf3594be78b90c2d749705290affc409be5848b891b1a8f96721",
+    "observer/coarse.bin": "9ee387fc2bfbde69367e49f5ec7bc5b6b38f5faa1d7b80004d6773456f7c73f0",
+    "observer/coarse.xml": "542ac6cfe8903a66dd0c420f87bd571b49ba6873edd85cecbb87fd660b5adbe1",
+    "observer/protocol.json": "1e94fa0c2583faf5401a7341ed73f7009f15bf48accc05866fd233bc3124a633",
+    "observer/refiner.bin": "bbab8e76c42df89a7375389c40533e1252a9bd508be2d0cad571fbd00f5e196e",
+    "observer/refiner.xml": "038af07290c5bbbe318a47e1f5b61478ce13b2bbae0e2fb3d2a78a1a32fc1a15",
+    "motor/openvino/motor.bin": "277d06790b778ff5b45cabb44015e3f8cf2b7c38e8fb0c8a9b924fee6c385cd5",
+    "motor/openvino/motor.xml": "6380d60a8248492dcc9fdf3c14ac169222f55223318b32a39e2ad8719ca0a0f8",
+    "motor/openvino/observer.bin": "e76bc72eceeea26360f2971211142db989fbff486770fd455f5a29d7e520bb7f",
+    "motor/openvino/observer.xml": "542ac6cfe8903a66dd0c420f87bd571b49ba6873edd85cecbb87fd660b5adbe1"
+  }
+}

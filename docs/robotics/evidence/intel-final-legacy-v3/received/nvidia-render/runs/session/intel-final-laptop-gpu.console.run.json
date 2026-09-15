@@ -1,0 +1,27 @@
+{
+  "command": [
+    "<USER_HOME>\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\powershell\\pwsh.EXE",
+    "-NoProfile",
+    "-File",
+    ".\\verify-final-on-intel.ps1",
+    "-Python",
+    "<OLD_CHECKOUT>\\.venv-training\\Scripts\\python.exe",
+    "-Device",
+    "GPU",
+    "-Output",
+    ".\\.run\\intel-final-laptop-gpu"
+  ],
+  "cwd": ".",
+  "output": ".\\.run\\intel-final-laptop-gpu",
+  "console_log": ".\\.run\\session\\intel-final-laptop-gpu.console.log",
+  "started_utc": "2026-09-14T05:15:57.523287+00:00",
+  "disk_free_before_bytes": 117809160192,
+  "additional_budget_bytes": 1073741824,
+  "reserve_bytes": 10737418240,
+  "status": "finished",
+  "process_id": 23564,
+  "exit_code": 1,
+  "wall_seconds": 15.549221900000703,
+  "finished_utc": "2026-09-14T05:16:13.072872+00:00",
+  "disk_free_after_bytes": 117791166464
+}

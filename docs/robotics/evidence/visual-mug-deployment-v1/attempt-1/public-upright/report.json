@@ -1,0 +1,18 @@
+{
+  "surface": "public",
+  "preset": "upright",
+  "seed": 42,
+  "instruction": "Set the table",
+  "profile_sha256": "c11ec3ba426d553bcfbe1b599494b8a5c164760b71a5eab0b4f09b9ed3e76b8b",
+  "preflight": {
+    "free_bytes": 551118274560,
+    "estimated_additional_bytes": 67108864,
+    "reserve_bytes": 10737418240
+  },
+  "scope": "Exposed deployment regression, not a new holdout.",
+  "passed": false,
+  "error_type": "ValueError",
+  "message": "Hosted renderer returned a black final image.",
+  "wall_seconds": 47.97280370024964,
+  "trace_frames": 4955
+}

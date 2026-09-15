@@ -1,0 +1,82 @@
+{
+  "schema": "talos.mug-keypoint-observer.v1",
+  "declared_on": "2026-09-14",
+  "purpose": "Estimate held-mug position with learned image points and explicit camera geometry, replacing the failed direct-XYZ observer only if separately tested gates pass.",
+  "raw_root": ".run/mug-keypoint-observer-v1",
+  "model_package": "models/mug_keypoint_observer_v1",
+  "training_package": "training/mug_keypoint_observer_v1",
+  "evidence_package": "docs/robotics/evidence/mug-keypoint-observer-v1",
+  "camera_protocol": "docs/robotics/experiments/mug-visual-visibility-v1.json",
+  "camera_protocol_sha256": "cb2126b09fb8490c1690f01c93af5697d039e5f0a7f1d3dddfb1fb91ee865714",
+  "camera_configuration": "focused_45_225",
+  "camera_slots": [1,2],
+  "image_size": [320,240],
+  "keypoints_local_m": [[0,0,0.003],[0,0,0.061]],
+  "target_midpoint_local_m": [0,0,0.032],
+  "training_recipe": "training/mug_visual_observer_v1/training/data.npz",
+  "training_recipe_sha256": "0d43b00f5f7fcf1e7b4f1f63fb6845dbd883f321d2fc72b52107e3be13aceea1",
+  "training_recipe_manifest": "training/mug_visual_observer_v1/training/manifest.json",
+  "training_recipe_manifest_sha256": "0af546dcc9212861702764833896792d8e7fb634b543942360035f5828fa5c59",
+  "pose_recipe_protocol": "docs/robotics/experiments/mug-visual-observer-v1.json",
+  "pose_recipe_protocol_sha256": "d36e25817a7e44c956b7c85b32bf3b507289257474d5a1d6c8fe3f407f4d0a61",
+  "data": {
+    "training_states": 4096,
+    "development_states": 512,
+    "evaluation_states": 512,
+    "development_rng_seed": 2026099852,
+    "evaluation_rng_seed": 2026099853,
+    "states_per_shard": 128,
+    "minimum_visible_mug_pixels": 60,
+    "method": "Reuse only the exact 4096 original training recipes, regenerating the two existing RGB views and verifying their recorded image hashes. Sample new development/evaluation poses with the same previously frozen pose distribution and new RNG seeds; the failed observer's 9802 development examples are not reused for selection. Label two mug-axis image points and segmentation/visibility from geometry offline only. Preserve every present and absent example and source hash. These remain posed perception renders, without physics stepping or valid-grasp claims."
+  },
+  "network": {
+    "architecture": "Existing BottleKeypointNet encoder/decoder architecture with two heatmaps, foreground mask and visibility; newly initialized mug weights, no warm start or pretrained weights.",
+    "architecture_source": "simulation_lab/rgb_servo_network.py",
+    "architecture_source_sha256": "3ef3cd8fcac1e40743893caab14fb94decf52d1c402c6ade69c342e8c97d9302",
+    "loss": "Unchanged observation_loss: Gaussian image-point cross entropy, foreground segmentation, visibility and image-coordinate loss. Simulator data labels/scoring only; inference accepts RGB and fixed calibration."
+  },
+  "training": {
+    "rng_seed": 2026099854,
+    "updates": 8000,
+    "batch_size": 12,
+    "optimizer": "AdamW",
+    "learning_rate": 0.001,
+    "final_learning_rate": 0.00001,
+    "weight_decay": 0.0001,
+    "schedule": "Cosine over the one declared fit",
+    "gradient_clip_norm": 5.0,
+    "checkpoints": [4000,8000],
+    "precision": "FP32 CUDA with TF32 disabled",
+    "selection": "Complete both checkpoints. Among those passing all development gates, choose lowest midpoint p95 3D error, then lowest maximum, then earlier update. No additional fit, threshold revision or data selection."
+  },
+  "inference": {
+    "minimum_visibility_probability": 0.9,
+    "minimum_heatmap_peak": 0.01,
+    "maximum_heatmap_variance_px2": 36.0,
+    "minimum_predicted_foreground_pixels": 60,
+    "required_views": 2,
+    "maximum_reprojection_error_px": 2.0,
+    "axis_length_m": 0.058,
+    "maximum_axis_length_error_m": 0.004,
+    "minimum_upward_axis_z_m": 0.05,
+    "midpoint_workspace_box_m": [[0.2,-0.105,0.74],[0.315,0.04,0.88]],
+    "method": "Require both fixed oblique views to pass confidence. Triangulate each semantic point with the known projection matrices, apply the fixed reprojection/axis/workspace checks, and return the two-point midpoint. No object state, depth, segmentation, robot state, teacher or inverse kinematics enters inference."
+  },
+  "perception_gate": {
+    "minimum_present_coverage_fraction": 0.95,
+    "maximum_absent_false_accepts": 0,
+    "maximum_p95_3d_error_mm": 1.5,
+    "maximum_3d_error_mm": 3.0,
+    "maximum_p95_xy_error_mm": 1.5
+  },
+  "evaluation": {
+    "fresh_synthetic": "Generate and test all 512 fresh states once only after a frozen checkpoint passes development and FP32 OpenVINO CPU parity/development checks.",
+    "exposed_physical_regression": "If fresh synthetic perception passes, test all 144 already-exposed saved mug states from the completed visibility diagnostic, with the same gate. No fitting or exclusions. Preserve each refused/failed observation. This is an exposed-state regression, not fresh physical generalization or control.",
+    "physical_regression_manifest": "docs/robotics/evidence/mug-visual-visibility-v1/report.json",
+    "control": "No motor integration or new physical controller trial belongs to this protocol. A passing observer still requires a separately declared live-versus-frozen control experiment and fresh physical scenes."
+  },
+  "export": {"maximum_absolute_keypoint_parity_px": 0.01, "device": "OpenVINO CPU FP32; record actual hardware and do not claim Intel from this AMD/NVIDIA PC"},
+  "budget": {"maximum_raw_and_packaged_gib": 2.0,"maximum_generation_minutes_per_split": 15,"maximum_fit_minutes": 12,"maximum_torch_reserved_gib": 8.0,"maximum_new_physical_trials": 0,"reserve_gib": 10},
+  "stop_rule": "Stop at the first failed selection/export/fresh-perception/physical-state gate. A complete fit includes both declared checkpoints even when the first fails. Preserve all candidates, data, metrics and source. Do not expose later reserved splits or integrate a failed observer. The previous 9803 reserved evaluation remains unexposed and is not borrowed.",
+  "retention": "Keep raw RGB shards locally and package all exact compact qpos/exposure recipes, projected labels, segmentation counts, hashes and numerical predictions, representative fixed-index images, both checkpoints and evaluated IR if exported. Never overwrite prior models/evidence. Keep GitHub/HF private and leave final Submit exclusively to the user."
+}

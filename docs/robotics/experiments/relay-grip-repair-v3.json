@@ -1,0 +1,12 @@
+{
+  "schema": "talos.relay-grip-repair.v3",
+  "declared_on": "2026-09-13",
+  "parents": ["relay-learning-v1.json", "reverse-learning-fixed-goal-v2.json"],
+  "finding": "The first two neural candidates fail the forward relay. Teacher targets restart carry stages near the measured finger position, briefly reducing grip torque; small model errors can lose contact at those transitions.",
+  "intervention": "In new offline aligned inputs, sustain the existing closed-gripper target -0.17 rad during lift/hold/clearance/transit/rotate/align/lower. Keep all other targets, actuator force caps, initial states and success thresholds. Original datasets and checkpoints remain unchanged.",
+  "gate": "Replay every modified aligned training trajectory through independent physics. Do not train a modified dataset unless all included episodes pass and the gate records the exact input SHA256.",
+  "training_budget_per_leg": {"adam_steps":16000,"refinement_max_steps":400,"visual_scaling":"standard"},
+  "evaluation": "Use only previously declared development scenes for selection. Final evaluation seeds remain unexposed.",
+  "storage_reserve_gib": 10,
+  "expected_additional_gib": 0.1
+}

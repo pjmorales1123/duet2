@@ -1,0 +1,27 @@
+{
+  "command": [
+    "<USER_HOME>\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\powershell\\pwsh.EXE",
+    "-NoProfile",
+    "-File",
+    ".\\verify-final-on-intel.ps1",
+    "-Python",
+    "<OLD_CHECKOUT>\\.venv-training\\Scripts\\python.exe",
+    "-Device",
+    "CPU",
+    "-Output",
+    ".\\.run\\intel-render-laptop-cpu"
+  ],
+  "cwd": ".",
+  "output": ".\\.run\\intel-render-laptop-cpu",
+  "console_log": ".\\.run\\session\\intel-render-laptop-cpu.console.log",
+  "started_utc": "2026-09-14T05:43:13.629370+00:00",
+  "disk_free_before_bytes": 118326984704,
+  "additional_budget_bytes": 1073741824,
+  "reserve_bytes": 10737418240,
+  "status": "finished",
+  "process_id": 14272,
+  "exit_code": 1,
+  "wall_seconds": 307.84180840000045,
+  "finished_utc": "2026-09-14T05:48:21.494238+00:00",
+  "disk_free_after_bytes": 118321803264
+}

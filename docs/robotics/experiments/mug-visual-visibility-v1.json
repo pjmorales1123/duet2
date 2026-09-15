@@ -1,0 +1,52 @@
+{
+  "schema": "talos.mug-visual-visibility.v1",
+  "declared_on": "2026-09-14",
+  "purpose": "Establish RGB visibility of the held mug throughout alignment, lowering and initial release before designing a separately evaluated visual placement observer.",
+  "raw_root": ".run/mug-visual-visibility-v1",
+  "evidence_package": "docs/robotics/evidence/mug-visual-visibility-v1",
+  "trace_groups": [
+    {"root": "docs/robotics/evidence/spoon-release-v1/development", "freeze_sha256": "7f80c2803aa33a0bdd52ca4ec63db623b3500cb600b57cea344380c80076335f", "seeds": [2026099201,2026099202,2026099203,2026099204,2026099205,2026099206]},
+    {"root": "docs/robotics/evidence/mug-release-v1/development", "freeze_sha256": "856331e5ba520b797600089a96d8dbcacfc80836fe93b6c7cee15c5705d098d5", "seeds": [2026099601,2026099602,2026099603,2026099604,2026099605,2026099606]}
+  ],
+  "presets": ["upright", "wide_left"],
+  "controller": "baseline",
+  "sample_seconds_from_first_mug_frame": [20.35,22.575,24.7,26.25,27.8,28.4],
+  "sample_labels": ["held", "mid_align", "end_align", "mid_lower", "end_lower", "early_release"],
+  "require_zero_guard_waits": true,
+  "image_size": [320,240],
+  "camera_configurations": {
+    "original": ["overhead", "table_left", "table_right"],
+    "focused_45_225": [
+      {"lookat": [0.255,-0.025,0.8], "distance": 0.38, "azimuth": 90, "elevation": -90},
+      {"lookat": [0.255,-0.025,0.8], "distance": 0.42, "azimuth": 45, "elevation": -40},
+      {"lookat": [0.255,-0.025,0.8], "distance": 0.42, "azimuth": 225, "elevation": -40}
+    ],
+    "focused_135_315": [
+      {"lookat": [0.255,-0.025,0.8], "distance": 0.38, "azimuth": 90, "elevation": -90},
+      {"lookat": [0.255,-0.025,0.8], "distance": 0.42, "azimuth": 135, "elevation": -40},
+      {"lookat": [0.255,-0.025,0.8], "distance": 0.42, "azimuth": 315, "elevation": -40}
+    ]
+  },
+  "rgb_method": {
+    "mask": "g > 1.5*r and g > 1.015*b and b > 1.3*r and g > 45; unchanged mug color rule",
+    "roi_world_box_m": [[0.2,-0.105,0.74],[0.315,0.04,0.88]],
+    "roi_pixel_margin": 10,
+    "component": "Largest 4-connected component with at least 12 pixels, deterministic tie break; no segmentation or body pose is supplied to RGB inference."
+  },
+  "visibility_gate": {
+    "minimum_rgb_component_pixels": 60,
+    "minimum_ground_truth_visible_pixels": 100,
+    "minimum_precision": 0.98,
+    "minimum_recall": 0.3,
+    "minimum_usable_views_per_state": 2,
+    "minimum_state_coverage_fraction": 0.95,
+    "selection": "Among passing configurations maximize state coverage, then median second-largest usable component area, then declared configuration order. This selects a camera layout for further investigation only."
+  },
+  "centroid_diagnostic": {
+    "target_local_m": [0,0,0.032],
+    "method": "Triangulate the RGB component centroids in all usable views and compare against the offline mug body midpoint. Different visible surfaces need not share a centroid; this score is diagnostic only and cannot establish a pose observer."
+  },
+  "budget": {"maximum_raw_and_packaged_mib": 256, "maximum_wall_minutes": 15, "maximum_new_training_steps": 0, "maximum_new_physical_trials": 0, "reserve_gib": 10},
+  "retention": "Retain all 24 traces by source hash, all 144 sampled states, all 1296 view observations and calibrations, every RGB mosaic, packed predicted/segmentation masks, all scores and frozen source. No exclusion based on outcome.",
+  "scope": "Previously exposed saved-state diagnostic only. Cameras are fixed, never fitted to or following an object. Simulator segmentation and poses score inference only. No new physics, training, unseen generalization, continuous control or promotion. Existing selected models, privacy and the user's exclusive final Submit action remain unchanged."
+}

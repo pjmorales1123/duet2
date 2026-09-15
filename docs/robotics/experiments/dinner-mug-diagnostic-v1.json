@@ -1,0 +1,20 @@
+{
+  "schema": "talos.dinner-mug-diagnostic.v1",
+  "declared_on": "2026-09-14",
+  "purpose": "Diagnose the preceding mug placement failures exposed by the completed paired spoon-release development experiment before declaring another fit or changing a selected controller.",
+  "baseline": "models/dinner_suite/mug",
+  "baseline_sha256": "4a239422c24726a3c1319428f2dbf40e79b5f4ab3cf50f66ca53eb0b4134df62",
+  "training_input": "training/dinner_suite/mug",
+  "training_input_sha256": "b3a144ebf3d357c1029c6abdaf44875f4e664fcc0290f0e3a8fc6379f609ed57",
+  "evidence": "docs/robotics/evidence/spoon-release-v1/development",
+  "evidence_freeze_sha256": "7f80c2803aa33a0bdd52ca4ec63db623b3500cb600b57cea344380c80076335f",
+  "exposed_seeds": [2026099201,2026099202,2026099203,2026099204,2026099205,2026099206],
+  "presets": ["upright","wide_left"],
+  "controller": "baseline",
+  "arm": "right",
+  "grasp_point_local_m": [-0.006,0.0,-0.092],
+  "stage_probes": ["close","hold","align","lower","release","park"],
+  "method": "Score every existing mug training endpoint for active-arm joint and forward-kinematic tool error. Reconstruct all twelve already-exposed baseline mug traces, render their initial RGB views, and compare initial feature support plus measured tool/object offsets and placement error at each stage endpoint. Use the actual mug teacher grasp point. The saved reports have zero tracking-guard waits; require that invariant for stage-time probes. Preserve all successful and failed scenes. Ground-truth geometry is diagnostic only and never an action input.",
+  "budget": {"maximum_new_training_steps": 0,"maximum_new_physical_trials": 0,"maximum_raw_and_packaged_mib": 64,"maximum_wall_minutes": 10,"reserve_gib": 10},
+  "scope": "Training-fit and exposed-state diagnosis only. No candidate selection, new generalization, hardware, human voice or deployment claim. Any resulting intervention needs a separate bounded protocol and new physical selection scenes. Preserve all original files, private access and the user's sole control of final Submit."
+}

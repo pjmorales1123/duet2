@@ -1,0 +1,12 @@
+{
+  "schema": "talos.reverse-relay-feasibility.v1",
+  "declared_on": "2026-09-13",
+  "purpose": "The exposed wider train-019 reconstruction can be grasped/lifted by the right arm but its direct destination fails. Test right-arm placement on the existing shared table area, followed by left-arm placement at the normal bottle goal.",
+  "training": [{"seed": 2026090020, "pose": {"x": -0.07340677663329064, "y": -0.12157344846810123, "yaw": 0.3096408082688602}}],
+  "legs": [
+    {"name": "reverse_bottle_right", "arm": "right", "destination_xy": [0.0, -0.1]},
+    {"name": "reverse_bottle_left", "arm": "left", "destination_xy": null}
+  ],
+  "data_gate": "Both teacher legs and exact saved float32 endpoint replays must pass. Retain every failure. This is not direct hand-to-hand transfer or a learned result.",
+  "storage_reserve_gib": 10
+}

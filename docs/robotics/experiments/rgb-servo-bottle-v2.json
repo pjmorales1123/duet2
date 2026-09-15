@@ -1,0 +1,29 @@
+{
+  "schema": "talos.rgb-servo-bottle.v2",
+  "declared_on": "2026-09-13",
+  "parent": "docs/robotics/experiments/rgb-servo-bottle-v1.json",
+  "previous_result": "V1 finished all 48 frozen trials: 2/12 nominal live, 1/12 nominal frozen, 3/12 pushed live, 0/12 pushed frozen. Seven seeds were refused before motion. Preserve the complete package; do not tune that candidate or reuse its final scenes for selection.",
+  "purpose": "Distinguish neural-map approximation failures from orientation/workspace limits, then test a bounded corrective revision only if diagnostics support one.",
+  "baseline": "Keep models/dinner_suite, bottle_visual, bottle_relays and bottle_servo_v1 unchanged.",
+  "observer": "Frozen V4 observer and rigid 103 mm geometry from models/bottle_servo_v1; no further perception training in this protocol.",
+  "stages": [
+    "A: Compare the V1 neural motor guard against offline IK at the original 24 XY grid points and grasp/approach/lift heights, plus all three destination heights. At most two solver starts per point/arm; retain every refusal and solver failure. These are kinematic probes, not physical successes.",
+    "B: If approximation error is a material source of refusals, collect bounded extra kinematic labels and refine a separate motor candidate. Preserve the 1.5 mm / 0.025 axis guard and joint limits. No runtime IK, object-state input or nearest-demonstration action retrieval.",
+    "C: Test at most two controller revisions on exposed training/development cases. Evaluate image-based correction after grasp only where the frozen observer remains observable. Reject missing/ambiguous images explicitly; retain every failed trial.",
+    "D: Freeze source/models before all 48 new final trials: nominal live, nominal frozen, pushed live and pushed frozen. Preserve all 12 seeds per condition, including unsupported goals."
+  ],
+  "workspace_m": {"x": [-0.14, 0.16], "y": [-0.18, -0.06], "z": "table support through 8 cm lift"},
+  "probe": {"x_samples_m": [-0.14,-0.08,-0.02,0.04,0.10,0.16], "y_samples_m": [-0.18,-0.14,-0.10,-0.06], "height_above_table_m": [0.1275,0.1825,0.1975], "destination_height_above_table_m": [0.1275,0.198], "scene_seed": 2026095101, "max_solver_calls": 512, "max_wall_minutes": 10},
+  "training_seed_range": [2026095601,2026095616],
+  "development_seeds": [2026095701,2026095702,2026095703,2026095704,2026095705,2026095706],
+  "evaluation_seeds": [2026095801,2026095802,2026095803,2026095804,2026095805,2026095806,2026095807,2026095808,2026095809,2026095810,2026095811,2026095812],
+  "pose_generator": "Unchanged original uniform XY/yaw generator; evaluation outcomes may not inform candidate selection.",
+  "destinations_m": [[0.10,-0.115],[0.16,-0.06],[0.20,0.05]],
+  "destination_selection": "scene seed modulo 3, unchanged",
+  "push_protocol": "docs/robotics/experiments/rgb-servo-push-v1.json",
+  "motor_label_rng_seed": 2026095901,
+  "motor_development_rng_seed": 2026095902,
+  "budget": {"max_new_kinematic_attempts": 8192, "max_new_teacher_episodes": 0, "max_additional_adam_steps": 12000, "max_peak_vram_gib": 10, "max_training_minutes": 15, "max_new_data_mib": 256, "reserve_gib": 10},
+  "promotion_gate": "At least 8/12 nominal-live and 8/12 pushed-live physical successes, with unchanged monitors, and a live-image advantage over frozen images among at least four seeds where both nominal conditions pass. Otherwise keep experimental; report every result.",
+  "scope": "Known upright bottle and finite workspace only. Solver failure is not proof of physical unreachability; a kinematic solution is not proof of collision-free manipulation."
+}

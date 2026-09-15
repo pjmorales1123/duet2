@@ -1,0 +1,21 @@
+{
+  "schema": "talos.rgb-servo-observer.v1",
+  "declared_on": "2026-09-13",
+  "parent": "docs/robotics/experiments/rgb-servo-bottle-v1.json",
+  "reason": "The exposed 96-frame probe found no frame with two unique RGB detections. The amber arm produces false candidates and the drawer camera loses the bottle from view.",
+  "scope": "Known bottle position and vertical axis from three fixed RGB views. Axial yaw is not reliably observable on this nearly rotationally symmetric object and is not an output. Static rendered training examples are perception labels, not physical demonstrations.",
+  "views": ["servo_overhead", "servo_left", "servo_right"],
+  "keypoints_local_m": [[0,0,0.025],[0,0,0.128]],
+  "image_shape": [240,320,3],
+  "train_states": 1280,
+  "development_states": 256,
+  "train_rng_seed": 2026095401,
+  "development_rng_seed": 2026095402,
+  "position_bounds_m": {"x": [-0.16,0.23], "y": [-0.20,0.09], "height_above_table": [0,0.08]},
+  "randomization": "Bottle position, yaw, slight tilt, lighting intensity/color, robot poses sampled from exposed seed-42 physical motions with bounded joint noise. Ten percent absent-bottle negatives. Simulator segmentation and projected keypoints are labels only.",
+  "split_rule": "All three views of one state remain in one split. No final physical evaluation seed or image is used for training or selection.",
+  "architecture": "Small custom RGB encoder/decoder, two keypoint heatmaps, foreground mask and visibility head. No pretrained weights or external images.",
+  "budget": {"max_new_data_gib": 2, "max_training_minutes": 30, "max_adam_steps": 30000, "max_peak_vram_gib": 10, "reserve_gib": 10},
+  "development_gate": "Before control integration report accepted coverage, false positives on absent/occluded examples, per-view pixel error, triangulation residual and 3D error. Target accepted 3D position error p95 below 3 mm; retain failures and rejected cases. Pilot and architecture revisions are exposed development, not holdouts.",
+  "not_yet_verified": "This protocol does not establish a working observer, corrective controller, or workspace coverage. Physical demonstrations and paired live/frozen image disturbance trials remain separate stages."
+}

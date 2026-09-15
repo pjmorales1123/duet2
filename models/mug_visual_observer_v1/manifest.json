@@ -1,0 +1,9 @@
+{
+  "schema": "talos.mug-visual-observer.v1",
+  "files": {
+    "protocol.json": "d36e25817a7e44c956b7c85b32bf3b507289257474d5a1d6c8fe3f407f4d0a61",
+    "step-006000.safetensors": "0e00ada4eb00574a68094d58e7498d551626bb8aac350f1b05d50889f38e746b",
+    "step-012000.safetensors": "b26fca746bc54b65fb91f4660ee03d7fabb57a680c80b3acd85814800d3a0923"
+  },
+  "bytes": 2423148
+}

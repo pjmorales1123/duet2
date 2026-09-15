@@ -1,0 +1,16 @@
+{
+  "schema": "talos.bottle-approach-feedback.v1",
+  "declared_on": "2026-09-13",
+  "question": "Does refreshing current RGB during the initial neural approach improve recovery from small physical bottle nudges?",
+  "baseline": "models/bottle_visual, unchanged initial-image conditioning",
+  "candidate": "Same weights and encoding, with 5 Hz RGB refresh until internal progress 3.0 seconds, then fixed context. Maximum centroid shift 8 pixels. Missing/ambiguous observations cause refusal.",
+  "baseline_feasibility": "Exposed seed 42 without disturbance passes before perturbation trials: 0.973 mm release error and parked arms. This is not a holdout result.",
+  "development_seeds": [42, 2026091801, 2026091802, 2026091803],
+  "forces_x_n": [-1.2, -0.9, -0.6, 0.6, 0.9, 1.2],
+  "force_window_simulation_s": [0.8, 0.85],
+  "comparison": "Run both initial-image and refresh modes for identical seed/force cases. Record every outcome and actual states. Compare delivered displacement, physical success and errors. No teacher action generation, pose feedback or hidden force is permitted in the controller.",
+  "first_gate": "Inspect all seed-42 paired perturbation outcomes before the additional development seeds. Retain failures and report zero-displacement nudges separately.",
+  "completion": "A successful experiment establishes only pregrasp correction under measured perturbations, not continuous correction through grasp, carrying or release, or wider reachable-workspace coverage.",
+  "storage_reserve_gib": 10,
+  "expected_exports_gib": 1
+}

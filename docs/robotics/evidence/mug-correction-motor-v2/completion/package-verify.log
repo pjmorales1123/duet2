@@ -1,0 +1,1 @@
+{'passed': True, 'checked_manifest_files': 101, 'states': 1024, 'maximum_callable_joint_delta_difference_rad': 0.0, 'summary': {'attempted': 1024, 'accepted': 1024, 'p95_position_error_mm': 0.06079014338857668, 'maximum_position_error_mm': 0.13120422998709932, 'maximum_axis_error': 0.0003593283750716029, 'gate_passed': True}}

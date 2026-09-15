@@ -1,0 +1,24 @@
+{
+  "schema": "talos.raw-rgbd-plates.v1",
+  "scope": "One exposed V24 saved RGB-D scene; known-circle plate observability diagnosis only, not generalization or control.",
+  "white_minimum_channel": 190,
+  "white_maximum_channel_range": 45,
+  "minimum_height_m": 0.002,
+  "maximum_height_m": 0.030,
+  "table_abs_x_m": 0.47,
+  "table_y_min_m": -0.31,
+  "table_y_max_m": 0.45,
+  "minimum_component_pixels": 400,
+  "extent_quantile": 0.01,
+  "radius_tolerance_m": 0.006,
+  "surface_height_tolerance_m": 0.002,
+  "minimum_axis_ratio": 0.90,
+  "minimum_agreeing_views": 2,
+  "maximum_view_center_disagreement_m": 0.008,
+  "minimum_orientation_error_margin_m": 0.004,
+  "items": {
+    "plate": {"visible_base_radius_m": 0.058, "body_height_m": 0.024, "face_up_base_surface_height_m": 0.006},
+    "side_plate": {"visible_base_radius_m": 0.045, "body_height_m": 0.012, "face_up_base_surface_height_m": 0.006}
+  },
+  "score_gates": {"body_origin_mm": 15.0, "body_axis_deg": 10.0}
+}

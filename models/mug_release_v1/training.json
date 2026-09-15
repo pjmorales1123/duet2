@@ -1,0 +1,194 @@
+{
+  "schema": "talos.mug-release.v1",
+  "protocol_sha256": "d31f774eff69c23152b78a6f0dff04696362b0745fcf6ddba88f73e7d933679a",
+  "source_sha256": "2a2125ed4137131a19250c944a5adca0776473b2c0b269d5f80c287336e6e580",
+  "training_gate_sha256": "316502a12f4750ec0a79fa9a9df36645290fbcd2b3211970a2b8f4aaf2bead28",
+  "warm_start_sha256": "4a239422c24726a3c1319428f2dbf40e79b5f4ab3cf50f66ca53eb0b4134df62",
+  "script_sha256": "563ab814c415ee364ecba3303d8c71978882aec2df5be937feb1470dee5084bb",
+  "helper_sha256": "686b3086700d2a6594726af57e3a3a5408fab1dde08c96170820ae7af8008eee",
+  "runtime_source_sha256": {
+    "simulation_lab/primitive_policy.py": "60c009448171533385df1be82e3f64ed395f28d3e03145eb2f10ab6a791ef143"
+  },
+  "parent_git_revision": "33755ed56dd12e27bcd2be32f8fc09ee2f3e5b02",
+  "settings": {
+    "steps": 18000,
+    "candidate_steps": [
+      18000
+    ],
+    "batch_size": 1024,
+    "learning_rate": 8e-05,
+    "final_learning_rate": 4e-06,
+    "optimizer": "AdamW",
+    "weight_decay": 1e-06,
+    "seed": 2026099501,
+    "initialization": "Original v6 mug weights, preserving exact visual/action normalization.",
+    "loss": "Weighted mean normalized motor-target squared error; all endpoints retained.",
+    "stage_loss_weights": {
+      "align": 4.0,
+      "lower": 4.0,
+      "release": 4.0
+    },
+    "other_stage_loss_weight": 1.0,
+    "precision": "FP32 CUDA; TF32 disabled"
+  },
+  "normalization": "Exact preserved original visual/action normalization; no re-estimation.",
+  "environment": {
+    "python": "3.12.10",
+    "torch": "2.8.0+cu128",
+    "numpy": "2.2.6",
+    "openvino": "2026.3.0",
+    "gpu": "NVIDIA GeForce RTX 4070"
+  },
+  "initial_mse": {
+    "unweighted": 0.005815309386554354,
+    "weighted": 0.012603790826639283
+  },
+  "endpoints": 34973,
+  "stage_endpoint_counts": {
+    "approach": 4961,
+    "descend": 2747,
+    "close": 4387,
+    "lift": 3157,
+    "hold": 1517,
+    "align": 3567,
+    "lower": 2542,
+    "release": 3567,
+    "retract": 2747,
+    "park": 4879,
+    "verify": 902
+  },
+  "steps": [
+    {
+      "step": 1,
+      "loss": 0.008989258669316769,
+      "wall_seconds": 0.10633300011977553,
+      "peak_torch_reserved_gib": 0.048828125
+    },
+    {
+      "step": 1000,
+      "loss": 0.0003026499762199819,
+      "wall_seconds": 3.9436768000014126,
+      "peak_torch_reserved_gib": 0.048828125
+    },
+    {
+      "step": 2000,
+      "loss": 0.00016268109902739525,
+      "wall_seconds": 7.847729000262916,
+      "peak_torch_reserved_gib": 0.048828125
+    },
+    {
+      "step": 3000,
+      "loss": 0.00015474694373551756,
+      "wall_seconds": 11.732316300272942,
+      "peak_torch_reserved_gib": 0.048828125
+    },
+    {
+      "step": 4000,
+      "loss": 0.00012715319462586194,
+      "wall_seconds": 15.597233999986202,
+      "peak_torch_reserved_gib": 0.048828125
+    },
+    {
+      "step": 5000,
+      "loss": 0.00011213427933398634,
+      "wall_seconds": 19.596512299962342,
+      "peak_torch_reserved_gib": 0.048828125
+    },
+    {
+      "step": 6000,
+      "loss": 9.772335761226714e-05,
+      "wall_seconds": 23.54864520020783,
+      "peak_torch_reserved_gib": 0.048828125
+    },
+    {
+      "step": 7000,
+      "loss": 8.80105872056447e-05,
+      "wall_seconds": 27.458740199916065,
+      "peak_torch_reserved_gib": 0.048828125
+    },
+    {
+      "step": 8000,
+      "loss": 8.797211921773851e-05,
+      "wall_seconds": 31.401282799895853,
+      "peak_torch_reserved_gib": 0.048828125
+    },
+    {
+      "step": 9000,
+      "loss": 9.031579247675836e-05,
+      "wall_seconds": 35.30760900024325,
+      "peak_torch_reserved_gib": 0.048828125
+    },
+    {
+      "step": 10000,
+      "loss": 8.945545414462686e-05,
+      "wall_seconds": 39.16808680025861,
+      "peak_torch_reserved_gib": 0.048828125
+    },
+    {
+      "step": 11000,
+      "loss": 8.484857244184241e-05,
+      "wall_seconds": 43.09427700005472,
+      "peak_torch_reserved_gib": 0.048828125
+    },
+    {
+      "step": 12000,
+      "loss": 8.438443182967603e-05,
+      "wall_seconds": 47.06454830011353,
+      "peak_torch_reserved_gib": 0.048828125
+    },
+    {
+      "step": 13000,
+      "loss": 7.380088209174573e-05,
+      "wall_seconds": 50.93004180025309,
+      "peak_torch_reserved_gib": 0.048828125
+    },
+    {
+      "step": 14000,
+      "loss": 7.615608774358407e-05,
+      "wall_seconds": 54.851522100158036,
+      "peak_torch_reserved_gib": 0.048828125
+    },
+    {
+      "step": 15000,
+      "loss": 6.53276511002332e-05,
+      "wall_seconds": 58.811974099837244,
+      "peak_torch_reserved_gib": 0.048828125
+    },
+    {
+      "step": 16000,
+      "loss": 7.809514499967918e-05,
+      "wall_seconds": 62.723196799866855,
+      "peak_torch_reserved_gib": 0.048828125
+    },
+    {
+      "step": 17000,
+      "loss": 6.519629096146673e-05,
+      "wall_seconds": 66.63205659994856,
+      "peak_torch_reserved_gib": 0.048828125
+    },
+    {
+      "step": 18000,
+      "loss": 7.801422907505184e-05,
+      "wall_seconds": 70.56621930003166,
+      "peak_torch_reserved_gib": 0.048828125
+    }
+  ],
+  "completed_steps": 18000,
+  "training_completed": true,
+  "selection": {
+    "path": ".run/mug-release-v1/fit/step-018000",
+    "sha256": "e3866a1782fb7525823106d0c44421e412eed67a3682c37e29022de7eb1d391d"
+  },
+  "scope": "One declared weighted warm fit after physical input replay; no candidate physical or Intel result yet.",
+  "wall_seconds": 70.56857270002365,
+  "peak_torch_reserved_gib": 0.048828125,
+  "final_mse": {
+    "unweighted": 7.049765489929225e-05,
+    "weighted": 7.512541899189212e-05
+  },
+  "stop_reason": null,
+  "checkpoint": {
+    "path": ".run/mug-release-v1/fit/step-018000",
+    "sha256": "e3866a1782fb7525823106d0c44421e412eed67a3682c37e29022de7eb1d391d"
+  }
+}

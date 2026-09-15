@@ -1,0 +1,3588 @@
+{
+  "seed": 2026100502,
+  "split": "development",
+  "preset": "wide_left",
+  "variant": "frozen",
+  "instruction": "set the table",
+  "preflight": {
+    "free_bytes": 553959084032,
+    "estimated_additional_bytes": 16777216,
+    "reserve_bytes": 10737418240
+  },
+  "physics_state_writes_during_control": 0,
+  "hidden_forces": 0,
+  "equality_constraints": 0,
+  "first_correction_simulation_time": 136.17499999994865,
+  "source_freeze_sha256": "6ea0f1992d6a49d2c10bdcb524b3cdb52f33f9bea73e815aa5fccddac5b38a0e",
+  "initial_state_sha256": "702f187b6870b1f520859b29e4ccdcce3b3acb2a58a9e495e88f83a541e191fd",
+  "visual_plan": {
+    "steps": [
+      "reverse_bottle_right",
+      "reverse_bottle_left",
+      "plate",
+      "mug",
+      "drawer",
+      "fork",
+      "spoon"
+    ],
+    "reasons": [
+      "Use the right arm to reach the bottle, release on the shared table, then let the left arm finish placement."
+    ],
+    "observation": {
+      "bottle_path_clear": false,
+      "drawer_path_clear": false,
+      "drawer_open": false,
+      "source": "calibrated RGB color/geometry rules; no simulator object positions",
+      "bottle_centroid_px": [
+        138.56593132019043,
+        175.50549030303955
+      ],
+      "bottle_region": "left_reach",
+      "plate_centroid_px": [
+        128.328857421875,
+        133.50671768188477
+      ],
+      "drawer_lining_pixels": 383
+    },
+    "instruction": "set the table",
+    "interpreter": "bounded grammar and RGB-grounded dependencies"
+  },
+  "expected_steps": [
+    "reverse_bottle_right",
+    "reverse_bottle_left",
+    "plate",
+    "mug",
+    "drawer",
+    "fork",
+    "spoon"
+  ],
+  "status": "failed",
+  "task": {
+    "status": "failed",
+    "active": false,
+    "stage": "neural_control",
+    "stage_label": "Neural mug movement",
+    "message": "Cumulative visual correction exceeds the declared joint range. Physics paused.",
+    "arm": "right",
+    "tube_id": "mug",
+    "kind": "learned_dinner_sequence",
+    "source_slot": null,
+    "recording_id": null,
+    "destination_slot": null,
+    "progress": 0.5184440005363603,
+    "stages": [
+      {
+        "id": "neural_control",
+        "label": "Camera-conditioned neural movement"
+      }
+    ],
+    "elapsed_s": 137.975,
+    "attempts": 0,
+    "metrics": {
+      "placement_error_mm": 12.713746608833418,
+      "placement_z_error_mm": 15.426483690172743,
+      "placement_yaw_error_deg": 0.0,
+      "speed_mm_s": 13.79644227548946,
+      "max_lift_cm": 3.3154524816473407,
+      "hold_verified_s": 9.5649999999913,
+      "longest_unsupported_gap_s": 0.0,
+      "stable_release_and_park_s": 0.0,
+      "both_arms_parked": false,
+      "other_object_displacements_m": {
+        "plate": 1.4373927999626808e-07,
+        "side_plate": 1.0206824559067866e-07,
+        "glass": 1.3780688494306802e-07,
+        "bottle": 1.2041128856182797e-07,
+        "fork": 9.862103115188334e-05,
+        "spoon": 4.14169459748014e-06
+      },
+      "other_object_max_displacement_m": 9.862103115188334e-05,
+      "parked_arm_max_motion_deg": 0.003797423166421309,
+      "unexpected_collisions": 0
+    },
+    "history": [
+      {
+        "stage": "failed",
+        "at_s": 26.605,
+        "message": "Cumulative visual correction exceeds the declared joint range. Physics paused."
+      }
+    ],
+    "observation": "Initial RGB neural trajectory plus frozen stereo late-placement correction",
+    "attachment": "physical_contacts_only",
+    "object_id": "mug",
+    "skill_id": "mug",
+    "skill_label": "mug",
+    "policy_mode": "learned_dinner",
+    "physical_monitor": "privileged state for stop/score only; never motor target generation",
+    "teacher_updates": 0,
+    "policy_details": {
+      "kind": "Camera-conditioned neural motion primitive with programmed joint-feedback progress guard",
+      "continuous_visual_correction": false,
+      "initial_camera_conditioning": true,
+      "pregrasp_visual_feedback": false,
+      "visual_feedback_scope": "Late mug placement only; frozen initial correction images",
+      "visual_refresh_calls": 0,
+      "camera_support_check": "initial_only",
+      "visual_encoder": "dinner_rgb_geometry",
+      "neural_runtime": "OpenVINO",
+      "neural_execution_devices": [
+        "CPU"
+      ],
+      "inference_demonstration_actions": false,
+      "simulator_clock_or_object_pose_input": false,
+      "internal_progress_endpoints": 536,
+      "tracking_guard_wait_calls": 0,
+      "local_motor": "OpenVINO CPU neural differential map with explicit joint limiting and forward-only refusal",
+      "correction_queries": 10,
+      "correction_mode": "frozen",
+      "correction_seconds": [
+        24.8,
+        27.6
+      ],
+      "inference_object_state": false,
+      "inference_inverse_kinematics": false
+    },
+    "inference_median_ms": 1.6608000732958317,
+    "completion_note": "Physical release and parked arms required before the next skill.",
+    "inactive_arm_control": "hold_previous_targets",
+    "mug_visual_corrections": [
+      {
+        "nominal_seconds": 24.8,
+        "mode": "frozen",
+        "status": "issued",
+        "current_rgb_sha256": [
+          "d6f840abc94cfff387fdbd1a6dadd0d30da57ed8161b43f671880bd2c48eaf73",
+          "f17410ba420cf951cc81c79c05be0552cd7bac8652f040ad74ea61f0c27256fc"
+        ],
+        "used_rgb_sha256": [
+          "d6f840abc94cfff387fdbd1a6dadd0d30da57ed8161b43f671880bd2c48eaf73",
+          "f17410ba420cf951cc81c79c05be0552cd7bac8652f040ad74ea61f0c27256fc"
+        ],
+        "observation": {
+          "status": "observed",
+          "reason": null,
+          "accepted_views": [
+            0,
+            1
+          ],
+          "views": {
+            "pixels": [
+              [
+                [
+                  149.64707946777344,
+                  113.98226928710938
+                ],
+                [
+                  150.12132263183594,
+                  79.55337524414062
+                ]
+              ],
+              [
+                [
+                  171.1827392578125,
+                  133.4112548828125
+                ],
+                [
+                  170.78634643554688,
+                  103.66343688964844
+                ]
+              ]
+            ],
+            "peaks": [
+              [
+                0.10153955221176147,
+                0.10033934563398361
+              ],
+              [
+                0.09787885844707489,
+                0.10424347221851349
+              ]
+            ],
+            "variances": [
+              [
+                11.528728485107422,
+                12.073416709899902
+              ],
+              [
+                11.637478828430176,
+                11.507204055786133
+              ]
+            ],
+            "visibility": [
+              1.0,
+              0.9999996423721313
+            ],
+            "foreground_pixels": [
+              1820,
+              2036
+            ]
+          },
+          "points_m": [
+            [
+              0.2592795332118056,
+              0.0015364723837804019,
+              0.7936667470304077
+            ],
+            [
+              0.2653218627576443,
+              0.004812888157485644,
+              0.8507399618039511
+            ]
+          ],
+          "midpoint_m": [
+            0.26230069798472494,
+            0.003174680270633023,
+            0.8222033544171794
+          ],
+          "axis_length_m": 0.0574856198648819,
+          "reprojection_error_px": 0.13366638095786096,
+          "observer_wall_ms": 47.16769978404045
+        },
+        "estimated_origin_m": [
+          0.25896699892495184,
+          0.0013670026023818549,
+          0.7907146841972934
+        ],
+        "requested_translation_m": [
+          0.0017133302025651666,
+          0.001031745907177734,
+          0.0
+        ],
+        "motor": {
+          "accepted": true,
+          "position_error_mm": 0.05858808729669448,
+          "axis_error": 0.00011146623774268255,
+          "joints": [
+            0.1609777957201004,
+            -0.1203087568283081,
+            0.31495869159698486,
+            1.3743650913238525,
+            -2.344926357269287
+          ],
+          "requested_translation_m": [
+            0.0017133301589637995,
+            0.0010317459236830473,
+            0.0
+          ],
+          "joint_delta_rad": [
+            0.008422714658081532,
+            0.010832328349351883,
+            -0.012002858333289623,
+            0.0010601412504911423,
+            -0.00442125927656889
+          ],
+          "actual_translation_m": [
+            0.0017627169582223323,
+            0.0010628907522697469,
+            -4.848472376695057e-06
+          ],
+          "original_requested_translation_m": [
+            0.0017133301589637995,
+            0.0010317459236830473,
+            0.0
+          ],
+          "raw_neural_joint_delta_rad": [
+            0.008422714658081532,
+            0.010832328349351883,
+            -0.012002858333289623,
+            0.0010601412504911423,
+            -0.00442125927656889
+          ],
+          "step_fraction": 1.0,
+          "neural_inference_ms": 2.314699813723564
+        },
+        "joint_offset_rad": [
+          0.008422714658081532,
+          0.010832328349351883,
+          -0.012002858333289623,
+          0.0010601412504911423,
+          -0.00442125927656889
+        ]
+      },
+      {
+        "nominal_seconds": 25.0,
+        "mode": "frozen",
+        "status": "issued",
+        "current_rgb_sha256": [
+          "b50d41197beaf81415ec75d54ae376067167f24a33c07420006e62051ba54eb0",
+          "29e4c80f37262382f813059dfdffa9067b786e112d1cb62d745da7b5d6c7d8e4"
+        ],
+        "used_rgb_sha256": [
+          "d6f840abc94cfff387fdbd1a6dadd0d30da57ed8161b43f671880bd2c48eaf73",
+          "f17410ba420cf951cc81c79c05be0552cd7bac8652f040ad74ea61f0c27256fc"
+        ],
+        "observation": {
+          "status": "observed",
+          "reason": null,
+          "accepted_views": [
+            0,
+            1
+          ],
+          "views": {
+            "pixels": [
+              [
+                [
+                  149.64707946777344,
+                  113.98226928710938
+                ],
+                [
+                  150.12132263183594,
+                  79.55337524414062
+                ]
+              ],
+              [
+                [
+                  171.1827392578125,
+                  133.4112548828125
+                ],
+                [
+                  170.78634643554688,
+                  103.66343688964844
+                ]
+              ]
+            ],
+            "peaks": [
+              [
+                0.10153955221176147,
+                0.10033934563398361
+              ],
+              [
+                0.09787885844707489,
+                0.10424347221851349
+              ]
+            ],
+            "variances": [
+              [
+                11.528728485107422,
+                12.073416709899902
+              ],
+              [
+                11.637478828430176,
+                11.507204055786133
+              ]
+            ],
+            "visibility": [
+              1.0,
+              0.9999996423721313
+            ],
+            "foreground_pixels": [
+              1820,
+              2036
+            ]
+          },
+          "points_m": [
+            [
+              0.2592795332118056,
+              0.0015364723837804019,
+              0.7936667470304077
+            ],
+            [
+              0.2653218627576443,
+              0.004812888157485644,
+              0.8507399618039511
+            ]
+          ],
+          "midpoint_m": [
+            0.26230069798472494,
+            0.003174680270633023,
+            0.8222033544171794
+          ],
+          "axis_length_m": 0.0574856198648819,
+          "reprojection_error_px": 0.13366638095786096,
+          "observer_wall_ms": 33.310200087726116
+        },
+        "estimated_origin_m": [
+          0.25896699892495184,
+          0.0013670026023818549,
+          0.7907146841972934
+        ],
+        "requested_translation_m": [
+          0.0017133302025651666,
+          0.001031745907177734,
+          0.0
+        ],
+        "motor": {
+          "accepted": true,
+          "position_error_mm": 0.06032429395398727,
+          "axis_error": 9.447707836611096e-05,
+          "joints": [
+            0.16944722831249237,
+            -0.10987603664398193,
+            0.3042175769805908,
+            1.3744405508041382,
+            -2.3492813110351562
+          ],
+          "requested_translation_m": [
+            0.0017133301589637995,
+            0.0010317459236830473,
+            0.0
+          ],
+          "joint_delta_rad": [
+            0.008320003747940063,
+            0.010984053835272789,
+            -0.012246496975421906,
+            0.001169533934444189,
+            -0.004143011290580034
+          ],
+          "actual_translation_m": [
+            0.0017645552880573012,
+            0.0010625350431386904,
+            -8.187595101571965e-06
+          ],
+          "original_requested_translation_m": [
+            0.0017133301589637995,
+            0.0010317459236830473,
+            0.0
+          ],
+          "raw_neural_joint_delta_rad": [
+            0.008320003747940063,
+            0.010984053835272789,
+            -0.012246496975421906,
+            0.001169533934444189,
+            -0.004143011290580034
+          ],
+          "step_fraction": 1.0,
+          "neural_inference_ms": 0.29740016907453537
+        },
+        "joint_offset_rad": [
+          0.016742718406021595,
+          0.021816382184624672,
+          -0.02424935530871153,
+          0.0022296751849353313,
+          -0.008564270567148924
+        ]
+      },
+      {
+        "nominal_seconds": 25.2,
+        "mode": "frozen",
+        "status": "issued",
+        "current_rgb_sha256": [
+          "05598628b9b56bdb1f10aed3315736800da9b7f0365522df2f9b4f6686078bfc",
+          "d06858f03c268c2fd4a1cd3dd48652ffa3dd7cab9191d27c179f161615e8aa59"
+        ],
+        "used_rgb_sha256": [
+          "d6f840abc94cfff387fdbd1a6dadd0d30da57ed8161b43f671880bd2c48eaf73",
+          "f17410ba420cf951cc81c79c05be0552cd7bac8652f040ad74ea61f0c27256fc"
+        ],
+        "observation": {
+          "status": "observed",
+          "reason": null,
+          "accepted_views": [
+            0,
+            1
+          ],
+          "views": {
+            "pixels": [
+              [
+                [
+                  149.64707946777344,
+                  113.98226928710938
+                ],
+                [
+                  150.12132263183594,
+                  79.55337524414062
+                ]
+              ],
+              [
+                [
+                  171.1827392578125,
+                  133.4112548828125
+                ],
+                [
+                  170.78634643554688,
+                  103.66343688964844
+                ]
+              ]
+            ],
+            "peaks": [
+              [
+                0.10153955221176147,
+                0.10033934563398361
+              ],
+              [
+                0.09787885844707489,
+                0.10424347221851349
+              ]
+            ],
+            "variances": [
+              [
+                11.528728485107422,
+                12.073416709899902
+              ],
+              [
+                11.637478828430176,
+                11.507204055786133
+              ]
+            ],
+            "visibility": [
+              1.0,
+              0.9999996423721313
+            ],
+            "foreground_pixels": [
+              1820,
+              2036
+            ]
+          },
+          "points_m": [
+            [
+              0.2592795332118056,
+              0.0015364723837804019,
+              0.7936667470304077
+            ],
+            [
+              0.2653218627576443,
+              0.004812888157485644,
+              0.8507399618039511
+            ]
+          ],
+          "midpoint_m": [
+            0.26230069798472494,
+            0.003174680270633023,
+            0.8222033544171794
+          ],
+          "axis_length_m": 0.0574856198648819,
+          "reprojection_error_px": 0.13366638095786096,
+          "observer_wall_ms": 30.24100000038743
+        },
+        "estimated_origin_m": [
+          0.25896699892495184,
+          0.0013670026023818549,
+          0.7907146841972934
+        ],
+        "requested_translation_m": [
+          0.0017133302025651666,
+          0.001031745907177734,
+          0.0
+        ],
+        "motor": {
+          "accepted": true,
+          "position_error_mm": 0.06257836040745662,
+          "axis_error": 6.384028364133205e-05,
+          "joints": [
+            0.17775851488113403,
+            -0.09873532503843307,
+            0.29424017667770386,
+            1.3732435703277588,
+            -2.3543007373809814
+          ],
+          "requested_translation_m": [
+            0.0017133301589637995,
+            0.0010317459236830473,
+            0.0
+          ],
+          "joint_delta_rad": [
+            0.00820908322930336,
+            0.011152267456054688,
+            -0.012513363733887672,
+            0.0012995782308280468,
+            -0.004104228690266609
+          ],
+          "actual_translation_m": [
+            0.0017659365124854665,
+            0.0010633309165247115,
+            -1.2288652799674615e-05
+          ],
+          "original_requested_translation_m": [
+            0.0017133301589637995,
+            0.0010317459236830473,
+            0.0
+          ],
+          "raw_neural_joint_delta_rad": [
+            0.00820908322930336,
+            0.011152267456054688,
+            -0.012513363733887672,
+            0.0012995782308280468,
+            -0.004104228690266609
+          ],
+          "step_fraction": 1.0,
+          "neural_inference_ms": 0.2410002052783966
+        },
+        "joint_offset_rad": [
+          0.024951801635324955,
+          0.03296864964067936,
+          -0.0367627190425992,
+          0.003529253415763378,
+          -0.012668499257415533
+        ]
+      },
+      {
+        "nominal_seconds": 25.4,
+        "mode": "frozen",
+        "status": "issued",
+        "current_rgb_sha256": [
+          "040db91d26e2b2c8ab9cc07ed2f17931783fd3256989a3bb9473aa5d09d546aa",
+          "36bd6a85ea7c7c87e4b072fd2109404d598888e8fdc19d83e6aa3e1e37a30714"
+        ],
+        "used_rgb_sha256": [
+          "d6f840abc94cfff387fdbd1a6dadd0d30da57ed8161b43f671880bd2c48eaf73",
+          "f17410ba420cf951cc81c79c05be0552cd7bac8652f040ad74ea61f0c27256fc"
+        ],
+        "observation": {
+          "status": "observed",
+          "reason": null,
+          "accepted_views": [
+            0,
+            1
+          ],
+          "views": {
+            "pixels": [
+              [
+                [
+                  149.64707946777344,
+                  113.98226928710938
+                ],
+                [
+                  150.12132263183594,
+                  79.55337524414062
+                ]
+              ],
+              [
+                [
+                  171.1827392578125,
+                  133.4112548828125
+                ],
+                [
+                  170.78634643554688,
+                  103.66343688964844
+                ]
+              ]
+            ],
+            "peaks": [
+              [
+                0.10153955221176147,
+                0.10033934563398361
+              ],
+              [
+                0.09787885844707489,
+                0.10424347221851349
+              ]
+            ],
+            "variances": [
+              [
+                11.528728485107422,
+                12.073416709899902
+              ],
+              [
+                11.637478828430176,
+                11.507204055786133
+              ]
+            ],
+            "visibility": [
+              1.0,
+              0.9999996423721313
+            ],
+            "foreground_pixels": [
+              1820,
+              2036
+            ]
+          },
+          "points_m": [
+            [
+              0.2592795332118056,
+              0.0015364723837804019,
+              0.7936667470304077
+            ],
+            [
+              0.2653218627576443,
+              0.004812888157485644,
+              0.8507399618039511
+            ]
+          ],
+          "midpoint_m": [
+            0.26230069798472494,
+            0.003174680270633023,
+            0.8222033544171794
+          ],
+          "axis_length_m": 0.0574856198648819,
+          "reprojection_error_px": 0.13366638095786096,
+          "observer_wall_ms": 39.17280025780201
+        },
+        "estimated_origin_m": [
+          0.25896699892495184,
+          0.0013670026023818549,
+          0.7907146841972934
+        ],
+        "requested_translation_m": [
+          0.0017133302025651666,
+          0.001031745907177734,
+          0.0
+        ],
+        "motor": {
+          "accepted": true,
+          "position_error_mm": 0.0655616897592589,
+          "axis_error": 2.3764306393634593e-05,
+          "joints": [
+            0.18597733974456787,
+            -0.08655282855033875,
+            0.2853921353816986,
+            1.3701914548873901,
+            -2.359609842300415
+          ],
+          "requested_translation_m": [
+            0.0017133301589637995,
+            0.0010317459236830473,
+            0.0
+          ],
+          "joint_delta_rad": [
+            0.00809057243168354,
+            0.011335212737321854,
+            -0.012810064479708672,
+            0.0014559173723682761,
+            -0.004279673099517822
+          ],
+          "actual_translation_m": [
+            0.0017670166565398882,
+            0.0010655403366161918,
+            -1.6553935985319512e-05
+          ],
+          "original_requested_translation_m": [
+            0.0017133301589637995,
+            0.0010317459236830473,
+            0.0
+          ],
+          "raw_neural_joint_delta_rad": [
+            0.00809057243168354,
+            0.011335212737321854,
+            -0.012810064479708672,
+            0.0014559173723682761,
+            -0.004279673099517822
+          ],
+          "step_fraction": 1.0,
+          "neural_inference_ms": 0.3248997963964939
+        },
+        "joint_offset_rad": [
+          0.033042374067008495,
+          0.04430386237800121,
+          -0.04957278352230787,
+          0.004985170788131654,
+          -0.016948172356933355
+        ]
+      },
+      {
+        "nominal_seconds": 25.6,
+        "mode": "frozen",
+        "status": "issued",
+        "current_rgb_sha256": [
+          "a7be95c0086a749621696f5a9cd5df89713b18b4166542ba2cc444fda01e14be",
+          "9c8ca2f4d5fb9da9c1f4499e2f6dbac29a4941d154b70ea984d879a87069cfde"
+        ],
+        "used_rgb_sha256": [
+          "d6f840abc94cfff387fdbd1a6dadd0d30da57ed8161b43f671880bd2c48eaf73",
+          "f17410ba420cf951cc81c79c05be0552cd7bac8652f040ad74ea61f0c27256fc"
+        ],
+        "observation": {
+          "status": "observed",
+          "reason": null,
+          "accepted_views": [
+            0,
+            1
+          ],
+          "views": {
+            "pixels": [
+              [
+                [
+                  149.64707946777344,
+                  113.98226928710938
+                ],
+                [
+                  150.12132263183594,
+                  79.55337524414062
+                ]
+              ],
+              [
+                [
+                  171.1827392578125,
+                  133.4112548828125
+                ],
+                [
+                  170.78634643554688,
+                  103.66343688964844
+                ]
+              ]
+            ],
+            "peaks": [
+              [
+                0.10153955221176147,
+                0.10033934563398361
+              ],
+              [
+                0.09787885844707489,
+                0.10424347221851349
+              ]
+            ],
+            "variances": [
+              [
+                11.528728485107422,
+                12.073416709899902
+              ],
+              [
+                11.637478828430176,
+                11.507204055786133
+              ]
+            ],
+            "visibility": [
+              1.0,
+              0.9999996423721313
+            ],
+            "foreground_pixels": [
+              1820,
+              2036
+            ]
+          },
+          "points_m": [
+            [
+              0.2592795332118056,
+              0.0015364723837804019,
+              0.7936667470304077
+            ],
+            [
+              0.2653218627576443,
+              0.004812888157485644,
+              0.8507399618039511
+            ]
+          ],
+          "midpoint_m": [
+            0.26230069798472494,
+            0.003174680270633023,
+            0.8222033544171794
+          ],
+          "axis_length_m": 0.0574856198648819,
+          "reprojection_error_px": 0.13366638095786096,
+          "observer_wall_ms": 30.656199902296066
+        },
+        "estimated_origin_m": [
+          0.25896699892495184,
+          0.0013670026023818549,
+          0.7907146841972934
+        ],
+        "requested_translation_m": [
+          0.0017133302025651666,
+          0.001031745907177734,
+          0.0
+        ],
+        "motor": {
+          "accepted": true,
+          "position_error_mm": 0.06898216715976109,
+          "axis_error": 3.4850789918474144e-05,
+          "joints": [
+            0.19420312345027924,
+            -0.07353691011667252,
+            0.27793368697166443,
+            1.3650230169296265,
+            -2.3645143508911133
+          ],
+          "requested_translation_m": [
+            0.0017133301589637995,
+            0.0010317459236830473,
+            0.0
+          ],
+          "joint_delta_rad": [
+            0.00796495657414198,
+            0.011523492634296417,
+            -0.01312553882598877,
+            0.0016351711237803102,
+            -0.004691417329013348
+          ],
+          "actual_translation_m": [
+            0.0017679591509767167,
+            0.0010683401273123005,
+            -2.085849655297789e-05
+          ],
+          "original_requested_translation_m": [
+            0.0017133301589637995,
+            0.0010317459236830473,
+            0.0
+          ],
+          "raw_neural_joint_delta_rad": [
+            0.00796495657414198,
+            0.011523492634296417,
+            -0.01312553882598877,
+            0.0016351711237803102,
+            -0.004691417329013348
+          ],
+          "step_fraction": 1.0,
+          "neural_inference_ms": 0.30980026349425316
+        },
+        "joint_offset_rad": [
+          0.041007330641150475,
+          0.05582735501229763,
+          -0.06269832234829664,
+          0.006620341911911964,
+          -0.021639589685946703
+        ]
+      },
+      {
+        "nominal_seconds": 25.8,
+        "mode": "frozen",
+        "status": "issued",
+        "current_rgb_sha256": [
+          "4ef7c9d5eee0d15391905a4fdefc61b60fc2b09bbf813e7cbf01f183050ae475",
+          "e3ed1c817a960f934523b635589771f1f4d25663076475dafb50c57e83947d00"
+        ],
+        "used_rgb_sha256": [
+          "d6f840abc94cfff387fdbd1a6dadd0d30da57ed8161b43f671880bd2c48eaf73",
+          "f17410ba420cf951cc81c79c05be0552cd7bac8652f040ad74ea61f0c27256fc"
+        ],
+        "observation": {
+          "status": "observed",
+          "reason": null,
+          "accepted_views": [
+            0,
+            1
+          ],
+          "views": {
+            "pixels": [
+              [
+                [
+                  149.64707946777344,
+                  113.98226928710938
+                ],
+                [
+                  150.12132263183594,
+                  79.55337524414062
+                ]
+              ],
+              [
+                [
+                  171.1827392578125,
+                  133.4112548828125
+                ],
+                [
+                  170.78634643554688,
+                  103.66343688964844
+                ]
+              ]
+            ],
+            "peaks": [
+              [
+                0.10153955221176147,
+                0.10033934563398361
+              ],
+              [
+                0.09787885844707489,
+                0.10424347221851349
+              ]
+            ],
+            "variances": [
+              [
+                11.528728485107422,
+                12.073416709899902
+              ],
+              [
+                11.637478828430176,
+                11.507204055786133
+              ]
+            ],
+            "visibility": [
+              1.0,
+              0.9999996423721313
+            ],
+            "foreground_pixels": [
+              1820,
+              2036
+            ]
+          },
+          "points_m": [
+            [
+              0.2592795332118056,
+              0.0015364723837804019,
+              0.7936667470304077
+            ],
+            [
+              0.2653218627576443,
+              0.004812888157485644,
+              0.8507399618039511
+            ]
+          ],
+          "midpoint_m": [
+            0.26230069798472494,
+            0.003174680270633023,
+            0.8222033544171794
+          ],
+          "axis_length_m": 0.0574856198648819,
+          "reprojection_error_px": 0.13366638095786096,
+          "observer_wall_ms": 33.23870012536645
+        },
+        "estimated_origin_m": [
+          0.25896699892495184,
+          0.0013670026023818549,
+          0.7907146841972934
+        ],
+        "requested_translation_m": [
+          0.0017133302025651666,
+          0.001031745907177734,
+          0.0
+        ],
+        "motor": {
+          "accepted": true,
+          "position_error_mm": 0.07348255153042844,
+          "axis_error": 9.220649041504411e-05,
+          "joints": [
+            0.2024228721857071,
+            -0.05976041033864021,
+            0.27226462960243225,
+            1.357450008392334,
+            -2.3693981170654297
+          ],
+          "requested_translation_m": [
+            0.0017133301589637995,
+            0.0010317459236830473,
+            0.0
+          ],
+          "joint_delta_rad": [
+            0.00783822126686573,
+            0.01171400398015976,
+            -0.013458182103931904,
+            0.0018361739348620176,
+            -0.005332552827894688
+          ],
+          "actual_translation_m": [
+            0.0017696782791554178,
+            0.001071782430311613,
+            -2.4932967478297208e-05
+          ],
+          "original_requested_translation_m": [
+            0.0017133301589637995,
+            0.0010317459236830473,
+            0.0
+          ],
+          "raw_neural_joint_delta_rad": [
+            0.00783822126686573,
+            0.01171400398015976,
+            -0.013458182103931904,
+            0.0018361739348620176,
+            -0.005332552827894688
+          ],
+          "step_fraction": 1.0,
+          "neural_inference_ms": 0.2516000531613827
+        },
+        "joint_offset_rad": [
+          0.048845551908016205,
+          0.06754135899245739,
+          -0.07615650445222855,
+          0.008456515846773982,
+          -0.02697214251384139
+        ]
+      },
+      {
+        "nominal_seconds": 26.0,
+        "mode": "frozen",
+        "status": "issued",
+        "current_rgb_sha256": [
+          "a02257be8f6c9b703a1f1ef41f0baf9fe9b38b604eef099dfb9f4db42efd961b",
+          "b17e19f06d10db85d1252e8cf23191f6b75a32e31b04457818a04d842446750b"
+        ],
+        "used_rgb_sha256": [
+          "d6f840abc94cfff387fdbd1a6dadd0d30da57ed8161b43f671880bd2c48eaf73",
+          "f17410ba420cf951cc81c79c05be0552cd7bac8652f040ad74ea61f0c27256fc"
+        ],
+        "observation": {
+          "status": "observed",
+          "reason": null,
+          "accepted_views": [
+            0,
+            1
+          ],
+          "views": {
+            "pixels": [
+              [
+                [
+                  149.64707946777344,
+                  113.98226928710938
+                ],
+                [
+                  150.12132263183594,
+                  79.55337524414062
+                ]
+              ],
+              [
+                [
+                  171.1827392578125,
+                  133.4112548828125
+                ],
+                [
+                  170.78634643554688,
+                  103.66343688964844
+                ]
+              ]
+            ],
+            "peaks": [
+              [
+                0.10153955221176147,
+                0.10033934563398361
+              ],
+              [
+                0.09787885844707489,
+                0.10424347221851349
+              ]
+            ],
+            "variances": [
+              [
+                11.528728485107422,
+                12.073416709899902
+              ],
+              [
+                11.637478828430176,
+                11.507204055786133
+              ]
+            ],
+            "visibility": [
+              1.0,
+              0.9999996423721313
+            ],
+            "foreground_pixels": [
+              1820,
+              2036
+            ]
+          },
+          "points_m": [
+            [
+              0.2592795332118056,
+              0.0015364723837804019,
+              0.7936667470304077
+            ],
+            [
+              0.2653218627576443,
+              0.004812888157485644,
+              0.8507399618039511
+            ]
+          ],
+          "midpoint_m": [
+            0.26230069798472494,
+            0.003174680270633023,
+            0.8222033544171794
+          ],
+          "axis_length_m": 0.0574856198648819,
+          "reprojection_error_px": 0.13366638095786096,
+          "observer_wall_ms": 30.14579974114895
+        },
+        "estimated_origin_m": [
+          0.25896699892495184,
+          0.0013670026023818549,
+          0.7907146841972934
+        ],
+        "requested_translation_m": [
+          0.0017133302025651666,
+          0.001031745907177734,
+          0.0
+        ],
+        "motor": {
+          "accepted": true,
+          "position_error_mm": 0.08083993253603516,
+          "axis_error": 0.00015593944773373568,
+          "joints": [
+            0.21037794649600983,
+            -0.04522740840911865,
+            0.2689051926136017,
+            1.3471794128417969,
+            -2.375640630722046
+          ],
+          "requested_translation_m": [
+            0.0017133301589637995,
+            0.0010317459236830473,
+            0.0
+          ],
+          "joint_delta_rad": [
+            0.007719056215137243,
+            0.011906556785106659,
+            -0.013811650685966015,
+            0.002061030827462673,
+            -0.0063451314345002174
+          ],
+          "actual_translation_m": [
+            0.0017740608741100283,
+            0.0010769356724591502,
+            -2.836831922781169e-05
+          ],
+          "original_requested_translation_m": [
+            0.0017133301589637995,
+            0.0010317459236830473,
+            0.0
+          ],
+          "raw_neural_joint_delta_rad": [
+            0.007719056215137243,
+            0.011906556785106659,
+            -0.013811650685966015,
+            0.002061030827462673,
+            -0.0063451314345002174
+          ],
+          "step_fraction": 1.0,
+          "neural_inference_ms": 0.3296998329460621
+        },
+        "joint_offset_rad": [
+          0.05656460812315345,
+          0.07944791577756405,
+          -0.08996815513819456,
+          0.010517546674236655,
+          -0.03331727394834161
+        ]
+      },
+      {
+        "nominal_seconds": 26.2,
+        "mode": "frozen",
+        "status": "issued",
+        "current_rgb_sha256": [
+          "c6310d2cccf215e30ba34b1c6bd4c498dfa9ff8269ca5c612efcbf9a00690b48",
+          "95096ebc44d1cec4d7b0568ffd119879fd4f51a7754f53293b26adedac5d2282"
+        ],
+        "used_rgb_sha256": [
+          "d6f840abc94cfff387fdbd1a6dadd0d30da57ed8161b43f671880bd2c48eaf73",
+          "f17410ba420cf951cc81c79c05be0552cd7bac8652f040ad74ea61f0c27256fc"
+        ],
+        "observation": {
+          "status": "observed",
+          "reason": null,
+          "accepted_views": [
+            0,
+            1
+          ],
+          "views": {
+            "pixels": [
+              [
+                [
+                  149.64707946777344,
+                  113.98226928710938
+                ],
+                [
+                  150.12132263183594,
+                  79.55337524414062
+                ]
+              ],
+              [
+                [
+                  171.1827392578125,
+                  133.4112548828125
+                ],
+                [
+                  170.78634643554688,
+                  103.66343688964844
+                ]
+              ]
+            ],
+            "peaks": [
+              [
+                0.10153955221176147,
+                0.10033934563398361
+              ],
+              [
+                0.09787885844707489,
+                0.10424347221851349
+              ]
+            ],
+            "variances": [
+              [
+                11.528728485107422,
+                12.073416709899902
+              ],
+              [
+                11.637478828430176,
+                11.507204055786133
+              ]
+            ],
+            "visibility": [
+              1.0,
+              0.9999996423721313
+            ],
+            "foreground_pixels": [
+              1820,
+              2036
+            ]
+          },
+          "points_m": [
+            [
+              0.2592795332118056,
+              0.0015364723837804019,
+              0.7936667470304077
+            ],
+            [
+              0.2653218627576443,
+              0.004812888157485644,
+              0.8507399618039511
+            ]
+          ],
+          "midpoint_m": [
+            0.26230069798472494,
+            0.003174680270633023,
+            0.8222033544171794
+          ],
+          "axis_length_m": 0.0574856198648819,
+          "reprojection_error_px": 0.13366638095786096,
+          "observer_wall_ms": 30.78279970213771
+        },
+        "estimated_origin_m": [
+          0.25896699892495184,
+          0.0013670026023818549,
+          0.7907146841972934
+        ],
+        "requested_translation_m": [
+          0.0017133302025651666,
+          0.001031745907177734,
+          0.0
+        ],
+        "motor": {
+          "accepted": true,
+          "position_error_mm": 0.09277668830180764,
+          "axis_error": 0.00022636689698738195,
+          "joints": [
+            0.2178010791540146,
+            -0.030064979568123817,
+            0.26780498027801514,
+            1.3343961238861084,
+            -2.38405704498291
+          ],
+          "requested_translation_m": [
+            0.0017133301589637995,
+            0.0010317459236830473,
+            0.0
+          ],
+          "joint_delta_rad": [
+            0.007613684982061386,
+            0.01209810096770525,
+            -0.014179958961904049,
+            0.0023079561069607735,
+            -0.007972782477736473
+          ],
+          "actual_translation_m": [
+            0.0017831522081726559,
+            0.0010841397451078066,
+            -3.142105684150742e-05
+          ],
+          "original_requested_translation_m": [
+            0.0017133301589637995,
+            0.0010317459236830473,
+            0.0
+          ],
+          "raw_neural_joint_delta_rad": [
+            0.007613684982061386,
+            0.01209810096770525,
+            -0.014179958961904049,
+            0.0023079561069607735,
+            -0.007972782477736473
+          ],
+          "step_fraction": 1.0,
+          "neural_inference_ms": 0.4455000162124634
+        },
+        "joint_offset_rad": [
+          0.06417829310521483,
+          0.0915460167452693,
+          -0.10414811410009861,
+          0.012825502781197429,
+          -0.04129005642607808
+        ]
+      },
+      {
+        "nominal_seconds": 26.4,
+        "mode": "frozen",
+        "status": "issued",
+        "current_rgb_sha256": [
+          "1d0975567e8b63dc61fd9808816faf83ef7256658a2de3d6a09b0d9b843fb1b4",
+          "4876b91910dbfa79afee85d1279ad8809457695dc653422195ca6e894775be7d"
+        ],
+        "used_rgb_sha256": [
+          "d6f840abc94cfff387fdbd1a6dadd0d30da57ed8161b43f671880bd2c48eaf73",
+          "f17410ba420cf951cc81c79c05be0552cd7bac8652f040ad74ea61f0c27256fc"
+        ],
+        "observation": {
+          "status": "observed",
+          "reason": null,
+          "accepted_views": [
+            0,
+            1
+          ],
+          "views": {
+            "pixels": [
+              [
+                [
+                  149.64707946777344,
+                  113.98226928710938
+                ],
+                [
+                  150.12132263183594,
+                  79.55337524414062
+                ]
+              ],
+              [
+                [
+                  171.1827392578125,
+                  133.4112548828125
+                ],
+                [
+                  170.78634643554688,
+                  103.66343688964844
+                ]
+              ]
+            ],
+            "peaks": [
+              [
+                0.10153955221176147,
+                0.10033934563398361
+              ],
+              [
+                0.09787885844707489,
+                0.10424347221851349
+              ]
+            ],
+            "variances": [
+              [
+                11.528728485107422,
+                12.073416709899902
+              ],
+              [
+                11.637478828430176,
+                11.507204055786133
+              ]
+            ],
+            "visibility": [
+              1.0,
+              0.9999996423721313
+            ],
+            "foreground_pixels": [
+              1820,
+              2036
+            ]
+          },
+          "points_m": [
+            [
+              0.2592795332118056,
+              0.0015364723837804019,
+              0.7936667470304077
+            ],
+            [
+              0.2653218627576443,
+              0.004812888157485644,
+              0.8507399618039511
+            ]
+          ],
+          "midpoint_m": [
+            0.26230069798472494,
+            0.003174680270633023,
+            0.8222033544171794
+          ],
+          "axis_length_m": 0.0574856198648819,
+          "reprojection_error_px": 0.13366638095786096,
+          "observer_wall_ms": 31.852399930357933
+        },
+        "estimated_origin_m": [
+          0.25896699892495184,
+          0.0013670026023818549,
+          0.7907146841972934
+        ],
+        "requested_translation_m": [
+          0.0017133302025651666,
+          0.001031745907177734,
+          0.0
+        ],
+        "motor": {
+          "accepted": true,
+          "position_error_mm": 0.11019986345698275,
+          "axis_error": 0.00030769065817289596,
+          "joints": [
+            0.22480790317058563,
+            -0.014192492701113224,
+            0.2679167091846466,
+            1.3197132349014282,
+            -2.3941502571105957
+          ],
+          "requested_translation_m": [
+            0.0017133301589637995,
+            0.0010317459236830473,
+            0.0
+          ],
+          "joint_delta_rad": [
+            0.007526860572397709,
+            0.012295955792069435,
+            -0.014563942328095436,
+            0.002574959537014365,
+            -0.01015834417194128
+          ],
+          "actual_translation_m": [
+            0.001798316845762482,
+            0.001092344632624997,
+            -3.534217660938754e-05
+          ],
+          "original_requested_translation_m": [
+            0.0017133301589637995,
+            0.0010317459236830473,
+            0.0
+          ],
+          "raw_neural_joint_delta_rad": [
+            0.007526860572397709,
+            0.012295955792069435,
+            -0.014563942328095436,
+            0.002574959537014365,
+            -0.01015834417194128
+          ],
+          "step_fraction": 1.0,
+          "neural_inference_ms": 0.38130022585392
+        },
+        "joint_offset_rad": [
+          0.07170515367761254,
+          0.10384197253733873,
+          -0.11871205642819405,
+          0.015400462318211794,
+          -0.05144840059801936
+        ]
+      },
+      {
+        "nominal_seconds": 26.6,
+        "mode": "frozen",
+        "status": "refused",
+        "current_rgb_sha256": [
+          "1fedb519010a822dff244543737165646b67756cd5d8e2a997360280e166a40f",
+          "ad626d6fb11b9f6d84ad02634f66a74ce2ce7e1c1a879d024ae3b9ac43c29b3c"
+        ],
+        "used_rgb_sha256": [
+          "d6f840abc94cfff387fdbd1a6dadd0d30da57ed8161b43f671880bd2c48eaf73",
+          "f17410ba420cf951cc81c79c05be0552cd7bac8652f040ad74ea61f0c27256fc"
+        ],
+        "observation": {
+          "status": "observed",
+          "reason": null,
+          "accepted_views": [
+            0,
+            1
+          ],
+          "views": {
+            "pixels": [
+              [
+                [
+                  149.64707946777344,
+                  113.98226928710938
+                ],
+                [
+                  150.12132263183594,
+                  79.55337524414062
+                ]
+              ],
+              [
+                [
+                  171.1827392578125,
+                  133.4112548828125
+                ],
+                [
+                  170.78634643554688,
+                  103.66343688964844
+                ]
+              ]
+            ],
+            "peaks": [
+              [
+                0.10153955221176147,
+                0.10033934563398361
+              ],
+              [
+                0.09787885844707489,
+                0.10424347221851349
+              ]
+            ],
+            "variances": [
+              [
+                11.528728485107422,
+                12.073416709899902
+              ],
+              [
+                11.637478828430176,
+                11.507204055786133
+              ]
+            ],
+            "visibility": [
+              1.0,
+              0.9999996423721313
+            ],
+            "foreground_pixels": [
+              1820,
+              2036
+            ]
+          },
+          "points_m": [
+            [
+              0.2592795332118056,
+              0.0015364723837804019,
+              0.7936667470304077
+            ],
+            [
+              0.2653218627576443,
+              0.004812888157485644,
+              0.8507399618039511
+            ]
+          ],
+          "midpoint_m": [
+            0.26230069798472494,
+            0.003174680270633023,
+            0.8222033544171794
+          ],
+          "axis_length_m": 0.0574856198648819,
+          "reprojection_error_px": 0.13366638095786096,
+          "observer_wall_ms": 32.049599569290876
+        },
+        "estimated_origin_m": [
+          0.25896699892495184,
+          0.0013670026023818549,
+          0.7907146841972934
+        ],
+        "requested_translation_m": [
+          0.0017133302025651666,
+          0.001031745907177734,
+          0.0
+        ],
+        "motor": {
+          "accepted": true,
+          "position_error_mm": 0.13403706058762477,
+          "axis_error": 0.0004044265549775857,
+          "joints": [
+            0.23188216984272003,
+            0.0027165389619767666,
+            0.26784899830818176,
+            1.3037338256835938,
+            -2.4050304889678955
+          ],
+          "requested_translation_m": [
+            0.0017133301589637995,
+            0.0010317459236830473,
+            0.0
+          ],
+          "joint_delta_rad": [
+            0.00746757909655571,
+            0.012530280277132988,
+            -0.014995096251368523,
+            0.002868297975510359,
+            -0.012376755475997925
+          ],
+          "actual_translation_m": [
+            0.0018205097386928548,
+            0.0011007728205078638,
+            -4.139757015586554e-05
+          ],
+          "original_requested_translation_m": [
+            0.0017133301589637995,
+            0.0010317459236830473,
+            0.0
+          ],
+          "raw_neural_joint_delta_rad": [
+            0.00746757909655571,
+            0.012530280277132988,
+            -0.014995096251368523,
+            0.002868297975510359,
+            -0.012376755475997925
+          ],
+          "step_fraction": 1.0,
+          "neural_inference_ms": 0.26559969410300255
+        },
+        "reason": "Cumulative visual correction exceeds the declared joint range."
+      }
+    ],
+    "mug_correction_mode": "frozen",
+    "steps": [
+      "reverse_bottle_right",
+      "reverse_bottle_left",
+      "plate",
+      "mug",
+      "drawer",
+      "fork",
+      "spoon"
+    ],
+    "completed_steps": [
+      "reverse_bottle_right",
+      "reverse_bottle_left",
+      "plate"
+    ],
+    "results": [
+      {
+        "skill": "reverse_bottle_right",
+        "status": "succeeded",
+        "active": false,
+        "stage": "neural_control",
+        "stage_label": "Neural right arm to shared table movement",
+        "message": "Neural right arm to shared table completed with physical release and both arms parked.",
+        "arm": "right",
+        "tube_id": "bottle",
+        "kind": "learned_dinner",
+        "source_slot": null,
+        "recording_id": null,
+        "destination_slot": null,
+        "progress": 1.0,
+        "stages": [
+          {
+            "id": "neural_control",
+            "label": "Camera-conditioned neural movement"
+          }
+        ],
+        "elapsed_s": 37.005,
+        "attempts": 0,
+        "metrics": {
+          "placement_error_mm": 1.1133048769350236,
+          "placement_z_error_mm": 0.0003135291051226119,
+          "placement_yaw_error_deg": 0.0,
+          "speed_mm_s": 0.010250843328751723,
+          "max_lift_cm": 6.8936634955172105,
+          "hold_verified_s": 9.094999999998665,
+          "longest_unsupported_gap_s": 0.0,
+          "stable_release_and_park_s": 0.5000000000002558,
+          "both_arms_parked": true,
+          "other_object_displacements_m": {
+            "plate": 1.176321996088993e-08,
+            "side_plate": 2.4921480631358354e-08,
+            "mug": 4.1257051841325114e-07,
+            "glass": 8.595414847285703e-08,
+            "fork": 0.00015846471091728905,
+            "spoon": 5.725672550970456e-06
+          },
+          "other_object_max_displacement_m": 0.00016005313349453,
+          "parked_arm_max_motion_deg": 0.0017763219911561268,
+          "unexpected_collisions": 0
+        },
+        "history": [
+          {
+            "stage": "succeeded",
+            "at_s": 37.005,
+            "message": "Neural right arm to shared table completed with physical release and both arms parked."
+          }
+        ],
+        "observation": "initial three RGB cameras and motor-feedback progress guard",
+        "attachment": "physical_contacts_only",
+        "object_id": "bottle",
+        "skill_id": "reverse_bottle_right",
+        "skill_label": "right arm to shared table",
+        "policy_mode": "learned_dinner",
+        "physical_monitor": "privileged state for stop/score only; never motor target generation",
+        "teacher_updates": 0,
+        "policy_details": {
+          "kind": "Camera-conditioned neural motion primitive with programmed joint-feedback progress guard",
+          "continuous_visual_correction": false,
+          "initial_camera_conditioning": true,
+          "pregrasp_visual_feedback": false,
+          "visual_feedback_scope": "initial image only",
+          "visual_refresh_calls": 0,
+          "camera_support_check": "initial_only",
+          "visual_encoder": "bottle_rgb_geometry",
+          "neural_runtime": "OpenVINO",
+          "neural_execution_devices": [
+            "CPU"
+          ],
+          "inference_demonstration_actions": false,
+          "simulator_clock_or_object_pose_input": false,
+          "internal_progress_endpoints": 744,
+          "tracking_guard_wait_calls": 0
+        },
+        "inference_median_ms": 1.569849904626608,
+        "completion_note": "Physical release and parked arms required before the next skill.",
+        "inactive_arm_control": "neural targets"
+      },
+      {
+        "skill": "reverse_bottle_left",
+        "status": "succeeded",
+        "active": false,
+        "stage": "neural_control",
+        "stage_label": "Neural left arm to bottle setting movement",
+        "message": "Neural left arm to bottle setting completed with physical release and both arms parked.",
+        "arm": "left",
+        "tube_id": "bottle",
+        "kind": "learned_dinner",
+        "source_slot": null,
+        "recording_id": null,
+        "destination_slot": null,
+        "progress": 1.0,
+        "stages": [
+          {
+            "id": "neural_control",
+            "label": "Camera-conditioned neural movement"
+          }
+        ],
+        "elapsed_s": 37.0,
+        "attempts": 0,
+        "metrics": {
+          "placement_error_mm": 0.8921959614788277,
+          "placement_z_error_mm": 0.00021906706759722283,
+          "placement_yaw_error_deg": 0.0,
+          "speed_mm_s": 0.01372148143266646,
+          "max_lift_cm": 6.891185612499584,
+          "hold_verified_s": 9.085000000004648,
+          "longest_unsupported_gap_s": 0.0,
+          "stable_release_and_park_s": 0.5049999999995407,
+          "both_arms_parked": true,
+          "other_object_displacements_m": {
+            "plate": 1.176321899081445e-08,
+            "side_plate": 2.4921460782057665e-08,
+            "mug": 3.009291208045245e-07,
+            "glass": 4.2421244619905084e-08,
+            "fork": 0.0001473604521425193,
+            "spoon": 5.7052686691372346e-06
+          },
+          "other_object_max_displacement_m": 0.00014921295958750976,
+          "parked_arm_max_motion_deg": 0.04266507255676083,
+          "unexpected_collisions": 0
+        },
+        "history": [
+          {
+            "stage": "succeeded",
+            "at_s": 37.0,
+            "message": "Neural left arm to bottle setting completed with physical release and both arms parked."
+          }
+        ],
+        "observation": "initial three RGB cameras and motor-feedback progress guard",
+        "attachment": "physical_contacts_only",
+        "object_id": "bottle",
+        "skill_id": "reverse_bottle_left",
+        "skill_label": "left arm to bottle setting",
+        "policy_mode": "learned_dinner",
+        "physical_monitor": "privileged state for stop/score only; never motor target generation",
+        "teacher_updates": 0,
+        "policy_details": {
+          "kind": "Camera-conditioned neural motion primitive with programmed joint-feedback progress guard",
+          "continuous_visual_correction": false,
+          "initial_camera_conditioning": true,
+          "pregrasp_visual_feedback": false,
+          "visual_feedback_scope": "initial image only",
+          "visual_refresh_calls": 0,
+          "camera_support_check": "initial_only",
+          "visual_encoder": "bottle_rgb_geometry",
+          "neural_runtime": "OpenVINO",
+          "neural_execution_devices": [
+            "CPU"
+          ],
+          "inference_demonstration_actions": false,
+          "simulator_clock_or_object_pose_input": false,
+          "internal_progress_endpoints": 740,
+          "tracking_guard_wait_calls": 0
+        },
+        "inference_median_ms": 1.5107998624444008,
+        "completion_note": "Physical release and parked arms required before the next skill.",
+        "inactive_arm_control": "neural targets"
+      },
+      {
+        "skill": "plate",
+        "status": "succeeded",
+        "active": false,
+        "stage": "neural_control",
+        "stage_label": "Neural plate movement",
+        "message": "Neural plate completed with physical release and both arms parked.",
+        "arm": "left",
+        "tube_id": "plate",
+        "kind": "learned_dinner",
+        "source_slot": null,
+        "recording_id": null,
+        "destination_slot": null,
+        "progress": 1.0,
+        "stages": [
+          {
+            "id": "neural_control",
+            "label": "Camera-conditioned neural movement"
+          }
+        ],
+        "elapsed_s": 37.365,
+        "attempts": 0,
+        "metrics": {
+          "placement_error_mm": 1.0040687575865692,
+          "placement_z_error_mm": 0.0005527713684561064,
+          "placement_yaw_error_deg": 0.0,
+          "speed_mm_s": 0.016706253722309095,
+          "max_lift_cm": 4.844097015670257,
+          "hold_verified_s": 9.759999999991123,
+          "longest_unsupported_gap_s": 0.0,
+          "stable_release_and_park_s": 0.5049999999995407,
+          "both_arms_parked": true,
+          "other_object_displacements_m": {
+            "side_plate": 2.515662031660427e-07,
+            "mug": 3.6792194518285127e-07,
+            "glass": 4.056101498752477e-08,
+            "bottle": 4.730726432195327e-08,
+            "fork": 0.00014456865960599217,
+            "spoon": 5.830170558952376e-06
+          },
+          "other_object_max_displacement_m": 0.00014481265862407303,
+          "parked_arm_max_motion_deg": 8.674002901409751e-05,
+          "unexpected_collisions": 0
+        },
+        "history": [
+          {
+            "stage": "succeeded",
+            "at_s": 37.365,
+            "message": "Neural plate completed with physical release and both arms parked."
+          }
+        ],
+        "observation": "initial three RGB cameras and motor-feedback progress guard",
+        "attachment": "physical_contacts_only",
+        "object_id": "plate",
+        "skill_id": "plate",
+        "skill_label": "plate",
+        "policy_mode": "learned_dinner",
+        "physical_monitor": "privileged state for stop/score only; never motor target generation",
+        "teacher_updates": 0,
+        "policy_details": {
+          "kind": "Camera-conditioned neural motion primitive with programmed joint-feedback progress guard",
+          "continuous_visual_correction": false,
+          "initial_camera_conditioning": true,
+          "pregrasp_visual_feedback": false,
+          "visual_feedback_scope": "initial image only",
+          "visual_refresh_calls": 0,
+          "camera_support_check": "initial_only",
+          "visual_encoder": "dinner_rgb_geometry",
+          "neural_runtime": "OpenVINO",
+          "neural_execution_devices": [
+            "CPU"
+          ],
+          "inference_demonstration_actions": false,
+          "simulator_clock_or_object_pose_input": false,
+          "internal_progress_endpoints": 748,
+          "tracking_guard_wait_calls": 0
+        },
+        "inference_median_ms": 1.561600249260664,
+        "completion_note": "Physical release and parked arms required before the next skill.",
+        "inactive_arm_control": "hold_previous_targets"
+      },
+      {
+        "skill": "mug",
+        "status": "failed",
+        "active": false,
+        "stage": "neural_control",
+        "stage_label": "Neural mug movement",
+        "message": "Cumulative visual correction exceeds the declared joint range. Physics paused.",
+        "arm": "right",
+        "tube_id": "mug",
+        "kind": "learned_dinner",
+        "source_slot": null,
+        "recording_id": null,
+        "destination_slot": null,
+        "progress": 0.6291080037545219,
+        "stages": [
+          {
+            "id": "neural_control",
+            "label": "Camera-conditioned neural movement"
+          }
+        ],
+        "elapsed_s": 26.605,
+        "attempts": 0,
+        "metrics": {
+          "placement_error_mm": 12.713746608833418,
+          "placement_z_error_mm": 15.426483690172743,
+          "placement_yaw_error_deg": 0.0,
+          "speed_mm_s": 13.79644227548946,
+          "max_lift_cm": 3.3154524816473407,
+          "hold_verified_s": 9.5649999999913,
+          "longest_unsupported_gap_s": 0.0,
+          "stable_release_and_park_s": 0.0,
+          "both_arms_parked": false,
+          "other_object_displacements_m": {
+            "plate": 1.4373927999626808e-07,
+            "side_plate": 1.0206824559067866e-07,
+            "glass": 1.3780688494306802e-07,
+            "bottle": 1.2041128856182797e-07,
+            "fork": 9.862103115188334e-05,
+            "spoon": 4.14169459748014e-06
+          },
+          "other_object_max_displacement_m": 9.862103115188334e-05,
+          "parked_arm_max_motion_deg": 0.003797423166421309,
+          "unexpected_collisions": 0
+        },
+        "history": [
+          {
+            "stage": "failed",
+            "at_s": 26.605,
+            "message": "Cumulative visual correction exceeds the declared joint range. Physics paused."
+          }
+        ],
+        "observation": "Initial RGB neural trajectory plus frozen stereo late-placement correction",
+        "attachment": "physical_contacts_only",
+        "object_id": "mug",
+        "skill_id": "mug",
+        "skill_label": "mug",
+        "policy_mode": "learned_dinner",
+        "physical_monitor": "privileged state for stop/score only; never motor target generation",
+        "teacher_updates": 0,
+        "policy_details": {
+          "kind": "Camera-conditioned neural motion primitive with programmed joint-feedback progress guard",
+          "continuous_visual_correction": false,
+          "initial_camera_conditioning": true,
+          "pregrasp_visual_feedback": false,
+          "visual_feedback_scope": "Late mug placement only; frozen initial correction images",
+          "visual_refresh_calls": 0,
+          "camera_support_check": "initial_only",
+          "visual_encoder": "dinner_rgb_geometry",
+          "neural_runtime": "OpenVINO",
+          "neural_execution_devices": [
+            "CPU"
+          ],
+          "inference_demonstration_actions": false,
+          "simulator_clock_or_object_pose_input": false,
+          "internal_progress_endpoints": 536,
+          "tracking_guard_wait_calls": 0,
+          "local_motor": "OpenVINO CPU neural differential map with explicit joint limiting and forward-only refusal",
+          "correction_queries": 10,
+          "correction_mode": "frozen",
+          "correction_seconds": [
+            24.8,
+            27.6
+          ],
+          "inference_object_state": false,
+          "inference_inverse_kinematics": false
+        },
+        "inference_median_ms": 1.6608000732958317,
+        "completion_note": "Physical release and parked arms required before the next skill.",
+        "inactive_arm_control": "hold_previous_targets",
+        "mug_visual_corrections": [
+          {
+            "nominal_seconds": 24.8,
+            "mode": "frozen",
+            "status": "issued",
+            "current_rgb_sha256": [
+              "d6f840abc94cfff387fdbd1a6dadd0d30da57ed8161b43f671880bd2c48eaf73",
+              "f17410ba420cf951cc81c79c05be0552cd7bac8652f040ad74ea61f0c27256fc"
+            ],
+            "used_rgb_sha256": [
+              "d6f840abc94cfff387fdbd1a6dadd0d30da57ed8161b43f671880bd2c48eaf73",
+              "f17410ba420cf951cc81c79c05be0552cd7bac8652f040ad74ea61f0c27256fc"
+            ],
+            "observation": {
+              "status": "observed",
+              "reason": null,
+              "accepted_views": [
+                0,
+                1
+              ],
+              "views": {
+                "pixels": [
+                  [
+                    [
+                      149.64707946777344,
+                      113.98226928710938
+                    ],
+                    [
+                      150.12132263183594,
+                      79.55337524414062
+                    ]
+                  ],
+                  [
+                    [
+                      171.1827392578125,
+                      133.4112548828125
+                    ],
+                    [
+                      170.78634643554688,
+                      103.66343688964844
+                    ]
+                  ]
+                ],
+                "peaks": [
+                  [
+                    0.10153955221176147,
+                    0.10033934563398361
+                  ],
+                  [
+                    0.09787885844707489,
+                    0.10424347221851349
+                  ]
+                ],
+                "variances": [
+                  [
+                    11.528728485107422,
+                    12.073416709899902
+                  ],
+                  [
+                    11.637478828430176,
+                    11.507204055786133
+                  ]
+                ],
+                "visibility": [
+                  1.0,
+                  0.9999996423721313
+                ],
+                "foreground_pixels": [
+                  1820,
+                  2036
+                ]
+              },
+              "points_m": [
+                [
+                  0.2592795332118056,
+                  0.0015364723837804019,
+                  0.7936667470304077
+                ],
+                [
+                  0.2653218627576443,
+                  0.004812888157485644,
+                  0.8507399618039511
+                ]
+              ],
+              "midpoint_m": [
+                0.26230069798472494,
+                0.003174680270633023,
+                0.8222033544171794
+              ],
+              "axis_length_m": 0.0574856198648819,
+              "reprojection_error_px": 0.13366638095786096,
+              "observer_wall_ms": 47.16769978404045
+            },
+            "estimated_origin_m": [
+              0.25896699892495184,
+              0.0013670026023818549,
+              0.7907146841972934
+            ],
+            "requested_translation_m": [
+              0.0017133302025651666,
+              0.001031745907177734,
+              0.0
+            ],
+            "motor": {
+              "accepted": true,
+              "position_error_mm": 0.05858808729669448,
+              "axis_error": 0.00011146623774268255,
+              "joints": [
+                0.1609777957201004,
+                -0.1203087568283081,
+                0.31495869159698486,
+                1.3743650913238525,
+                -2.344926357269287
+              ],
+              "requested_translation_m": [
+                0.0017133301589637995,
+                0.0010317459236830473,
+                0.0
+              ],
+              "joint_delta_rad": [
+                0.008422714658081532,
+                0.010832328349351883,
+                -0.012002858333289623,
+                0.0010601412504911423,
+                -0.00442125927656889
+              ],
+              "actual_translation_m": [
+                0.0017627169582223323,
+                0.0010628907522697469,
+                -4.848472376695057e-06
+              ],
+              "original_requested_translation_m": [
+                0.0017133301589637995,
+                0.0010317459236830473,
+                0.0
+              ],
+              "raw_neural_joint_delta_rad": [
+                0.008422714658081532,
+                0.010832328349351883,
+                -0.012002858333289623,
+                0.0010601412504911423,
+                -0.00442125927656889
+              ],
+              "step_fraction": 1.0,
+              "neural_inference_ms": 2.314699813723564
+            },
+            "joint_offset_rad": [
+              0.008422714658081532,
+              0.010832328349351883,
+              -0.012002858333289623,
+              0.0010601412504911423,
+              -0.00442125927656889
+            ]
+          },
+          {
+            "nominal_seconds": 25.0,
+            "mode": "frozen",
+            "status": "issued",
+            "current_rgb_sha256": [
+              "b50d41197beaf81415ec75d54ae376067167f24a33c07420006e62051ba54eb0",
+              "29e4c80f37262382f813059dfdffa9067b786e112d1cb62d745da7b5d6c7d8e4"
+            ],
+            "used_rgb_sha256": [
+              "d6f840abc94cfff387fdbd1a6dadd0d30da57ed8161b43f671880bd2c48eaf73",
+              "f17410ba420cf951cc81c79c05be0552cd7bac8652f040ad74ea61f0c27256fc"
+            ],
+            "observation": {
+              "status": "observed",
+              "reason": null,
+              "accepted_views": [
+                0,
+                1
+              ],
+              "views": {
+                "pixels": [
+                  [
+                    [
+                      149.64707946777344,
+                      113.98226928710938
+                    ],
+                    [
+                      150.12132263183594,
+                      79.55337524414062
+                    ]
+                  ],
+                  [
+                    [
+                      171.1827392578125,
+                      133.4112548828125
+                    ],
+                    [
+                      170.78634643554688,
+                      103.66343688964844
+                    ]
+                  ]
+                ],
+                "peaks": [
+                  [
+                    0.10153955221176147,
+                    0.10033934563398361
+                  ],
+                  [
+                    0.09787885844707489,
+                    0.10424347221851349
+                  ]
+                ],
+                "variances": [
+                  [
+                    11.528728485107422,
+                    12.073416709899902
+                  ],
+                  [
+                    11.637478828430176,
+                    11.507204055786133
+                  ]
+                ],
+                "visibility": [
+                  1.0,
+                  0.9999996423721313
+                ],
+                "foreground_pixels": [
+                  1820,
+                  2036
+                ]
+              },
+              "points_m": [
+                [
+                  0.2592795332118056,
+                  0.0015364723837804019,
+                  0.7936667470304077
+                ],
+                [
+                  0.2653218627576443,
+                  0.004812888157485644,
+                  0.8507399618039511
+                ]
+              ],
+              "midpoint_m": [
+                0.26230069798472494,
+                0.003174680270633023,
+                0.8222033544171794
+              ],
+              "axis_length_m": 0.0574856198648819,
+              "reprojection_error_px": 0.13366638095786096,
+              "observer_wall_ms": 33.310200087726116
+            },
+            "estimated_origin_m": [
+              0.25896699892495184,
+              0.0013670026023818549,
+              0.7907146841972934
+            ],
+            "requested_translation_m": [
+              0.0017133302025651666,
+              0.001031745907177734,
+              0.0
+            ],
+            "motor": {
+              "accepted": true,
+              "position_error_mm": 0.06032429395398727,
+              "axis_error": 9.447707836611096e-05,
+              "joints": [
+                0.16944722831249237,
+                -0.10987603664398193,
+                0.3042175769805908,
+                1.3744405508041382,
+                -2.3492813110351562
+              ],
+              "requested_translation_m": [
+                0.0017133301589637995,
+                0.0010317459236830473,
+                0.0
+              ],
+              "joint_delta_rad": [
+                0.008320003747940063,
+                0.010984053835272789,
+                -0.012246496975421906,
+                0.001169533934444189,
+                -0.004143011290580034
+              ],
+              "actual_translation_m": [
+                0.0017645552880573012,
+                0.0010625350431386904,
+                -8.187595101571965e-06
+              ],
+              "original_requested_translation_m": [
+                0.0017133301589637995,
+                0.0010317459236830473,
+                0.0
+              ],
+              "raw_neural_joint_delta_rad": [
+                0.008320003747940063,
+                0.010984053835272789,
+                -0.012246496975421906,
+                0.001169533934444189,
+                -0.004143011290580034
+              ],
+              "step_fraction": 1.0,
+              "neural_inference_ms": 0.29740016907453537
+            },
+            "joint_offset_rad": [
+              0.016742718406021595,
+              0.021816382184624672,
+              -0.02424935530871153,
+              0.0022296751849353313,
+              -0.008564270567148924
+            ]
+          },
+          {
+            "nominal_seconds": 25.2,
+            "mode": "frozen",
+            "status": "issued",
+            "current_rgb_sha256": [
+              "05598628b9b56bdb1f10aed3315736800da9b7f0365522df2f9b4f6686078bfc",
+              "d06858f03c268c2fd4a1cd3dd48652ffa3dd7cab9191d27c179f161615e8aa59"
+            ],
+            "used_rgb_sha256": [
+              "d6f840abc94cfff387fdbd1a6dadd0d30da57ed8161b43f671880bd2c48eaf73",
+              "f17410ba420cf951cc81c79c05be0552cd7bac8652f040ad74ea61f0c27256fc"
+            ],
+            "observation": {
+              "status": "observed",
+              "reason": null,
+              "accepted_views": [
+                0,
+                1
+              ],
+              "views": {
+                "pixels": [
+                  [
+                    [
+                      149.64707946777344,
+                      113.98226928710938
+                    ],
+                    [
+                      150.12132263183594,
+                      79.55337524414062
+                    ]
+                  ],
+                  [
+                    [
+                      171.1827392578125,
+                      133.4112548828125
+                    ],
+                    [
+                      170.78634643554688,
+                      103.66343688964844
+                    ]
+                  ]
+                ],
+                "peaks": [
+                  [
+                    0.10153955221176147,
+                    0.10033934563398361
+                  ],
+                  [
+                    0.09787885844707489,
+                    0.10424347221851349
+                  ]
+                ],
+                "variances": [
+                  [
+                    11.528728485107422,
+                    12.073416709899902
+                  ],
+                  [
+                    11.637478828430176,
+                    11.507204055786133
+                  ]
+                ],
+                "visibility": [
+                  1.0,
+                  0.9999996423721313
+                ],
+                "foreground_pixels": [
+                  1820,
+                  2036
+                ]
+              },
+              "points_m": [
+                [
+                  0.2592795332118056,
+                  0.0015364723837804019,
+                  0.7936667470304077
+                ],
+                [
+                  0.2653218627576443,
+                  0.004812888157485644,
+                  0.8507399618039511
+                ]
+              ],
+              "midpoint_m": [
+                0.26230069798472494,
+                0.003174680270633023,
+                0.8222033544171794
+              ],
+              "axis_length_m": 0.0574856198648819,
+              "reprojection_error_px": 0.13366638095786096,
+              "observer_wall_ms": 30.24100000038743
+            },
+            "estimated_origin_m": [
+              0.25896699892495184,
+              0.0013670026023818549,
+              0.7907146841972934
+            ],
+            "requested_translation_m": [
+              0.0017133302025651666,
+              0.001031745907177734,
+              0.0
+            ],
+            "motor": {
+              "accepted": true,
+              "position_error_mm": 0.06257836040745662,
+              "axis_error": 6.384028364133205e-05,
+              "joints": [
+                0.17775851488113403,
+                -0.09873532503843307,
+                0.29424017667770386,
+                1.3732435703277588,
+                -2.3543007373809814
+              ],
+              "requested_translation_m": [
+                0.0017133301589637995,
+                0.0010317459236830473,
+                0.0
+              ],
+              "joint_delta_rad": [
+                0.00820908322930336,
+                0.011152267456054688,
+                -0.012513363733887672,
+                0.0012995782308280468,
+                -0.004104228690266609
+              ],
+              "actual_translation_m": [
+                0.0017659365124854665,
+                0.0010633309165247115,
+                -1.2288652799674615e-05
+              ],
+              "original_requested_translation_m": [
+                0.0017133301589637995,
+                0.0010317459236830473,
+                0.0
+              ],
+              "raw_neural_joint_delta_rad": [
+                0.00820908322930336,
+                0.011152267456054688,
+                -0.012513363733887672,
+                0.0012995782308280468,
+                -0.004104228690266609
+              ],
+              "step_fraction": 1.0,
+              "neural_inference_ms": 0.2410002052783966
+            },
+            "joint_offset_rad": [
+              0.024951801635324955,
+              0.03296864964067936,
+              -0.0367627190425992,
+              0.003529253415763378,
+              -0.012668499257415533
+            ]
+          },
+          {
+            "nominal_seconds": 25.4,
+            "mode": "frozen",
+            "status": "issued",
+            "current_rgb_sha256": [
+              "040db91d26e2b2c8ab9cc07ed2f17931783fd3256989a3bb9473aa5d09d546aa",
+              "36bd6a85ea7c7c87e4b072fd2109404d598888e8fdc19d83e6aa3e1e37a30714"
+            ],
+            "used_rgb_sha256": [
+              "d6f840abc94cfff387fdbd1a6dadd0d30da57ed8161b43f671880bd2c48eaf73",
+              "f17410ba420cf951cc81c79c05be0552cd7bac8652f040ad74ea61f0c27256fc"
+            ],
+            "observation": {
+              "status": "observed",
+              "reason": null,
+              "accepted_views": [
+                0,
+                1
+              ],
+              "views": {
+                "pixels": [
+                  [
+                    [
+                      149.64707946777344,
+                      113.98226928710938
+                    ],
+                    [
+                      150.12132263183594,
+                      79.55337524414062
+                    ]
+                  ],
+                  [
+                    [
+                      171.1827392578125,
+                      133.4112548828125
+                    ],
+                    [
+                      170.78634643554688,
+                      103.66343688964844
+                    ]
+                  ]
+                ],
+                "peaks": [
+                  [
+                    0.10153955221176147,
+                    0.10033934563398361
+                  ],
+                  [
+                    0.09787885844707489,
+                    0.10424347221851349
+                  ]
+                ],
+                "variances": [
+                  [
+                    11.528728485107422,
+                    12.073416709899902
+                  ],
+                  [
+                    11.637478828430176,
+                    11.507204055786133
+                  ]
+                ],
+                "visibility": [
+                  1.0,
+                  0.9999996423721313
+                ],
+                "foreground_pixels": [
+                  1820,
+                  2036
+                ]
+              },
+              "points_m": [
+                [
+                  0.2592795332118056,
+                  0.0015364723837804019,
+                  0.7936667470304077
+                ],
+                [
+                  0.2653218627576443,
+                  0.004812888157485644,
+                  0.8507399618039511
+                ]
+              ],
+              "midpoint_m": [
+                0.26230069798472494,
+                0.003174680270633023,
+                0.8222033544171794
+              ],
+              "axis_length_m": 0.0574856198648819,
+              "reprojection_error_px": 0.13366638095786096,
+              "observer_wall_ms": 39.17280025780201
+            },
+            "estimated_origin_m": [
+              0.25896699892495184,
+              0.0013670026023818549,
+              0.7907146841972934
+            ],
+            "requested_translation_m": [
+              0.0017133302025651666,
+              0.001031745907177734,
+              0.0
+            ],
+            "motor": {
+              "accepted": true,
+              "position_error_mm": 0.0655616897592589,
+              "axis_error": 2.3764306393634593e-05,
+              "joints": [
+                0.18597733974456787,
+                -0.08655282855033875,
+                0.2853921353816986,
+                1.3701914548873901,
+                -2.359609842300415
+              ],
+              "requested_translation_m": [
+                0.0017133301589637995,
+                0.0010317459236830473,
+                0.0
+              ],
+              "joint_delta_rad": [
+                0.00809057243168354,
+                0.011335212737321854,
+                -0.012810064479708672,
+                0.0014559173723682761,
+                -0.004279673099517822
+              ],
+              "actual_translation_m": [
+                0.0017670166565398882,
+                0.0010655403366161918,
+                -1.6553935985319512e-05
+              ],
+              "original_requested_translation_m": [
+                0.0017133301589637995,
+                0.0010317459236830473,
+                0.0
+              ],
+              "raw_neural_joint_delta_rad": [
+                0.00809057243168354,
+                0.011335212737321854,
+                -0.012810064479708672,
+                0.0014559173723682761,
+                -0.004279673099517822
+              ],
+              "step_fraction": 1.0,
+              "neural_inference_ms": 0.3248997963964939
+            },
+            "joint_offset_rad": [
+              0.033042374067008495,
+              0.04430386237800121,
+              -0.04957278352230787,
+              0.004985170788131654,
+              -0.016948172356933355
+            ]
+          },
+          {
+            "nominal_seconds": 25.6,
+            "mode": "frozen",
+            "status": "issued",
+            "current_rgb_sha256": [
+              "a7be95c0086a749621696f5a9cd5df89713b18b4166542ba2cc444fda01e14be",
+              "9c8ca2f4d5fb9da9c1f4499e2f6dbac29a4941d154b70ea984d879a87069cfde"
+            ],
+            "used_rgb_sha256": [
+              "d6f840abc94cfff387fdbd1a6dadd0d30da57ed8161b43f671880bd2c48eaf73",
+              "f17410ba420cf951cc81c79c05be0552cd7bac8652f040ad74ea61f0c27256fc"
+            ],
+            "observation": {
+              "status": "observed",
+              "reason": null,
+              "accepted_views": [
+                0,
+                1
+              ],
+              "views": {
+                "pixels": [
+                  [
+                    [
+                      149.64707946777344,
+                      113.98226928710938
+                    ],
+                    [
+                      150.12132263183594,
+                      79.55337524414062
+                    ]
+                  ],
+                  [
+                    [
+                      171.1827392578125,
+                      133.4112548828125
+                    ],
+                    [
+                      170.78634643554688,
+                      103.66343688964844
+                    ]
+                  ]
+                ],
+                "peaks": [
+                  [
+                    0.10153955221176147,
+                    0.10033934563398361
+                  ],
+                  [
+                    0.09787885844707489,
+                    0.10424347221851349
+                  ]
+                ],
+                "variances": [
+                  [
+                    11.528728485107422,
+                    12.073416709899902
+                  ],
+                  [
+                    11.637478828430176,
+                    11.507204055786133
+                  ]
+                ],
+                "visibility": [
+                  1.0,
+                  0.9999996423721313
+                ],
+                "foreground_pixels": [
+                  1820,
+                  2036
+                ]
+              },
+              "points_m": [
+                [
+                  0.2592795332118056,
+                  0.0015364723837804019,
+                  0.7936667470304077
+                ],
+                [
+                  0.2653218627576443,
+                  0.004812888157485644,
+                  0.8507399618039511
+                ]
+              ],
+              "midpoint_m": [
+                0.26230069798472494,
+                0.003174680270633023,
+                0.8222033544171794
+              ],
+              "axis_length_m": 0.0574856198648819,
+              "reprojection_error_px": 0.13366638095786096,
+              "observer_wall_ms": 30.656199902296066
+            },
+            "estimated_origin_m": [
+              0.25896699892495184,
+              0.0013670026023818549,
+              0.7907146841972934
+            ],
+            "requested_translation_m": [
+              0.0017133302025651666,
+              0.001031745907177734,
+              0.0
+            ],
+            "motor": {
+              "accepted": true,
+              "position_error_mm": 0.06898216715976109,
+              "axis_error": 3.4850789918474144e-05,
+              "joints": [
+                0.19420312345027924,
+                -0.07353691011667252,
+                0.27793368697166443,
+                1.3650230169296265,
+                -2.3645143508911133
+              ],
+              "requested_translation_m": [
+                0.0017133301589637995,
+                0.0010317459236830473,
+                0.0
+              ],
+              "joint_delta_rad": [
+                0.00796495657414198,
+                0.011523492634296417,
+                -0.01312553882598877,
+                0.0016351711237803102,
+                -0.004691417329013348
+              ],
+              "actual_translation_m": [
+                0.0017679591509767167,
+                0.0010683401273123005,
+                -2.085849655297789e-05
+              ],
+              "original_requested_translation_m": [
+                0.0017133301589637995,
+                0.0010317459236830473,
+                0.0
+              ],
+              "raw_neural_joint_delta_rad": [
+                0.00796495657414198,
+                0.011523492634296417,
+                -0.01312553882598877,
+                0.0016351711237803102,
+                -0.004691417329013348
+              ],
+              "step_fraction": 1.0,
+              "neural_inference_ms": 0.30980026349425316
+            },
+            "joint_offset_rad": [
+              0.041007330641150475,
+              0.05582735501229763,
+              -0.06269832234829664,
+              0.006620341911911964,
+              -0.021639589685946703
+            ]
+          },
+          {
+            "nominal_seconds": 25.8,
+            "mode": "frozen",
+            "status": "issued",
+            "current_rgb_sha256": [
+              "4ef7c9d5eee0d15391905a4fdefc61b60fc2b09bbf813e7cbf01f183050ae475",
+              "e3ed1c817a960f934523b635589771f1f4d25663076475dafb50c57e83947d00"
+            ],
+            "used_rgb_sha256": [
+              "d6f840abc94cfff387fdbd1a6dadd0d30da57ed8161b43f671880bd2c48eaf73",
+              "f17410ba420cf951cc81c79c05be0552cd7bac8652f040ad74ea61f0c27256fc"
+            ],
+            "observation": {
+              "status": "observed",
+              "reason": null,
+              "accepted_views": [
+                0,
+                1
+              ],
+              "views": {
+                "pixels": [
+                  [
+                    [
+                      149.64707946777344,
+                      113.98226928710938
+                    ],
+                    [
+                      150.12132263183594,
+                      79.55337524414062
+                    ]
+                  ],
+                  [
+                    [
+                      171.1827392578125,
+                      133.4112548828125
+                    ],
+                    [
+                      170.78634643554688,
+                      103.66343688964844
+                    ]
+                  ]
+                ],
+                "peaks": [
+                  [
+                    0.10153955221176147,
+                    0.10033934563398361
+                  ],
+                  [
+                    0.09787885844707489,
+                    0.10424347221851349
+                  ]
+                ],
+                "variances": [
+                  [
+                    11.528728485107422,
+                    12.073416709899902
+                  ],
+                  [
+                    11.637478828430176,
+                    11.507204055786133
+                  ]
+                ],
+                "visibility": [
+                  1.0,
+                  0.9999996423721313
+                ],
+                "foreground_pixels": [
+                  1820,
+                  2036
+                ]
+              },
+              "points_m": [
+                [
+                  0.2592795332118056,
+                  0.0015364723837804019,
+                  0.7936667470304077
+                ],
+                [
+                  0.2653218627576443,
+                  0.004812888157485644,
+                  0.8507399618039511
+                ]
+              ],
+              "midpoint_m": [
+                0.26230069798472494,
+                0.003174680270633023,
+                0.8222033544171794
+              ],
+              "axis_length_m": 0.0574856198648819,
+              "reprojection_error_px": 0.13366638095786096,
+              "observer_wall_ms": 33.23870012536645
+            },
+            "estimated_origin_m": [
+              0.25896699892495184,
+              0.0013670026023818549,
+              0.7907146841972934
+            ],
+            "requested_translation_m": [
+              0.0017133302025651666,
+              0.001031745907177734,
+              0.0
+            ],
+            "motor": {
+              "accepted": true,
+              "position_error_mm": 0.07348255153042844,
+              "axis_error": 9.220649041504411e-05,
+              "joints": [
+                0.2024228721857071,
+                -0.05976041033864021,
+                0.27226462960243225,
+                1.357450008392334,
+                -2.3693981170654297
+              ],
+              "requested_translation_m": [
+                0.0017133301589637995,
+                0.0010317459236830473,
+                0.0
+              ],
+              "joint_delta_rad": [
+                0.00783822126686573,
+                0.01171400398015976,
+                -0.013458182103931904,
+                0.0018361739348620176,
+                -0.005332552827894688
+              ],
+              "actual_translation_m": [
+                0.0017696782791554178,
+                0.001071782430311613,
+                -2.4932967478297208e-05
+              ],
+              "original_requested_translation_m": [
+                0.0017133301589637995,
+                0.0010317459236830473,
+                0.0
+              ],
+              "raw_neural_joint_delta_rad": [
+                0.00783822126686573,
+                0.01171400398015976,
+                -0.013458182103931904,
+                0.0018361739348620176,
+                -0.005332552827894688
+              ],
+              "step_fraction": 1.0,
+              "neural_inference_ms": 0.2516000531613827
+            },
+            "joint_offset_rad": [
+              0.048845551908016205,
+              0.06754135899245739,
+              -0.07615650445222855,
+              0.008456515846773982,
+              -0.02697214251384139
+            ]
+          },
+          {
+            "nominal_seconds": 26.0,
+            "mode": "frozen",
+            "status": "issued",
+            "current_rgb_sha256": [
+              "a02257be8f6c9b703a1f1ef41f0baf9fe9b38b604eef099dfb9f4db42efd961b",
+              "b17e19f06d10db85d1252e8cf23191f6b75a32e31b04457818a04d842446750b"
+            ],
+            "used_rgb_sha256": [
+              "d6f840abc94cfff387fdbd1a6dadd0d30da57ed8161b43f671880bd2c48eaf73",
+              "f17410ba420cf951cc81c79c05be0552cd7bac8652f040ad74ea61f0c27256fc"
+            ],
+            "observation": {
+              "status": "observed",
+              "reason": null,
+              "accepted_views": [
+                0,
+                1
+              ],
+              "views": {
+                "pixels": [
+                  [
+                    [
+                      149.64707946777344,
+                      113.98226928710938
+                    ],
+                    [
+                      150.12132263183594,
+                      79.55337524414062
+                    ]
+                  ],
+                  [
+                    [
+                      171.1827392578125,
+                      133.4112548828125
+                    ],
+                    [
+                      170.78634643554688,
+                      103.66343688964844
+                    ]
+                  ]
+                ],
+                "peaks": [
+                  [
+                    0.10153955221176147,
+                    0.10033934563398361
+                  ],
+                  [
+                    0.09787885844707489,
+                    0.10424347221851349
+                  ]
+                ],
+                "variances": [
+                  [
+                    11.528728485107422,
+                    12.073416709899902
+                  ],
+                  [
+                    11.637478828430176,
+                    11.507204055786133
+                  ]
+                ],
+                "visibility": [
+                  1.0,
+                  0.9999996423721313
+                ],
+                "foreground_pixels": [
+                  1820,
+                  2036
+                ]
+              },
+              "points_m": [
+                [
+                  0.2592795332118056,
+                  0.0015364723837804019,
+                  0.7936667470304077
+                ],
+                [
+                  0.2653218627576443,
+                  0.004812888157485644,
+                  0.8507399618039511
+                ]
+              ],
+              "midpoint_m": [
+                0.26230069798472494,
+                0.003174680270633023,
+                0.8222033544171794
+              ],
+              "axis_length_m": 0.0574856198648819,
+              "reprojection_error_px": 0.13366638095786096,
+              "observer_wall_ms": 30.14579974114895
+            },
+            "estimated_origin_m": [
+              0.25896699892495184,
+              0.0013670026023818549,
+              0.7907146841972934
+            ],
+            "requested_translation_m": [
+              0.0017133302025651666,
+              0.001031745907177734,
+              0.0
+            ],
+            "motor": {
+              "accepted": true,
+              "position_error_mm": 0.08083993253603516,
+              "axis_error": 0.00015593944773373568,
+              "joints": [
+                0.21037794649600983,
+                -0.04522740840911865,
+                0.2689051926136017,
+                1.3471794128417969,
+                -2.375640630722046
+              ],
+              "requested_translation_m": [
+                0.0017133301589637995,
+                0.0010317459236830473,
+                0.0
+              ],
+              "joint_delta_rad": [
+                0.007719056215137243,
+                0.011906556785106659,
+                -0.013811650685966015,
+                0.002061030827462673,
+                -0.0063451314345002174
+              ],
+              "actual_translation_m": [
+                0.0017740608741100283,
+                0.0010769356724591502,
+                -2.836831922781169e-05
+              ],
+              "original_requested_translation_m": [
+                0.0017133301589637995,
+                0.0010317459236830473,
+                0.0
+              ],
+              "raw_neural_joint_delta_rad": [
+                0.007719056215137243,
+                0.011906556785106659,
+                -0.013811650685966015,
+                0.002061030827462673,
+                -0.0063451314345002174
+              ],
+              "step_fraction": 1.0,
+              "neural_inference_ms": 0.3296998329460621
+            },
+            "joint_offset_rad": [
+              0.05656460812315345,
+              0.07944791577756405,
+              -0.08996815513819456,
+              0.010517546674236655,
+              -0.03331727394834161
+            ]
+          },
+          {
+            "nominal_seconds": 26.2,
+            "mode": "frozen",
+            "status": "issued",
+            "current_rgb_sha256": [
+              "c6310d2cccf215e30ba34b1c6bd4c498dfa9ff8269ca5c612efcbf9a00690b48",
+              "95096ebc44d1cec4d7b0568ffd119879fd4f51a7754f53293b26adedac5d2282"
+            ],
+            "used_rgb_sha256": [
+              "d6f840abc94cfff387fdbd1a6dadd0d30da57ed8161b43f671880bd2c48eaf73",
+              "f17410ba420cf951cc81c79c05be0552cd7bac8652f040ad74ea61f0c27256fc"
+            ],
+            "observation": {
+              "status": "observed",
+              "reason": null,
+              "accepted_views": [
+                0,
+                1
+              ],
+              "views": {
+                "pixels": [
+                  [
+                    [
+                      149.64707946777344,
+                      113.98226928710938
+                    ],
+                    [
+                      150.12132263183594,
+                      79.55337524414062
+                    ]
+                  ],
+                  [
+                    [
+                      171.1827392578125,
+                      133.4112548828125
+                    ],
+                    [
+                      170.78634643554688,
+                      103.66343688964844
+                    ]
+                  ]
+                ],
+                "peaks": [
+                  [
+                    0.10153955221176147,
+                    0.10033934563398361
+                  ],
+                  [
+                    0.09787885844707489,
+                    0.10424347221851349
+                  ]
+                ],
+                "variances": [
+                  [
+                    11.528728485107422,
+                    12.073416709899902
+                  ],
+                  [
+                    11.637478828430176,
+                    11.507204055786133
+                  ]
+                ],
+                "visibility": [
+                  1.0,
+                  0.9999996423721313
+                ],
+                "foreground_pixels": [
+                  1820,
+                  2036
+                ]
+              },
+              "points_m": [
+                [
+                  0.2592795332118056,
+                  0.0015364723837804019,
+                  0.7936667470304077
+                ],
+                [
+                  0.2653218627576443,
+                  0.004812888157485644,
+                  0.8507399618039511
+                ]
+              ],
+              "midpoint_m": [
+                0.26230069798472494,
+                0.003174680270633023,
+                0.8222033544171794
+              ],
+              "axis_length_m": 0.0574856198648819,
+              "reprojection_error_px": 0.13366638095786096,
+              "observer_wall_ms": 30.78279970213771
+            },
+            "estimated_origin_m": [
+              0.25896699892495184,
+              0.0013670026023818549,
+              0.7907146841972934
+            ],
+            "requested_translation_m": [
+              0.0017133302025651666,
+              0.001031745907177734,
+              0.0
+            ],
+            "motor": {
+              "accepted": true,
+              "position_error_mm": 0.09277668830180764,
+              "axis_error": 0.00022636689698738195,
+              "joints": [
+                0.2178010791540146,
+                -0.030064979568123817,
+                0.26780498027801514,
+                1.3343961238861084,
+                -2.38405704498291
+              ],
+              "requested_translation_m": [
+                0.0017133301589637995,
+                0.0010317459236830473,
+                0.0
+              ],
+              "joint_delta_rad": [
+                0.007613684982061386,
+                0.01209810096770525,
+                -0.014179958961904049,
+                0.0023079561069607735,
+                -0.007972782477736473
+              ],
+              "actual_translation_m": [
+                0.0017831522081726559,
+                0.0010841397451078066,
+                -3.142105684150742e-05
+              ],
+              "original_requested_translation_m": [
+                0.0017133301589637995,
+                0.0010317459236830473,
+                0.0
+              ],
+              "raw_neural_joint_delta_rad": [
+                0.007613684982061386,
+                0.01209810096770525,
+                -0.014179958961904049,
+                0.0023079561069607735,
+                -0.007972782477736473
+              ],
+              "step_fraction": 1.0,
+              "neural_inference_ms": 0.4455000162124634
+            },
+            "joint_offset_rad": [
+              0.06417829310521483,
+              0.0915460167452693,
+              -0.10414811410009861,
+              0.012825502781197429,
+              -0.04129005642607808
+            ]
+          },
+          {
+            "nominal_seconds": 26.4,
+            "mode": "frozen",
+            "status": "issued",
+            "current_rgb_sha256": [
+              "1d0975567e8b63dc61fd9808816faf83ef7256658a2de3d6a09b0d9b843fb1b4",
+              "4876b91910dbfa79afee85d1279ad8809457695dc653422195ca6e894775be7d"
+            ],
+            "used_rgb_sha256": [
+              "d6f840abc94cfff387fdbd1a6dadd0d30da57ed8161b43f671880bd2c48eaf73",
+              "f17410ba420cf951cc81c79c05be0552cd7bac8652f040ad74ea61f0c27256fc"
+            ],
+            "observation": {
+              "status": "observed",
+              "reason": null,
+              "accepted_views": [
+                0,
+                1
+              ],
+              "views": {
+                "pixels": [
+                  [
+                    [
+                      149.64707946777344,
+                      113.98226928710938
+                    ],
+                    [
+                      150.12132263183594,
+                      79.55337524414062
+                    ]
+                  ],
+                  [
+                    [
+                      171.1827392578125,
+                      133.4112548828125
+                    ],
+                    [
+                      170.78634643554688,
+                      103.66343688964844
+                    ]
+                  ]
+                ],
+                "peaks": [
+                  [
+                    0.10153955221176147,
+                    0.10033934563398361
+                  ],
+                  [
+                    0.09787885844707489,
+                    0.10424347221851349
+                  ]
+                ],
+                "variances": [
+                  [
+                    11.528728485107422,
+                    12.073416709899902
+                  ],
+                  [
+                    11.637478828430176,
+                    11.507204055786133
+                  ]
+                ],
+                "visibility": [
+                  1.0,
+                  0.9999996423721313
+                ],
+                "foreground_pixels": [
+                  1820,
+                  2036
+                ]
+              },
+              "points_m": [
+                [
+                  0.2592795332118056,
+                  0.0015364723837804019,
+                  0.7936667470304077
+                ],
+                [
+                  0.2653218627576443,
+                  0.004812888157485644,
+                  0.8507399618039511
+                ]
+              ],
+              "midpoint_m": [
+                0.26230069798472494,
+                0.003174680270633023,
+                0.8222033544171794
+              ],
+              "axis_length_m": 0.0574856198648819,
+              "reprojection_error_px": 0.13366638095786096,
+              "observer_wall_ms": 31.852399930357933
+            },
+            "estimated_origin_m": [
+              0.25896699892495184,
+              0.0013670026023818549,
+              0.7907146841972934
+            ],
+            "requested_translation_m": [
+              0.0017133302025651666,
+              0.001031745907177734,
+              0.0
+            ],
+            "motor": {
+              "accepted": true,
+              "position_error_mm": 0.11019986345698275,
+              "axis_error": 0.00030769065817289596,
+              "joints": [
+                0.22480790317058563,
+                -0.014192492701113224,
+                0.2679167091846466,
+                1.3197132349014282,
+                -2.3941502571105957
+              ],
+              "requested_translation_m": [
+                0.0017133301589637995,
+                0.0010317459236830473,
+                0.0
+              ],
+              "joint_delta_rad": [
+                0.007526860572397709,
+                0.012295955792069435,
+                -0.014563942328095436,
+                0.002574959537014365,
+                -0.01015834417194128
+              ],
+              "actual_translation_m": [
+                0.001798316845762482,
+                0.001092344632624997,
+                -3.534217660938754e-05
+              ],
+              "original_requested_translation_m": [
+                0.0017133301589637995,
+                0.0010317459236830473,
+                0.0
+              ],
+              "raw_neural_joint_delta_rad": [
+                0.007526860572397709,
+                0.012295955792069435,
+                -0.014563942328095436,
+                0.002574959537014365,
+                -0.01015834417194128
+              ],
+              "step_fraction": 1.0,
+              "neural_inference_ms": 0.38130022585392
+            },
+            "joint_offset_rad": [
+              0.07170515367761254,
+              0.10384197253733873,
+              -0.11871205642819405,
+              0.015400462318211794,
+              -0.05144840059801936
+            ]
+          },
+          {
+            "nominal_seconds": 26.6,
+            "mode": "frozen",
+            "status": "refused",
+            "current_rgb_sha256": [
+              "1fedb519010a822dff244543737165646b67756cd5d8e2a997360280e166a40f",
+              "ad626d6fb11b9f6d84ad02634f66a74ce2ce7e1c1a879d024ae3b9ac43c29b3c"
+            ],
+            "used_rgb_sha256": [
+              "d6f840abc94cfff387fdbd1a6dadd0d30da57ed8161b43f671880bd2c48eaf73",
+              "f17410ba420cf951cc81c79c05be0552cd7bac8652f040ad74ea61f0c27256fc"
+            ],
+            "observation": {
+              "status": "observed",
+              "reason": null,
+              "accepted_views": [
+                0,
+                1
+              ],
+              "views": {
+                "pixels": [
+                  [
+                    [
+                      149.64707946777344,
+                      113.98226928710938
+                    ],
+                    [
+                      150.12132263183594,
+                      79.55337524414062
+                    ]
+                  ],
+                  [
+                    [
+                      171.1827392578125,
+                      133.4112548828125
+                    ],
+                    [
+                      170.78634643554688,
+                      103.66343688964844
+                    ]
+                  ]
+                ],
+                "peaks": [
+                  [
+                    0.10153955221176147,
+                    0.10033934563398361
+                  ],
+                  [
+                    0.09787885844707489,
+                    0.10424347221851349
+                  ]
+                ],
+                "variances": [
+                  [
+                    11.528728485107422,
+                    12.073416709899902
+                  ],
+                  [
+                    11.637478828430176,
+                    11.507204055786133
+                  ]
+                ],
+                "visibility": [
+                  1.0,
+                  0.9999996423721313
+                ],
+                "foreground_pixels": [
+                  1820,
+                  2036
+                ]
+              },
+              "points_m": [
+                [
+                  0.2592795332118056,
+                  0.0015364723837804019,
+                  0.7936667470304077
+                ],
+                [
+                  0.2653218627576443,
+                  0.004812888157485644,
+                  0.8507399618039511
+                ]
+              ],
+              "midpoint_m": [
+                0.26230069798472494,
+                0.003174680270633023,
+                0.8222033544171794
+              ],
+              "axis_length_m": 0.0574856198648819,
+              "reprojection_error_px": 0.13366638095786096,
+              "observer_wall_ms": 32.049599569290876
+            },
+            "estimated_origin_m": [
+              0.25896699892495184,
+              0.0013670026023818549,
+              0.7907146841972934
+            ],
+            "requested_translation_m": [
+              0.0017133302025651666,
+              0.001031745907177734,
+              0.0
+            ],
+            "motor": {
+              "accepted": true,
+              "position_error_mm": 0.13403706058762477,
+              "axis_error": 0.0004044265549775857,
+              "joints": [
+                0.23188216984272003,
+                0.0027165389619767666,
+                0.26784899830818176,
+                1.3037338256835938,
+                -2.4050304889678955
+              ],
+              "requested_translation_m": [
+                0.0017133301589637995,
+                0.0010317459236830473,
+                0.0
+              ],
+              "joint_delta_rad": [
+                0.00746757909655571,
+                0.012530280277132988,
+                -0.014995096251368523,
+                0.002868297975510359,
+                -0.012376755475997925
+              ],
+              "actual_translation_m": [
+                0.0018205097386928548,
+                0.0011007728205078638,
+                -4.139757015586554e-05
+              ],
+              "original_requested_translation_m": [
+                0.0017133301589637995,
+                0.0010317459236830473,
+                0.0
+              ],
+              "raw_neural_joint_delta_rad": [
+                0.00746757909655571,
+                0.012530280277132988,
+                -0.014995096251368523,
+                0.002868297975510359,
+                -0.012376755475997925
+              ],
+              "step_fraction": 1.0,
+              "neural_inference_ms": 0.26559969410300255
+            },
+            "reason": "Cumulative visual correction exceeds the declared joint range."
+          }
+        ],
+        "mug_correction_mode": "frozen"
+      }
+    ],
+    "skill_elapsed_s": 26.605,
+    "intent_plan": {
+      "steps": [
+        "reverse_bottle_right",
+        "reverse_bottle_left",
+        "plate",
+        "mug",
+        "drawer",
+        "fork",
+        "spoon"
+      ],
+      "reasons": [
+        "Use the right arm to reach the bottle, release on the shared table, then let the left arm finish placement."
+      ],
+      "observation": {
+        "bottle_path_clear": false,
+        "drawer_path_clear": false,
+        "drawer_open": false,
+        "source": "calibrated RGB color/geometry rules; no simulator object positions",
+        "bottle_centroid_px": [
+          138.56593132019043,
+          175.50549030303955
+        ],
+        "bottle_region": "left_reach",
+        "plate_centroid_px": [
+          128.328857421875,
+          133.50671768188477
+        ],
+        "drawer_lining_pixels": 383
+      },
+      "instruction": "set the table",
+      "interpreter": "bounded grammar and RGB-grounded dependencies"
+    }
+  },
+  "wall_seconds": 20.70877500018105,
+  "simulation_seconds": 137.97499999994702,
+  "trace_frames": 2761
+}

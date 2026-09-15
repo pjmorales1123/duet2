@@ -1,0 +1,539 @@
+{
+  "schema": "talos.mug-keypoint-observer.v1",
+  "protocol_sha256": "e73c7058c662e3e200fc7264dea2c90e0fc1241a281a195d549cbddbd2442d4e",
+  "settings": {
+    "rng_seed": 2026099854,
+    "updates": 8000,
+    "batch_size": 12,
+    "optimizer": "AdamW",
+    "learning_rate": 0.001,
+    "final_learning_rate": 1e-05,
+    "weight_decay": 0.0001,
+    "schedule": "Cosine over the one declared fit",
+    "gradient_clip_norm": 5.0,
+    "checkpoints": [
+      4000,
+      8000
+    ],
+    "precision": "FP32 CUDA with TF32 disabled",
+    "selection": "Complete both checkpoints. Among those passing all development gates, choose lowest midpoint p95 3D error, then lowest maximum, then earlier update. No additional fit, threshold revision or data selection."
+  },
+  "source_sha256": {
+    "scripts/train_mug_keypoints.py": "148c73d8906c88986e559a5c4d0be3ccdcf23e48f09f4f981ccbbc7d4b5b8ffb",
+    "scripts/mug_keypoint_experiment.py": "1a97702550dc1d9613f897f56c27d01dae7a47f06d912b88b42c4a5b78953108",
+    "scripts/collect_mug_keypoints.py": "f08ff8dde03942b37f807b60097bebebc3d2f321f184b7293abb7ffe05a7d7ae",
+    "scripts/train_rgb_servo_observer.py": "9e74341798a9f2583f9e1291571a37a7c9a8d6fea42aeb701d3d712cde5f82dc",
+    "simulation_lab/mug_keypoint_observer.py": "dc5c76bd5b82ffb7191727690be3ac15b0003310ff0a69ef848213ce376a5fea",
+    "simulation_lab/rgb_servo_network.py": "3ef3cd8fcac1e40743893caab14fb94decf52d1c402c6ade69c342e8c97d9302",
+    "simulation_lab/rgb_servo_cameras.py": "eb750885e17ccc731ad9a80f3f5450ec2b5823c68e9dd57d9e325623d28eb3ec"
+  },
+  "dataset_manifest_sha256": {
+    "training": "175874207d2da853647a26806896f56e2a354969428c2038d14dd92a508a013d",
+    "development": "edbf2e320c4e9bab32b8874ec5dfa0aa1fb846531c7fc48831e61e492839029e"
+  },
+  "parent_git_revision": "122966f0e6bd5620ef5b301c7b47de9cf96d0416",
+  "completed_updates": 8000,
+  "parameters": 393772,
+  "gpu": "NVIDIA GeForce RTX 4070",
+  "torch": "2.8.0+cu128",
+  "cuda": "12.8",
+  "peak_torch_reserved_gib": 2.9140625,
+  "wall_seconds": 173.02190699987113,
+  "curve": [
+    {
+      "step": 1,
+      "loss": 11.239959716796875,
+      "keypoint_loss": 10.416993141174316,
+      "mask_loss": 0.8775604963302612,
+      "visibility_loss": 0.5751688480377197,
+      "coordinate_loss_px": 13.457643508911133,
+      "learning_rate": 0.001,
+      "wall_seconds": 0.6114334999583662,
+      "peak_torch_reserved_gib": 2.912109375
+    },
+    {
+      "step": 200,
+      "loss": 3.2828335762023926,
+      "keypoint_loss": 3.2523574829101562,
+      "mask_loss": 0.05534673109650612,
+      "visibility_loss": 0.0005473783821798861,
+      "coordinate_loss_px": 0.13465434312820435,
+      "learning_rate": 0.0009984889159457592,
+      "wall_seconds": 4.961768799927086,
+      "peak_torch_reserved_gib": 2.9140625
+    },
+    {
+      "step": 400,
+      "loss": 3.2303812503814697,
+      "keypoint_loss": 3.2216315269470215,
+      "mask_loss": 0.01593387871980667,
+      "visibility_loss": 0.0006606427486985922,
+      "coordinate_loss_px": 0.03253735229372978,
+      "learning_rate": 0.0009939345864178983,
+      "wall_seconds": 9.226817999966443,
+      "peak_torch_reserved_gib": 2.9140625
+    },
+    {
+      "step": 600,
+      "loss": 3.222041368484497,
+      "keypoint_loss": 3.214916944503784,
+      "mask_loss": 0.013263403438031673,
+      "visibility_loss": 1.2937669453094713e-05,
+      "coordinate_loss_px": 0.0245079156011343,
+      "learning_rate": 0.0009863650592127156,
+      "wall_seconds": 13.468486599624157,
+      "peak_torch_reserved_gib": 2.9140625
+    },
+    {
+      "step": 800,
+      "loss": 3.2198572158813477,
+      "keypoint_loss": 3.2146401405334473,
+      "mask_loss": 0.009292791597545147,
+      "visibility_loss": 0.00021732381719630212,
+      "coordinate_loss_px": 0.026369484141469002,
+      "learning_rate": 0.0009758270146459048,
+      "wall_seconds": 17.72232799977064,
+      "peak_torch_reserved_gib": 2.9140625
+    },
+    {
+      "step": 1000,
+      "loss": 3.218074083328247,
+      "keypoint_loss": 3.2134127616882324,
+      "mask_loss": 0.008241765201091766,
+      "visibility_loss": 0.00011201153392903507,
+      "coordinate_loss_px": 0.025902166962623596,
+      "learning_rate": 0.000962385439503805,
+      "wall_seconds": 21.978407099843025,
+      "peak_torch_reserved_gib": 2.9140625
+    },
+    {
+      "step": 1200,
+      "loss": 3.2125935554504395,
+      "keypoint_loss": 3.2086281776428223,
+      "mask_loss": 0.007365117315202951,
+      "visibility_loss": 6.5162472310476e-05,
+      "coordinate_loss_px": 0.013480725698173046,
+      "learning_rate": 0.0009461232262781193,
+      "wall_seconds": 26.229861699976027,
+      "peak_torch_reserved_gib": 2.9140625
+    },
+    {
+      "step": 1400,
+      "loss": 3.214085578918457,
+      "keypoint_loss": 3.209861993789673,
+      "mask_loss": 0.007699806243181229,
+      "visibility_loss": 3.9664897485636175e-05,
+      "coordinate_loss_px": 0.01829104870557785,
+      "learning_rate": 0.0009271406619784157,
+      "wall_seconds": 30.479318799916655,
+      "peak_torch_reserved_gib": 2.9140625
+    },
+    {
+      "step": 1600,
+      "loss": 3.2101809978485107,
+      "keypoint_loss": 3.2067065238952637,
+      "mask_loss": 0.006604054942727089,
+      "visibility_loss": 4.046633330290206e-05,
+      "coordinate_loss_px": 0.008208656683564186,
+      "learning_rate": 0.000905554809674839,
+      "wall_seconds": 34.72660319972783,
+      "peak_torch_reserved_gib": 2.9140625
+    },
+    {
+      "step": 1800,
+      "loss": 3.2169461250305176,
+      "keypoint_loss": 3.212535858154297,
+      "mask_loss": 0.007771787233650684,
+      "visibility_loss": 1.7334693893644726e-06,
+      "coordinate_loss_px": 0.02620413713157177,
+      "learning_rate": 0.000881498786584982,
+      "wall_seconds": 38.998239499982446,
+      "peak_torch_reserved_gib": 2.9140625
+    },
+    {
+      "step": 2000,
+      "loss": 3.208820104598999,
+      "keypoint_loss": 3.2056736946105957,
+      "mask_loss": 0.005995363928377628,
+      "visibility_loss": 3.2149233447853476e-05,
+      "coordinate_loss_px": 0.007115689106285572,
+      "learning_rate": 0.0008551209431568614,
+      "wall_seconds": 43.26010109996423,
+      "peak_torch_reserved_gib": 2.9140625
+    },
+    {
+      "step": 2200,
+      "loss": 3.2108941078186035,
+      "keypoint_loss": 3.2071449756622314,
+      "mask_loss": 0.007035553455352783,
+      "visibility_loss": 3.273674883530475e-05,
+      "coordinate_loss_px": 0.0112384594976902,
+      "learning_rate": 0.0008265839482104927,
+      "wall_seconds": 47.5077466997318,
+      "peak_torch_reserved_gib": 2.9140625
+    },
+    {
+      "step": 2400,
+      "loss": 3.209829330444336,
+      "keypoint_loss": 3.205720901489258,
+      "mask_loss": 0.007942786440253258,
+      "visibility_loss": 1.5678441513955477e-06,
+      "coordinate_loss_px": 0.006847476586699486,
+      "learning_rate": 0.0007960637857798761,
+      "wall_seconds": 51.76451299991459,
+      "peak_torch_reserved_gib": 2.9140625
+    },
+    {
+      "step": 2600,
+      "loss": 3.215287685394287,
+      "keypoint_loss": 3.2116596698760986,
+      "mask_loss": 0.0062871393747627735,
+      "visibility_loss": 3.1331772333942354e-05,
+      "coordinate_loss_px": 0.023914184421300888,
+      "learning_rate": 0.0007637486698417449,
+      "wall_seconds": 56.01565239997581,
+      "peak_torch_reserved_gib": 2.9140625
+    },
+    {
+      "step": 2800,
+      "loss": 3.2073473930358887,
+      "keypoint_loss": 3.2049241065979004,
+      "mask_loss": 0.004628246184438467,
+      "visibility_loss": 2.4815319193294272e-05,
+      "coordinate_loss_px": 0.005212499760091305,
+      "learning_rate": 0.0007298378836238066,
+      "wall_seconds": 60.26000879984349,
+      "peak_torch_reserved_gib": 2.9140625
+    },
+    {
+      "step": 3000,
+      "loss": 3.2099857330322266,
+      "keypoint_loss": 3.2062413692474365,
+      "mask_loss": 0.007037925999611616,
+      "visibility_loss": 0.00019219567184336483,
+      "coordinate_loss_px": 0.009351893328130245,
+      "learning_rate": 0.0006945405506503131,
+      "wall_seconds": 64.5289619998075,
+      "peak_torch_reserved_gib": 2.9140625
+    },
+    {
+      "step": 3200,
+      "loss": 3.208124876022339,
+      "keypoint_loss": 3.204941987991333,
+      "mask_loss": 0.006136487703770399,
+      "visibility_loss": 2.2134634491521865e-05,
+      "coordinate_loss_px": 0.005504651926457882,
+      "learning_rate": 0.0006580743451037702,
+      "wall_seconds": 68.80212699994445,
+      "peak_torch_reserved_gib": 2.9140625
+    },
+    {
+      "step": 3400,
+      "loss": 3.208305835723877,
+      "keypoint_loss": 3.2049050331115723,
+      "mask_loss": 0.006588827818632126,
+      "visibility_loss": 2.8793463116016937e-06,
+      "coordinate_loss_px": 0.0052970764227211475,
+      "learning_rate": 0.0006206641494558195,
+      "wall_seconds": 73.05125349992886,
+      "peak_torch_reserved_gib": 2.9140625
+    },
+    {
+      "step": 3600,
+      "loss": 3.208550453186035,
+      "keypoint_loss": 3.2052054405212402,
+      "mask_loss": 0.006442350801080465,
+      "visibility_loss": 4.322663244238356e-06,
+      "coordinate_loss_px": 0.0061433762311935425,
+      "learning_rate": 0.000582540667645514,
+      "wall_seconds": 77.30191090004519,
+      "peak_torch_reserved_gib": 2.9140625
+    },
+    {
+      "step": 3800,
+      "loss": 3.2075560092926025,
+      "keypoint_loss": 3.2042551040649414,
+      "mask_loss": 0.006435180548578501,
+      "visibility_loss": 9.369446161144879e-07,
+      "coordinate_loss_px": 0.0041512176394462585,
+      "learning_rate": 0.0005439390023573413,
+      "wall_seconds": 81.58057889994234,
+      "peak_torch_reserved_gib": 2.9140625
+    },
+    {
+      "step": 4000,
+      "loss": 3.2084298133850098,
+      "keypoint_loss": 3.2047431468963623,
+      "mask_loss": 0.007133590057492256,
+      "visibility_loss": 6.465252226917073e-05,
+      "coordinate_loss_px": 0.0053557902574539185,
+      "learning_rate": 0.0005050972051727424,
+      "wall_seconds": 85.87343659996986,
+      "peak_torch_reserved_gib": 2.9140625
+    },
+    {
+      "step": 4200,
+      "loss": 3.2078168392181396,
+      "keypoint_loss": 3.2044427394866943,
+      "mask_loss": 0.00656060129404068,
+      "visibility_loss": 1.569461528561078e-05,
+      "coordinate_loss_px": 0.004534487146884203,
+      "learning_rate": 0.00046625480853615284,
+      "wall_seconds": 90.91763599961996,
+      "peak_torch_reserved_gib": 2.9140625
+    },
+    {
+      "step": 4400,
+      "loss": 3.2096118927001953,
+      "keypoint_loss": 3.2059338092803955,
+      "mask_loss": 0.007014320231974125,
+      "visibility_loss": 4.762712251249468e-07,
+      "coordinate_loss_px": 0.008546779863536358,
+      "learning_rate": 0.0004276513485887533,
+      "wall_seconds": 95.20118789980188,
+      "peak_torch_reserved_gib": 2.9140625
+    },
+    {
+      "step": 4600,
+      "loss": 3.207962989807129,
+      "keypoint_loss": 3.2043542861938477,
+      "mask_loss": 0.007069185376167297,
+      "visibility_loss": 6.692082934023347e-06,
+      "coordinate_loss_px": 0.0036416903603821993,
+      "learning_rate": 0.00038952488797942017,
+      "wall_seconds": 99.49134269962087,
+      "peak_torch_reserved_gib": 2.9140625
+    },
+    {
+      "step": 4800,
+      "loss": 3.207529067993164,
+      "keypoint_loss": 3.2042832374572754,
+      "mask_loss": 0.006322462577372789,
+      "visibility_loss": 6.204510555107845e-06,
+      "coordinate_loss_px": 0.0041757868602871895,
+      "learning_rate": 0.0003521105477625179,
+      "wall_seconds": 103.76951839961112,
+      "peak_torch_reserved_gib": 2.9140625
+    },
+    {
+      "step": 5000,
+      "loss": 3.2082200050354004,
+      "keypoint_loss": 3.204570770263672,
+      "mask_loss": 0.00709499791264534,
+      "visibility_loss": 1.5357277334260289e-06,
+      "coordinate_loss_px": 0.005075051914900541,
+      "learning_rate": 0.00031563905743613125,
+      "wall_seconds": 108.07700569974259,
+      "peak_torch_reserved_gib": 2.9140625
+    },
+    {
+      "step": 5200,
+      "loss": 3.206420660018921,
+      "keypoint_loss": 3.2038209438323975,
+      "mask_loss": 0.0050731077790260315,
+      "visibility_loss": 4.0551467463956214e-06,
+      "coordinate_loss_px": 0.0031195080373436213,
+      "learning_rate": 0.00028033533206246985,
+      "wall_seconds": 112.37435189960524,
+      "peak_torch_reserved_gib": 2.9140625
+    },
+    {
+      "step": 5400,
+      "loss": 3.207427740097046,
+      "keypoint_loss": 3.203906297683716,
+      "mask_loss": 0.006911668926477432,
+      "visibility_loss": 8.472176887153182e-06,
+      "coordinate_loss_px": 0.003191861556842923,
+      "learning_rate": 0.0002464170852451619,
+      "wall_seconds": 116.65494549972937,
+      "peak_torch_reserved_gib": 2.9140625
+    },
+    {
+      "step": 5600,
+      "loss": 3.2072677612304688,
+      "keypoint_loss": 3.2043421268463135,
+      "mask_loss": 0.005663696676492691,
+      "visibility_loss": 7.631073231095797e-07,
+      "coordinate_loss_px": 0.004669828340411186,
+      "learning_rate": 0.00021409348651703087,
+      "wall_seconds": 120.93115419987589,
+      "peak_torch_reserved_gib": 2.9140625
+    },
+    {
+      "step": 5800,
+      "loss": 3.2070472240448,
+      "keypoint_loss": 3.2043328285217285,
+      "mask_loss": 0.005241454113274813,
+      "visibility_loss": 5.95506162426318e-06,
+      "coordinate_loss_px": 0.004622133914381266,
+      "learning_rate": 0.00018356387141807575,
+      "wall_seconds": 125.19968219986185,
+      "peak_torch_reserved_gib": 2.9140625
+    },
+    {
+      "step": 6000,
+      "loss": 3.2062556743621826,
+      "keypoint_loss": 3.203364610671997,
+      "mask_loss": 0.005701250862330198,
+      "visibility_loss": 3.0516512197209522e-06,
+      "coordinate_loss_px": 0.00198687007650733,
+      "learning_rate": 0.00015501651221843862,
+      "wall_seconds": 129.48033579997718,
+      "peak_torch_reserved_gib": 2.9140625
+    },
+    {
+      "step": 6200,
+      "loss": 3.206576108932495,
+      "keypoint_loss": 3.203092336654663,
+      "mask_loss": 0.006918378174304962,
+      "visibility_loss": 5.900480459786195e-07,
+      "coordinate_loss_px": 0.0012226816033944488,
+      "learning_rate": 0.00012862745686715728,
+      "wall_seconds": 133.72485789982602,
+      "peak_torch_reserved_gib": 2.9140625
+    },
+    {
+      "step": 6400,
+      "loss": 3.206772565841675,
+      "keypoint_loss": 3.2034308910369873,
+      "mask_loss": 0.006598149426281452,
+      "visibility_loss": 7.462448934347776e-07,
+      "coordinate_loss_px": 0.002118015429005027,
+      "learning_rate": 0.00010455944332675683,
+      "wall_seconds": 138.0011322996579,
+      "peak_torch_reserved_gib": 2.9140625
+    },
+    {
+      "step": 6600,
+      "loss": 3.2068417072296143,
+      "keypoint_loss": 3.2035329341888428,
+      "mask_loss": 0.006524169817566872,
+      "visibility_loss": 2.6919092306343373e-06,
+      "coordinate_loss_px": 0.0023085239809006453,
+      "learning_rate": 8.296089598884485e-05,
+      "wall_seconds": 142.2730127996765,
+      "peak_torch_reserved_gib": 2.9140625
+    },
+    {
+      "step": 6800,
+      "loss": 3.206784248352051,
+      "keypoint_loss": 3.203355073928833,
+      "mask_loss": 0.0067831468768417835,
+      "visibility_loss": 7.086388791321951e-07,
+      "coordinate_loss_px": 0.00186975859105587,
+      "learning_rate": 6.396501035968265e-05,
+      "wall_seconds": 146.53122580004856,
+      "peak_torch_reserved_gib": 2.9140625
+    },
+    {
+      "step": 7000,
+      "loss": 3.205940008163452,
+      "keypoint_loss": 3.203432321548462,
+      "mask_loss": 0.004929611459374428,
+      "visibility_loss": 3.1689737625129055e-06,
+      "coordinate_loss_px": 0.0021093690302222967,
+      "learning_rate": 4.768893166036717e-05,
+      "wall_seconds": 150.80629829969257,
+      "peak_torch_reserved_gib": 2.9140625
+    },
+    {
+      "step": 7200,
+      "loss": 3.2063794136047363,
+      "keypoint_loss": 3.2033424377441406,
+      "mask_loss": 0.006000437308102846,
+      "visibility_loss": 1.659901727180113e-06,
+      "coordinate_loss_px": 0.0018245804822072387,
+      "learning_rate": 3.4233032407086125e-05,
+      "wall_seconds": 155.0573990996927,
+      "peak_torch_reserved_gib": 2.9140625
+    },
+    {
+      "step": 7400,
+      "loss": 3.2064859867095947,
+      "keypoint_loss": 3.2032387256622314,
+      "mask_loss": 0.006428960245102644,
+      "visibility_loss": 2.183359356422443e-06,
+      "coordinate_loss_px": 0.0016105030663311481,
+      "learning_rate": 2.3680293426522456e-05,
+      "wall_seconds": 159.34501499962062,
+      "peak_torch_reserved_gib": 2.9140625
+    },
+    {
+      "step": 7600,
+      "loss": 3.2065019607543945,
+      "keypoint_loss": 3.203127145767212,
+      "mask_loss": 0.006699311081320047,
+      "visibility_loss": 2.2796579912665038e-07,
+      "coordinate_loss_px": 0.0012596138985827565,
+      "learning_rate": 1.6095792123604053e-05,
+      "wall_seconds": 163.63388059986755,
+      "peak_torch_reserved_gib": 2.9140625
+    },
+    {
+      "step": 7800,
+      "loss": 3.206223249435425,
+      "keypoint_loss": 3.2031595706939697,
+      "mask_loss": 0.006065270397812128,
+      "visibility_loss": 1.6326036984537495e-06,
+      "coordinate_loss_px": 0.0015322312247008085,
+      "learning_rate": 1.1526301157388948e-05,
+      "wall_seconds": 167.92240849975497,
+      "peak_torch_reserved_gib": 2.9140625
+    },
+    {
+      "step": 8000,
+      "loss": 3.2064566612243652,
+      "keypoint_loss": 3.203411340713501,
+      "mask_loss": 0.006007050164043903,
+      "visibility_loss": 2.563895975526975e-07,
+      "coordinate_loss_px": 0.0020892212633043528,
+      "learning_rate": 1e-05,
+      "wall_seconds": 172.22446599975228,
+      "peak_torch_reserved_gib": 2.9140625
+    }
+  ],
+  "candidates": [
+    {
+      "step": 4000,
+      "checkpoint": ".run/mug-keypoint-observer-v1/fit/step-004000/model.safetensors",
+      "checkpoint_sha256": "793b00876ed48f3a485405a89154a02d7048f56bf26cb058fcda55e503da5d1c",
+      "development": {
+        "states": 512,
+        "present": 448,
+        "present_accepted": 448,
+        "coverage_fraction": 1.0,
+        "absent": 64,
+        "absent_false_accepts": 0,
+        "p95_3d_error_mm": 0.3853849177135364,
+        "maximum_3d_error_mm": 0.7085415146191326,
+        "p95_xy_error_mm": 0.3346130492612475,
+        "gate_passed": true
+      }
+    },
+    {
+      "step": 8000,
+      "checkpoint": ".run/mug-keypoint-observer-v1/fit/step-008000/model.safetensors",
+      "checkpoint_sha256": "e6db2942f2510cbb84bbe250e7e4fbb51aab4db95cbc601a70ffaa84845a898b",
+      "development": {
+        "states": 512,
+        "present": 448,
+        "present_accepted": 448,
+        "coverage_fraction": 1.0,
+        "absent": 64,
+        "absent_false_accepts": 0,
+        "p95_3d_error_mm": 0.2646513384718145,
+        "maximum_3d_error_mm": 0.5041991582087199,
+        "p95_xy_error_mm": 0.24206469952520146,
+        "gate_passed": true
+      }
+    }
+  ],
+  "development_gate_passed": true,
+  "preflight": {
+    "free_bytes": 558824767488,
+    "estimated_additional_bytes": 67108864,
+    "reserve_bytes": 10737418240
+  },
+  "new_physical_trials": 0,
+  "scope": "One synthetic stereo image-point fit; calibration is explicit and there is no motor-control integration."
+}

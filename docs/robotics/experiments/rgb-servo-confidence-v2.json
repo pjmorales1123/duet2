@@ -1,0 +1,11 @@
+{
+  "schema": "talos.rgb-servo-confidence.v2",
+  "declared_on": "2026-09-13",
+  "reason": "A right-arm approach occludes one fixed view even after expanded right-arm appearance training. V4 now has 2.682 mm p95 on the original two-view development calculation. Evaluate whether two individually confident, geometrically consistent views suffice; keep the three-view failures and do not relax physical success thresholds.",
+  "candidate_observers": ["v4", "v5 with reserved recovery-image training"],
+  "minimum_confident_views": 2,
+  "view_requirements": {"visibility_min": 0.7, "peak_min": 0.02, "variance_px2_max": 36},
+  "triangulation_requirements": {"reprojection_px_max": 1.5, "axis_length_m": [0.097,0.109], "axis_z_m_min": 0.075},
+  "unchanged_accuracy_gate": "Accepted 3D maximum-keypoint error p95 below 3 mm, all refusals and absent-object false positives reported. Select on original development and exposed training motions only; a fresh frozen test is required before promotion.",
+  "scope": "Perception-confidence experiment. Two-view acceptance is not itself proof of correct grasping or wider coverage."
+}

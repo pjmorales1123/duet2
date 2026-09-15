@@ -1,0 +1,312 @@
+{
+  "skill": "plate",
+  "logical_skill": "plate",
+  "episodes": [
+    "seed-2026091701",
+    "seed-2026091702",
+    "seed-2026091703",
+    "seed-2026091704",
+    "seed-2026091705",
+    "seed-2026091706",
+    "seed-2026091707",
+    "seed-2026091708",
+    "seed-42",
+    "seed-2026091709",
+    "seed-2026091710",
+    "seed-2026091711",
+    "seed-2026091712",
+    "seed-2026091713",
+    "seed-2026091714",
+    "seed-2026091715",
+    "seed-2026091716",
+    "seed-2026091717",
+    "seed-2026091718",
+    "seed-2026091719",
+    "seed-2026091720",
+    "seed-2026091721",
+    "seed-2026091722",
+    "seed-2026091723",
+    "seed-2026091724",
+    "seed-2026091725",
+    "seed-2026091726",
+    "seed-2026091727",
+    "seed-2026091728",
+    "seed-2026091729",
+    "seed-2026091730",
+    "seed-2026091731",
+    "seed-2026091732",
+    "seed-2026091733",
+    "seed-2026091734",
+    "seed-2026091735",
+    "seed-2026091736",
+    "seed-2026091737",
+    "seed-2026091738",
+    "seed-2026091739",
+    "seed-2026091740"
+  ],
+  "excluded": [],
+  "arm_offset": 0,
+  "gripper_cap_nm": 0.5,
+  "visual_encoder": "dinner_rgb_geometry",
+  "visual_preprocess": "brightness_normalized",
+  "cameras": [
+    "overhead",
+    "table_left",
+    "table_right"
+  ],
+  "reconstruction_check": "initial_only",
+  "reconstruction_limit": 0.002,
+  "visual_components": 2,
+  "durations_s": {
+    "approach": 4.35,
+    "descend": 3.3,
+    "close": 5.3,
+    "lift": 3.8,
+    "hold": 1.8,
+    "align": 4.3,
+    "lower": 3.2,
+    "release": 4.35,
+    "retract": 3.35,
+    "park": 3.8,
+    "verify": 1.1
+  },
+  "lineage": [
+    {
+      "episode": "seed-2026091701",
+      "manifest_sha256": "76bcfa3a0148ae0a39a76ff3651401e5a457161a89c7a05727c0dfb1d114c62f"
+    },
+    {
+      "episode": "seed-2026091702",
+      "manifest_sha256": "8d53d14be9aeaeca4258e5ab12dfff3251ec987cd182099591481195e54b8979"
+    },
+    {
+      "episode": "seed-2026091703",
+      "manifest_sha256": "071b164ad76cd2576374ef55be33718de7f30287be12b1e76050df3ec81843c2"
+    },
+    {
+      "episode": "seed-2026091704",
+      "manifest_sha256": "c11ed269a7b064d46acadd99481538a347337858171a9788d6476e15b8052496"
+    },
+    {
+      "episode": "seed-2026091705",
+      "manifest_sha256": "f1b7b71a6b1cd5cd27aa7c1f66225edb445a76a138129c74d89d675f0fdf1b2c"
+    },
+    {
+      "episode": "seed-2026091706",
+      "manifest_sha256": "7ad18bdf939d730d5ad76fa9c6d42e9b0e09f179a8736e95f71d7a48a5ed8239"
+    },
+    {
+      "episode": "seed-2026091707",
+      "manifest_sha256": "46c81f1e64d4ffd4b1cc69aa55c4a039fc20db864fbbe20960edc06cae00d435"
+    },
+    {
+      "episode": "seed-2026091708",
+      "manifest_sha256": "790cf5774b3a1a90e922b9fd5ca6f38266e00c07dbcbfc08e8ad09d9078eb5f0"
+    },
+    {
+      "episode": "seed-42",
+      "manifest_sha256": "83c7d7bdee8cddff13b5e6e3e6b9aab1c5aa068a98718483f501b208dac1b429"
+    },
+    {
+      "episode": "seed-2026091709",
+      "manifest_sha256": "1e89190018daf70d3b47b9e5e92ed4b97baa3c99f6fd7d3f6aa05f1a0225b6b8"
+    },
+    {
+      "episode": "seed-2026091710",
+      "manifest_sha256": "0dc0f97a999faf15d397cc4560fd7bffebbbb5c0b0f67a1f19eb2a729bb9f4f9"
+    },
+    {
+      "episode": "seed-2026091711",
+      "manifest_sha256": "cb855669f85d735487c5867dd3a105d285423cd6e5701c30ba19583aa2d18298"
+    },
+    {
+      "episode": "seed-2026091712",
+      "manifest_sha256": "4ee6879bac1081a1d29bb246beac1d771af9bdf73679b1565c87d80f2570cb90"
+    },
+    {
+      "episode": "seed-2026091713",
+      "manifest_sha256": "e0cdc1391ee12466d7a4a5fe1a5b0b23debbab29c3c7e85bce80fb3a06c13e96"
+    },
+    {
+      "episode": "seed-2026091714",
+      "manifest_sha256": "99857181e2cda8acec8357a966d35aaa488c84d72db99993a952b5f893afe033"
+    },
+    {
+      "episode": "seed-2026091715",
+      "manifest_sha256": "7e60d5cfb3bbe3f59e22c1a73cbb9a72ba845e6e95dfd30c91b2e4739138c854"
+    },
+    {
+      "episode": "seed-2026091716",
+      "manifest_sha256": "b83c8aff5bb66d81f6c307764fbef3a06d40274d41dcf7b4671a7e3533960f8b"
+    },
+    {
+      "episode": "seed-2026091717",
+      "manifest_sha256": "f2214be9170727f2d1291b1a6eace474aecaa6a5cb588be0c3472cbfa1a5a120"
+    },
+    {
+      "episode": "seed-2026091718",
+      "manifest_sha256": "f8b86bf8b26f6bcd9ca6098656916b36ae926a8a0119a53e9bd5c53cd4e60756"
+    },
+    {
+      "episode": "seed-2026091719",
+      "manifest_sha256": "6f3c0e0c601f36a3b146ce5c6d6431220826a7acdf549bc1df1fee2663c08173"
+    },
+    {
+      "episode": "seed-2026091720",
+      "manifest_sha256": "f12017c54e36164920fd63e71e324edb47af62fd32d33d53cb0c611a8594e437"
+    },
+    {
+      "episode": "seed-2026091721",
+      "manifest_sha256": "7f185e92661a185cb069e397a85a448312727a1f47a67292283d28d7d4279c15"
+    },
+    {
+      "episode": "seed-2026091722",
+      "manifest_sha256": "8fe628c31b02147bba64312287450c98ea5e4735f53ff0e2e6c16e66f28dbdde"
+    },
+    {
+      "episode": "seed-2026091723",
+      "manifest_sha256": "f03124b0b660c65c69951c07aa6e3576c2b3557a7b242c60f475b62a628064b5"
+    },
+    {
+      "episode": "seed-2026091724",
+      "manifest_sha256": "f60d8797442b567bfd7e3909f7f4fbd9d351d1a8c916aef4d06202705cc9b602"
+    },
+    {
+      "episode": "seed-2026091725",
+      "manifest_sha256": "ce1b1eec1e0b801192c9e0e0fb2f7ac9206e76f0c90f3dcaa0e845d1d243cf65"
+    },
+    {
+      "episode": "seed-2026091726",
+      "manifest_sha256": "b7d48309cab3d0559d44d6f63f3c48f0a57c9bd09539f56e3b6c6ff2385f98f8"
+    },
+    {
+      "episode": "seed-2026091727",
+      "manifest_sha256": "1143c2f2796883a7b0bdbe95bace3746ad498199260a303cdb91a29f61901cda"
+    },
+    {
+      "episode": "seed-2026091728",
+      "manifest_sha256": "ce1c7c02d1de791e4779eb8d5612f2db70477cc5c748354eda10b2f11d2b9261"
+    },
+    {
+      "episode": "seed-2026091729",
+      "manifest_sha256": "e15dfb350ba53627a7165326e53c60a3530718b330fd891d224b5dc37381a183"
+    },
+    {
+      "episode": "seed-2026091730",
+      "manifest_sha256": "040142d9fde109c074ded636887da389334d42360b835582bda9223ed92b759d"
+    },
+    {
+      "episode": "seed-2026091731",
+      "manifest_sha256": "9f5cbbeacbb128b55a79d9afb6cd2a0b47388ca39f16277152ccdbf039459346"
+    },
+    {
+      "episode": "seed-2026091732",
+      "manifest_sha256": "a44e807a80fdf023688d4d468f8f7445f19cbc897114fd47c5a23d6d099ad74d"
+    },
+    {
+      "episode": "seed-2026091733",
+      "manifest_sha256": "3b54c443b4acbb9b085e77187979b556a75d2ca432c8635d8d0802de1d7a1028"
+    },
+    {
+      "episode": "seed-2026091734",
+      "manifest_sha256": "5fce56b4a5bce630f7daa8123337bde46c523d5b5945733714717ca600363196"
+    },
+    {
+      "episode": "seed-2026091735",
+      "manifest_sha256": "3f58240bc0389cbaa1d2967ca89983a919e73d1d8c7801e771304f345cf45f27"
+    },
+    {
+      "episode": "seed-2026091736",
+      "manifest_sha256": "bf69a058528b209e220d6de91874bea69b963a10c9258840649837744796b9b3"
+    },
+    {
+      "episode": "seed-2026091737",
+      "manifest_sha256": "386df731f1789cb3b25b8a796d32491019d8aba6c0237853024bfac929eb965e"
+    },
+    {
+      "episode": "seed-2026091738",
+      "manifest_sha256": "d5f490e9aa940d0f2b046216a900fa63086d4fddf7520248d73498fc3d96d033"
+    },
+    {
+      "episode": "seed-2026091739",
+      "manifest_sha256": "b660602e74119a51c7cdc9c1baea56bf01ff02b0f31a81231f1cb464526a2aaa"
+    },
+    {
+      "episode": "seed-2026091740",
+      "manifest_sha256": "227ca257da231ca3bdbb625a793d8bf008806f466743d8dbf937ee97c2c7bd57"
+    }
+  ],
+  "scope": "Initial three-camera RGB-conditioned neural skill. Offline stage alignment; no runtime object pose or stage input.",
+  "feature_support": {
+    "min": [
+      0.39167356491088867,
+      0.5475481748580933,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "max": [
+      0.41341668367385864,
+      0.5756853222846985,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "description": "Train-only feature range with one pixel centroid margin; not a workspace-coverage guarantee."
+  },
+  "action_preprocessing": "Offline closed-gripper target (-0.17 rad) sustained during carry stages; physical aligned-input replay required before training."
+}

@@ -1,0 +1,26 @@
+{
+  "schema": "talos.rgb-servo-visibility-diagnostic.v1",
+  "declared_on": "2026-09-14",
+  "parent": "docs/robotics/experiments/rgb-servo-bottle-v5.json",
+  "purpose": "Diagnose missing RGB during approach in the stopped V5 development experiment. Compare three fixed camera configurations on retained states before proposing a separate physical experiment.",
+  "input_root": "docs/robotics/evidence/rgb-servo-v5/physical/development",
+  "traces": ["2026097401-nominal", "2026097404-nominal", "2026097402-nominal", "2026097403-nominal"],
+  "trace_selection": "Both exposed nominal live visibility failures plus the exposed successful relay and the only both-nominal-pass seed. Invalid starts are outside this image diagnostic; they remain failures in V5.",
+  "frames_per_trace": 32,
+  "maximum_simulation_time_s": 3.05,
+  "frame_selection": "Nearest saved frame to each of 32 equally spaced times from zero to min(3.05, final saved time). Remove duplicate indices without replacement.",
+  "observer_model": "docs/robotics/evidence/rgb-servo-v5/physical/model",
+  "observer_sha256": "1b97d12a89d632462e27846846bae5be88d904d2c876901f05ec190f491d2851",
+  "observer_ir_sha256": {"observer.xml":"542ac6cfe8903a66dd0c420f87bd571b49ba6873edd85cecbb87fd660b5adbe1", "observer.bin":"e76bc72eceeea26360f2971211142db989fbff486770fd455f5a29d7e520bb7f"},
+  "camera_configurations": {
+    "original": {"servo_overhead":[90,-90,0.72], "servo_left":[135,-55,0.72], "servo_right":[45,-55,0.72]},
+    "opposite_obliques": {"servo_overhead":[90,-90,0.72], "servo_left":[225,-55,0.72], "servo_right":[315,-55,0.72]},
+    "cross_table": {"servo_overhead":[90,-90,0.72], "servo_left":[135,-55,0.72], "servo_right":[315,-55,0.72]}
+  },
+  "camera_settings": "Each array is azimuth degrees, elevation degrees and distance metres. Slots retain the observer's three names; each configuration records its actual camera calibration. The existing fixed look-at point is unchanged.",
+  "method": "Replay recorded qpos/qvel into a scoring-only simulator, render RGB and apply the frozen FP32 OpenVINO observer with two-view confidence and rigid geometry unchanged. The observer receives only images and actual fixed calibration. Simulator bottle keypoints score error after inference; no robot controller executes.",
+  "diagnostic_gate": {"minimum_overall_acceptance_fraction":0.90, "minimum_recovery_fraction_on_original_refused_frames":0.75, "maximum_accepted_p95_error_mm":3.0, "maximum_accepted_error_mm":6.0},
+  "selection": "At most one non-original configuration passing every diagnostic gate; select most recovered original-refused frames, then lowest accepted p95 error. Report every configuration and frame. A diagnostic pass is not a perception holdout, physical success or promotion.",
+  "budget": {"maximum_compute_minutes":5, "maximum_new_data_mib":32, "additional_training_steps":0, "new_physical_trials":0, "reserve_gib":10},
+  "next_gate": "Any selected camera configuration requires a separately declared fresh perception test and physical development/final splits before use. V5 remains stopped; all reserved V3/V4/V5 final scenes remain unexposed."
+}

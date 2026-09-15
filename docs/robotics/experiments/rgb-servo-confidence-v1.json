@@ -1,0 +1,11 @@
+{
+  "schema": "talos.rgb-servo-confidence.v1",
+  "declared_on": "2026-09-13",
+  "checkpoint": ".run/rgb-servo-observer-fit-v2/step-006000/model.safetensors",
+  "selection_data": "Exposed observer development split 2026095402. V2 accepts 222/225 present states with 3.240 mm p95 and 8.094 mm maximum error. Three-view cases alone have 2.470 mm p95; two-view cases have 4.687 mm p95.",
+  "change": "Require all three confident views, reprojection residual at most 1.5 pixels, and the known 103 mm axis length within 6 mm. This is a conservative observation refusal rule, not improved neural accuracy on the same images.",
+  "confidence_gate": {"views_required": 3, "visibility_min": 0.7, "heatmap_peak_min": 0.02, "variance_px2_max": 36, "reprojection_px_max": 1.5, "axis_length_m": [0.097,0.109]},
+  "fresh_observer_evaluation": {"rng_seed": 2026095404, "states": 256, "generator": "scripts/collect_rgb_servo_observer.py with identical ranges and camera calibration", "not_for_training_or_selection": true},
+  "physical_trace_diagnostic": "Exposed seed-42 bottle motion, all 256 evenly spaced observations. Score current RGB detections against simulator keypoints outside the observer. This is perception evaluation on physical motion, not corrective control.",
+  "acceptance": "Report all refusals and false detections. Target accepted maximum-keypoint 3D error p95 below 3 mm. Do not further tune on the fresh observer evaluation; preserve it even if it fails. Physical evaluation seeds 2026095301-2026095312 remain unexposed."
+}

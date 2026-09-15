@@ -1,0 +1,1 @@
+{'split': 'training', 'states': 8192, 'passed': True, 'maximum_translation_difference_m': 6.661338147750939e-16, 'finite_difference_maximum_coefficient_difference_rad_per_m': 3.8024282105197926e-06}

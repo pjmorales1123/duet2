@@ -1,0 +1,139 @@
+{
+  "schema": "talos.reverse-learning.v1",
+  "declared_on": "2026-09-13",
+  "purpose": "The exposed wider train-019 reconstruction can be grasped/lifted by the right arm but its direct destination fails. Test right-arm placement on the existing shared table area, followed by left-arm placement at the normal bottle goal.",
+  "training": [
+    {
+      "seed": 2026092201,
+      "pose": {
+        "x": -0.07758240867316224,
+        "y": -0.12049531050473333,
+        "yaw": 0.24701145987497375
+      }
+    },
+    {
+      "seed": 2026092202,
+      "pose": {
+        "x": -0.0688843748842985,
+        "y": -0.12008951784096127,
+        "yaw": 0.30087643956876303
+      }
+    },
+    {
+      "seed": 2026092203,
+      "pose": {
+        "x": -0.07014497987548247,
+        "y": -0.12365893061402991,
+        "yaw": 0.3458415309851531
+      }
+    },
+    {
+      "seed": 2026092204,
+      "pose": {
+        "x": -0.07041531717301887,
+        "y": -0.12297346242015395,
+        "yaw": 0.26689939380901423
+      }
+    },
+    {
+      "seed": 2026092205,
+      "pose": {
+        "x": -0.07045924852146264,
+        "y": -0.12483623639648005,
+        "yaw": 0.34898875565797116
+      }
+    },
+    {
+      "seed": 2026092206,
+      "pose": {
+        "x": -0.06939066026099461,
+        "y": -0.11770327210194943,
+        "yaw": 0.2993399478198216
+      }
+    },
+    {
+      "seed": 2026092207,
+      "pose": {
+        "x": -0.07391540575509069,
+        "y": -0.11561140398500422,
+        "yaw": 0.3169389034471232
+      }
+    },
+    {
+      "seed": 2026092208,
+      "pose": {
+        "x": -0.07032419984106322,
+        "y": -0.12104901338568201,
+        "yaw": 0.24358094133609876
+      }
+    },
+    {
+      "seed": 2026092209,
+      "pose": {
+        "x": -0.06767669930569763,
+        "y": -0.1273131479289779,
+        "yaw": 0.36990623263620254
+      }
+    },
+    {
+      "seed": 2026092210,
+      "pose": {
+        "x": -0.07920098356938716,
+        "y": -0.11921098127109947,
+        "yaw": 0.23492750109793775
+      }
+    },
+    {
+      "seed": 2026092211,
+      "pose": {
+        "x": -0.07469946304997897,
+        "y": -0.11722654483135157,
+        "yaw": 0.24052927394198953
+      }
+    },
+    {
+      "seed": 2026092212,
+      "pose": {
+        "x": -0.07311934050291156,
+        "y": -0.12246132108280491,
+        "yaw": 0.23394484838871143
+      }
+    }
+  ],
+  "legs": [
+    {
+      "name": "reverse_bottle_right",
+      "arm": "right",
+      "destination_xy": [
+        0.0,
+        -0.1
+      ]
+    },
+    {
+      "name": "reverse_bottle_left",
+      "arm": "left",
+      "destination_xy": null
+    }
+  ],
+  "data_gate": "Both teacher legs and exact saved float32 endpoint replays must pass. Retain every failure. This is not direct hand-to-hand transfer or a learned result.",
+  "storage_reserve_gib": 10,
+  "additional_training_source": "The passing exposed feasibility case is also training; combine compact inputs without overwriting either collection.",
+  "development_seeds": [
+    2026092401,
+    2026092402,
+    2026092403
+  ],
+  "evaluation_seeds": [
+    2026092601,
+    2026092602,
+    2026092603,
+    2026092604,
+    2026092605
+  ],
+  "split_policy": "No teacher collection from development or evaluation seeds. Freeze candidate before evaluation. Reverse test poses use the declared center with +/-6 mm XY and +/-0.08 rad yaw, sampled from each scene seed.",
+  "training_budget": {
+    "adam_steps": 16000,
+    "refinement_max_steps": 400,
+    "promotion": "Physical success on both legs without reset; report all declared evaluation cases and preserve every failed outcome."
+  }
+}

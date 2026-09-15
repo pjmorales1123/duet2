@@ -1,0 +1,14 @@
+# Complete local CPU demo, Python 3.12. Optional feature environments live in hosting/ and training/.
+--extra-index-url https://download.pytorch.org/whl/cpu
+fastapi==0.141.1
+uvicorn==0.52.4
+mujoco==3.12.0
+numpy==2.2.6
+pillow==12.3.0
+PyOpenGL==3.1.10
+safetensors==0.7.0
+packaging==26.0
+openvino==2026.3.0
+openvino-telemetry==2025.2.0
+torch==2.8.0+cpu; platform_system != "Darwin"
+torch==2.8.0; platform_system == "Darwin"

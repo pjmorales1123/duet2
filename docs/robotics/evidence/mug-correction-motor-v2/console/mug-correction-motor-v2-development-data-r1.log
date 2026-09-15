@@ -1,0 +1,1 @@
+{'split': 'development', 'states': 1024, 'accepted_labels': 1024, 'label_coverage_passed': True, 'step_fraction': {'minimum': 0.06733454245248373, 'median': 0.9890747708440468}, 'wall_seconds': 0.18990870006382465}

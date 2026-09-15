@@ -1,0 +1,5 @@
+{'scored_observations': 128, 'total': 512}
+{'scored_observations': 256, 'total': 512}
+{'scored_observations': 384, 'total': 512}
+{'scored_observations': 512, 'total': 512}
+{'mode': 'evaluation', 'summary': {'states': 512, 'present': 448, 'present_accepted': 448, 'coverage_fraction': 1.0, 'absent': 64, 'absent_false_accepts': 0, 'p95_3d_error_mm': 0.2700374194086802, 'maximum_3d_error_mm': 0.4216429028536392, 'p95_xy_error_mm': 0.21979910725884488, 'gate_passed': True}, 'wall_seconds': 18.220361600164324, 'inference_median_ms': 29.604049865156412}

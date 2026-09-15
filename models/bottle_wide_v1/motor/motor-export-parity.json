@@ -1,0 +1,26 @@
+{
+  "observer_sha256": "1b97d12a89d632462e27846846bae5be88d904d2c876901f05ec190f491d2851",
+  "motor_sha256": "ad1b9b7bbb4e45b7d89e2de4149b22e9a8b9d298ea8ed66073d24639f434ccb7",
+  "openvino_version": "2026.3.0-22451-8a17657b995-releases/2026/3",
+  "networks": {
+    "observer": {
+      "maximum_absolute_output_error": 2.4318695068359375e-05,
+      "maximum_decoded_pixel_error": 0.00026702880859375,
+      "parity_passed": true,
+      "samples": 12,
+      "input_scope": "Deterministic numerical probes, not physical evaluation.",
+      "device": "AMD Ryzen 7 5800X 8-Core Processor             ",
+      "precision": "<Type: 'float32'>"
+    },
+    "motor": {
+      "maximum_absolute_output_error": 7.152557373046875e-07,
+      "maximum_decoded_pixel_error": null,
+      "parity_passed": true,
+      "samples": 12,
+      "input_scope": "Deterministic numerical probes, not physical evaluation.",
+      "device": "AMD Ryzen 7 5800X 8-Core Processor             ",
+      "precision": "<Type: 'float32'>"
+    }
+  },
+  "scope": "AMD PC export/parity check, not Intel execution evidence or physical regression."
+}

@@ -1,0 +1,20 @@
+{
+  "schema": "talos.rgb-servo-motor.v1",
+  "declared_on": "2026-09-13",
+  "parent": "docs/robotics/experiments/rgb-servo-bottle-v1.json",
+  "architecture": "Small neural inverse-kinematics map from arm identity and requested Cartesian gripper point to five joint targets. Joint feedback limits command rate and guards progress. Current RGB bottle points define approach/descent goals. Explicit semantic phases and a separate privileged physical stop/score monitor remain disclosed.",
+  "training_source": "Offline ArmIK solutions with local-Y-up orientation. These kinematic labels are not physical demonstrations and do not establish contact success. The 15 verified physical motions remain available for observer supervision and controller diagnostics.",
+  "training_points": 6144,
+  "development_points": 512,
+  "training_rng_seed": 2026095501,
+  "development_rng_seed": 2026095502,
+  "position_bounds_m": [[-0.16, 0.24], [-0.21, 0.10], [0.883, 0.979]],
+  "steps": 10000,
+  "batch_size": 512,
+  "network": "Four inputs, three 256-unit SiLU layers, five outputs; normalized Cartesian coordinates and joint targets.",
+  "acceptance": "Retain every failed teacher solution. Score neural predictions with independent robot forward kinematics. Deployment refuses predictions beyond joint limits or above 1.5 mm position / 0.025 axis residual; no inference-time IK fallback. Full physical trials and live/frozen image comparisons are required separately.",
+  "inference_allowed_inputs": ["Current three-view RGB observation", "fixed camera/table calibration", "robot joint positions and velocities", "requested destination", "explicit task phase and time"],
+  "inference_prohibited": ["simulator object poses", "teacher updates", "IK action generation", "saved action retrieval", "attachments or object teleportation"],
+  "budget": {"max_new_data_mib": 32, "max_training_minutes": 10, "max_steps": 10000, "max_peak_vram_gib": 10, "reserve_gib": 10},
+  "physical_seeds": "Use exposed training seed 2026095101 first. Recovery training seeds 2026095125..5132, physical development 2026095201..5206 and final 2026095301..5312 remain separate and unexposed at declaration."
+}

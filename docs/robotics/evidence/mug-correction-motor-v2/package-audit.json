@@ -1,0 +1,82 @@
+{
+  "schema": "talos.mug-correction-motor.v2",
+  "protocol_sha256": "468b469bb45238758fcaf1fb327b2b4186d475d8e462eacd34f8de6981fd900f",
+  "source_sha256": "1edb7f83885ee1ea6c75edc5e21b324a4c695e216c3c924c7aa595b81aab0e6a",
+  "preflight": {
+    "free_bytes": 558685466624,
+    "estimated_additional_bytes": 26159277,
+    "reserve_bytes": 10737418240
+  },
+  "console_provenance": {
+    "console/mug-correction-motor-v2-development-audit-r1.log": {
+      "original_sha256": "2a9d36c03c31ec58c35ba40b52d5811d035745f8e7e763e826233e37d6b233cc",
+      "original_bytes": 202,
+      "private_paths_redacted": false
+    },
+    "console/mug-correction-motor-v2-development-data-r1.log": {
+      "original_sha256": "3535504fed86a0c854b81dcec597f1fa97dd750547cf3b0e45a370e8ea38ee99",
+      "original_bytes": 216,
+      "private_paths_redacted": false
+    },
+    "console/mug-correction-motor-v2-export.log": {
+      "original_sha256": "a1deffc61588035a15f7ae1e2f1403d62240bacdde34fbec98dc82ee908f8095",
+      "original_bytes": 495,
+      "private_paths_redacted": false
+    },
+    "console/mug-correction-motor-v2-fit.log": {
+      "original_sha256": "89f08d0f5963d8c5962579164ff7d21ab2dc4fd06582ef6d189186ffd32bb16b",
+      "original_bytes": 3128,
+      "private_paths_redacted": false
+    },
+    "console/mug-correction-motor-v2-fresh-audit-r1.log": {
+      "original_sha256": "3b5243d0aa8877da3101d9836a3444e15e074f08e2cac006b9d97f1196d56847",
+      "original_bytes": 200,
+      "private_paths_redacted": false
+    },
+    "console/mug-correction-motor-v2-fresh-data-r1.log": {
+      "original_sha256": "13112558c0c85a75d72a473b7e9256b86796d4ec3ba5399fc7d2d8f7ebed1ef9",
+      "original_bytes": 176,
+      "private_paths_redacted": false
+    },
+    "console/mug-correction-motor-v2-fresh-data.log": {
+      "original_sha256": "6e378bbce58afdcfe35fc85d829e1df3c0aa339ade60f29667754c966188c7fe",
+      "original_bytes": 463,
+      "private_paths_redacted": true
+    },
+    "console/mug-correction-motor-v2-fresh-score-r1.log": {
+      "original_sha256": "91b13428073462ad49d02e81e9036ce829c31a26bdc4effca2367af7a0a5259b",
+      "original_bytes": 480,
+      "private_paths_redacted": false
+    },
+    "console/mug-correction-motor-v2-training-audit-r1.log": {
+      "original_sha256": "b3f86b977221b5170bd36139395fb4affa11d49d8baa0d1601adf34445dc8909",
+      "original_bytes": 200,
+      "private_paths_redacted": false
+    },
+    "console/mug-correction-motor-v2-training-data-r1.log": {
+      "original_sha256": "2c6fc69fe0f29d10d71520859b594960fa87b9cebab490ea4ab7304dc1d7c0f0",
+      "original_bytes": 197,
+      "private_paths_redacted": false
+    },
+    "console/mug-correction-motor-v2-training-data.log": {
+      "original_sha256": "d8c10f40fcb29240a38cb838e2ba92a50d3aad5bce4e6ae0fa0f6897f7ef676c",
+      "original_bytes": 956,
+      "private_paths_redacted": true
+    }
+  },
+  "fresh": {
+    "attempted": 1024,
+    "accepted": 1024,
+    "p95_position_error_mm": 0.06079014338857668,
+    "maximum_position_error_mm": 0.13120422998709932,
+    "maximum_axis_error": 0.0003593283750716029,
+    "gate_passed": true,
+    "minimum_step_fraction": 0.04065794403394701,
+    "median_step_fraction": 1.0
+  },
+  "callable_reproduction_passed": true,
+  "both_checkpoints_retained": true,
+  "selected_dinner_models_unchanged": true,
+  "new_physical_trials": 0,
+  "motor_integration": false
+}

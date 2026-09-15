@@ -1,0 +1,107 @@
+{
+  "schema": "talos.rgb-servo-bottle.v5",
+  "declared_on": "2026-09-14",
+  "parent": "docs/robotics/experiments/rgb-servo-bottle-v4.json",
+  "purpose": "Test a longer separately bounded full-batch fit after V4 ended at 0.512 mm p95 while its training objective was still decreasing. Preserve the V4 failed gate and use new physical seeds. No gate, data, observer or controller changes.",
+  "observer": "Unchanged V4 observer, rigid keypoint fit and calibration from models/bottle_servo_v1.",
+  "controller": "Unchanged V2 R1 routing and refusal limits. Only the neural motor weights may change.",
+  "routing": "docs/robotics/experiments/rgb-servo-routing-v2.json",
+  "workspace_m": {
+    "x": [
+      -0.14,
+      0.16
+    ],
+    "y": [
+      -0.18,
+      -0.06
+    ]
+  },
+  "destinations_m": [
+    [
+      0.1,
+      -0.115
+    ],
+    [
+      0.16,
+      -0.06
+    ],
+    [
+      0.2,
+      0.05
+    ]
+  ],
+  "destination_selection": "scene seed modulo 3, unchanged",
+  "push_protocol": "docs/robotics/experiments/rgb-servo-push-v1.json",
+  "training_seed_range": [
+    2026097301,
+    2026097304
+  ],
+  "development_seeds": [
+    2026097401,
+    2026097402,
+    2026097403,
+    2026097404,
+    2026097405,
+    2026097406
+  ],
+  "evaluation_seeds": [
+    2026097501,
+    2026097502,
+    2026097503,
+    2026097504,
+    2026097505,
+    2026097506,
+    2026097507,
+    2026097508,
+    2026097509,
+    2026097510,
+    2026097511,
+    2026097512
+  ],
+  "motor_training": {
+    "data": "training/bottle_servo_v1/motor",
+    "warm_start": "docs/robotics/evidence/rgb-servo-v4/candidates/update-000500.safetensors",
+    "warm_start_sha256": "82633b75865e6e2414ea55eafb2efab9e4639a81925050ac32efa69a6a9d0ad9",
+    "optimizer": "L-BFGS, full 4056-point training set, FP32 CUDA",
+    "updates": 3000,
+    "candidate_updates": [
+      1000,
+      3000
+    ],
+    "learning_rate": 0.5,
+    "history_size": 20,
+    "line_search": "strong_wolfe",
+    "maximum_gradient_evaluations": 10000,
+    "rng_seed": 2026097601,
+    "loss": "Unchanged V3 loss: position residual / 5 mm and local-Y-up axis residual / 0.05, summed over coordinates and divided by three times the training-point count, plus 0.01 normalized joint-reference MSE.",
+    "selection": "Only if all 3000 update calls complete within budget: most accepted original exposed kinematic development points, then lowest p95 error, from exactly the 1000/3000-update candidates. No physical result selects or changes weights."
+  },
+  "kinematic_gate": {
+    "minimum_accepted": 360,
+    "total": 362,
+    "maximum_p95_position_error_mm": 0.5
+  },
+  "development_gate": {
+    "minimum_nominal_live_passes": 4,
+    "minimum_pushed_live_passes": 4,
+    "total_seeds": 6,
+    "all_four_conditions_required": true
+  },
+  "promotion_gate": {
+    "minimum_nominal_live_passes": 8,
+    "minimum_pushed_live_passes": 8,
+    "total_seeds": 12,
+    "minimum_both_nominal_pass_seeds": 4,
+    "live_advantage_on_paired_push_required": true
+  },
+  "budget": {
+    "max_new_data_mib": 512,
+    "max_new_teacher_episodes": 0,
+    "max_new_kinematic_attempts": 0,
+    "max_additional_adam_steps": 0,
+    "max_training_minutes": 5,
+    "max_peak_vram_gib": 8,
+    "reserve_gib": 10
+  },
+  "scope": "Offline error alone is insufficient. No runtime inverse solver, simulator object-pose action inputs, demonstration retrieval, hidden assistance, new controller revision or relaxed threshold. V3 and V4 stay stopped; their unused physical seeds and all earlier final scenes remain excluded. Stop before physical final evaluation if any gate fails."
+}

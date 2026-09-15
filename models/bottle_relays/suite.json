@@ -1,0 +1,7 @@
+{
+  "bottle": "../bottle_visual",
+  "relay_bottle_left": "relay_bottle_left",
+  "relay_bottle_right": "relay_bottle_right",
+  "reverse_bottle_right": "reverse_bottle_right",
+  "reverse_bottle_left": "reverse_bottle_left"
+}

@@ -1,0 +1,8 @@
+{
+  "files": {
+    "packaging-completion.log": "c4f3e782e4618667683bcc6de2b91db786b46e66efb6bbdea12a805f3b1371ec",
+    "portable-reproduction.json": "eed8c0489baf8d1ff218bc18634e919af5097d387589ff099a456a0474e964a2",
+    "portable-reproduction.log": "a90e8b4493169e56d6668c3d603a59b6f85a5182711401d939ba01ff6fc86221"
+  },
+  "scope": "Closed console logs and packaged reproduction supplement; the original core manifest remains unchanged."
+}

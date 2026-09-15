@@ -1,0 +1,19 @@
+{
+  "schema": "talos_verified_relay_continuation_development_v1",
+  "scope": "Exposed development comparison on the unchanged V25 jointly randomized scene; no held-out or learned-control claim.",
+  "seed": 2026114005,
+  "reset_distribution": "joint",
+  "maximum_accepted_actions": 14,
+  "physical_lookahead_attempts_per_candidate": 4,
+  "change": "When a passing temporary placement has neither clearance nor bounded orientation progress, a geometric final-transfer plan alone no longer admits it. Search up to four actual final-transfer actions from independent copies of that post-buffer state. Only accept the buffer and final leg together if both pass all unchanged physical gates and independent exact motor replay.",
+  "unchanged": [
+    "Original joint sampler and seed, including full yaw and stable alternative orientations",
+    "Model geometry, actuator limits, contacts, task destinations and all physical gates",
+    "Main scene advances only through recorded motor commands; no qpos/qvel assignment",
+    "Clearance and bounded orientation progress remain possible reasons to accept a temporary placement",
+    "Every failed planning and physical continuation remains in the evidence"
+  ],
+  "evaluation": "Report complete-table success, each final setting, all physical attempts and accepted action sequence against the retained V25 outcome. This change may reduce speculative buffer cycles; it does not prove manipulation feasibility or improve missing grasp families.",
+  "storage": {"reserve_gib": 10, "expected_run_gib": 8, "exclusive_output_and_log": true},
+  "stop": "At the declared accepted-action budget or exhaustion of current candidates. No failed case becomes an impossibility classification."
+}

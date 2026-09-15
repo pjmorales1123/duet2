@@ -1,0 +1,13 @@
+{
+  "schema": "talos.learned-relay-feasibility.v1",
+  "declared_on": "2026-09-13",
+  "purpose": "Prepare two separately learned legs of the existing left-to-right table-supported bottle relay, with physical replay before training.",
+  "training": [{"seed": 42}],
+  "legs": [
+    {"name": "relay_bottle_left", "arm": "left", "destination_xy": [0.0, -0.1]},
+    {"name": "relay_bottle_right", "arm": "right", "destination_xy": [0.2, 0.05]}
+  ],
+  "data_gate": "Both teacher legs and exact saved float32 endpoint replays must pass before collecting a larger training batch.",
+  "evaluation": "Seed 42 is exposed. No holdout evaluation or learned success is implied.",
+  "storage_reserve_gib": 10
+}

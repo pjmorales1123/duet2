@@ -1,0 +1,40 @@
+{
+  "schema": "talos.mug-joint-limited-runtime.v1",
+  "protocol_sha256": "468b469bb45238758fcaf1fb327b2b4186d475d8e462eacd34f8de6981fd900f",
+  "selected_step": 6000,
+  "checkpoint_sha256": "e9b0cedd850c000620ddebe0061a21ed0eabb49858a651562dfad2d5a1dcc36a",
+  "weights": "step-006000/model.safetensors",
+  "ir_sha256": {
+    "motor.xml": "ff5171e83999571bbf60ac74768d6a3558ba44238cd295b5ca3c6e16c788a2cc",
+    "motor.bin": "a440def62b2eebc67dd1592b9bacb06b1975328555a12214d276b0db296a8441"
+  },
+  "support": {
+    "minimum": [
+      0.01919976808130741,
+      -0.8932081460952759,
+      0.21163789927959442,
+      1.1116873025894165,
+      -2.4928457736968994
+    ],
+    "maximum": [
+      0.29429298639297485,
+      0.030679795891046524,
+      0.9452845454216003,
+      1.5721999406814575,
+      -2.2167532444000244
+    ]
+  },
+  "guard": {
+    "maximum_translation_norm_m": 0.002,
+    "maximum_joint_step_rad": 0.02,
+    "maximum_position_error_mm": 0.5,
+    "maximum_axis_error": 0.015,
+    "joint_support_margin_rad": 0.03
+  },
+  "step_sizing": {
+    "maximum_joint_delta_rad": 0.02,
+    "minimum_fraction": 0.02,
+    "method": "For raw neural delta J_network(q) times requested translation, use factor min(1, nextafter(0.02,0)/max(abs(delta))). Apply that same scalar to delta and requested translation. This preserves direction, limits joint movement and is computed from the neural output only. Zero requested translation produces exactly zero delta. A forward-only robot guard may refuse; no inverse solver or geometric repair is permitted. Report every factor to disclose reduced step size and future speed implications."
+  },
+  "scope": "Measured joints and requested local XY translation only; neural delta, explicit joint limiting, forward-only refusal guard."
+}

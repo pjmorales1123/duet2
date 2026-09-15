@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Talos: two simulated SO-101 arms learning to set a dinner table.">
+  <title>Talos · Dinner-table robotics</title>
+  <link rel="stylesheet" href="/static/style.css">
+  <script type="module" src="/static/app.js"></script>
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand"><span class="brand-mark" aria-hidden="true">T<span>·</span></span><div><h1>Talos</h1><p>Dinner-table robotics</p></div></div>
+    <div class="connection"><span class="status-dot" id="status-dot"></span><span id="connection-text" role="status">Connecting</span><span class="mode-badge" id="control-mode">Manual control</span></div>
+  </header>
+  <main>
+    <div class="workspace">
+      <section class="viewer-panel" aria-label="Simulation camera">
+        <div class="viewer-toolbar"><div class="section-label">CAMERA VIEW</div><div class="render-options"><label><input id="shadows" type="checkbox"> Shadows</label><span id="engine-label">MuJoCo</span></div></div>
+        <div class="camera-list" aria-label="Camera selection">
+          <button class="camera-button selected" data-camera="center" aria-pressed="true">Between arms</button>
+          <button class="camera-button" data-camera="overview" aria-pressed="false">Overview</button>
+          <button class="camera-button" data-camera="overhead" aria-pressed="false">Overhead</button>
+          <button class="camera-button" data-camera="opposite" aria-pressed="false">Opposite side</button>
+          <button class="camera-button" data-camera="left_wrist_cam" aria-pressed="false">Left wrist</button>
+          <button class="camera-button" data-camera="right_wrist_cam" aria-pressed="false">Right wrist</button>
+        </div>
+        <div class="viewport">
+          <img id="camera-frame" alt="Live camera between two robot arms, looking toward a dinner table" width="1280" height="720">
+          <div class="viewport-overlay"><span class="live-pill" id="live-pill">LIVE</span><span id="camera-name">Between the arms</span></div>
+          <div class="viewport-bottom"><span id="scene-label">Seed 42</span><span id="sim-time">t = 0.00 s</span></div>
+          <div id="loading" class="loading"><span class="spinner" aria-hidden="true"></span><span>Connecting to the local simulator…</span></div>
+        </div>
+        <div id="task-strip" class="task-strip" hidden><div><strong id="task-strip-stage"></strong><span id="task-strip-metrics"></span></div><button id="task-strip-cancel">Cancel goal</button></div>
+        <div class="playback-row">
+          <div class="playback-buttons"><button id="play-pause" class="primary" disabled>Pause</button><button id="step" disabled>Step 50 ms</button><button id="reset-scene">Reset scene</button></div>
+          <div class="frame-rate"><strong id="fps">—</strong><span>frames / s</span></div>
+        </div>
+        <div class="metrics" aria-label="Scene information"><div><span id="item-count-label">Tableware items</span><strong id="rack-total">—</strong></div><div><span id="upright-count-label">Upright / above table</span><strong id="upright-total">—</strong></div><div><span>Physical contacts</span><strong id="contact-total">—</strong></div><div><span>Simulation / real time</span><strong id="real-time-factor">—</strong></div></div>
+        <div class="scene-builder">
+          <div><h2>Scene setup</h2><p>Choose a scene and seed. Loading a setup resets the physical world.</p></div>
+          <form id="seed-form" class="seed-controls">
+            <label for="scenario">Scene<select id="scenario"><option value="dinner">Dinner challenge</option><option value="chemistry">Chemistry practice</option></select></label>
+            <label for="seed">Seed<input id="seed" type="number" value="42" min="0" max="2147483647" step="1" required></label>
+            <label for="rack-count" id="rack-count-wrap" hidden>Racks<select id="rack-count"><option value="2">2 racks</option><option value="3" selected>3 racks</option><option value="4">4 racks</option></select></label>
+            <label for="dinner-preset" id="dinner-preset-wrap">Arrangement<select id="dinner-preset"><option value="task">Task start</option><option value="reference">Target example</option></select></label>
+            <label for="drawer-start" id="drawer-start-wrap">Drawer at reset<select id="drawer-start"><option value="closed">Closed</option><option value="open">Open for inspection</option></select></label>
+            <label for="bottle-start" id="bottle-start-wrap">Bottle at reset<select id="bottle-start"><option value="upright">Upright</option><option value="wide_left">Left reach practice</option><option id="wide-bottle-start-option" value="wide_rectangle" disabled>Wider region · varies with seed</option><option value="sideways">Sideways practice</option></select></label>
+            <button type="submit">Load seed</button><button type="button" id="shuffle" class="accent">New arrangement <span aria-hidden="true">↗</span></button>
+          </form>
+        </div>
+        <p class="viewer-note" id="viewer-note">Physical tableware and a passive drawer. The target example is a reset preset, not an autonomous result.</p>
+      </section>
+      <aside class="control-panel" aria-label="Experiment controls">
+        <section class="dinner-panel" aria-labelledby="command-heading">
+          <h2 id="command-heading">Tell Talos what to do</h2>
+        <p>Try “place the bottle”, “set the table” or “pass the bottle to the right arm”. The relay uses a shared table area for release and regrasp. Left and right follow the overhead view.</p>
+          <form id="command-form"><label for="command-mode">Controller</label><select id="command-mode"><option value="programmed">Programmed physical skills</option><option value="learned_bottle">Learned upright bottle · OpenVINO</option><option id="learned-dinner-option" value="learned_dinner" disabled>Learned dinner sequence · candidate</option><option id="visual-mug-option" value="learned_dinner_visual" disabled>Learned dinner · live mug vision</option><option id="wide-bottle-option" value="learned_dinner_wide" disabled>Learned dinner · wider bottle + live mug</option><option value="learned_bottle_legacy">Original bottle model · sideways practice</option></select><label for="command-text">Instruction</label><textarea id="command-text" rows="3" maxlength="500" placeholder="Place the bottle" required></textarea><button id="send-command" class="primary">Run instruction</button><button id="voice-command" type="button" disabled>Voice setup pending</button></form>
+          <p id="policy-description">The upright model uses overhead bottle localization and motor feedback. The original model uses three initial views and supports familiar sideways practice. Programmed skills use simulator positions.</p>
+          <p id="command-feedback" role="status">Choose the controller for your next instruction. Each learned mode lists its supported tasks when selected.</p>
+        </section>
+        <section class="dinner-panel" id="dinner-panel" aria-labelledby="dinner-heading">
+          <div class="goal-heading"><h2 id="dinner-heading">Set the dinner table</h2><span id="dinner-status" class="goal-status">READY</span></div>
+          <p class="goal-intro">Arrange the bottle, plate, mug and cutlery. Use an instruction to transfer the bottle between the arms through a shared table area.</p>
+          <div class="milestone-note"><strong id="active-controller-label">Physical skills · exact simulator state</strong><p id="active-controller-description">Move the bottle, plate and mug, open the drawer, then place the fork and spoon. Each grasp and placement is checked.</p></div>
+          <label for="dinner-goal" class="block-label">Goal<select id="dinner-goal"><option value="set_table">Run all six skills</option><option value="bottle">Place bottle</option><option value="plate">Place plate</option><option value="mug">Place mug</option><option value="drawer">Open drawer</option><option value="fork">Retrieve and place fork</option><option value="spoon">Retrieve and place spoon</option></select></label>
+          <div class="goal-actions"><button id="start-dinner" class="primary" disabled>Start dinner goal</button><button id="cancel-dinner" disabled>Cancel</button></div>
+          <button id="load-sideways">Load sideways bottle practice</button>
+          <div class="goal-stage"><strong id="dinner-stage">Ready for a goal</strong><span id="dinner-elapsed">0 s</span></div>
+          <progress id="dinner-progress" max="1" value="0" aria-label="Dinner goal progress"></progress>
+          <p id="dinner-message" role="status" aria-live="polite">Load Task start, seed 42, for the baseline demonstration.</p>
+          <ol id="dinner-results"></ol>
+          <p class="small-note">Cancel pauses physics, including held objects. Reset before repeating the full sequence or after a failure. Individual skills require the preceding scene changes.</p>
+          <div class="drawer-state"><span>Cutlery drawer</span><strong id="drawer-state">Closed</strong></div>
+          <p class="small-note">The drawer has a physical handle and no motor. The robot pulls it; Open for inspection is only a reset preset.</p>
+          <h3 class="inventory-heading">Tableware · live positions</h3><div id="object-inventory" class="object-inventory"></div>
+          <details class="target-legend"><summary>Placement guide</summary><p>Blue plate left, gold side plate right. Fork beside the blue plate; spoon across the front. Mug and glass at the round markers. The bottle stays in the serving area.</p></details>
+          <p class="small-note">Small, lightweight rigid props. Vessels are hollow; liquid flow is not simulated. Choose learned or programmed control in the instruction panel.</p>
+        </section>
+        <section class="goal-panel" id="chemistry-goals" aria-labelledby="goal-heading" hidden>
+          <div class="goal-heading"><h2 id="goal-heading">Robot goals</h2><span id="goal-status" class="goal-status">READY</span></div>
+          <p class="goal-intro">Lift and return a tube, or transfer it to an empty slot in another rack.</p>
+          <div class="practice-actions"><button id="load-practice" class="accent">Load lift practice</button><button id="load-transfer" class="accent">Load transfer practice</button></div>
+          <p id="practice-label" class="goal-scene">Randomized scene</p>
+          <label for="goal-kind" class="block-label goal-kind-label">Goal<select id="goal-kind"><option value="lift_return">Lift &amp; return</option><option value="transfer">Rack-to-rack transfer</option></select></label>
+          <div class="goal-selectors">
+            <label for="goal-arm">Arm<select id="goal-arm"><option value="auto">Choose automatically</option><option value="left">Left arm</option><option value="right">Right arm</option></select></label>
+            <label for="goal-tube">Tube<select id="goal-tube"><option value="">Choose automatically</option></select></label>
+          </div>
+          <label id="goal-destination-wrap" for="goal-destination" class="block-label goal-kind-label" hidden>Destination slot<select id="goal-destination"><option value="">Choose an empty slot</option></select></label>
+          <label class="record-toggle"><input id="record-demo" type="checkbox" checked> Record demonstration</label>
+          <div class="goal-actions"><button id="start-goal" class="primary" disabled>Start lift &amp; return</button><button id="cancel-goal" disabled>Cancel</button></div>
+          <div id="goal-progress-area">
+            <div class="goal-stage"><strong id="goal-stage">Ready for a goal</strong><span id="goal-elapsed">0 s</span></div>
+            <progress id="goal-progress" max="1" value="0" aria-label="Goal progress"></progress>
+            <p id="goal-message" role="status" aria-live="polite">Load the practice scene for your first run.</p>
+            <div class="goal-measures"><span>Lift <strong id="goal-lift">—</strong></span><span>Verified hold <strong id="goal-hold">—</strong></span></div>
+            <details><summary>Task stages &amp; result</summary><ol id="goal-stages"></ol><p id="goal-result"></p></details>
+          </div>
+          <div class="recording-panel"><strong>Latest recording</strong><p id="recording-status">No demonstration recorded yet.</p><p id="recording-counts"></p><a id="recording-link" target="_blank" rel="noopener" hidden>Open recording manifest</a></div>
+          <p class="small-note">Uses exact simulator positions and physical finger contacts. Cancel pauses the scene, including a held tube.</p>
+        </section>
+        <div class="panel-tabs"><button class="panel-tab selected" data-panel="arms" aria-pressed="true">Robot arms</button><button class="panel-tab" id="rack-tab" data-panel="racks" aria-pressed="false" hidden>Rack layout</button></div>
+        <section id="arms-panel" class="panel-content">
+          <div class="arm-selector" aria-label="Controlled arm"><button class="selected left-arm" data-arm="left" aria-pressed="true"><i></i>Left arm</button><button class="right-arm" data-arm="right" aria-pressed="false"><i></i>Right arm</button></div>
+          <p class="control-intro">Move the joint targets. The arms respond through the physics simulation.</p>
+          <div id="joint-controls" class="joint-controls"></div>
+          <div class="tool-position"><span>Gripper position · metres</span><code id="tool-position">X — &nbsp; Y — &nbsp; Z —</code></div>
+          <div class="preset-controls"><button id="home-arms">Home both arms</button><button id="gentle-test">Gentle motion test</button></div>
+          <p class="small-note">The motion test lasts six seconds. Moving a joint slider cancels it. Pause to inspect a moment.</p>
+        </section>
+        <section id="racks-panel" class="panel-content" hidden>
+          <label for="rack-select" class="block-label">Rack<select id="rack-select"></select></label>
+          <p class="control-intro">Adjust a holder's position and rotation. Applying a layout resets the arms and tubes.</p>
+          <label class="range-label" for="rack-x"><span>Left / right <small>X</small></span><output id="rack-x-value">0 cm</output></label><input id="rack-x" type="range" min="-30" max="30" step="0.1" value="0">
+          <label class="range-label" for="rack-y"><span>Front / back <small>Y</small></span><output id="rack-y-value">0 cm</output></label><input id="rack-y" type="range" min="-1.5" max="30" step="0.1" value="10">
+          <label class="range-label" for="rack-yaw"><span>Rotation</span><output id="rack-yaw-value">0°</output></label><input id="rack-yaw" type="range" min="-180" max="180" step="1" value="0">
+          <button id="apply-rack" class="primary full-width">Apply layout &amp; reset</button>
+          <p class="small-note">The table grid is 10 cm. Rack centers stay at least 20 cm apart to prevent overlaps.</p>
+          <div id="rack-summary" class="rack-summary"></div>
+        </section>
+      </aside>
+    </div>
+    <div id="notice" class="notice" role="alert" hidden></div>
+    <footer><span>SO-101 × 2 <span class="separator">/</span> Central, overhead &amp; wrist cameras</span><span id="runtime-mode">Runs on this PC · Manual control</span></footer>
+  </main>
+</body>
+</html>

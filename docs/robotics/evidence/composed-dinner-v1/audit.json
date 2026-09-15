@@ -1,0 +1,283 @@
+{
+  "schema": "talos.composed-dinner-audit.v1",
+  "passed_by_split": {
+    "development": 4,
+    "evaluation": 8
+  },
+  "trials_by_split": {
+    "development": 4,
+    "evaluation": 10
+  },
+  "outcomes": [
+    {
+      "seed": 42,
+      "split": "development",
+      "passed": true,
+      "completed_steps": [
+        "reverse_bottle_right",
+        "reverse_bottle_left",
+        "plate",
+        "mug",
+        "drawer",
+        "fork",
+        "spoon"
+      ],
+      "message": "Completed all requested neural dinner skills; both arms parked.",
+      "simulation_seconds": 283.30999999981486,
+      "wall_seconds": 58.846463799942285,
+      "report": "development/42/report.json",
+      "report_sha256": "54a3644da18532703b4ff5e7807e0c336edae4d4f2e517c28ea9961657be454b"
+    },
+    {
+      "seed": 2026092701,
+      "split": "development",
+      "passed": true,
+      "completed_steps": [
+        "reverse_bottle_right",
+        "reverse_bottle_left",
+        "plate",
+        "mug",
+        "drawer",
+        "fork",
+        "spoon"
+      ],
+      "message": "Completed all requested neural dinner skills; both arms parked.",
+      "simulation_seconds": 283.2699999998149,
+      "wall_seconds": 57.027001599781215,
+      "report": "development/2026092701/report.json",
+      "report_sha256": "d9e70b5102b94b51b3d36d6857fdcd421fc2648a59ed15d973620a25762ca7ad"
+    },
+    {
+      "seed": 2026092702,
+      "split": "development",
+      "passed": true,
+      "completed_steps": [
+        "reverse_bottle_right",
+        "reverse_bottle_left",
+        "plate",
+        "mug",
+        "drawer",
+        "fork",
+        "spoon"
+      ],
+      "message": "Completed all requested neural dinner skills; both arms parked.",
+      "simulation_seconds": 283.2399999998149,
+      "wall_seconds": 56.38004439976066,
+      "report": "development/2026092702/report.json",
+      "report_sha256": "0174c6b2102dfc7a484ec384a524cff824e103b5cd2b78af1bba239fb94fb7a2"
+    },
+    {
+      "seed": 2026092703,
+      "split": "development",
+      "passed": true,
+      "completed_steps": [
+        "reverse_bottle_right",
+        "reverse_bottle_left",
+        "plate",
+        "mug",
+        "drawer",
+        "fork",
+        "spoon"
+      ],
+      "message": "Completed all requested neural dinner skills; both arms parked.",
+      "simulation_seconds": 283.2649999998149,
+      "wall_seconds": 60.506737399846315,
+      "report": "development/2026092703/report.json",
+      "report_sha256": "0fcd6e09578434b47ad5f2eda21f896685c643700baf5513879444cd69939281"
+    },
+    {
+      "seed": 2026092801,
+      "split": "evaluation",
+      "passed": true,
+      "completed_steps": [
+        "reverse_bottle_right",
+        "reverse_bottle_left",
+        "plate",
+        "mug",
+        "drawer",
+        "fork",
+        "spoon"
+      ],
+      "message": "Completed all requested neural dinner skills; both arms parked.",
+      "simulation_seconds": 283.2749999998149,
+      "wall_seconds": 56.66954659996554,
+      "report": "evaluation/2026092801/report.json",
+      "report_sha256": "a925a63dedda299d06e3255bddf90b280ddf0b1650178ec23f8a431cc70ace19"
+    },
+    {
+      "seed": 2026092802,
+      "split": "evaluation",
+      "passed": false,
+      "completed_steps": [
+        "reverse_bottle_right",
+        "reverse_bottle_left",
+        "plate",
+        "mug",
+        "drawer",
+        "fork"
+      ],
+      "message": "Neural skill did not reach its physical goal before timeout.",
+      "simulation_seconds": 319.50499999978194,
+      "wall_seconds": 63.79913120018318,
+      "report": "evaluation/2026092802/report.json",
+      "report_sha256": "111feb7d9f7515e4b2aa7a714ba00f4350c46c853327d0346081258d6d700ce9"
+    },
+    {
+      "seed": 2026092803,
+      "split": "evaluation",
+      "passed": true,
+      "completed_steps": [
+        "reverse_bottle_right",
+        "reverse_bottle_left",
+        "plate",
+        "mug",
+        "drawer",
+        "fork",
+        "spoon"
+      ],
+      "message": "Completed all requested neural dinner skills; both arms parked.",
+      "simulation_seconds": 283.2749999998149,
+      "wall_seconds": 57.98738369997591,
+      "report": "evaluation/2026092803/report.json",
+      "report_sha256": "e6d690cc749fe3e5e7337adb1655df20ee18eb82518a71fbe5835bf748e17f54"
+    },
+    {
+      "seed": 2026092804,
+      "split": "evaluation",
+      "passed": true,
+      "completed_steps": [
+        "reverse_bottle_right",
+        "reverse_bottle_left",
+        "plate",
+        "mug",
+        "drawer",
+        "fork",
+        "spoon"
+      ],
+      "message": "Completed all requested neural dinner skills; both arms parked.",
+      "simulation_seconds": 283.2749999998149,
+      "wall_seconds": 56.54837909992784,
+      "report": "evaluation/2026092804/report.json",
+      "report_sha256": "8870e22f1a9a635f790c07d20bb0086d1ad049ff01674681dc9366533dd47fe2"
+    },
+    {
+      "seed": 2026092805,
+      "split": "evaluation",
+      "passed": true,
+      "completed_steps": [
+        "reverse_bottle_right",
+        "reverse_bottle_left",
+        "plate",
+        "mug",
+        "drawer",
+        "fork",
+        "spoon"
+      ],
+      "message": "Completed all requested neural dinner skills; both arms parked.",
+      "simulation_seconds": 283.23499999981493,
+      "wall_seconds": 55.61002300027758,
+      "report": "evaluation/2026092805/report.json",
+      "report_sha256": "47d83e5597ab9e0f3a7c7c4e773879ab894f5a37adfcf31ac608bdf70f70f7d1"
+    },
+    {
+      "seed": 2026092806,
+      "split": "evaluation",
+      "passed": true,
+      "completed_steps": [
+        "reverse_bottle_right",
+        "reverse_bottle_left",
+        "plate",
+        "mug",
+        "drawer",
+        "fork",
+        "spoon"
+      ],
+      "message": "Completed all requested neural dinner skills; both arms parked.",
+      "simulation_seconds": 283.34499999981483,
+      "wall_seconds": 56.790631799958646,
+      "report": "evaluation/2026092806/report.json",
+      "report_sha256": "388ee16bc5f02dab21543a30eb74b2964fb23abcbb93e7989a49bc998c8f8bf5"
+    },
+    {
+      "seed": 2026092807,
+      "split": "evaluation",
+      "passed": true,
+      "completed_steps": [
+        "reverse_bottle_right",
+        "reverse_bottle_left",
+        "plate",
+        "mug",
+        "drawer",
+        "fork",
+        "spoon"
+      ],
+      "message": "Completed all requested neural dinner skills; both arms parked.",
+      "simulation_seconds": 283.31499999981486,
+      "wall_seconds": 57.19184339977801,
+      "report": "evaluation/2026092807/report.json",
+      "report_sha256": "c414888ce5c8dee10db61f3697878ddfea8a77192647698daa27279eba4a3c21"
+    },
+    {
+      "seed": 2026092808,
+      "split": "evaluation",
+      "passed": true,
+      "completed_steps": [
+        "reverse_bottle_right",
+        "reverse_bottle_left",
+        "plate",
+        "mug",
+        "drawer",
+        "fork",
+        "spoon"
+      ],
+      "message": "Completed all requested neural dinner skills; both arms parked.",
+      "simulation_seconds": 283.2399999998149,
+      "wall_seconds": 56.13481299998239,
+      "report": "evaluation/2026092808/report.json",
+      "report_sha256": "4b472f1d01fccc5852068ed0b4bf9ca720a2f793b038f2c13e3c20feac882d09"
+    },
+    {
+      "seed": 2026092809,
+      "split": "evaluation",
+      "passed": false,
+      "completed_steps": [
+        "reverse_bottle_right",
+        "reverse_bottle_left",
+        "plate",
+        "mug",
+        "drawer",
+        "fork"
+      ],
+      "message": "Neural skill did not reach its physical goal before timeout.",
+      "simulation_seconds": 319.47999999978197,
+      "wall_seconds": 64.79870689986274,
+      "report": "evaluation/2026092809/report.json",
+      "report_sha256": "b24523aafb7356919274f38451a2d562e592a489e3f791ef3efcba650310c4ee"
+    },
+    {
+      "seed": 2026092810,
+      "split": "evaluation",
+      "passed": true,
+      "completed_steps": [
+        "reverse_bottle_right",
+        "reverse_bottle_left",
+        "plate",
+        "mug",
+        "drawer",
+        "fork",
+        "spoon"
+      ],
+      "message": "Completed all requested neural dinner skills; both arms parked.",
+      "simulation_seconds": 283.31999999981485,
+      "wall_seconds": 61.40040800021961,
+      "report": "evaluation/2026092810/report.json",
+      "report_sha256": "e976552d8689fe45a63955cfce9ca904198dc37e81f0052f44d89051f8c95449"
+    }
+  ],
+  "synchronized_state_frames": 80788,
+  "source_files_verified": 46,
+  "model_files_verified": 70,
+  "model_changes": 0,
+  "final_gate_passed": true,
+  "scope": "Finite left-reach preset, unchanged models, actual language/RGB plan and seven physical neural steps. No general reachable-workspace or unrestricted language claim."
+}

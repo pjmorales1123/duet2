@@ -1,0 +1,16 @@
+{'step': 1, 'loss': 0.538258969783783, 'wall_seconds': 0.1897724000737071, 'peak_torch_reserved_gib': 0.0234375}
+{'step': 500, 'loss': 0.25871390104293823, 'wall_seconds': 1.6618943996727467, 'peak_torch_reserved_gib': 0.0234375}
+{'step': 1000, 'loss': 0.232103168964386, 'wall_seconds': 3.112062399741262, 'peak_torch_reserved_gib': 0.0234375}
+{'step': 1500, 'loss': 0.2596677839756012, 'wall_seconds': 4.505087699741125, 'peak_torch_reserved_gib': 0.0234375}
+{'step': 2000, 'loss': 0.2032255232334137, 'wall_seconds': 5.929263599682599, 'peak_torch_reserved_gib': 0.0234375}
+{'step': 2500, 'loss': 0.010439020581543446, 'wall_seconds': 7.367042399942875, 'peak_torch_reserved_gib': 0.0234375}
+{'step': 3000, 'loss': 0.005833697505295277, 'wall_seconds': 8.82780239963904, 'peak_torch_reserved_gib': 0.0234375}
+{'step': 3000, 'checkpoint': '.run/mug-correction-motor-v2/fit/step-003000/model.safetensors', 'checkpoint_sha256': '67c1d3ae0f9d3eb91da9e933a2a22728fa9fa1c7d7e3cab3db624454face8d1a', 'development': {'attempted': 1024, 'accepted': 1024, 'p95_position_error_mm': 0.07261814690146697, 'maximum_position_error_mm': 0.15847318163349164, 'maximum_axis_error': 0.0006753756918122943, 'gate_passed': True, 'minimum_step_fraction': np.float64(0.05788775554478078), 'median_step_fraction': 0.927157878657894}}
+{'step': 3500, 'loss': 0.005658167414367199, 'wall_seconds': 10.642353899776936, 'peak_torch_reserved_gib': 0.0234375}
+{'step': 4000, 'loss': 0.0046350592747330666, 'wall_seconds': 12.076620500069112, 'peak_torch_reserved_gib': 0.0234375}
+{'step': 4500, 'loss': 0.0039842454716563225, 'wall_seconds': 13.496137799695134, 'peak_torch_reserved_gib': 0.0234375}
+{'step': 5000, 'loss': 0.003980475477874279, 'wall_seconds': 14.91731599997729, 'peak_torch_reserved_gib': 0.0234375}
+{'step': 5500, 'loss': 0.00463890889659524, 'wall_seconds': 16.339815099723637, 'peak_torch_reserved_gib': 0.0234375}
+{'step': 6000, 'loss': 0.006410100497305393, 'wall_seconds': 17.76370449969545, 'peak_torch_reserved_gib': 0.0234375}
+{'step': 6000, 'checkpoint': '.run/mug-correction-motor-v2/fit/step-006000/model.safetensors', 'checkpoint_sha256': 'e9b0cedd850c000620ddebe0061a21ed0eabb49858a651562dfad2d5a1dcc36a', 'development': {'attempted': 1024, 'accepted': 1024, 'p95_position_error_mm': 0.05600771763675412, 'maximum_position_error_mm': 0.13632148776135494, 'maximum_axis_error': 0.0004824430435949005, 'gate_passed': True, 'minimum_step_fraction': np.float64(0.059557101015469745), 'median_step_fraction': 0.942333462827921}}
+{'development_gate_passed': True, 'selected': {'step': 6000, 'checkpoint': '.run/mug-correction-motor-v2/fit/step-006000/model.safetensors', 'checkpoint_sha256': 'e9b0cedd850c000620ddebe0061a21ed0eabb49858a651562dfad2d5a1dcc36a', 'development': {'attempted': 1024, 'accepted': 1024, 'p95_position_error_mm': 0.05600771763675412, 'maximum_position_error_mm': 0.13632148776135494, 'maximum_axis_error': 0.0004824430435949005, 'gate_passed': True, 'minimum_step_fraction': np.float64(0.059557101015469745), 'median_step_fraction': 0.942333462827921}}, 'wall_seconds': 18.16004200000316}

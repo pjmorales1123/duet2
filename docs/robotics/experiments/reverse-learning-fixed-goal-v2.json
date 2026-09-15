@@ -1,0 +1,15 @@
+{
+  "schema": "talos.reverse-learning-fixed-goal.v2",
+  "declared_on": "2026-09-13",
+  "parent": "reverse-learning-v1.json",
+  "reason": "The original default bottle goal depends on the scene's original reset location, which is no longer visible after the right-arm relay. An initial bottle-only encoder cannot infer that hidden original goal. Re-demonstrate the left leg with an explicitly fixed trained setting instead of relabeling old actions or supplying privileged object positions.",
+  "skill": "reverse_bottle_left",
+  "destination_xy": [0.1, -0.115],
+  "source_roots": [".run/reverse-learning-train-v1", ".run/reverse-relay-feasibility-v1"],
+  "training_seeds": [2026090020, 2026092201, 2026092202, 2026092203, 2026092204, 2026092205, 2026092206, 2026092207, 2026092208, 2026092209, 2026092210, 2026092211, 2026092212],
+  "development_seeds": [2026092401, 2026092402, 2026092403],
+  "evaluation_seeds": [2026092601, 2026092602, 2026092603, 2026092604, 2026092605],
+  "data_gate": "Load only the recorded initial state after a verified right-arm release. Generate a new physical teacher trajectory to the fixed goal, then independently replay its saved float32 endpoints. Preserve all old episodes and all new failures.",
+  "scope": "Table-supported right-to-left bottle relay, with a fixed final setting; not arbitrary destinations or a direct airborne exchange.",
+  "storage_reserve_gib": 10
+}

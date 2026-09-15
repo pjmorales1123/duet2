@@ -1,0 +1,17 @@
+{
+  "schema": "talos.rgb-servo-observer.v4",
+  "declared_on": "2026-09-13",
+  "parent": "docs/robotics/experiments/rgb-servo-observer-v3.json",
+  "reason": "V3 misses its fresh synthetic gate and its right-arm approach loses a required camera view. Keep all failures; add varied right-arm appearances from exposed seed-42 relay robot poses, not from any frozen perception or current physical evaluation split.",
+  "train_states": 4096,
+  "train_rng_seed": 2026095411,
+  "robot_pose_recording": ".run/final-goal/learned-relay-42-grip-v3",
+  "generator": "scripts/collect_rgb_servo_observer.py with unchanged procedural position, tilt, lighting and absence ranges",
+  "training_inputs": [".run/rgb-servo-observer-train-v2", ".run/rgb-servo-motion-labels-v1", ".run/rgb-servo-observer-train-v4"],
+  "warm_start": ".run/rgb-servo-observer-fit-v3/step-004000/model.safetensors",
+  "steps": 4000,
+  "learning_rate": 0.0003,
+  "selection": "Use original development seed 2026095402 and exposed physical training traces only. Frozen seeds 2026095404 and 2026095407 are never training or checkpoint-selection inputs. Declare a new frozen test after development selection.",
+  "budget": {"max_cumulative_adam_steps_including_motor": 27000, "max_new_data_gib": 2, "reserve_gib": 10},
+  "scope": "Perception refinement only. Motor-map physical development is independent; no promotion until physical and perception gates pass."
+}

@@ -1,0 +1,43 @@
+{
+  "schema": "talos.rgb-servo-bottle.v1",
+  "declared_on": "2026-09-13",
+  "purpose": "Continue robot development beyond the preserved submission baseline: measured workspace coverage and corrective actions driven by current RGB images.",
+  "baseline": "models/dinner_suite/suite.json plus original models/bottle_visual and models/bottle_relays; keep all baseline weights and failure evidence unchanged",
+  "object_scope": "One upright amber bottle, known shape, yaw in [-0.6,0.6] rad. Other objects remain obstacles. No sideways, liquid or other-object claim in this stage.",
+  "workspace_m": {"x": [-0.14,0.16], "y": [-0.18,-0.06], "z": "table support through 8 cm lift"},
+  "workspace_gate": {
+    "x_samples_m": [-0.14,-0.08,-0.02,0.04,0.10,0.16],
+    "y_samples_m": [-0.18,-0.14,-0.10,-0.06],
+    "arms": ["left","right"],
+    "scene_seed": 2026095101,
+    "interpretation": "Approach feasibility only. Solver failure is not proof of physical unreachability. Preserve rejected and collision cases. Full manipulation needs separate physical trials."
+  },
+  "representation_gaps": [
+    "Baseline actions are functions of an initial centroid and internal progress; new image observations generally cannot alter grasp/carry actions.",
+    "One overhead centroid is ambiguous under occlusion and object height changes.",
+    "Current per-skill trajectories encode narrow start regions and fixed goals; arbitrary target positions are not action inputs."
+  ],
+  "stages": [
+    "A: Measure approach feasibility across all 48 grid/arm pairs. Probe multiple fixed RGB views throughout exposed real bottle traces; record valid, missing and ambiguous detections separately.",
+    "B: Build an explicit live-RGB pose observer and a neural action model with measured joint state and requested target inputs. Keep semantic task sequencing and the separate physical monitor disclosed.",
+    "C: Collect at most 32 varied training episodes including recovery attempts; independently replay any saved action labels. Disturbance magnitude/timing and simulator object poses are training/scoring data, never inference inputs.",
+    "D: Train a bounded candidate on the RTX 4070; report actual training time and peak VRAM. Test development placements, freeze selection, then compare live-image versus frozen-image control on every declared unseen placement/disturbance case."
+  ],
+  "training_seed_range": [2026095101,2026095132],
+  "development_seeds": [2026095201,2026095202,2026095203,2026095204,2026095205,2026095206],
+  "evaluation_seeds": [2026095301,2026095302,2026095303,2026095304,2026095305,2026095306,2026095307,2026095308,2026095309,2026095310,2026095311,2026095312],
+  "pose_generator": {"implementation": "numpy.random.default_rng(scene_seed)", "draw_order": ["x uniform workspace bounds", "y uniform workspace bounds", "yaw uniform [-0.6,0.6]"]},
+  "destinations_m": [[0.10,-0.115],[0.16,-0.06],[0.20,0.05]],
+  "destination_selection": "index (scene_seed modulo 3); z from observed table calibration",
+  "disturbance_design": "Declare a separate physical-push specification after exposed calibration verifies a 5-15 mm recoverable translation without tipping. Use forces at a disclosed contact-equivalent application point, no teleportation. Freeze that specification before development or evaluation comparisons.",
+  "training_budget": {"max_episodes": 32, "max_adam_steps": 30000, "max_peak_vram_gib": 10, "max_wall_minutes": 30, "max_new_data_gib": 2},
+  "evaluation_requirements": [
+    "No relaxed collision, contact, release, parking or placement thresholds.",
+    "Publish all attempted cases and explicit refusals, including unreachable/ambiguous observations.",
+    "Record identical-observation action counterfactuals with live versus frozen images; mere image capture or frame refresh is not evidence of useful correction.",
+    "Paired physical trials must show better correction success with live images before claiming a visual-feedback benefit.",
+    "A finite suite demonstrates measured coverage only, never every reachable placement."
+  ],
+  "storage_reserve_gib": 10,
+  "active_now": "Stage A feasibility and RGB observability diagnostics. Stages B-D depend on measured findings, not yet verified capabilities."
+}

@@ -1,0 +1,10 @@
+{
+  "reason": "Fresh prepare() references a helper named frozen before a local source-hash dictionary with the same name; Python rejects the dispatch before generating fresh inputs. Use a separately frozen fresh-collection adapter, preserving fitted-source bytes and gates.",
+  "source_sha256": "e6c8f2c06093f29db776de5165d892f411649961bf447172c927b581e6681c08",
+  "console_sha256": "6e378bbce58afdcfe35fc85d829e1df3c0aa339ade60f29667754c966188c7fe",
+  "console": ".run/final-goal/mug-correction-motor-v2-fresh-data.log",
+  "evaluation_directory_exists": false,
+  "fresh_data_generated": false,
+  "weights_changed": false,
+  "protocol_changed": false
+}

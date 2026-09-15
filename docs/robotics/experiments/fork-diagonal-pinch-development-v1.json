@@ -1,0 +1,63 @@
+{
+  "schema": "talos.fork-diagonal-pinch-development.v1",
+  "declared_before_execution": true,
+  "hypothesis": "A diagonal closing axis across the fork rectangular section may permit a final palm above the table, unlike the stopped vertical-closing horizontal-palm family.",
+  "source_context": "Frozen saved final state of V26joint direct-contact accepted action00; geometry reconstruction only, no reached-state or physical prefix replay claim for this gate.",
+  "unchanged_final_fork_pose": {
+    "position_m": [
+      -0.16,
+      -0.045,
+      0.76
+    ],
+    "quaternion_wxyz": [
+      1.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  "finite_family": {
+    "contact_y_local_m": [
+      -0.015,
+      0.0,
+      0.032
+    ],
+    "tool_x_local_m": [
+      -0.013,
+      -0.003,
+      0.005
+    ],
+    "closing_axis_xz_tilt_from_positive_vertical_deg": [
+      -60,
+      -45,
+      -30,
+      30,
+      45,
+      60
+    ],
+    "arms": [
+      "left",
+      "right"
+    ],
+    "maximum_endpoint_candidates": 108,
+    "ik_seeds_per_candidate": 9,
+    "seeds": "Same three standard, three alternate-elbow and three shoulder-bearing-folded seeds as previous endpoint diagnostic. No additional seed/position sweep.",
+    "jaw_coordinates_rad": {
+      "minimum": -0.08,
+      "maximum": 0.4,
+      "count": 25
+    }
+  },
+  "checks": {
+    "full_arm_and_jaw_collision_geometry": true,
+    "unexpected_robot_planning_penetration_limit_mm": 0.15,
+    "both_finger_max_gap_mm": 0.2,
+    "fork_finger_penetration_limit_mm": 1.0,
+    "external_fork_penetration_limit_mm": 1.0,
+    "no_model_changes": true,
+    "no_new_physics": true
+  },
+  "decision": "If no clear endpoint exists, stop and preserve all failures. If one exists, report geometry first and only then derive a matching physically supported source/route hypothesis; no physical alternative is authorized by endpoint geometry alone.",
+  "interpretation": "Geometric fingertip gaps are not force support, stable grasp, physical placement, general reachability or whole-table completion. All prior failures remain.",
+  "storage": "Unused exclusive output and console log, expected writes plus10GiB reserve."
+}

@@ -1,0 +1,57 @@
+{
+  "episodes": [
+    "train-000",
+    "train-001",
+    "train-002",
+    "train-003",
+    "train-004",
+    "train-005",
+    "train-006",
+    "train-007",
+    "train-008",
+    "train-009",
+    "train-010",
+    "train-011",
+    "train-012",
+    "train-013",
+    "train-014",
+    "train-015",
+    "train-017",
+    "train-023",
+    "train-025",
+    "train-026",
+    "train-030",
+    "train-031"
+  ],
+  "visual_encoder": "bottle_rgb_geometry",
+  "reconstruction_check": "initial_only",
+  "reconstruction_limit": 0.001,
+  "durations_s": {
+    "approach": 3.9,
+    "descend": 3.5,
+    "close": 5.3,
+    "lift": 4.35,
+    "hold": 1.8,
+    "align": 4.65,
+    "lower": 3.35,
+    "release": 4.35,
+    "retract": 3.3,
+    "park": 3.9,
+    "verify": 1.05
+  },
+  "excluded": [
+    {
+      "episode": "train-018",
+      "reason": "Amber bottle is missing or ambiguous in the calibrated camera region: [(184, np.float64(171.5), np.float64(175.4)), (17, np.float64(169.1), np.float64(166.3))]"
+    },
+    {
+      "episode": "train-021",
+      "reason": "Amber bottle is missing or ambiguous in the calibrated camera region: [(181, np.float64(165.4), np.float64(177.3)), (16, np.float64(164.8), np.float64(167.9))]"
+    },
+    {
+      "episode": "train-022",
+      "reason": "Amber bottle is missing or ambiguous in the calibrated camera region: [(179, np.float64(155.6), np.float64(172.2)), (16, np.float64(156.3), np.float64(163.1))]"
+    }
+  ],
+  "scope": "RGB initial bottle location conditions a neural trajectory. Fixed-camera calibrated ROI; upright only. Offline demonstration-stage alignment is not a runtime stage input."
+}

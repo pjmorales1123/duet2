@@ -1,0 +1,1 @@
+{'passed': True, 'package_files': 117, 'rgb_views': 1024, 'maximum_keypoint_difference_px': 0.0, 'summary': {'states': 512, 'present': 448, 'present_accepted': 448, 'coverage_fraction': 1.0, 'absent': 64, 'absent_false_accepts': 0, 'p95_3d_error_mm': 0.2700374194086802, 'maximum_3d_error_mm': 0.4216429028536392, 'p95_xy_error_mm': 0.21979910725884488, 'gate_passed': True}}

@@ -1,0 +1,12 @@
+{
+  "bottle": "../bottle_visual",
+  "plate": "../dinner_suite/plate",
+  "mug": "openvino",
+  "drawer": "../dinner_suite/drawer",
+  "fork": "../dinner_suite/fork",
+  "spoon": "../dinner_suite/spoon",
+  "relay_bottle_left": "../bottle_relays/relay_bottle_left",
+  "relay_bottle_right": "../bottle_relays/relay_bottle_right",
+  "reverse_bottle_right": "../bottle_relays/reverse_bottle_right",
+  "reverse_bottle_left": "../bottle_relays/reverse_bottle_left"
+}

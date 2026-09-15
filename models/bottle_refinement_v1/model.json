@@ -1,0 +1,42 @@
+{
+  "schema": "talos.bottle-refinement.v1",
+  "status": "experimental; fresh perception gate failed; not promoted",
+  "license": "MIT",
+  "selected_checkpoint_sha256": "c089f3a8bcfaa0189459679f6f13853988059b4c4c4f61566092b85243f58632",
+  "coarse_checkpoint_sha256": "2d82fc20ee8bc7d209be57ca1436361c4865b3ee3fb1d49a176d2ca2df5f1109",
+  "training_states": 4096,
+  "development_states": 512,
+  "fresh_perception": {
+    "states": 512,
+    "present": 456,
+    "accepted_present": 433,
+    "absent": 56,
+    "false_accepted_absent": 0,
+    "accepted_fraction": 0.9495614035087719,
+    "p95_error_mm": 1.493560002081611,
+    "maximum_error_mm": 4.427195113147966,
+    "gate_passed": false
+  },
+  "openvino": "openvino",
+  "physical_v1_trials": 0,
+  "inference": {
+    "minimum_visibility_probability": 0.9,
+    "minimum_heatmap_peak": 0.03,
+    "maximum_heatmap_variance_px2": 12.0,
+    "minimum_views": 2,
+    "grasp_workspace_m": [
+      [
+        -0.2,
+        -0.25,
+        0.86
+      ],
+      [
+        0.28,
+        0.14,
+        1.0
+      ]
+    ],
+    "contract": "Three RGB views -> frozen coarse image points -> 64 px bilinear RGB crops with semantic point role -> new heatmaps/visibility -> current image points -> fixed calibration and unchanged 103 mm rigid geometry. No object state, depth, segmentation, teacher or IK at inference."
+  },
+  "evidence": "../../docs/robotics/evidence/bottle-refinement-v1"
+}

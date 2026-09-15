@@ -1,0 +1,12 @@
+Traceback (most recent call last):
+  File "<repository>\scripts\mug_correction_motor_v2.py", line 257, in <module>
+    sources(p,args.protocol)
+  File "<repository>\scripts\mug_correction_motor_v2.py", line 20, in sources
+    result=original_sources(p,protocol)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<repository>\scripts\mug_correction_motor_v1.py", line 50, in sources
+    result[path.relative_to(ROOT).as_posix()] = sha(path)
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "<python>\Lib\pathlib.py", line 682, in relative_to
+    raise ValueError(f"{str(self)!r} is not in the subpath of {str(other)!r}")
+ValueError: 'docs\\robotics\\experiments\\mug-correction-motor-v2.json' is not in the subpath of 'C:\\jannis\\projects\\hackathons\\AI_Infra_Summit_Hackathon'

@@ -1,0 +1,81 @@
+{
+  "passed": true,
+  "manifest_files_checked": 653,
+  "manifest_sha256": "8517e8a1755cfa2eb67e13925960a323288b37ac9fc7f759cd3fad4d6635dcd6",
+  "splits": {
+    "development": {
+      "completed": 36,
+      "trace_frames": 160331,
+      "portable_scenes_loaded": 36,
+      "passed_workflows": {
+        "baseline": {
+          "upright": 6,
+          "wide_left": 6
+        },
+        "live": {
+          "upright": 6,
+          "wide_left": 6
+        },
+        "frozen": {
+          "upright": 0,
+          "wide_left": 0
+        }
+      },
+      "passed_mugs": {
+        "baseline": {
+          "upright": 6,
+          "wide_left": 6
+        },
+        "live": {
+          "upright": 6,
+          "wide_left": 6
+        },
+        "frozen": {
+          "upright": 0,
+          "wide_left": 0
+        }
+      },
+      "gate_passed": true
+    },
+    "evaluation": {
+      "completed": 60,
+      "trace_frames": 262414,
+      "portable_scenes_loaded": 60,
+      "passed_workflows": {
+        "baseline": {
+          "upright": 10,
+          "wide_left": 10
+        },
+        "live": {
+          "upright": 10,
+          "wide_left": 10
+        },
+        "frozen": {
+          "upright": 0,
+          "wide_left": 0
+        }
+      },
+      "passed_mugs": {
+        "baseline": {
+          "upright": 10,
+          "wide_left": 10
+        },
+        "live": {
+          "upright": 10,
+          "wide_left": 10
+        },
+        "frozen": {
+          "upright": 0,
+          "wide_left": 0
+        }
+      },
+      "gate_passed": true
+    }
+  },
+  "validation_source_sha256": {
+    "scripts/package_mug_visual_correction.py": "6a5045584d67b8caaadf53df75088c1b51666c22c2ec57c6ee771b03ad31a808",
+    "scripts/audit_mug_visual_correction.py": "ff06424d17f91bd25119365bbd9c6ca58b98114562c2db1dc49586aa9b7e8aa2",
+    "scripts/package_spoon_release.py": "ad485e7eaf4d6315a833a4482c20c8e749e24c21f8c309ee1a3f5c7af22caffd"
+  },
+  "scope": "Package-only recount, every original report/state retained, all portable scenes loaded, original scene bytes and frozen models/assets verified. No new physical trial."
+}

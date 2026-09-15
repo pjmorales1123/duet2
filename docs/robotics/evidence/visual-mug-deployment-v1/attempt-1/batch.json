@@ -1,0 +1,33 @@
+{
+  "cases": [
+    {
+      "surface": "engine",
+      "preset": "upright",
+      "exit_code": 0,
+      "passed": true,
+      "report_sha256": "2a1fc28432b4e071909bc221678407779e54fe5cc9d464d306c2a29dba10d2d3"
+    },
+    {
+      "surface": "engine",
+      "preset": "wide_left",
+      "exit_code": 0,
+      "passed": true,
+      "report_sha256": "0f41736203364f5fbe1f41633f8387c8d913c83530f9275da24d7cd65731ccd7"
+    },
+    {
+      "surface": "public",
+      "preset": "upright",
+      "exit_code": 1,
+      "passed": false,
+      "report_sha256": "f541f5bc77da32511c16604d9e481c222450ebb0636c117d40cc5648be14a0b4"
+    },
+    {
+      "surface": "public",
+      "preset": "wide_left",
+      "exit_code": 1,
+      "passed": false,
+      "report_sha256": "218052f5e9ad3fbdcc7bb92161f81942091297b315af058adb6398b778ff442c"
+    }
+  ],
+  "passed": false
+}

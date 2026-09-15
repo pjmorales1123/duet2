@@ -1,0 +1,313 @@
+{
+  "skill": "fork",
+  "logical_skill": "fork",
+  "episodes": [
+    "seed-2026091701",
+    "seed-2026091702",
+    "seed-2026091703",
+    "seed-2026091704",
+    "seed-2026091705",
+    "seed-2026091706",
+    "seed-2026091707",
+    "seed-2026091708",
+    "seed-42",
+    "seed-2026091709",
+    "seed-2026091710",
+    "seed-2026091711",
+    "seed-2026091712",
+    "seed-2026091713",
+    "seed-2026091714",
+    "seed-2026091715",
+    "seed-2026091716",
+    "seed-2026091717",
+    "seed-2026091718",
+    "seed-2026091719",
+    "seed-2026091720",
+    "seed-2026091721",
+    "seed-2026091722",
+    "seed-2026091723",
+    "seed-2026091724",
+    "seed-2026091725",
+    "seed-2026091726",
+    "seed-2026091727",
+    "seed-2026091728",
+    "seed-2026091729",
+    "seed-2026091730",
+    "seed-2026091731",
+    "seed-2026091732",
+    "seed-2026091733",
+    "seed-2026091734",
+    "seed-2026091735",
+    "seed-2026091736",
+    "seed-2026091737",
+    "seed-2026091740"
+  ],
+  "excluded": [
+    {
+      "episode": "seed-2026091738",
+      "reason": "No passing exact saved-endpoint replay"
+    },
+    {
+      "episode": "seed-2026091739",
+      "reason": "No passing exact saved-endpoint replay"
+    }
+  ],
+  "arm_offset": 0,
+  "gripper_cap_nm": 0.3,
+  "visual_encoder": "dinner_rgb_geometry",
+  "visual_preprocess": "brightness_normalized",
+  "cameras": [
+    "overhead",
+    "table_left",
+    "table_right"
+  ],
+  "reconstruction_check": "initial_only",
+  "reconstruction_limit": 0.002,
+  "visual_components": 4,
+  "durations_s": {
+    "approach": 3.8,
+    "descend": 3.35,
+    "close": 5.35,
+    "lift": 4.35,
+    "hold": 1.85,
+    "clearance": 5.0,
+    "transit": 4.35,
+    "align": 4.3,
+    "lower": 3.4,
+    "release": 4.35,
+    "retract": 3.35,
+    "park": 5.45,
+    "verify": 1.1
+  },
+  "lineage": [
+    {
+      "episode": "seed-2026091701",
+      "manifest_sha256": "841d62dd0fa5b90312f527861c402b502e14c0cedb27228009f38652fb1a2454"
+    },
+    {
+      "episode": "seed-2026091702",
+      "manifest_sha256": "db712c002e70309a8bcd54c966fdda49b57959dde70baa51ea43a00f2af1e550"
+    },
+    {
+      "episode": "seed-2026091703",
+      "manifest_sha256": "51bbca481167dbf3548cd37bfae878669eccc650fa139fcf0b48406f7e90d363"
+    },
+    {
+      "episode": "seed-2026091704",
+      "manifest_sha256": "387def5bfd5be00691af6fc41ce83f6e03d1093cc8d390ff477bbc1eb4f6ab69"
+    },
+    {
+      "episode": "seed-2026091705",
+      "manifest_sha256": "3e628d4afb22a108f44603c16e2532fa380879808c34afdc0f3c4882d5bdfb34"
+    },
+    {
+      "episode": "seed-2026091706",
+      "manifest_sha256": "c6315ea471e62c0482c9e7814ba5923d8e85f58360a7e2aed206880f8c0ebd53"
+    },
+    {
+      "episode": "seed-2026091707",
+      "manifest_sha256": "1ab4db548ab129930b8917e958bec7b12259ba34ca997258ceaf1ff7c944924c"
+    },
+    {
+      "episode": "seed-2026091708",
+      "manifest_sha256": "411d8f67e0517148d3f6e396ba7301310f2fcccf19c6965d1e5e08dfd7f73a19"
+    },
+    {
+      "episode": "seed-42",
+      "manifest_sha256": "69349ec06411f451717549de836fd0157b5fa021b0720fa10164b1ea1d8c54d5"
+    },
+    {
+      "episode": "seed-2026091709",
+      "manifest_sha256": "5c6f619d109dbb73517acb73a5bbe9905eb2af6d11614630688eb0478928e79a"
+    },
+    {
+      "episode": "seed-2026091710",
+      "manifest_sha256": "9d52ce3fc4f389dca27a6f0a8033c61e83a6237cb1be29f12b9f44371bc7ae6e"
+    },
+    {
+      "episode": "seed-2026091711",
+      "manifest_sha256": "5124e4b9801f4669e30fa78a41aca69d4d69ae976a1d070b6e0354ada580a823"
+    },
+    {
+      "episode": "seed-2026091712",
+      "manifest_sha256": "26fabc90bf797e86d1af70fa30bd3929807535e6ded7dcc9a8ebc2994e0700fd"
+    },
+    {
+      "episode": "seed-2026091713",
+      "manifest_sha256": "5b7448bf8cd9da148d3a086000165fb8298cd6ebbbeb22e87c9cdd492f3fa87a"
+    },
+    {
+      "episode": "seed-2026091714",
+      "manifest_sha256": "98a286d99004359b90276c53e50183d34bf5d331fee440fb2655bf51f3ffa989"
+    },
+    {
+      "episode": "seed-2026091715",
+      "manifest_sha256": "2eca4eb27c2f8713c009c147135271e5801ddaed33611ac2e8ee1d18c77fe1af"
+    },
+    {
+      "episode": "seed-2026091716",
+      "manifest_sha256": "a27791be067ff0d42b9c3c5e49a0ad3551aa0ce872ca59ad6ca660a84e67eb1e"
+    },
+    {
+      "episode": "seed-2026091717",
+      "manifest_sha256": "93d85a24ee93bb8789599eba9c5315c8c71e26d1ea561a2b28d675fc8c7cbb73"
+    },
+    {
+      "episode": "seed-2026091718",
+      "manifest_sha256": "01ae13aca26cf34bd4c4261b1ecc97dce3915f8e915597e40149102c6b09e60c"
+    },
+    {
+      "episode": "seed-2026091719",
+      "manifest_sha256": "5f544c148e195d7b66b9ad4e5a2022d8d177938099c3746b8693dc669bb1d1e8"
+    },
+    {
+      "episode": "seed-2026091720",
+      "manifest_sha256": "e83b15b64c778ca135214967bd83a56f96edff24d0134baeef78c6fc1d3df32c"
+    },
+    {
+      "episode": "seed-2026091721",
+      "manifest_sha256": "173e99da672ab5de662d73056e8dad7cc59036adc077edaaadb52f41a59db246"
+    },
+    {
+      "episode": "seed-2026091722",
+      "manifest_sha256": "3bf6da0c93fb8d6f578f9a62172cfa3bb33e8988ac6a9a32b7fed783e6d422ad"
+    },
+    {
+      "episode": "seed-2026091723",
+      "manifest_sha256": "7420d9206a08ccb2791d8d6d768745df283e70baa113e1d9cfd1bb5d50b4f889"
+    },
+    {
+      "episode": "seed-2026091724",
+      "manifest_sha256": "d5c123651e5f543891d8d22ec955d3ea2fed1826f0c4716c0171807813b64540"
+    },
+    {
+      "episode": "seed-2026091725",
+      "manifest_sha256": "09340c87c2460273958d604d1870c1a3ed06f7521e781de0b4c8f03ae51a99d6"
+    },
+    {
+      "episode": "seed-2026091726",
+      "manifest_sha256": "0ac5a02f0acf823f532a8cee49706006e0680fdb1c771ea91c13df5f20aec21b"
+    },
+    {
+      "episode": "seed-2026091727",
+      "manifest_sha256": "5e8e055a5e9f2efea30eb0fad3de37b75d986b82b527c9e16813bdedced25534"
+    },
+    {
+      "episode": "seed-2026091728",
+      "manifest_sha256": "9e3a4d634c526ee9cad04174bf71e0732af02bab668d48b66e9f769c5b216b08"
+    },
+    {
+      "episode": "seed-2026091729",
+      "manifest_sha256": "a368fba92d4d83cd3222f86857b705bca6e28cc0bdbdae53e444fe8a51bd3b84"
+    },
+    {
+      "episode": "seed-2026091730",
+      "manifest_sha256": "2620c9d62241de7e009a63576562a231f6ed0dbc3e8ac5fb156d77457601fe07"
+    },
+    {
+      "episode": "seed-2026091731",
+      "manifest_sha256": "e42c0f0e2102f93449667932539a8922f543f9d7e614a3c2ef0ef2f57743a04d"
+    },
+    {
+      "episode": "seed-2026091732",
+      "manifest_sha256": "353bfe70e75e20ce8d9d93d12ba37c14d9e4a8e2b01ee62d1fe995793ca2c834"
+    },
+    {
+      "episode": "seed-2026091733",
+      "manifest_sha256": "5346eff19273ad63c8166aae2bea238942f00c89684b886c9e568b433d59d69d"
+    },
+    {
+      "episode": "seed-2026091734",
+      "manifest_sha256": "166444d186870f331b71ce75036352d3210f75dbd9150b4ed46f7ba4af38a96c"
+    },
+    {
+      "episode": "seed-2026091735",
+      "manifest_sha256": "a81d631bbc09d5c7614949c4ea2ad92fc327e5ac35b81ca6f09b7914930d34db"
+    },
+    {
+      "episode": "seed-2026091736",
+      "manifest_sha256": "efc772e1380ddcacad1f1bc20e01c584962953f164272bd9c55ecb7c4d442e42"
+    },
+    {
+      "episode": "seed-2026091737",
+      "manifest_sha256": "5037c5b2b3c11cced0022bee02ef7f87a75c7522328c5a816283eae38e5490e9"
+    },
+    {
+      "episode": "seed-2026091740",
+      "manifest_sha256": "049fb6fc4f425180719a43fc69f70bbf46ce64c7de7cc59ad8948af1f1770d01"
+    }
+  ],
+  "scope": "Initial three-camera RGB-conditioned neural skill. Offline stage alignment; no runtime object pose or stage input.",
+  "feature_support": {
+    "min": [
+      0.4113035500049591,
+      0.3979041874408722,
+      0.21202389895915985,
+      -1.015061378479004,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "max": [
+      0.428970605134964,
+      0.4173611104488373,
+      0.5455375909805298,
+      -0.8185864686965942,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "description": "Train-only feature range with one pixel centroid margin; not a workspace-coverage guarantee."
+  },
+  "action_preprocessing": "Offline closed-gripper target (-0.17 rad) sustained during carry stages; physical aligned-input replay required before training."
+}

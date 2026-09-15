@@ -1,0 +1,8 @@
+{
+  "files": {
+    "package-verification.json": "3e8b5944eb9f1ddc2e079ed133bf1014896511d05d8ca6077cd49740bcff7fcf",
+    "package-verify.log": "961b98193ec968380be8dca2bf55105a67dbe095b9bea5f2788eb90a7da41979",
+    "packaging-completion.log": "76abb12de7a94ca1a4862bf8ae17fa4f59e0389cadbff826f362187dcb25780d"
+  },
+  "scope": "Verification after core manifests were written; the core manifests remain unchanged."
+}

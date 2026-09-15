@@ -1,0 +1,131 @@
+{
+  "schema": "talos.spoon-release.v1",
+  "protocol_sha256": "a4b51b88e7605526cd37a316a8e30c819e851939ddd4ec3aa671ca018fc26a8b",
+  "source_sha256": "4429ae0473ca96295a6e3a73fa8240486f12d110d8011bc5d42e821a8eda7d07",
+  "training_gate_sha256": "f06147e97178b73232e67e0eab36fe561c160cab5267b4da1e031515b4a63c7a",
+  "warm_start_sha256": "df5bdb17d0dc3a65dae7eba8fea9d5a3edb036edecf1bbb0c32021c64fbce47e",
+  "script_sha256": "276dad8178d06bb20e40bc131979903b1c66b663d4d11e1e1a44a8a7f243180a",
+  "runtime_source_sha256": {
+    "simulation_lab/primitive_policy.py": "60c009448171533385df1be82e3f64ed395f28d3e03145eb2f10ab6a791ef143"
+  },
+  "parent_git_revision": "e872ea5de83cd8ef608764b6c72f78b897328839",
+  "settings": {
+    "steps": 12000,
+    "candidate_steps": [
+      12000
+    ],
+    "batch_size": 1024,
+    "learning_rate": 8e-05,
+    "final_learning_rate": 4e-06,
+    "optimizer": "AdamW",
+    "weight_decay": 1e-06,
+    "seed": 2026099101,
+    "initialization": "Warm-start selected v6 spoon weights and preserve its exact visual/action normalization. Only the target actions change.",
+    "loss": "Mean squared normalized motor-target error; unchanged PrimitiveNet architecture.",
+    "precision": "FP32 CUDA; TF32 disabled"
+  },
+  "normalization": "Exact preserved v6 visual/action normalization; no re-estimation.",
+  "environment": {
+    "python": "3.12.10",
+    "torch": "2.8.0+cu128",
+    "numpy": "2.2.6",
+    "openvino": "2026.3.0",
+    "gpu": "NVIDIA GeForce RTX 4070"
+  },
+  "initial_mse": 0.003695461759471976,
+  "steps": [
+    {
+      "step": 1,
+      "loss": 0.004252856597304344,
+      "wall_seconds": 0.14055310003459454,
+      "peak_torch_reserved_gib": 0.048828125
+    },
+    {
+      "step": 1000,
+      "loss": 7.77296518208459e-05,
+      "wall_seconds": 3.764330599922687,
+      "peak_torch_reserved_gib": 0.048828125
+    },
+    {
+      "step": 2000,
+      "loss": 4.673703733715229e-05,
+      "wall_seconds": 7.330512499902397,
+      "peak_torch_reserved_gib": 0.048828125
+    },
+    {
+      "step": 3000,
+      "loss": 3.8847283576615155e-05,
+      "wall_seconds": 10.977508599869907,
+      "peak_torch_reserved_gib": 0.048828125
+    },
+    {
+      "step": 4000,
+      "loss": 3.632720836321823e-05,
+      "wall_seconds": 14.671076899860054,
+      "peak_torch_reserved_gib": 0.048828125
+    },
+    {
+      "step": 5000,
+      "loss": 3.829027991741896e-05,
+      "wall_seconds": 18.268567900173366,
+      "peak_torch_reserved_gib": 0.048828125
+    },
+    {
+      "step": 6000,
+      "loss": 3.6061926948605105e-05,
+      "wall_seconds": 21.897959100082517,
+      "peak_torch_reserved_gib": 0.048828125
+    },
+    {
+      "step": 7000,
+      "loss": 3.404147719265893e-05,
+      "wall_seconds": 25.49166820012033,
+      "peak_torch_reserved_gib": 0.048828125
+    },
+    {
+      "step": 8000,
+      "loss": 3.342912532389164e-05,
+      "wall_seconds": 29.139012299943715,
+      "peak_torch_reserved_gib": 0.048828125
+    },
+    {
+      "step": 9000,
+      "loss": 2.7278923880658112e-05,
+      "wall_seconds": 32.78214089991525,
+      "peak_torch_reserved_gib": 0.048828125
+    },
+    {
+      "step": 10000,
+      "loss": 3.1018709705676883e-05,
+      "wall_seconds": 36.33421890018508,
+      "peak_torch_reserved_gib": 0.048828125
+    },
+    {
+      "step": 11000,
+      "loss": 3.0954885005485266e-05,
+      "wall_seconds": 39.95217279996723,
+      "peak_torch_reserved_gib": 0.048828125
+    },
+    {
+      "step": 12000,
+      "loss": 3.3633114071562886e-05,
+      "wall_seconds": 43.671251699794084,
+      "peak_torch_reserved_gib": 0.048828125
+    }
+  ],
+  "completed_steps": 12000,
+  "training_completed": true,
+  "selection": {
+    "path": ".run/spoon-release-v1/fit/step-012000",
+    "sha256": "8a6bec4cf6f0fc4e2743ac9336b2714f86d684be3750a6d2ba05ed0b7836a03c"
+  },
+  "scope": "One warm-start fit on 39 physically replayed modified inputs; no physical candidate or Intel result yet.",
+  "wall_seconds": 43.67362429993227,
+  "peak_torch_reserved_gib": 0.048828125,
+  "final_mse": 3.1819451534652246e-05,
+  "stop_reason": null,
+  "checkpoint": {
+    "path": ".run/spoon-release-v1/fit/step-012000",
+    "sha256": "8a6bec4cf6f0fc4e2743ac9336b2714f86d684be3750a6d2ba05ed0b7836a03c"
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "schema": "talos.mug-correction-motor.v2",
+  "files": {
+    "openvino/motor.bin": "a440def62b2eebc67dd1592b9bacb06b1975328555a12214d276b0db296a8441",
+    "openvino/motor.xml": "ff5171e83999571bbf60ac74768d6a3558ba44238cd295b5ca3c6e16c788a2cc",
+    "protocol.json": "468b469bb45238758fcaf1fb327b2b4186d475d8e462eacd34f8de6981fd900f",
+    "runtime.json": "62f3bd2b748483070450c07a61e0e14a259a52e1f5393b57952bc5dc88c79cf6",
+    "step-003000/model.safetensors": "67c1d3ae0f9d3eb91da9e933a2a22728fa9fa1c7d7e3cab3db624454face8d1a",
+    "step-006000/model.safetensors": "e9b0cedd850c000620ddebe0061a21ed0eabb49858a651562dfad2d5a1dcc36a"
+  },
+  "bytes": 252828
+}

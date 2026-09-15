@@ -1,0 +1,15 @@
+{
+  "core_manifest_sha256": "8517e8a1755cfa2eb67e13925960a323288b37ac9fc7f759cd3fad4d6635dcd6",
+  "original_console": ".run/final-goal/mug-visual-correction-v2-package.log",
+  "original_console_sha256": "b0bf547867eb2ca2415052436fab51a847abcd042ffab62444c0cfd920fe3067",
+  "files": {
+    "package-verification.json": "63e69f4d3dfafc3f482317c40e7a97a7a10a4cc31936ab7d854296fc5114be2b",
+    "package-console.log": "b0bf547867eb2ca2415052436fab51a847abcd042ffab62444c0cfd920fe3067"
+  },
+  "storage_preflight": {
+    "free_bytes": 556907184128,
+    "estimated_additional_bytes": 70006,
+    "reserve_bytes": 10737418240
+  },
+  "scope": "Verification result and original console copied after the packaging process finished. No open-log snapshot."
+}

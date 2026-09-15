@@ -1,0 +1,13 @@
+{
+  "schema": "talos.rgb-servo-observer.v5",
+  "declared_on": "2026-09-13",
+  "parent": "docs/robotics/experiments/rgb-servo-observer-v4.json",
+  "additional_training": "640 rendered states from the five independently replayed reserved recovery demonstrations, including three right-arm recoveries. All eight attempts and their explicit goals remain recorded.",
+  "training_inputs": [".run/rgb-servo-observer-combined-v4", ".run/rgb-servo-recovery-labels-v1"],
+  "warm_start": ".run/rgb-servo-observer-fit-v4/step-004000/model.safetensors",
+  "steps": 3000,
+  "learning_rate": 0.0003,
+  "selection": "Original synthetic development seed 2026095402 and exposed physical training seeds only. Do not use frozen perception seeds 2026095404/2026095407 or physical development/evaluation seeds for fitting.",
+  "budget": {"cumulative_adam_steps_including_motor": 30000, "max_cumulative_new_data_gib": 2, "reserve_gib": 10},
+  "next_gate": "Compare v4/v5 on declared development sources with the revised two-view consistency rule; freeze selection before new perception and physical evaluations."
+}

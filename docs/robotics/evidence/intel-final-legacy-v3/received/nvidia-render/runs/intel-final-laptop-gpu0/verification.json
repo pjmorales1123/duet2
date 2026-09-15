@@ -1,0 +1,147 @@
+{
+  "hardware": {
+    "schema": "talos.intel-target-inspection.v1",
+    "cpu": "Intel(R) Core(TM) i7-10850H CPU @ 2.70GHz",
+    "os": "Windows",
+    "os_release": "11",
+    "python": "3.12.14",
+    "mujoco": "3.12.0",
+    "openvino": "2026.3.0-22451-8a17657b995-releases/2026/3",
+    "openvino_devices": [
+      {
+        "id": "CPU",
+        "name": "Intel(R) Core(TM) i7-10850H CPU @ 2.70GHz"
+      },
+      {
+        "id": "GPU.0",
+        "name": "Intel(R) UHD Graphics (iGPU)"
+      },
+      {
+        "id": "GPU.1",
+        "name": "Quadro T2000 with Max-Q Design (dGPU)"
+      }
+    ],
+    "opengl": {
+      "vendor": "NVIDIA Corporation",
+      "renderer": "Quadro T2000 with Max-Q Design/PCIe/SSE2",
+      "version": "4.6.0 NVIDIA 581.95"
+    },
+    "intel_cpu": true,
+    "intel_opengl_renderer": false,
+    "core_ultra_series": null,
+    "strict_written_hardware_check": false,
+    "all_intel_cpu_and_graphics": false,
+    "physical_policy_run": "Required separately; device discovery does not demonstrate task success.",
+    "eligibility": "Record actual hardware. Organizer confirmation remains necessary for legacy Intel under the livestream clarification."
+  },
+  "benchmarks": {
+    "bottle": {
+      "device": "GPU.0",
+      "name": "Intel(R) UHD Graphics (iGPU)",
+      "execution_devices": [
+        "GPU.0"
+      ],
+      "max_joint_error_rad": 4.8006929489474715e-06,
+      "parity_passed": true,
+      "median_ms": 0.5942499847151339,
+      "p95_ms": 1.9280100095784292,
+      "synchronous_chunks_per_second": 1324.889371672701,
+      "output_endpoints_per_chunk": 20,
+      "precision_hint": "<Type: 'float32'>",
+      "warmup_calls": 20,
+      "measured_calls": 300
+    },
+    "plate": {
+      "device": "GPU.0",
+      "name": "Intel(R) UHD Graphics (iGPU)",
+      "execution_devices": [
+        "GPU.0"
+      ],
+      "max_joint_error_rad": 3.815544005192351e-06,
+      "parity_passed": true,
+      "median_ms": 0.6221499934326857,
+      "p95_ms": 1.7373399954522035,
+      "synchronous_chunks_per_second": 1333.801052806379,
+      "output_endpoints_per_chunk": 20,
+      "precision_hint": "<Type: 'float32'>",
+      "warmup_calls": 20,
+      "measured_calls": 300
+    },
+    "mug": {
+      "device": "GPU.0",
+      "name": "Intel(R) UHD Graphics (iGPU)",
+      "execution_devices": [
+        "GPU.0"
+      ],
+      "max_joint_error_rad": 2.770723313005874e-06,
+      "parity_passed": true,
+      "median_ms": 0.6174000154715031,
+      "p95_ms": 2.2164599882671614,
+      "synchronous_chunks_per_second": 1289.5111589377111,
+      "output_endpoints_per_chunk": 20,
+      "precision_hint": "<Type: 'float32'>",
+      "warmup_calls": 20,
+      "measured_calls": 300
+    },
+    "drawer": {
+      "device": "GPU.0",
+      "name": "Intel(R) UHD Graphics (iGPU)",
+      "execution_devices": [
+        "GPU.0"
+      ],
+      "max_joint_error_rad": 3.0345374852913665e-06,
+      "parity_passed": true,
+      "median_ms": 0.6483999895863235,
+      "p95_ms": 1.388515002327041,
+      "synchronous_chunks_per_second": 1361.3715363005617,
+      "output_endpoints_per_chunk": 20,
+      "precision_hint": "<Type: 'float32'>",
+      "warmup_calls": 20,
+      "measured_calls": 300
+    },
+    "fork": {
+      "device": "GPU.0",
+      "name": "Intel(R) UHD Graphics (iGPU)",
+      "execution_devices": [
+        "GPU.0"
+      ],
+      "max_joint_error_rad": 8.610804229647329e-06,
+      "parity_passed": true,
+      "median_ms": 0.6689999718219042,
+      "p95_ms": 1.3687899714568639,
+      "synchronous_chunks_per_second": 1282.608723649876,
+      "output_endpoints_per_chunk": 20,
+      "precision_hint": "<Type: 'float32'>",
+      "warmup_calls": 20,
+      "measured_calls": 300
+    },
+    "spoon": {
+      "device": "GPU.0",
+      "name": "Intel(R) UHD Graphics (iGPU)",
+      "execution_devices": [
+        "GPU.0"
+      ],
+      "max_joint_error_rad": 3.0981241039285123e-06,
+      "parity_passed": true,
+      "median_ms": 0.6701999809592962,
+      "p95_ms": 1.3830800424329939,
+      "synchronous_chunks_per_second": 1291.5485797114025,
+      "output_endpoints_per_chunk": 20,
+      "precision_hint": "<Type: 'float32'>",
+      "warmup_calls": 20,
+      "measured_calls": 300
+    }
+  },
+  "physical_passed": true,
+  "inference_devices_intel": true,
+  "source_checkpoint_sha256": {
+    "bottle": "e2a1ff9400cdb49d7b9a38d5880759a0269814111c88b2081416f8e349c7564e",
+    "plate": "d8e55a0b354b84e7a458b6ddc824d499764ea595213c8f3a7a6c4194362f5247",
+    "mug": "4a239422c24726a3c1319428f2dbf40e79b5f4ab3cf50f66ca53eb0b4134df62",
+    "drawer": "32115eb5dcc782d80c73d53925b0cb9dc610f03d149580a810752d2bb833cc3c",
+    "fork": "fbdc32af07b247af0771ec8ff0c029c57f558d02954be3bb77e07e9b0b5dd453",
+    "spoon": "df5bdb17d0dc3a65dae7eba8fea9d5a3edb036edecf1bbb0c32021c64fbce47e"
+  },
+  "strict_hardware_and_physics_passed": false,
+  "note": "Legacy Intel eligibility depends on organizer clarification. Diagnostic mode never turns this flag true."
+}

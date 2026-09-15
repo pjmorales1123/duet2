@@ -1,0 +1,14 @@
+{
+  "schema": "talos.raw-rgbd-mug-full-pose.v1",
+  "scope": "Exposed V24 raw RGB-D mug base/lip and handle diagnosis only; no fit, control, or generalization claim.",
+  "ambiguity_gates": {
+    "minimum_axis_direction_point_margin": 20,
+    "minimum_handle_outlier_points": 50,
+    "minimum_handle_direction_concentration": 0.8,
+    "minimum_handle_sign_score_margin": 1.0
+  },
+  "score_gates": {
+    "body_origin_mm": 15.0,
+    "rotation_deg": 10.0
+  }
+}

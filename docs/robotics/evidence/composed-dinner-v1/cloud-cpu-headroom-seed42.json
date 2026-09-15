@@ -1,0 +1,89 @@
+{
+  "schema": "talos.hosted-browser-selected-fields.v1",
+  "observed_on": "2026-09-14",
+  "source": "Selected fields read from the private Gradio trial-evidence UI; not a raw state recording.",
+  "space": "jannis-sms/talos-dinner-robotics",
+  "deployment_revision": "c08e96f493e76f38f06143fa621c3cf01da29b25",
+  "private": true,
+  "instruction": "Set the table",
+  "seed": 42,
+  "split": "exposed deployment regression",
+  "controller": "learned",
+  "bottle_start": "wide_left",
+  "camera": "opposite",
+  "inference_runtime": "OpenVINO CPU",
+  "status": "succeeded",
+  "simulation_seconds": 283.31,
+  "wall_seconds": 305.33,
+  "hosting_limit_seconds": 420,
+  "completed_steps": [
+    "reverse_bottle_right",
+    "reverse_bottle_left",
+    "plate",
+    "mug",
+    "drawer",
+    "fork",
+    "spoon"
+  ],
+  "results": [
+    {
+      "skill": "reverse_bottle_right",
+      "status": "succeeded",
+      "placement_error_mm": 0.9523022977114589,
+      "stable_release_and_park_s": 0.5000000000002558,
+      "both_arms_parked": true,
+      "unexpected_collisions": 0
+    },
+    {
+      "skill": "reverse_bottle_left",
+      "status": "succeeded",
+      "placement_error_mm": 0.8536496056618063,
+      "stable_release_and_park_s": 0.5049999999995407,
+      "both_arms_parked": true,
+      "unexpected_collisions": 0
+    },
+    {
+      "skill": "plate",
+      "status": "succeeded",
+      "placement_error_mm": 1.110500601538087,
+      "stable_release_and_park_s": 0.5049999999995407,
+      "both_arms_parked": true,
+      "unexpected_collisions": 0
+    },
+    {
+      "skill": "mug",
+      "status": "succeeded",
+      "placement_error_mm": 1.1062382674389137,
+      "stable_release_and_park_s": 0.5049999999995407,
+      "both_arms_parked": true,
+      "unexpected_collisions": 0
+    },
+    {
+      "skill": "drawer",
+      "status": "succeeded",
+      "drawer_open_m": 0.11776373698489383,
+      "stable_release_and_park_s": 0.5049999999995407,
+      "both_arms_parked": true,
+      "unexpected_collisions": 0
+    },
+    {
+      "skill": "fork",
+      "status": "succeeded",
+      "placement_error_mm": 0.7921897080033026,
+      "stable_release_and_park_s": 0.5049999999995407,
+      "both_arms_parked": true,
+      "unexpected_collisions": 0
+    },
+    {
+      "skill": "spoon",
+      "status": "succeeded",
+      "placement_error_mm": 4.475159106135473,
+      "stable_release_and_park_s": 0.5049999999995407,
+      "both_arms_parked": true,
+      "unexpected_collisions": 0
+    }
+  ],
+  "physics_state_writes_during_control": 0,
+  "hidden_forces": 0,
+  "scope": "Fresh signed-in CPU regression after the hosting allowance changed. All seven per-skill values were re-read and match the prior run. This 305.33-second execution exceeds the former 300-second allowance; no controller, model or physical threshold changed. Exposed seed 42; no new holdout, anonymous-access or Intel claim."
+}

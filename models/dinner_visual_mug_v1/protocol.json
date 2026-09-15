@@ -1,0 +1,102 @@
+{
+  "schema": "talos.mug-visual-correction.v2",
+  "declared_on": "2026-09-14",
+  "purpose": "Test the identical V1 mug feedback controller after the exposed no-step diagnosis verifies safe renderer replacement order. V1 retains all 36 workflows and fails before corrective control: the old renderer was closed after creating its replacement, producing black images. Close the old renderer first; do not tune weights, feedback, timing or thresholds.",
+  "raw_root": ".run/mug-visual-correction-v2",
+  "evidence_package": "docs/robotics/evidence/mug-visual-correction-v2",
+  "observer": "models/mug_keypoint_observer_v1",
+  "observer_manifest_sha256": "5cde24caddd98c096fb82c0f61f3b12b14c326f4b5355d7bb010846667d602d9",
+  "motor": "models/mug_correction_motor_v2",
+  "motor_manifest_sha256": "a2efa477aed1f126be3e4e350653eac052be111c84e2e4e6be6fa22c155f41b4",
+  "motor_runtime_sha256": "62f3bd2b748483070450c07a61e0e14a259a52e1f5393b57952bc5dc88c79cf6",
+  "baseline_suite": "models/dinner_suite/suite.json",
+  "baseline_suite_sha256": "2c521943f6feb2bbb988a196dbcc9ead72a88185a1de24709e51367304b35fff",
+  "interface": {
+    "observer_physical_report": "docs/robotics/evidence/mug-keypoint-observer-v1/physical-regression.json",
+    "observer_physical_report_sha256": "4fd8161e5dd798782ac0f2a9eeca6ef4a0a275f6648f87c3708a9450fc5e1475",
+    "visibility_report": "docs/robotics/evidence/mug-visual-visibility-v1/report.json",
+    "visibility_report_sha256": "4fce1607d236bd53b32ca72daa5c3156e54faa7e47758d77e1850c7381bf2f89",
+    "all_exposed_states": 144,
+    "control_phases": [
+      "end_align",
+      "mid_lower",
+      "end_lower"
+    ],
+    "control_states": 72,
+    "minimum_control_motor_acceptance_fraction": 0.95,
+    "maximum_control_p95_effective_error_mm": 0.15,
+    "maximum_control_effective_error_mm": 0.5,
+    "method": "Before new controller trials, compose every preserved neural mug observation with the corresponding recorded measured joints. Score all 144 states and retain every refusal. Only the preregistered 72 late-placement states determine this interface gate; earlier transport and already-opening states are diagnostic because correction is disabled there. Use no fitting or model selection. This is exposed offline interface regression, not a new physical success claim."
+  },
+  "control": {
+    "goal_xy_m": [
+      0.265,
+      0.005
+    ],
+    "origin_from_points": "p0 - (p1-p0)*(0.003/0.058), using the observer's two known semantic axis points only",
+    "feedback_gain": 0.6,
+    "maximum_requested_translation_m": 0.002,
+    "maximum_joint_delta_rad": 0.02,
+    "maximum_cumulative_joint_offset_rad": 0.12,
+    "correction_nominal_seconds": [
+      24.8,
+      27.6
+    ],
+    "keep_offset_until_nominal_seconds": 32.2,
+    "taper_offset_end_nominal_seconds": 35.6,
+    "query_interval_simulation_seconds": 0.2,
+    "method": "Keep the existing initial-RGB mug trajectory. On each advanced neural-progress query in the late-placement window, estimate mug origin from current stereo RGB, apply gain to XY error and clip its norm to 2 mm. The neural motor and its fixed joint-limiting/forward-refusal contract generate an incremental joint offset. Accumulate no offset while the existing motor-tracking guard waits. Add the bounded offset to the nominal neural chunk, preserve it through release, then taper it smoothly to zero through retract. Reject excessive cumulative offsets or corrected active targets outside actuator limits. Update the tracking guard's previous chunk to the actually issued corrected chunk. No exact object pose, teacher or inverse solver generates actions; the unchanged privileged monitor can stop/score only.",
+    "frozen_control": "Use the identical controller, weights and limits, but cache the two RGB images at the first active correction query and reuse those raw images through the correction window. Record current-image and used-image hashes separately. This is a deliberately frozen-feedback control; baseline is also evaluated separately.",
+    "unchanged": "All other skills, camera-conditioned trajectory weights, 0.35 Nm mug gripper cap, physics, release/parking checks and physical success thresholds. No external forces, constraints, attachments or state edits during control."
+  },
+  "instruction": "set the table",
+  "starting_presets": [
+    "upright",
+    "wide_left"
+  ],
+  "modes": [
+    "baseline",
+    "live",
+    "frozen"
+  ],
+  "development_seeds": [
+    2026100501,
+    2026100502,
+    2026100503,
+    2026100504,
+    2026100505,
+    2026100506
+  ],
+  "evaluation_seeds": [
+    2026100601,
+    2026100602,
+    2026100603,
+    2026100604,
+    2026100605,
+    2026100606,
+    2026100607,
+    2026100608,
+    2026100609,
+    2026100610
+  ],
+  "development_gate": "Freeze one implementation after the interface gate. Run all 36 complete workflows: six new seeds, both presets, all three modes. Retain refusals in denominators. Require live mug success at least 5/6 per preset, no fewer passed mugs or complete workflows than paired baseline in either preset, and no fewer passed mugs than frozen mode. Demonstrate at least two additional passed mugs over frozen mode, or at least 1 mm median placement-error reduction among at least eight pairs where both mug attempts succeed. Do not change implementation or weights after seeing these scenes.",
+  "promotion_gate": "Only after development passes, freeze identical inputs for all 60 final workflows. Require live completion at least 8/10 and live mug success at least 9/10 per preset, with no fewer completed workflows or mug successes than baseline per preset. Require no fewer live mug successes than frozen, plus at least three additional passed mugs or at least 1 mm median error reduction among at least sixteen mutually successful mug pairs. All prior-placement, release, parking, collision and stability checks remain unchanged. Confirm exact paired state prefixes before the first correction. A passing experiment may justify promotion for this finite workflow only; arbitrary positions/instructions remain unproven.",
+  "budget": {
+    "maximum_raw_and_packaged_gib": 2,
+    "maximum_physical_workers": 2,
+    "maximum_simulation_seconds_per_trial": 360,
+    "maximum_wall_seconds_per_trial": 180,
+    "reserve_gib": 10,
+    "maximum_new_physical_trials": 96
+  },
+  "stop_rule": "Stop before new physics if the saved-state interface gate fails. Stop before final scenes or promotion if development fails. Preserve every attempted case, source revision, observation/correction log and state trace. No extra fit, controller revision or gate relaxation belongs to this protocol.",
+  "retention": "Preserve original models/evidence and every failed attempt; check disk and unique output/log paths before every trial/export/package. Keep GitHub/HF private and the selected browser/hosted baseline unchanged until physical promotion is verified. Never click final Submit.",
+  "evaluation_harness": "scripts/evaluate_mug_visual_correction_v2.py",
+  "runner": "scripts/run_mug_visual_correction_v2.py",
+  "unchanged_control_protocol": "docs/robotics/experiments/mug-visual-correction-v1.json",
+  "unchanged_control_protocol_sha256": "fc75f6a6679636e537a972c587889bb16a0cce69f168f499d87ff841a6047f08",
+  "prior_physical_audit": ".run/mug-visual-correction-v1/development-audit.json",
+  "prior_physical_audit_sha256": "425fafa5f618f639b171512553de73773f0a989246668e04f57551a87ed4ad8b",
+  "renderer_diagnostic": ".run/mug-renderer-lifecycle-v1/report.json",
+  "renderer_diagnostic_sha256": "7d2757a652d8e1b27d91ca0cd382d86e7271a1ba782873e417a516830f8608c2"
+}

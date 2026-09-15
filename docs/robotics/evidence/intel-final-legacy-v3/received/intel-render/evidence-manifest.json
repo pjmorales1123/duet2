@@ -1,0 +1,619 @@
+{
+  "created_utc": "2026-09-14T05:52:35.415843+00:00",
+  "kit_sha256": "6a9b1228b5212efe815d07cbb5aca96e9966e354557afbd42583e986edf22394",
+  "source_git_revision": "57d6ff6185da832d49ae378de393f4a3e7c8cc6a",
+  "files": [
+    {
+      "file": ".run/intel-render-laptop-cpu/bottle/benchmark.json",
+      "source_sha256": "03c64bf451d9483a4be1561d6242b44c98ffdde04d1bc4de52c4f9ace0889271",
+      "share_sha256": "76b262f977272802b2bebcddc151aa3eee1a1873606df4ddfe0a0355576f9bfb",
+      "bytes": 1874,
+      "copy_changed": true
+    },
+    {
+      "file": ".run/intel-render-laptop-cpu/bottle/openvino.json",
+      "source_sha256": "382a2f93757032300b5f74294a17874a58a24037e1f78fa9b9e3ed3e65856b0e",
+      "share_sha256": "382a2f93757032300b5f74294a17874a58a24037e1f78fa9b9e3ed3e65856b0e",
+      "bytes": 44,
+      "copy_changed": false
+    },
+    {
+      "file": ".run/intel-render-laptop-cpu/bottle/primitive.json",
+      "source_sha256": "e2a5b913ea9c7b8028c53a176a9ce331df0adad6f4cb7b73246378b92d571974",
+      "share_sha256": "574cd9c8167831da1b3450602af6df72ad61b691b4e6cf856d8257c3455de2e1",
+      "bytes": 3142,
+      "copy_changed": true
+    },
+    {
+      "file": ".run/intel-render-laptop-cpu/drawer/benchmark.json",
+      "source_sha256": "9f7e91a5e840f190a1a7535d240ee2698d783c03bb1654e956933ef90ea05f8e",
+      "share_sha256": "46482f1847c49e14031d663cd138e8f6115bcf5482389dabf02f416a69fd00f3",
+      "bytes": 1875,
+      "copy_changed": true
+    },
+    {
+      "file": ".run/intel-render-laptop-cpu/drawer/openvino.json",
+      "source_sha256": "382a2f93757032300b5f74294a17874a58a24037e1f78fa9b9e3ed3e65856b0e",
+      "share_sha256": "382a2f93757032300b5f74294a17874a58a24037e1f78fa9b9e3ed3e65856b0e",
+      "bytes": 44,
+      "copy_changed": false
+    },
+    {
+      "file": ".run/intel-render-laptop-cpu/drawer/primitive.json",
+      "source_sha256": "b41ea1f7274478885517d8f25a81d05d83f6367ee9459e8b420becbc852ed2d6",
+      "share_sha256": "c391a57427e29a63087a4adc31776d0ff8df89465ead409b2efad88d756ea47b",
+      "bytes": 5102,
+      "copy_changed": true
+    },
+    {
+      "file": ".run/intel-render-laptop-cpu/fork/benchmark.json",
+      "source_sha256": "f78687541396278baf052ad5a11121d0e14b14991dfec408d5bef94f16b014e2",
+      "share_sha256": "0f39816201ba21ec478dd79a124a804efef8998ba514692297cc767057ed9ca8",
+      "bytes": 1875,
+      "copy_changed": true
+    },
+    {
+      "file": ".run/intel-render-laptop-cpu/fork/openvino.json",
+      "source_sha256": "382a2f93757032300b5f74294a17874a58a24037e1f78fa9b9e3ed3e65856b0e",
+      "share_sha256": "382a2f93757032300b5f74294a17874a58a24037e1f78fa9b9e3ed3e65856b0e",
+      "bytes": 44,
+      "copy_changed": false
+    },
+    {
+      "file": ".run/intel-render-laptop-cpu/fork/primitive.json",
+      "source_sha256": "234615d01c16d4dbbd1fc47803be92e02baedf84dfe5245109718094e242b94c",
+      "share_sha256": "9389ff0fb42e9f74ff16da38ee89b0c4667b3c6b333ca8ab4a42373437f7bef8",
+      "bytes": 5132,
+      "copy_changed": true
+    },
+    {
+      "file": ".run/intel-render-laptop-cpu/hardware.json",
+      "source_sha256": "52e91232b2464673a02412ef9336c166613757ecaf30f70e13b32c1c310ef5a5",
+      "share_sha256": "52e91232b2464673a02412ef9336c166613757ecaf30f70e13b32c1c310ef5a5",
+      "bytes": 1066,
+      "copy_changed": false
+    },
+    {
+      "file": ".run/intel-render-laptop-cpu/mug/benchmark.json",
+      "source_sha256": "a4f7ed9bc2bf940eb6e78e40ee0d734107e316146037f43974f858ba0528c542",
+      "share_sha256": "13a3d8a0d36651cc5dc5f3133a0c5ebf3893fb39afa16971e253afcf007489f5",
+      "bytes": 1875,
+      "copy_changed": true
+    },
+    {
+      "file": ".run/intel-render-laptop-cpu/mug/openvino.json",
+      "source_sha256": "382a2f93757032300b5f74294a17874a58a24037e1f78fa9b9e3ed3e65856b0e",
+      "share_sha256": "382a2f93757032300b5f74294a17874a58a24037e1f78fa9b9e3ed3e65856b0e",
+      "bytes": 44,
+      "copy_changed": false
+    },
+    {
+      "file": ".run/intel-render-laptop-cpu/mug/primitive.json",
+      "source_sha256": "2c79c0cd61e954703344092e8e64fc2c11dc485df4fd3fef7be3af384ff16e8d",
+      "share_sha256": "d7b8c9b866965a588ce3bb81c9cc843ea89df78d54748e42d4957a8989d5f53b",
+      "bytes": 5087,
+      "copy_changed": true
+    },
+    {
+      "file": ".run/intel-render-laptop-cpu/physical-recording/report.json",
+      "source_sha256": "45170bd01c8d1f31eb11d37ba4e9c4bcfd3e98794f288c4b182e03bd376c217d",
+      "share_sha256": "dc95da228a641e99d33fbf082f1353e76b3bee1b7cb8930718b557d4b209e8b3",
+      "bytes": 21998,
+      "copy_changed": true
+    },
+    {
+      "file": ".run/intel-render-laptop-cpu/physical-recording/scene.xml",
+      "source_sha256": "e1fbe792eed4c961c0069500261284b9196fdb45ba04c3f15c08acec29c4f96c",
+      "share_sha256": "e1fbe792eed4c961c0069500261284b9196fdb45ba04c3f15c08acec29c4f96c",
+      "bytes": 135898,
+      "copy_changed": false
+    },
+    {
+      "file": ".run/intel-render-laptop-cpu/physical-recording/states.npz",
+      "source_sha256": "110bc4c5996f93d78d602a9943c32529940a90a28b86f73c30c3344e3320c2b0",
+      "share_sha256": "110bc4c5996f93d78d602a9943c32529940a90a28b86f73c30c3344e3320c2b0",
+      "bytes": 3936961,
+      "copy_changed": false
+    },
+    {
+      "file": ".run/intel-render-laptop-cpu/physical.json",
+      "source_sha256": "dc95da228a641e99d33fbf082f1353e76b3bee1b7cb8930718b557d4b209e8b3",
+      "share_sha256": "dc95da228a641e99d33fbf082f1353e76b3bee1b7cb8930718b557d4b209e8b3",
+      "bytes": 21998,
+      "copy_changed": false
+    },
+    {
+      "file": ".run/intel-render-laptop-cpu/plate/benchmark.json",
+      "source_sha256": "f0d73981a0bbb05816bb590290fa7188e0ea5ef093214a809063ed62500f197a",
+      "share_sha256": "c91b55b584d3bd37b62023429966ed933f2599e31c8cc1ab614ff07faf4a6a33",
+      "bytes": 1874,
+      "copy_changed": true
+    },
+    {
+      "file": ".run/intel-render-laptop-cpu/plate/openvino.json",
+      "source_sha256": "382a2f93757032300b5f74294a17874a58a24037e1f78fa9b9e3ed3e65856b0e",
+      "share_sha256": "382a2f93757032300b5f74294a17874a58a24037e1f78fa9b9e3ed3e65856b0e",
+      "bytes": 44,
+      "copy_changed": false
+    },
+    {
+      "file": ".run/intel-render-laptop-cpu/plate/primitive.json",
+      "source_sha256": "5c36ac9e4e73ac12422bb75e79db5086278333c360c859744a0dad5b26530798",
+      "share_sha256": "88fa3da426abb68f0c5280620caf08388602bf96bcac7d7a710af8b2a2ed7c1b",
+      "bytes": 5095,
+      "copy_changed": true
+    },
+    {
+      "file": ".run/intel-render-laptop-cpu/spoon/benchmark.json",
+      "source_sha256": "cdfec75e4c529bedf095883383e8ed8b501e9de7b0c69565801b5339ba3a974b",
+      "share_sha256": "80e2c33309ab0ea2f50e53204d4f90286e09c3a5432b933044349e558f4aa5d7",
+      "bytes": 1878,
+      "copy_changed": true
+    },
+    {
+      "file": ".run/intel-render-laptop-cpu/spoon/openvino.json",
+      "source_sha256": "382a2f93757032300b5f74294a17874a58a24037e1f78fa9b9e3ed3e65856b0e",
+      "share_sha256": "382a2f93757032300b5f74294a17874a58a24037e1f78fa9b9e3ed3e65856b0e",
+      "bytes": 44,
+      "copy_changed": false
+    },
+    {
+      "file": ".run/intel-render-laptop-cpu/spoon/primitive.json",
+      "source_sha256": "5e7963776782d0bec51135194c8d652b42ec7c083819d854f0653718ee1dd550",
+      "share_sha256": "e3eb26cabafece375295991aea87b48157f4a9f560fd6d3adfea54e86b71a3ca",
+      "bytes": 5138,
+      "copy_changed": true
+    },
+    {
+      "file": ".run/intel-render-laptop-cpu/suite.json",
+      "source_sha256": "175e9311d1b64cc6df32ecf7c6eee6bbf9f7186f830d90367f7b918dcc47ca79",
+      "share_sha256": "175e9311d1b64cc6df32ecf7c6eee6bbf9f7186f830d90367f7b918dcc47ca79",
+      "bytes": 121,
+      "copy_changed": false
+    },
+    {
+      "file": ".run/intel-render-laptop-cpu/verification.json",
+      "source_sha256": "aa263566339cacffe0de1956289977a8c2984ebb17f2101c34a8064a11c11b25",
+      "share_sha256": "aa263566339cacffe0de1956289977a8c2984ebb17f2101c34a8064a11c11b25",
+      "bytes": 4990,
+      "copy_changed": false
+    },
+    {
+      "file": ".run/intel-render-laptop-gpu0/bottle/benchmark.json",
+      "source_sha256": "f68c432a476b709912da689c42b1c1cf7c49aa64b6522013df87af1c9f9fc28a",
+      "share_sha256": "42f2b6c971635484bc93491a51ec7e097265b5f5af3619beeaca30b1a27b7cbe",
+      "bytes": 1874,
+      "copy_changed": true
+    },
+    {
+      "file": ".run/intel-render-laptop-gpu0/bottle/openvino.json",
+      "source_sha256": "5f1405a82ede1774df4b64270c5bc9142cca255619ef6dc75829e6515efbe79c",
+      "share_sha256": "5f1405a82ede1774df4b64270c5bc9142cca255619ef6dc75829e6515efbe79c",
+      "bytes": 46,
+      "copy_changed": false
+    },
+    {
+      "file": ".run/intel-render-laptop-gpu0/bottle/primitive.json",
+      "source_sha256": "e2a5b913ea9c7b8028c53a176a9ce331df0adad6f4cb7b73246378b92d571974",
+      "share_sha256": "574cd9c8167831da1b3450602af6df72ad61b691b4e6cf856d8257c3455de2e1",
+      "bytes": 3142,
+      "copy_changed": true
+    },
+    {
+      "file": ".run/intel-render-laptop-gpu0/drawer/benchmark.json",
+      "source_sha256": "413003f48c4ea016c21f59b4a967d4942488d04f5138acecda4b16a6185a49de",
+      "share_sha256": "d6a2bed913562039da5969eb58f142e1835515ae41a90d861e6f93083197a1c3",
+      "bytes": 1874,
+      "copy_changed": true
+    },
+    {
+      "file": ".run/intel-render-laptop-gpu0/drawer/openvino.json",
+      "source_sha256": "5f1405a82ede1774df4b64270c5bc9142cca255619ef6dc75829e6515efbe79c",
+      "share_sha256": "5f1405a82ede1774df4b64270c5bc9142cca255619ef6dc75829e6515efbe79c",
+      "bytes": 46,
+      "copy_changed": false
+    },
+    {
+      "file": ".run/intel-render-laptop-gpu0/drawer/primitive.json",
+      "source_sha256": "b41ea1f7274478885517d8f25a81d05d83f6367ee9459e8b420becbc852ed2d6",
+      "share_sha256": "c391a57427e29a63087a4adc31776d0ff8df89465ead409b2efad88d756ea47b",
+      "bytes": 5102,
+      "copy_changed": true
+    },
+    {
+      "file": ".run/intel-render-laptop-gpu0/fork/benchmark.json",
+      "source_sha256": "31550f407f4171ea3a0b643430f569e703a14a38801d351964c0535c6483c414",
+      "share_sha256": "cd49ff04d1a1f946309f2628b745d0ec9075e5f709a189ce5d35c83645ec8ce0",
+      "bytes": 1875,
+      "copy_changed": true
+    },
+    {
+      "file": ".run/intel-render-laptop-gpu0/fork/openvino.json",
+      "source_sha256": "5f1405a82ede1774df4b64270c5bc9142cca255619ef6dc75829e6515efbe79c",
+      "share_sha256": "5f1405a82ede1774df4b64270c5bc9142cca255619ef6dc75829e6515efbe79c",
+      "bytes": 46,
+      "copy_changed": false
+    },
+    {
+      "file": ".run/intel-render-laptop-gpu0/fork/primitive.json",
+      "source_sha256": "234615d01c16d4dbbd1fc47803be92e02baedf84dfe5245109718094e242b94c",
+      "share_sha256": "9389ff0fb42e9f74ff16da38ee89b0c4667b3c6b333ca8ab4a42373437f7bef8",
+      "bytes": 5132,
+      "copy_changed": true
+    },
+    {
+      "file": ".run/intel-render-laptop-gpu0/hardware.json",
+      "source_sha256": "52e91232b2464673a02412ef9336c166613757ecaf30f70e13b32c1c310ef5a5",
+      "share_sha256": "52e91232b2464673a02412ef9336c166613757ecaf30f70e13b32c1c310ef5a5",
+      "bytes": 1066,
+      "copy_changed": false
+    },
+    {
+      "file": ".run/intel-render-laptop-gpu0/mug/benchmark.json",
+      "source_sha256": "2f75d32e0063ae58097cbb5e0d2eb9a2be2aa56748e9e43446ba1116f46414fc",
+      "share_sha256": "7296c56b08a13444d86f2adb9ee24c07e4395537386f8fb1cd3d9e0ee18b6ab3",
+      "bytes": 1876,
+      "copy_changed": true
+    },
+    {
+      "file": ".run/intel-render-laptop-gpu0/mug/openvino.json",
+      "source_sha256": "5f1405a82ede1774df4b64270c5bc9142cca255619ef6dc75829e6515efbe79c",
+      "share_sha256": "5f1405a82ede1774df4b64270c5bc9142cca255619ef6dc75829e6515efbe79c",
+      "bytes": 46,
+      "copy_changed": false
+    },
+    {
+      "file": ".run/intel-render-laptop-gpu0/mug/primitive.json",
+      "source_sha256": "2c79c0cd61e954703344092e8e64fc2c11dc485df4fd3fef7be3af384ff16e8d",
+      "share_sha256": "d7b8c9b866965a588ce3bb81c9cc843ea89df78d54748e42d4957a8989d5f53b",
+      "bytes": 5087,
+      "copy_changed": true
+    },
+    {
+      "file": ".run/intel-render-laptop-gpu0/physical-recording/report.json",
+      "source_sha256": "b83dfdba7e2b982a92c9192e25bf037d174361dfa88283630d228ca5e7a59f06",
+      "share_sha256": "cf205d34ec33a29f9728abdf849645688d093a28cc31b34581f93c3125774b43",
+      "bytes": 22009,
+      "copy_changed": true
+    },
+    {
+      "file": ".run/intel-render-laptop-gpu0/physical-recording/scene.xml",
+      "source_sha256": "e1fbe792eed4c961c0069500261284b9196fdb45ba04c3f15c08acec29c4f96c",
+      "share_sha256": "e1fbe792eed4c961c0069500261284b9196fdb45ba04c3f15c08acec29c4f96c",
+      "bytes": 135898,
+      "copy_changed": false
+    },
+    {
+      "file": ".run/intel-render-laptop-gpu0/physical-recording/states.npz",
+      "source_sha256": "3418b01d9aca1ae09cfe5441e4b334e94f670dd5ce34b086271c1252f18ba26f",
+      "share_sha256": "3418b01d9aca1ae09cfe5441e4b334e94f670dd5ce34b086271c1252f18ba26f",
+      "bytes": 3896080,
+      "copy_changed": false
+    },
+    {
+      "file": ".run/intel-render-laptop-gpu0/physical.json",
+      "source_sha256": "cf205d34ec33a29f9728abdf849645688d093a28cc31b34581f93c3125774b43",
+      "share_sha256": "cf205d34ec33a29f9728abdf849645688d093a28cc31b34581f93c3125774b43",
+      "bytes": 22009,
+      "copy_changed": false
+    },
+    {
+      "file": ".run/intel-render-laptop-gpu0/plate/benchmark.json",
+      "source_sha256": "22cee948f9e47979746b79094dc9e1560d99dc14565e8258027fdb4795bab3f3",
+      "share_sha256": "211da0a9ef1767604de048aa92dd99017d0aa8d82ea60f357d49b8fbeca79e85",
+      "bytes": 1876,
+      "copy_changed": true
+    },
+    {
+      "file": ".run/intel-render-laptop-gpu0/plate/openvino.json",
+      "source_sha256": "5f1405a82ede1774df4b64270c5bc9142cca255619ef6dc75829e6515efbe79c",
+      "share_sha256": "5f1405a82ede1774df4b64270c5bc9142cca255619ef6dc75829e6515efbe79c",
+      "bytes": 46,
+      "copy_changed": false
+    },
+    {
+      "file": ".run/intel-render-laptop-gpu0/plate/primitive.json",
+      "source_sha256": "5c36ac9e4e73ac12422bb75e79db5086278333c360c859744a0dad5b26530798",
+      "share_sha256": "88fa3da426abb68f0c5280620caf08388602bf96bcac7d7a710af8b2a2ed7c1b",
+      "bytes": 5095,
+      "copy_changed": true
+    },
+    {
+      "file": ".run/intel-render-laptop-gpu0/spoon/benchmark.json",
+      "source_sha256": "e86bd23a062d0db31728c68216e4e8a2322ed00609504b2f9ddb5b85c7316610",
+      "share_sha256": "87dc7461adb61799031f44b50d9d1e96fcab4d9d99aa415a104b0c53a320e260",
+      "bytes": 1876,
+      "copy_changed": true
+    },
+    {
+      "file": ".run/intel-render-laptop-gpu0/spoon/openvino.json",
+      "source_sha256": "5f1405a82ede1774df4b64270c5bc9142cca255619ef6dc75829e6515efbe79c",
+      "share_sha256": "5f1405a82ede1774df4b64270c5bc9142cca255619ef6dc75829e6515efbe79c",
+      "bytes": 46,
+      "copy_changed": false
+    },
+    {
+      "file": ".run/intel-render-laptop-gpu0/spoon/primitive.json",
+      "source_sha256": "5e7963776782d0bec51135194c8d652b42ec7c083819d854f0653718ee1dd550",
+      "share_sha256": "e3eb26cabafece375295991aea87b48157f4a9f560fd6d3adfea54e86b71a3ca",
+      "bytes": 5138,
+      "copy_changed": true
+    },
+    {
+      "file": ".run/intel-render-laptop-gpu0/suite.json",
+      "source_sha256": "175e9311d1b64cc6df32ecf7c6eee6bbf9f7186f830d90367f7b918dcc47ca79",
+      "share_sha256": "175e9311d1b64cc6df32ecf7c6eee6bbf9f7186f830d90367f7b918dcc47ca79",
+      "bytes": 121,
+      "copy_changed": false
+    },
+    {
+      "file": ".run/intel-render-laptop-gpu0/verification.json",
+      "source_sha256": "8e5e19c515c4b694bcbcd0f22448a765ef769453f74a3671caf966eda0efab1e",
+      "share_sha256": "8e5e19c515c4b694bcbcd0f22448a765ef769453f74a3671caf966eda0efab1e",
+      "bytes": 4926,
+      "copy_changed": false
+    },
+    {
+      "file": ".run/session/intel-render-laptop-cpu.console.log",
+      "source_sha256": "15eb8e8dc8d36a83a81c078b732c3fe17951972439a4744d884cdc253bf6ef93",
+      "share_sha256": "7e99a50aaefe923eda8281236a9846a08c9db41e42b69097f064c17956aedb14",
+      "bytes": 9387,
+      "copy_changed": true
+    },
+    {
+      "file": ".run/session/intel-render-laptop-cpu.console.run.json",
+      "source_sha256": "15be05cb09044971049d0922aabb11f332ce43e9285dedf938f56309a12ff637",
+      "share_sha256": "49ac658ef13f855aec10e5caf4df11c49c041b51f3a8b3c3d71b256137cf0441",
+      "bytes": 856,
+      "copy_changed": true
+    },
+    {
+      "file": ".run/session/intel-render-laptop-gpu0.console.log",
+      "source_sha256": "c0e734160d2d1712affa68949c1fe0157d775c733ee9f4f0a35a8a201216c40b",
+      "share_sha256": "233108f001ab725e917bad30ad5e93760365433459636ae8ed252c5cd60e0123",
+      "bytes": 8570,
+      "copy_changed": true
+    },
+    {
+      "file": ".run/session/intel-render-laptop-gpu0.console.run.json",
+      "source_sha256": "5b504379c3184e8f1426fa5c97f0387428d482c7fb5ee0b911a32e1b3dfe362e",
+      "share_sha256": "832e0616613d3d9eb85dcff3ed300f745dd7399d8cdc4c7e3e169fa817dff139",
+      "bytes": 765,
+      "copy_changed": true
+    },
+    {
+      "file": ".run/session/intel-render-summary.json",
+      "source_sha256": "7ddcedcf3e10aaf401ce5382cda30ce95e8b30520e4ec68931820bb3050d5398",
+      "share_sha256": "00740cb0cc4bb0fdae1ec497e7fb6828b3a58c3b427ecb8969819cab44da6352",
+      "bytes": 52891,
+      "copy_changed": true
+    },
+    {
+      "file": ".run/session/intel-renderer-probe-01.json",
+      "source_sha256": "52e91232b2464673a02412ef9336c166613757ecaf30f70e13b32c1c310ef5a5",
+      "share_sha256": "52e91232b2464673a02412ef9336c166613757ecaf30f70e13b32c1c310ef5a5",
+      "bytes": 1066,
+      "copy_changed": false
+    },
+    {
+      "file": ".run/session/preflight.json",
+      "source_sha256": "5a170da2fe786591b653897c8d6e972780393f63773a62b398501789f3b9b9db",
+      "share_sha256": "46fd152dc87815d40297fdccb259d9dcc8394783248c16ca2eccc2023f327c5c",
+      "bytes": 1097,
+      "copy_changed": true
+    },
+    {
+      "file": "kit-manifest.json",
+      "source_sha256": "32e5936ff3637a02162e3e9f07fe0a87e4c603689d01bf9728432b3b626efd83",
+      "share_sha256": "32e5936ff3637a02162e3e9f07fe0a87e4c603689d01bf9728432b3b626efd83",
+      "bytes": 73736,
+      "copy_changed": false
+    },
+    {
+      "file": "LICENSE",
+      "source_sha256": "8250518a06f95e8614ccb0f74e70aa8a04e5314c9b35ff588d34d04b27daece4",
+      "share_sha256": "8250518a06f95e8614ccb0f74e70aa8a04e5314c9b35ff588d34d04b27daece4",
+      "bytes": 1066,
+      "copy_changed": false
+    },
+    {
+      "file": "README-VERIFICATION.md",
+      "source_sha256": "27a10a956220c1e7630181874f59b00b403a8b95c0815b571cf6fc16ff249513",
+      "share_sha256": "27a10a956220c1e7630181874f59b00b403a8b95c0815b571cf6fc16ff249513",
+      "bytes": 1892,
+      "copy_changed": false
+    },
+    {
+      "file": "simulation_lab/assets/so101/assets/lod/base_motor_holder_so101_v1.stl",
+      "source_sha256": "2b868734361acd1ea0781dadf200e1cb339c9572b28d9cf6e56385cf4f9e006d",
+      "share_sha256": "2b868734361acd1ea0781dadf200e1cb339c9572b28d9cf6e56385cf4f9e006d",
+      "bytes": 362084,
+      "copy_changed": false
+    },
+    {
+      "file": "simulation_lab/assets/so101/assets/lod/base_so101_v2.stl",
+      "source_sha256": "4e303f0474673d7d491a39a674e53e3eeea5ed2db1c86974f681fefe009ca5f2",
+      "share_sha256": "4e303f0474673d7d491a39a674e53e3eeea5ed2db1c86974f681fefe009ca5f2",
+      "bytes": 88984,
+      "copy_changed": false
+    },
+    {
+      "file": "simulation_lab/assets/so101/assets/lod/motor_holder_so101_base_v1.stl",
+      "source_sha256": "6bc491c03b5a0a643d7f8826cf3ab570348deb9342dfb4c524559c49c2985437",
+      "share_sha256": "6bc491c03b5a0a643d7f8826cf3ab570348deb9342dfb4c524559c49c2985437",
+      "bytes": 250184,
+      "copy_changed": false
+    },
+    {
+      "file": "simulation_lab/assets/so101/assets/lod/motor_holder_so101_wrist_v1.stl",
+      "source_sha256": "9b3eee01fda44a936ffd43e91fc4356bd8cdc8e279e54f0e66736f3738512cc1",
+      "share_sha256": "9b3eee01fda44a936ffd43e91fc4356bd8cdc8e279e54f0e66736f3738512cc1",
+      "bytes": 232784,
+      "copy_changed": false
+    },
+    {
+      "file": "simulation_lab/assets/so101/assets/lod/moving_jaw_so101_v1.stl",
+      "source_sha256": "598b024e20c6ef6f52641e1a2282e3f13ad14115c27e6191427847419c38fbf6",
+      "share_sha256": "598b024e20c6ef6f52641e1a2282e3f13ad14115c27e6191427847419c38fbf6",
+      "bytes": 509384,
+      "copy_changed": false
+    },
+    {
+      "file": "simulation_lab/assets/so101/assets/lod/rotation_pitch_so101_v1.stl",
+      "source_sha256": "70528fb6248f3072809d5a91c571bee14348692c47c0637fbf11260d0f1fb536",
+      "share_sha256": "70528fb6248f3072809d5a91c571bee14348692c47c0637fbf11260d0f1fb536",
+      "bytes": 344884,
+      "copy_changed": false
+    },
+    {
+      "file": "simulation_lab/assets/so101/assets/lod/sts3215_03a_no_horn_v1.stl",
+      "source_sha256": "277c1bb22ca40a2ed11c33bf1777e9d5cdda5041973c1aa58ae0beaa9ec1686b",
+      "share_sha256": "277c1bb22ca40a2ed11c33bf1777e9d5cdda5041973c1aa58ae0beaa9ec1686b",
+      "bytes": 318484,
+      "copy_changed": false
+    },
+    {
+      "file": "simulation_lab/assets/so101/assets/lod/sts3215_03a_v1.stl",
+      "source_sha256": "a3b9206d73815e96a5dd5cc9c62df6fd3442a5643bfdebcf8bed2fa0a8134e0a",
+      "share_sha256": "a3b9206d73815e96a5dd5cc9c62df6fd3442a5643bfdebcf8bed2fa0a8134e0a",
+      "bytes": 319284,
+      "copy_changed": false
+    },
+    {
+      "file": "simulation_lab/assets/so101/assets/lod/under_arm_so101_v1.stl",
+      "source_sha256": "b29737ef192d8be648835f6948c539c327777cd0fbfe9f98408cdb61880fe156",
+      "share_sha256": "b29737ef192d8be648835f6948c539c327777cd0fbfe9f98408cdb61880fe156",
+      "bytes": 472884,
+      "copy_changed": false
+    },
+    {
+      "file": "simulation_lab/assets/so101/assets/lod/upper_arm_so101_v1.stl",
+      "source_sha256": "01a121e9a04d142cb78a75d777b9d241883f3c7279e880e038d19f1fcd8ec6bf",
+      "share_sha256": "01a121e9a04d142cb78a75d777b9d241883f3c7279e880e038d19f1fcd8ec6bf",
+      "bytes": 427284,
+      "copy_changed": false
+    },
+    {
+      "file": "simulation_lab/assets/so101/assets/lod/waveshare_mounting_plate_so101_v2.stl",
+      "source_sha256": "bcf273ebdc4420390a5076530bb64673ec5e1103c0874f9d754d47fbc2013e03",
+      "share_sha256": "bcf273ebdc4420390a5076530bb64673ec5e1103c0874f9d754d47fbc2013e03",
+      "bytes": 30084,
+      "copy_changed": false
+    },
+    {
+      "file": "simulation_lab/assets/so101/assets/lod/wrist_roll_follower_so101_v1.stl",
+      "source_sha256": "7e4e58090b60ec2c89a9c44eec2412854f5e0ab9b5abe6c25b6739b5898406be",
+      "share_sha256": "7e4e58090b60ec2c89a9c44eec2412854f5e0ab9b5abe6c25b6739b5898406be",
+      "bytes": 706084,
+      "copy_changed": false
+    },
+    {
+      "file": "simulation_lab/assets/so101/assets/lod/wrist_roll_pitch_so101_v2.stl",
+      "source_sha256": "fcb60c7108a93a23a936a36fbd25c1f5c6360b4081a85056fef35617eac05d04",
+      "share_sha256": "fcb60c7108a93a23a936a36fbd25c1f5c6360b4081a85056fef35617eac05d04",
+      "bytes": 664584,
+      "copy_changed": false
+    },
+    {
+      "file": "simulation_lab/assets/so101/assets/moving_jaw_so101_gripper_part0_v1.stl",
+      "source_sha256": "3a92e115d1934d4c45cff808c4eff2ea10361a137a7f89940033a1f8a821b88c",
+      "share_sha256": "3a92e115d1934d4c45cff808c4eff2ea10361a137a7f89940033a1f8a821b88c",
+      "bytes": 50684,
+      "copy_changed": false
+    },
+    {
+      "file": "simulation_lab/assets/so101/assets/moving_jaw_so101_gripper_part1_v1.stl",
+      "source_sha256": "d10f6c671d26f62988ec95efee9370a0657b5833b3c5f8aad59fd69a87ef2aee",
+      "share_sha256": "d10f6c671d26f62988ec95efee9370a0657b5833b3c5f8aad59fd69a87ef2aee",
+      "bytes": 342684,
+      "copy_changed": false
+    },
+    {
+      "file": "simulation_lab/assets/so101/assets/moving_jaw_so101_gripper_v1.stl",
+      "source_sha256": "e8a5dc040b98e27453a5b74f9087d1dbca14589cf9a17c4de7868d5ab98413cd",
+      "share_sha256": "e8a5dc040b98e27453a5b74f9087d1dbca14589cf9a17c4de7868d5ab98413cd",
+      "bytes": 690384,
+      "copy_changed": false
+    },
+    {
+      "file": "simulation_lab/assets/so101/assets/wrist_roll_follower_so101_camera_mount.stl",
+      "source_sha256": "58c457b33a26d9c9bb337aa351173e7123f84719a93f486541adef6eba57ae21",
+      "share_sha256": "58c457b33a26d9c9bb337aa351173e7123f84719a93f486541adef6eba57ae21",
+      "bytes": 122884,
+      "copy_changed": false
+    },
+    {
+      "file": "simulation_lab/assets/so101/assets/wrist_roll_follower_so101_gripper_part0_v1.stl",
+      "source_sha256": "370eb470a6ab48b08febcaeb5274d2bcc91246692532ce12c795fb82977def72",
+      "share_sha256": "370eb470a6ab48b08febcaeb5274d2bcc91246692532ce12c795fb82977def72",
+      "bytes": 73784,
+      "copy_changed": false
+    },
+    {
+      "file": "simulation_lab/assets/so101/LICENSE",
+      "source_sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
+      "share_sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
+      "bytes": 11357,
+      "copy_changed": false
+    },
+    {
+      "file": "simulation_lab/assets/so101/provenance.json",
+      "source_sha256": "c8975d2b1cf911a861a93851feb975a41608dbf9827d9ab4196647115452e6c1",
+      "share_sha256": "c8975d2b1cf911a861a93851feb975a41608dbf9827d9ab4196647115452e6c1",
+      "bytes": 7423,
+      "copy_changed": false
+    },
+    {
+      "file": "simulation_lab/NOTICE.md",
+      "source_sha256": "a71e5f80fa2a9c43fa35b46a32a02319069947c75b8d89b69faaa97965274cd7",
+      "share_sha256": "a71e5f80fa2a9c43fa35b46a32a02319069947c75b8d89b69faaa97965274cd7",
+      "bytes": 1385,
+      "copy_changed": false
+    },
+    {
+      "file": "README.md",
+      "share_sha256": "39964e0aa824dbb08b2303ec90df0c12733adcecc92df5ba22a5ebdadfba040b",
+      "bytes": 5560,
+      "generated_summary": true
+    }
+  ],
+  "shareable_files_changed_by_text_reserialization_or_path_redaction": [
+    ".run/intel-render-laptop-cpu/bottle/benchmark.json",
+    ".run/intel-render-laptop-cpu/bottle/primitive.json",
+    ".run/intel-render-laptop-cpu/drawer/benchmark.json",
+    ".run/intel-render-laptop-cpu/drawer/primitive.json",
+    ".run/intel-render-laptop-cpu/fork/benchmark.json",
+    ".run/intel-render-laptop-cpu/fork/primitive.json",
+    ".run/intel-render-laptop-cpu/mug/benchmark.json",
+    ".run/intel-render-laptop-cpu/mug/primitive.json",
+    ".run/intel-render-laptop-cpu/physical-recording/report.json",
+    ".run/intel-render-laptop-cpu/plate/benchmark.json",
+    ".run/intel-render-laptop-cpu/plate/primitive.json",
+    ".run/intel-render-laptop-cpu/spoon/benchmark.json",
+    ".run/intel-render-laptop-cpu/spoon/primitive.json",
+    ".run/intel-render-laptop-gpu0/bottle/benchmark.json",
+    ".run/intel-render-laptop-gpu0/bottle/primitive.json",
+    ".run/intel-render-laptop-gpu0/drawer/benchmark.json",
+    ".run/intel-render-laptop-gpu0/drawer/primitive.json",
+    ".run/intel-render-laptop-gpu0/fork/benchmark.json",
+    ".run/intel-render-laptop-gpu0/fork/primitive.json",
+    ".run/intel-render-laptop-gpu0/mug/benchmark.json",
+    ".run/intel-render-laptop-gpu0/mug/primitive.json",
+    ".run/intel-render-laptop-gpu0/physical-recording/report.json",
+    ".run/intel-render-laptop-gpu0/plate/benchmark.json",
+    ".run/intel-render-laptop-gpu0/plate/primitive.json",
+    ".run/intel-render-laptop-gpu0/spoon/benchmark.json",
+    ".run/intel-render-laptop-gpu0/spoon/primitive.json",
+    ".run/session/intel-render-laptop-cpu.console.log",
+    ".run/session/intel-render-laptop-cpu.console.run.json",
+    ".run/session/intel-render-laptop-gpu0.console.log",
+    ".run/session/intel-render-laptop-gpu0.console.run.json",
+    ".run/session/intel-render-summary.json",
+    ".run/session/preflight.json"
+  ],
+  "identifying_paths_redacted_in_copies_only": true,
+  "credential_pattern_findings": [],
+  "scene_meshes_resolve": true,
+  "physical_traces_unchanged": true,
+  "original_manifest_still_matches": true
+}

@@ -1,0 +1,620 @@
+{
+  "schema": "talos.bottle-refinement-exposed-physics.v2",
+  "declared_on": "2026-09-14",
+  "raw_root": ".run/bottle-refinement-exposed-physics-v2",
+  "model_package": "models/bottle_refinement_v1",
+  "training_package": "training/bottle_refinement_v1",
+  "evidence_package": "docs/robotics/evidence/bottle-refinement-exposed-physics-v2",
+  "camera_protocol": "docs/robotics/experiments/rgb-servo-visibility-v1.json",
+  "camera_configuration": "opposite_obliques",
+  "coverage_protocol": "docs/robotics/experiments/manipulation-coverage-v1.json",
+  "coverage_evidence": "docs/robotics/evidence/manipulation-coverage-v1",
+  "cases": [
+    {
+      "id": "000-bottle-anchor",
+      "skill": "bottle",
+      "kind": "anchor"
+    },
+    {
+      "id": "006-bottle-position",
+      "skill": "bottle",
+      "kind": "position",
+      "source_xy": [
+        -0.14,
+        -0.18
+      ],
+      "yaw_rad": 0.0,
+      "destination_xy": [
+        0.1,
+        -0.115
+      ]
+    },
+    {
+      "id": "007-bottle-position",
+      "skill": "bottle",
+      "kind": "position",
+      "source_xy": [
+        -0.14,
+        -0.13999999999999999
+      ],
+      "yaw_rad": 0.0,
+      "destination_xy": [
+        0.1,
+        -0.115
+      ]
+    },
+    {
+      "id": "008-bottle-position",
+      "skill": "bottle",
+      "kind": "position",
+      "source_xy": [
+        -0.14,
+        -0.09999999999999999
+      ],
+      "yaw_rad": 0.0,
+      "destination_xy": [
+        0.1,
+        -0.115
+      ]
+    },
+    {
+      "id": "009-bottle-position",
+      "skill": "bottle",
+      "kind": "position",
+      "source_xy": [
+        -0.14,
+        -0.06
+      ],
+      "yaw_rad": 0.0,
+      "destination_xy": [
+        0.1,
+        -0.115
+      ]
+    },
+    {
+      "id": "010-bottle-position",
+      "skill": "bottle",
+      "kind": "position",
+      "source_xy": [
+        -0.08,
+        -0.18
+      ],
+      "yaw_rad": 0.0,
+      "destination_xy": [
+        0.1,
+        -0.115
+      ]
+    },
+    {
+      "id": "011-bottle-position",
+      "skill": "bottle",
+      "kind": "position",
+      "source_xy": [
+        -0.08,
+        -0.13999999999999999
+      ],
+      "yaw_rad": 0.0,
+      "destination_xy": [
+        0.1,
+        -0.115
+      ]
+    },
+    {
+      "id": "012-bottle-position",
+      "skill": "bottle",
+      "kind": "position",
+      "source_xy": [
+        -0.08,
+        -0.09999999999999999
+      ],
+      "yaw_rad": 0.0,
+      "destination_xy": [
+        0.1,
+        -0.115
+      ]
+    },
+    {
+      "id": "013-bottle-position",
+      "skill": "bottle",
+      "kind": "position",
+      "source_xy": [
+        -0.08,
+        -0.06
+      ],
+      "yaw_rad": 0.0,
+      "destination_xy": [
+        0.1,
+        -0.115
+      ]
+    },
+    {
+      "id": "014-bottle-position",
+      "skill": "bottle",
+      "kind": "position",
+      "source_xy": [
+        -0.01999999999999999,
+        -0.18
+      ],
+      "yaw_rad": 0.0,
+      "destination_xy": [
+        0.1,
+        -0.115
+      ]
+    },
+    {
+      "id": "015-bottle-position",
+      "skill": "bottle",
+      "kind": "position",
+      "source_xy": [
+        -0.01999999999999999,
+        -0.13999999999999999
+      ],
+      "yaw_rad": 0.0,
+      "destination_xy": [
+        0.1,
+        -0.115
+      ]
+    },
+    {
+      "id": "016-bottle-position",
+      "skill": "bottle",
+      "kind": "position",
+      "source_xy": [
+        -0.01999999999999999,
+        -0.09999999999999999
+      ],
+      "yaw_rad": 0.0,
+      "destination_xy": [
+        0.1,
+        -0.115
+      ]
+    },
+    {
+      "id": "017-bottle-position",
+      "skill": "bottle",
+      "kind": "position",
+      "source_xy": [
+        -0.01999999999999999,
+        -0.06
+      ],
+      "yaw_rad": 0.0,
+      "destination_xy": [
+        0.1,
+        -0.115
+      ]
+    },
+    {
+      "id": "018-bottle-position",
+      "skill": "bottle",
+      "kind": "position",
+      "source_xy": [
+        0.040000000000000036,
+        -0.18
+      ],
+      "yaw_rad": 0.0,
+      "destination_xy": [
+        0.1,
+        -0.115
+      ]
+    },
+    {
+      "id": "019-bottle-position",
+      "skill": "bottle",
+      "kind": "position",
+      "source_xy": [
+        0.040000000000000036,
+        -0.13999999999999999
+      ],
+      "yaw_rad": 0.0,
+      "destination_xy": [
+        0.1,
+        -0.115
+      ]
+    },
+    {
+      "id": "020-bottle-position",
+      "skill": "bottle",
+      "kind": "position",
+      "source_xy": [
+        0.040000000000000036,
+        -0.09999999999999999
+      ],
+      "yaw_rad": 0.0,
+      "destination_xy": [
+        0.1,
+        -0.115
+      ]
+    },
+    {
+      "id": "021-bottle-position",
+      "skill": "bottle",
+      "kind": "position",
+      "source_xy": [
+        0.040000000000000036,
+        -0.06
+      ],
+      "yaw_rad": 0.0,
+      "destination_xy": [
+        0.1,
+        -0.115
+      ]
+    },
+    {
+      "id": "022-bottle-position",
+      "skill": "bottle",
+      "kind": "position",
+      "source_xy": [
+        0.10000000000000003,
+        -0.18
+      ],
+      "yaw_rad": 0.0,
+      "destination_xy": [
+        0.1,
+        -0.115
+      ]
+    },
+    {
+      "id": "023-bottle-position",
+      "skill": "bottle",
+      "kind": "position",
+      "source_xy": [
+        0.10000000000000003,
+        -0.13999999999999999
+      ],
+      "yaw_rad": 0.0,
+      "destination_xy": [
+        0.1,
+        -0.115
+      ]
+    },
+    {
+      "id": "024-bottle-position",
+      "skill": "bottle",
+      "kind": "position",
+      "source_xy": [
+        0.10000000000000003,
+        -0.09999999999999999
+      ],
+      "yaw_rad": 0.0,
+      "destination_xy": [
+        0.1,
+        -0.115
+      ]
+    },
+    {
+      "id": "025-bottle-position",
+      "skill": "bottle",
+      "kind": "position",
+      "source_xy": [
+        0.10000000000000003,
+        -0.06
+      ],
+      "yaw_rad": 0.0,
+      "destination_xy": [
+        0.1,
+        -0.115
+      ]
+    },
+    {
+      "id": "026-bottle-position",
+      "skill": "bottle",
+      "kind": "position",
+      "source_xy": [
+        0.16,
+        -0.18
+      ],
+      "yaw_rad": 0.0,
+      "destination_xy": [
+        0.1,
+        -0.115
+      ]
+    },
+    {
+      "id": "027-bottle-position",
+      "skill": "bottle",
+      "kind": "position",
+      "source_xy": [
+        0.16,
+        -0.13999999999999999
+      ],
+      "yaw_rad": 0.0,
+      "destination_xy": [
+        0.1,
+        -0.115
+      ]
+    },
+    {
+      "id": "028-bottle-position",
+      "skill": "bottle",
+      "kind": "position",
+      "source_xy": [
+        0.16,
+        -0.09999999999999999
+      ],
+      "yaw_rad": 0.0,
+      "destination_xy": [
+        0.1,
+        -0.115
+      ]
+    },
+    {
+      "id": "029-bottle-position",
+      "skill": "bottle",
+      "kind": "position",
+      "source_xy": [
+        0.16,
+        -0.06
+      ],
+      "yaw_rad": 0.0,
+      "destination_xy": [
+        0.1,
+        -0.115
+      ]
+    },
+    {
+      "id": "030-bottle-orientation",
+      "skill": "bottle",
+      "kind": "orientation",
+      "yaw_rad": -0.6,
+      "destination_xy": [
+        0.1,
+        -0.115
+      ]
+    },
+    {
+      "id": "031-bottle-orientation",
+      "skill": "bottle",
+      "kind": "orientation",
+      "yaw_rad": 0.6,
+      "destination_xy": [
+        0.1,
+        -0.115
+      ]
+    },
+    {
+      "id": "032-bottle-destination",
+      "skill": "bottle",
+      "kind": "destination",
+      "destination_xy": [
+        0.16,
+        -0.06
+      ]
+    },
+    {
+      "id": "033-bottle-destination",
+      "skill": "bottle",
+      "kind": "destination",
+      "destination_xy": [
+        0.2,
+        0.05
+      ]
+    }
+  ],
+  "modes": [
+    "live",
+    "frozen"
+  ],
+  "frozen_sha256": {
+    "scripts/diagnose_refined_bottle_exposed.py": "1db2abcd01bb421cc0fead8278954356a2605d9ca8fa622e038571f6e968ced7",
+    "scripts/evaluate_refined_bottle_physics.py": "7becba27e7dbba2a902e01f82bb745bd734ebc9cf741f6ca708686ba73963095",
+    "scripts/measure_manipulation_coverage.py": "79d4eb3aa16e04db6517353234083d5f581c3db1b3229b66b8f709e8b4bdd1d8",
+    "scripts/bottle_refinement_experiment.py": "71ba64a8d568b12f20f04ee72eb856dee7db9ba8ceeecbcd7b71fcfc03ccd907",
+    "simulation_lab/act_learning.py": "0266d6ec1db5291a14f7b0cc2bdc1e6eb977497b3d6e1342eeb0a6e6db4ff4c2",
+    "simulation_lab/autonomy.py": "0e60140b1d3dd03c278592fb975393b50f6074235280472390f3a8feda142c95",
+    "simulation_lab/bottle_refinement.py": "3390e076a13759fcef7d37bf685e3ed57372e8a148e923a96556c06194553e39",
+    "simulation_lab/bottle_refinement_runtime.py": "d62bb641b1518ce6ec9e5224ffafd6f3177d0fdb26df72d7e1e5e0377d4b8fb4",
+    "simulation_lab/bottle_vision.py": "5b6ccf6e0224bf66ef7d4c69c382384add65d90ebfeedad838be5dc756bfa9ac",
+    "simulation_lab/command_task.py": "b3861f88af0a3535569e3d911f68e0e1d566f0b1f5f24b60c79417d561ce51a4",
+    "simulation_lab/dataset.py": "1c9310a12391a957563f317f0f260ebc5ff284b9050a27b4a27fcb3143f1b2d2",
+    "simulation_lab/dinner.py": "37107bcbd85a39466dcd01b202d6661f1e3c9f705e6865de05d6fa994e562c11",
+    "simulation_lab/dinner_autonomy.py": "717c03217039a8ce5234ff8554aeb948f444fa88644aafe5e456e1bd74c17eba",
+    "simulation_lab/dinner_monitor.py": "34b2a5356ffcb5c2cf888607ceb387e51ca2ed00f6fa8fa39a897744e8bebe54",
+    "simulation_lab/dinner_vision.py": "66d0bc15b9a9f40832db56378de62c1b5355cebf583ececf7d8fa936a192360e",
+    "simulation_lab/engine.py": "7fe591389934e926b8c92395774e147530849f1e7905b228af0da7548c381603",
+    "simulation_lab/experiment_push.py": "156700845e130b86e93774c9dfae4221de5443f9855c86bd8e84d7f052a22003",
+    "simulation_lab/experiment_targets.py": "0704accb79c80d894efdf721e7a23437348c9dfe2d0d5edefd63e8b225ea9654",
+    "simulation_lab/hardware_evidence.py": "386d563af1666943fb1fcf0d545389220eb30f5808f361bbf72df4aa4a2d7222",
+    "simulation_lab/hosted_gpu.py": "668fd99bf83a52a8730179b33f93c5d319707033fecb0cf49f1bd39e2e727bb7",
+    "simulation_lab/hosted_worker.py": "60cf416fb7f6ef9f5151ccd9127fa821ddee3f65b74712f11ad11c37e6a3a5b2",
+    "simulation_lab/language.py": "8a6aa3efc5515e2da1d334432b884de297b53b1f048aba60c031d1739ddcfc1b",
+    "simulation_lab/learned_dinner.py": "5402aa9069b0a20b21c352272fbeb5dcf70d03ae555aa65d66574e5bf7975066",
+    "simulation_lab/learned_plan.py": "af91498d8f2d4cff06c829c1fc8c1075b359c00ed49e07043f8301bc4f85fcd8",
+    "simulation_lab/learned_skills.py": "3ef610a6e6d0516e8bf92d4e7f2b3d06540b49e2671682ab642239aa2cbb129b",
+    "simulation_lab/learned_task.py": "3bc2fc075d15e07d5717333fbd69541d2e76d2bd41621a71f1a6e51229d2e24f",
+    "simulation_lab/mug_correction_limits.py": "0b4db501846ff62e87cc6dbde453d6b1bf370cb12e60088e709f89068ecb2595",
+    "simulation_lab/mug_correction_motor.py": "38ca9f9d936c9ca50176c898904a680c1549df696c97475088852bc39be26313",
+    "simulation_lab/mug_correction_runtime.py": "eb580df116318a97fb2d24655d88a23be40a32beae186b0d03fbc88fc79e83f9",
+    "simulation_lab/mug_keypoint_observer.py": "dc5c76bd5b82ffb7191727690be3ac15b0003310ff0a69ef848213ce376a5fea",
+    "simulation_lab/mug_visual_control.py": "98503f8bfefff12a719e562471bd7819f192f9c20d519b4fc75ad6b5502310ae",
+    "simulation_lab/mug_visual_geometry.py": "d0840f195103bf8be317d33a2aed0f40dfe572aa8aeab1c988db08ae86e11091",
+    "simulation_lab/mug_visual_observer.py": "5d6fdd56a87035ac22eee40d20d8e09aa4b6a40f0b5695cf260243c6827a90c6",
+    "simulation_lab/mug_visual_profile.py": "a955e238d4f55a0d01eb832272f57ab2eb9d17ef37aaacb7b5ea1fca3d223d3c",
+    "simulation_lab/policy_cameras.py": "1415c5f173502017c99f651778245dae83116f4b91b7bbe8bf614cecf06b2752",
+    "simulation_lab/policy_control.py": "a418fe2619985852d4e65b40e20c18f82fd72076b4d8b9202507dda4a410b151",
+    "simulation_lab/policy_observation.py": "d15a9b72e7fb366681d29a21f598d21ffd147b1b9ba56729d296250a67b37af6",
+    "simulation_lab/primitive_policy.py": "60c009448171533385df1be82e3f64ed395f28d3e03145eb2f10ab6a791ef143",
+    "simulation_lab/public_trial.py": "d2ffcd66dd52c8334b92bee84bc83cb250582f311aaadfe82f68f81e9137305e",
+    "simulation_lab/recording.py": "073fc8a874a313288399f1827c2018198c92e3da2975b122655afe41aebe43a2",
+    "simulation_lab/relay_task.py": "a1387ecf36d24166b6cd356a14375aa47aceb4202687b4ccc96a3d305ab6bcd2",
+    "simulation_lab/rendering.py": "570f36b7b683c05d6c33aebc442828196db00596c10ed5e94df2b49ceccf0fcd",
+    "simulation_lab/retrieval_policy.py": "e47aab06fae8c825cccbe72dae7040edf3ee5d7b07a6537080b95efe001c6873",
+    "simulation_lab/rgb_bottle_observer.py": "45e93ab0d7930a15c82f5e84809eb0d8d7d8d376ed878558529560ff20c18d20",
+    "simulation_lab/rgb_servo_cameras.py": "eb750885e17ccc731ad9a80f3f5450ec2b5823c68e9dd57d9e325623d28eb3ec",
+    "simulation_lab/rgb_servo_controller.py": "6fb0d6ac81f717288a23aa88f60bcd84f95f0137b0660db7d35ebe2aeba7cf94",
+    "simulation_lab/rgb_servo_geometry.py": "bca323458c4971bab8534e36fb6f7d5aa668df188e7573efa095ebfbca4db1ae",
+    "simulation_lab/rgb_servo_motor.py": "3d90c40a5af68f0b04dfe5aafaa7de47f4c0b67211d40cc1a461eae2311e22b7",
+    "simulation_lab/rgb_servo_network.py": "3ef3cd8fcac1e40743893caab14fb94decf52d1c402c6ade69c342e8c97d9302",
+    "simulation_lab/rgb_servo_openvino.py": "2a091f27331304228bc57a306302cf05ced182af654a57c502b2bdea4bb1fa42",
+    "simulation_lab/rgb_servo_routing.py": "75acbf9a9e508ba24c29edc777c6ce83569d73bb9d7cbe567a2e7f40dffcafc6",
+    "simulation_lab/rgb_servo_vision.py": "498a5a52bd6fc207aa8754de074cc1c6d2ab9f10659e43f79d0aba12e9afcb1b",
+    "simulation_lab/scene.py": "b363abd064ed0983f9ba96381855f9fd079072dc48593f17fc0bf6e623468b19",
+    "simulation_lab/sequence_policy.py": "510695960009387afef87284e76e57fa0cce500acd29c380336c08cf865904a8",
+    "simulation_lab/server.py": "1db8f2dd5f2c9e234aee2144fb7d034e9d608a3791cc2c4b96223c2d99d041b4",
+    "simulation_lab/slots.py": "41755919e4d2bbfb2b023e78c09370d2fbcd740f377bdf616551aff2aa827873",
+    "simulation_lab/speech.py": "66a50562886702017bdf9e0d2a1af31dfb4531061af9b8a6c5c9f16d02cce4a0",
+    "simulation_lab/storage.py": "adff62806bc5786ee7c374a09754d82e37474b97f4d37074551d02d3796f444f",
+    "simulation_lab/trial_preview.py": "59fc8b1dc83596856835b62a5153a85dbf39bf9f8e7c2be62b764bed70dfb11b",
+    "simulation_lab/__init__.py": "41d6e06b5cd49e86faaccfc822e0195485e4efed792c4ae28bdb42dc8e814220",
+    "docs/robotics/experiments/bottle-refinement-v1.json": "1e94fa0c2583faf5401a7341ed73f7009f15bf48accc05866fd233bc3124a633",
+    "docs/robotics/experiments/manipulation-coverage-v1.json": "d528806e77ac16636a7dc06abad6fe2833fbe9f48ef80ede7bc52a08015ba55f",
+    ".run/bottle-refinement-v1/fresh-perception.json": "c70e5263d291ad1f50dbbfcc7a02b307d7776a09149d19a9fa7f11205c7cf00e",
+    ".run/bottle-refinement-v1/openvino/artifacts.json": "39708bf93fdedf3594be78b90c2d749705290affc409be5848b891b1a8f96721",
+    "docs/robotics/experiments/rgb-servo-routing-v2.json": "a661bf87be300ffe125e5db87a25294d21bd8fc6afb85e859159d652eb39aa0d",
+    "docs/robotics/evidence/rgb-servo-v5/physical/model/motor.safetensors": "ad1b9b7bbb4e45b7d89e2de4149b22e9a8b9d298ea8ed66073d24639f434ccb7",
+    "docs/robotics/evidence/rgb-servo-v5/physical/model/openvino/motor.xml": "6380d60a8248492dcc9fdf3c14ac169222f55223318b32a39e2ad8719ca0a0f8",
+    "docs/robotics/evidence/rgb-servo-v5/physical/model/openvino/motor.bin": "277d06790b778ff5b45cabb44015e3f8cf2b7c38e8fb0c8a9b924fee6c385cd5",
+    "docs/robotics/evidence/manipulation-coverage-v1/audit.json": "c242cae7ee005f74df4709a85843be4cf090d1b4ce32f274eff69f8e78daf065",
+    "docs/robotics/evidence/manipulation-coverage-v1/manifest.json": "de2860e05baa8beb92fcc514c53738dbe7fa305d575bc81e73ac6c9a568c6251",
+    ".run/bottle-refinement-v1/openvino/coarse.bin": "9ee387fc2bfbde69367e49f5ec7bc5b6b38f5faa1d7b80004d6773456f7c73f0",
+    ".run/bottle-refinement-v1/openvino/coarse.xml": "542ac6cfe8903a66dd0c420f87bd571b49ba6873edd85cecbb87fd660b5adbe1",
+    ".run/bottle-refinement-v1/openvino/parity-development.json": "b71d355a9574fb05d52f3a168d43dee45be9aed89614cf911b92a1183666c5fa",
+    ".run/bottle-refinement-v1/openvino/protocol.json": "1e94fa0c2583faf5401a7341ed73f7009f15bf48accc05866fd233bc3124a633",
+    ".run/bottle-refinement-v1/openvino/refiner.bin": "bbab8e76c42df89a7375389c40533e1252a9bd508be2d0cad571fbd00f5e196e",
+    ".run/bottle-refinement-v1/openvino/refiner.xml": "038af07290c5bbbe318a47e1f5b61478ce13b2bbae0e2fb3d2a78a1a32fc1a15",
+    "docs/robotics/evidence/visual-mug-deployment-v1/attempt-2/engine-upright/scene.xml": "4cac1834af286e8f59cf58cc05e941afa0bfdeb7401baecd877c8cf37f664685",
+    "docs/robotics/evidence/visual-mug-deployment-v1/attempt-2/engine-upright/states.npz": "8feebf39c530807ce7b9ffeaf659d953261d40ad5f111eb79a67158be03b46c9",
+    "docs/robotics/evidence/visual-mug-deployment-v1/attempt-2/engine-upright/report.json": "78a2ac4e404d589dee4d751fb98f0186081f6431aeffcfa87fb45147ada42ee1",
+    "docs/robotics/evidence/manipulation-coverage-v1/000-bottle-anchor-learned/states.npz": "581d49b3f86867a2d6e8ea61d478f43d834d26123d4767d8699383b354039974",
+    "docs/robotics/evidence/manipulation-coverage-v1/000-bottle-anchor-learned/report.json": "333f61c641122f33417a69b7097694a96e7416142c8ce9392e4e6a57dbe57ea4",
+    "docs/robotics/evidence/manipulation-coverage-v1/000-bottle-anchor-teacher/states.npz": "ae49ae96042225d905d172748c771aaf4c285ae25847c2679eb55cf60f69e44f",
+    "docs/robotics/evidence/manipulation-coverage-v1/000-bottle-anchor-teacher/report.json": "3a74683662efe8b1e6c30ff2c720434640501a9b84423b978fe71773af8edba0",
+    "docs/robotics/evidence/manipulation-coverage-v1/006-bottle-position-learned/states.npz": "4924c18e0c3b2473e0f572049f3d825a1051faac3418cd046ff9301306a50181",
+    "docs/robotics/evidence/manipulation-coverage-v1/006-bottle-position-learned/report.json": "9cec285c86036e341eb0746a7b52450678de28f3017dc7d548d273fd646768eb",
+    "docs/robotics/evidence/manipulation-coverage-v1/006-bottle-position-teacher/states.npz": "090053ff042d04cd6947473700c6b6169379b34f6e28d7619b9ee2c8a461b8d8",
+    "docs/robotics/evidence/manipulation-coverage-v1/006-bottle-position-teacher/report.json": "6f79dce7a6fb16f4ce1031370e0285d5032e576f0a14943444d64b248bc92b4a",
+    "docs/robotics/evidence/manipulation-coverage-v1/007-bottle-position-learned/states.npz": "9ececc418bde5b63d7e18301d1fa63a2ebfa764109fb4dbb22ba9ef2d7b65c38",
+    "docs/robotics/evidence/manipulation-coverage-v1/007-bottle-position-learned/report.json": "a30e16d2315f19077180bbea84937a2597892063b8f7c9f596dafb28a0b3d48c",
+    "docs/robotics/evidence/manipulation-coverage-v1/007-bottle-position-teacher/states.npz": "d81a54af40e58dcda1fcfc07f9763bafa9157df1630b0b16d1a5cf0304e9ece7",
+    "docs/robotics/evidence/manipulation-coverage-v1/007-bottle-position-teacher/report.json": "bc1cd8266cba172b03a14394e2c612f9cdf7459d797a5d40d0de2ab472b1f406",
+    "docs/robotics/evidence/manipulation-coverage-v1/008-bottle-position-learned/states.npz": "1a862e00e9b0eb4148770789cae477481b07441d8e0b6299419106841377d700",
+    "docs/robotics/evidence/manipulation-coverage-v1/008-bottle-position-learned/report.json": "fb744b3d67d2146e18b9bfba444203e8ed2e445b8ab0a31da6e1cea00a6b9d21",
+    "docs/robotics/evidence/manipulation-coverage-v1/008-bottle-position-teacher/states.npz": "31cd4e43a3fd9350790e6e5c0fc8417a416261d33b762c8c0034a96ac2094010",
+    "docs/robotics/evidence/manipulation-coverage-v1/008-bottle-position-teacher/report.json": "c326a259aefa63dfb346cb93eac4040960eea2659aa988972a510180b7b2b431",
+    "docs/robotics/evidence/manipulation-coverage-v1/009-bottle-position-learned/states.npz": "dcf0cf0d90cec5749cf204f7afe89094778a6bfca2cb4c19df5dac9edcd47296",
+    "docs/robotics/evidence/manipulation-coverage-v1/009-bottle-position-learned/report.json": "030a9d9a58d93b35c99a66bbbb406c2600fa119af56f473578359a7de73ac73f",
+    "docs/robotics/evidence/manipulation-coverage-v1/009-bottle-position-teacher/states.npz": "dcf0cf0d90cec5749cf204f7afe89094778a6bfca2cb4c19df5dac9edcd47296",
+    "docs/robotics/evidence/manipulation-coverage-v1/009-bottle-position-teacher/report.json": "10c45260f8eaa33d42cbd7dcba68a7c9d484dbc272584e1aa1516c0b07f11cea",
+    "docs/robotics/evidence/manipulation-coverage-v1/010-bottle-position-learned/states.npz": "6ed50d382aca5e4500484c5dc75aa289ade79e075d34749e164320c8274c5ec7",
+    "docs/robotics/evidence/manipulation-coverage-v1/010-bottle-position-learned/report.json": "61ab5968b516a9dea45236bdb99b6e547ca590acdbd945581d073bc125351951",
+    "docs/robotics/evidence/manipulation-coverage-v1/010-bottle-position-teacher/states.npz": "631d24dfbf213b53eae435c685351b6a5a022b48c1b94aae3d3d599f27437d1e",
+    "docs/robotics/evidence/manipulation-coverage-v1/010-bottle-position-teacher/report.json": "56af4ee436731b8918b2e9c5c4afb98b264fec916acdba8c682ac77c632adfbe",
+    "docs/robotics/evidence/manipulation-coverage-v1/011-bottle-position-learned/states.npz": "4681b020e48c56c6939dcb59093a41347a6efc7aeabf5fcbb6e4d0a06342ec2a",
+    "docs/robotics/evidence/manipulation-coverage-v1/011-bottle-position-learned/report.json": "fe3c48c961e21de4bbb209e4ba8ebc028f891c317bd254bb4044f70d53522f11",
+    "docs/robotics/evidence/manipulation-coverage-v1/011-bottle-position-teacher/states.npz": "3766d52325af09a2993285073ac43e238d83d1c9dc617ec0053d72a4eb6da060",
+    "docs/robotics/evidence/manipulation-coverage-v1/011-bottle-position-teacher/report.json": "2fa1fae55329e957c03878caa2997584bc05f3f33bf737502850cd81379cc5cc",
+    "docs/robotics/evidence/manipulation-coverage-v1/012-bottle-position-learned/states.npz": "41c8c5e9910b6732a7fa8bd3e8b5785ec6fc69905232d6c83779b08a63c14add",
+    "docs/robotics/evidence/manipulation-coverage-v1/012-bottle-position-learned/report.json": "8ba41b757a8e0e258997f6d4c4bbde5869f280d69663e7472b188d4edbb34aeb",
+    "docs/robotics/evidence/manipulation-coverage-v1/012-bottle-position-teacher/states.npz": "58020265a2c4766bad00dc52242a536405db9057e9b07022c4d1ae27575771ba",
+    "docs/robotics/evidence/manipulation-coverage-v1/012-bottle-position-teacher/report.json": "b82de6d4480b59ebbb9e2dc62db0d456a45852a606b621517632fa09958c15f4",
+    "docs/robotics/evidence/manipulation-coverage-v1/013-bottle-position-learned/states.npz": "bfc1a055933d9dc42fd51b4525bac7b611f3b3ac31b928d7d73d6e6303d7ba6a",
+    "docs/robotics/evidence/manipulation-coverage-v1/013-bottle-position-learned/report.json": "b683cc89a004bf0ed670b553fc7894140ed9de60104c8b455aae6deca206973d",
+    "docs/robotics/evidence/manipulation-coverage-v1/013-bottle-position-teacher/states.npz": "bfc1a055933d9dc42fd51b4525bac7b611f3b3ac31b928d7d73d6e6303d7ba6a",
+    "docs/robotics/evidence/manipulation-coverage-v1/013-bottle-position-teacher/report.json": "143d0257bdc55e1cdd787de310285dd410c3e2eaada008609727d025f75ab4c6",
+    "docs/robotics/evidence/manipulation-coverage-v1/014-bottle-position-learned/states.npz": "c007a7334c921d768977f65b886fc5018ec3fd1e973c6478bc26aea2d7095dfb",
+    "docs/robotics/evidence/manipulation-coverage-v1/014-bottle-position-learned/report.json": "b5a86069b68e6a481628568bfa0a4ab8aa7a96a5a94e1b1bfea23ea45a239057",
+    "docs/robotics/evidence/manipulation-coverage-v1/014-bottle-position-teacher/states.npz": "ca6d9356680a3b7ef67987066188381883f74ecdeb0ca5ac976cc96c11e3653c",
+    "docs/robotics/evidence/manipulation-coverage-v1/014-bottle-position-teacher/report.json": "4ec28f277f9afd180a41394f5bd404408f40e0c2f29562414c24bb968c8907ef",
+    "docs/robotics/evidence/manipulation-coverage-v1/015-bottle-position-learned/states.npz": "8a5b16742a429e4eb33be097f3f389340ec2e7e9694918b097d0e76436842bd8",
+    "docs/robotics/evidence/manipulation-coverage-v1/015-bottle-position-learned/report.json": "4c043245232444841dbef57380298a6ae62e2897b2fe4dac24fdef14f5dfbab4",
+    "docs/robotics/evidence/manipulation-coverage-v1/015-bottle-position-teacher/states.npz": "ab8555b8c0db8f885756531cd4d9eab36778b9811f964a4ff28c777189eee256",
+    "docs/robotics/evidence/manipulation-coverage-v1/015-bottle-position-teacher/report.json": "45df431e3f26d6de45940289642384edf839c2f1711bfd7b9f6035b6a032928d",
+    "docs/robotics/evidence/manipulation-coverage-v1/016-bottle-position-learned/states.npz": "993f1aba758f681a33747bdfe8d5bff3459e89d9f41b069ac1e93b9cf946aa65",
+    "docs/robotics/evidence/manipulation-coverage-v1/016-bottle-position-learned/report.json": "568c643b969fbe26d0c8035b2af6e5c39536181f70f364936419b35f3ff10b3e",
+    "docs/robotics/evidence/manipulation-coverage-v1/016-bottle-position-teacher/states.npz": "c897ee2865988db6f2d2e04596195f921390bc0d0e95b0ce6fa4b809ad1dc61d",
+    "docs/robotics/evidence/manipulation-coverage-v1/016-bottle-position-teacher/report.json": "ee5c2a0e3a53bde44735c8d1642ee0171f95fc78a3fb0d54e09e234532dae5a1",
+    "docs/robotics/evidence/manipulation-coverage-v1/017-bottle-position-learned/states.npz": "b36192eb39abb8dd943646f6e14fe6b6bbcb8e859a9613e7fe329ac46a2d02fb",
+    "docs/robotics/evidence/manipulation-coverage-v1/017-bottle-position-learned/report.json": "347e67d8f28cb5314cf197eccef183ee7779de42d73342d28dbde9912b7aee93",
+    "docs/robotics/evidence/manipulation-coverage-v1/017-bottle-position-teacher/states.npz": "652efa85eb6a9c3900c607c6d96da3253164b5644cf1e10dc715d7525aa2f369",
+    "docs/robotics/evidence/manipulation-coverage-v1/017-bottle-position-teacher/report.json": "0f5ee3135876b744078fd8b8a704d26b00c488218943a2cc3eef5b8e984fa1e6",
+    "docs/robotics/evidence/manipulation-coverage-v1/018-bottle-position-learned/states.npz": "92954f2aa9f3615c87c374e765dca153846a44ac5c8b5cad3572f89a2feab0ad",
+    "docs/robotics/evidence/manipulation-coverage-v1/018-bottle-position-learned/report.json": "4cfa0b148cc8322a65655f3ef452b13a718ae5340fa49b3f5eff4afbd21e0c14",
+    "docs/robotics/evidence/manipulation-coverage-v1/018-bottle-position-teacher/states.npz": "cf66f344ca5c4a71d150b2fdd6f99c588ed74d824debe442036fbea87b18c50d",
+    "docs/robotics/evidence/manipulation-coverage-v1/018-bottle-position-teacher/report.json": "b3e18fc277b911d77b022458de69dd8432271b0c22c15b6df555dcc6261ce099",
+    "docs/robotics/evidence/manipulation-coverage-v1/019-bottle-position-learned/states.npz": "017b0e05c04cefc661fd45bef1fb6b53925585f1e53b9d8599d4207645e9ad84",
+    "docs/robotics/evidence/manipulation-coverage-v1/019-bottle-position-learned/report.json": "48271d1aa6d518146444b9c456f5c15f65fbe64f95ed98c3bade11bd89069350",
+    "docs/robotics/evidence/manipulation-coverage-v1/019-bottle-position-teacher/states.npz": "0a5f26d6dccb007297a999f136c7ff830676332bf8811f93430bfc8b961382a4",
+    "docs/robotics/evidence/manipulation-coverage-v1/019-bottle-position-teacher/report.json": "bac050bcd7ca19519abae8e16712f1232ee2b298f06b2dea417da839aaa402e2",
+    "docs/robotics/evidence/manipulation-coverage-v1/020-bottle-position-learned/states.npz": "7184463117aa83f35aec146ffc2e0ad3c7bf5172e19e0c034f6fa1c635508083",
+    "docs/robotics/evidence/manipulation-coverage-v1/020-bottle-position-learned/report.json": "779af7f82c39b31fc233e865d4b27bce5d2a636e94722b66f0746a90f34a1435",
+    "docs/robotics/evidence/manipulation-coverage-v1/020-bottle-position-teacher/states.npz": "967c8664e3364585152901e55139cb1b7fba89ea994dd0b2c59630bd090527b4",
+    "docs/robotics/evidence/manipulation-coverage-v1/020-bottle-position-teacher/report.json": "b608d53d8a82442fcd725d95cc406532cd2b341f3fde31408b4fd8c0987563c8",
+    "docs/robotics/evidence/manipulation-coverage-v1/021-bottle-position-learned/states.npz": "7d187fd406cf795a2f30dd772d3b16e0d2d87eba8e733ec116d89b015dec6f24",
+    "docs/robotics/evidence/manipulation-coverage-v1/021-bottle-position-learned/report.json": "839236b2d77b9d0bce421fdcb1c0b24918f3736ab7086a664764b674dae1c150",
+    "docs/robotics/evidence/manipulation-coverage-v1/021-bottle-position-teacher/states.npz": "f64db78c81b88c80283031334557eceaae1e2e4312ad7ee9223ce401f57fe0d6",
+    "docs/robotics/evidence/manipulation-coverage-v1/021-bottle-position-teacher/report.json": "bbfb9544ddbcd5710783afa4af9c1a533413ed3a974126bf5d1b75e775dad711",
+    "docs/robotics/evidence/manipulation-coverage-v1/022-bottle-position-learned/states.npz": "56793c3d7f5ab2b94798f9bedde7c8fd25c880a7fc281baae1b8b4fc8558f0a5",
+    "docs/robotics/evidence/manipulation-coverage-v1/022-bottle-position-learned/report.json": "f71b24ca74675e4eb88e433be8f47f9bf7bf9c994a9682c8deffa0da8afbfdb7",
+    "docs/robotics/evidence/manipulation-coverage-v1/022-bottle-position-teacher/states.npz": "17e637bfd1b635785e8be488e48dff074999008c70afd6eaf74406eacb90ae40",
+    "docs/robotics/evidence/manipulation-coverage-v1/022-bottle-position-teacher/report.json": "fdeb961feeff3015bf395cad8dab29843d048c0796f350d1148e893f3aa1540c",
+    "docs/robotics/evidence/manipulation-coverage-v1/023-bottle-position-learned/states.npz": "480fff5dd3527e232ac74bba49ff42e0c28268b5d67e820a74c2616e40478ac8",
+    "docs/robotics/evidence/manipulation-coverage-v1/023-bottle-position-learned/report.json": "49c95d48721313d68541b6d6547d9413e24e0f63ac23ffde64b55870a350d2dd",
+    "docs/robotics/evidence/manipulation-coverage-v1/023-bottle-position-teacher/states.npz": "7347953fa2cf14435020411e8c96e64e5bca024622796d8531b0ffa551a2438f",
+    "docs/robotics/evidence/manipulation-coverage-v1/023-bottle-position-teacher/report.json": "e657d14eb318de191e07ddc54ad687fa4bb570080c56af11aa7379c935832a8e",
+    "docs/robotics/evidence/manipulation-coverage-v1/024-bottle-position-learned/states.npz": "3276383247efe8b1548f95150b8f1e034fba376dbce43db22bffcaa2a6ca9973",
+    "docs/robotics/evidence/manipulation-coverage-v1/024-bottle-position-learned/report.json": "3d0dbb45ad41f58616b36bac0c6c83f2fb96344c007c0fcde8a995e834ac0723",
+    "docs/robotics/evidence/manipulation-coverage-v1/024-bottle-position-teacher/states.npz": "e222cb7b5f8365b2a0706aea6a471cf76f7e2f6efa50212d5226dd9f6659f373",
+    "docs/robotics/evidence/manipulation-coverage-v1/024-bottle-position-teacher/report.json": "148f705c35deca998d479e1e239c68a55986dcbaf26ec212bcf064a83543cada",
+    "docs/robotics/evidence/manipulation-coverage-v1/025-bottle-position-learned/states.npz": "a5fca78ba2fd77e18aa2433b9d9a8c9424a72080dcf0f7d14c40b551c2bd12d9",
+    "docs/robotics/evidence/manipulation-coverage-v1/025-bottle-position-learned/report.json": "104ca1a4f00065198405e9e45dc1aee3f283c15739ccaf37761a06e753b09a5b",
+    "docs/robotics/evidence/manipulation-coverage-v1/025-bottle-position-teacher/states.npz": "f95517c5bcdb4812a09eaf042f43d487d86165caa341e964bab339eb537c3eb5",
+    "docs/robotics/evidence/manipulation-coverage-v1/025-bottle-position-teacher/report.json": "5d9547298de71a35a7a79cb987d64609c26e0289c75d60041eef33bf879d2c0d",
+    "docs/robotics/evidence/manipulation-coverage-v1/026-bottle-position-learned/states.npz": "29ff8e531f4ee9ced456c685b5d1a6cefef7f9fd6faf82f0b584962fdf7c818e",
+    "docs/robotics/evidence/manipulation-coverage-v1/026-bottle-position-learned/report.json": "658940f89f82c0f6b8ddb876f982434c9ff2c5010d45f772611867969d107163",
+    "docs/robotics/evidence/manipulation-coverage-v1/026-bottle-position-teacher/states.npz": "ee5cdb2f82a2a42d66be0a99234fcb9ab89111a641e20428c6fc63f749864d6f",
+    "docs/robotics/evidence/manipulation-coverage-v1/026-bottle-position-teacher/report.json": "00ef72dcb958aaaafd19a1f2c6648636de27deb7b376798030611976a9892d00",
+    "docs/robotics/evidence/manipulation-coverage-v1/027-bottle-position-learned/states.npz": "1f8d9b45b346569163841c1a085a4c0d70f02d6e27a3425c9b9a3865de48b53b",
+    "docs/robotics/evidence/manipulation-coverage-v1/027-bottle-position-learned/report.json": "e7c02f201b23ce8deaebd4b5459ad60d00fe997ef5087ef78f84a17bd3dcd839",
+    "docs/robotics/evidence/manipulation-coverage-v1/027-bottle-position-teacher/states.npz": "4aa26b10facd72223d92f35eef7c9a4d883c295507dbbef61e007bc8e4cf5013",
+    "docs/robotics/evidence/manipulation-coverage-v1/027-bottle-position-teacher/report.json": "78bea166e59bfc2fb73fc1e332ebcfdb5287c6670acd274dcd075b5ce7abf3c8",
+    "docs/robotics/evidence/manipulation-coverage-v1/028-bottle-position-learned/states.npz": "f538caaf51bdc3910ffc6ada430795a51122f575ebcc421323dce8dc751da50e",
+    "docs/robotics/evidence/manipulation-coverage-v1/028-bottle-position-learned/report.json": "cdef45cb275e3073e8e5dcb4885e903f2c05232eace88d8db905b017da049d2f",
+    "docs/robotics/evidence/manipulation-coverage-v1/028-bottle-position-teacher/states.npz": "05838548895f8a120592006ac11119690a3e7ded0e6fdf90c2a6811f3c90aafc",
+    "docs/robotics/evidence/manipulation-coverage-v1/028-bottle-position-teacher/report.json": "bc0abfddfef9042789bf06aa5766d7c487f05f72f33b2c50e44d47d2d0587fb9",
+    "docs/robotics/evidence/manipulation-coverage-v1/029-bottle-position-learned/states.npz": "2dd25a5817901964a56294b7eefce2d0b78ae91d18a44f16a249235451a39e7a",
+    "docs/robotics/evidence/manipulation-coverage-v1/029-bottle-position-learned/report.json": "1aba7a190f6ff7a418a4b558f41038edb420e09d06dec2a7ddcef62bcd610590",
+    "docs/robotics/evidence/manipulation-coverage-v1/029-bottle-position-teacher/states.npz": "c12fac8de4d3fe8db0524a8e3a35050e8b77aa0b8cc44be7e7f98f85b716a4ef",
+    "docs/robotics/evidence/manipulation-coverage-v1/029-bottle-position-teacher/report.json": "e16dc451e947716d2b6f72fbf69c8e3cff26736dca41573bab8d2fd783db9f47",
+    "docs/robotics/evidence/manipulation-coverage-v1/030-bottle-orientation-learned/states.npz": "58d41e4ccdf7852e265240bdaf0329933d1e4a3be82e125da2cdcbb4cf26c887",
+    "docs/robotics/evidence/manipulation-coverage-v1/030-bottle-orientation-learned/report.json": "5e1baa03dc90f64c414c12708e0667d209e3f9b0619d56caea10d5d4cd80243a",
+    "docs/robotics/evidence/manipulation-coverage-v1/030-bottle-orientation-teacher/states.npz": "05e8e2ad7e9912d19434f3793234ad291ff5a047fe2dc18d54d44447c3115d93",
+    "docs/robotics/evidence/manipulation-coverage-v1/030-bottle-orientation-teacher/report.json": "d4618e5244086e2bbdb0df389205ab165bf5908875d542be54b3407b0af4fe15",
+    "docs/robotics/evidence/manipulation-coverage-v1/031-bottle-orientation-learned/states.npz": "e70a1fa8ac370a662ac118139d20c84020ef32e4f33344f0bcf78325c40a7724",
+    "docs/robotics/evidence/manipulation-coverage-v1/031-bottle-orientation-learned/report.json": "aeca30af50afbfea0d2d4d44f5dbe6b995cca87788fb657a5155dbb15c0dc606",
+    "docs/robotics/evidence/manipulation-coverage-v1/031-bottle-orientation-teacher/states.npz": "cdb65eeaeba554547df6480343840a9dabe6ac5bfd791847ea4f4eeaabeb7db0",
+    "docs/robotics/evidence/manipulation-coverage-v1/031-bottle-orientation-teacher/report.json": "a0400d25da140e36ab5c5f64fa1e59f6898703f23ca2456a17a884f30e10772c",
+    "docs/robotics/evidence/manipulation-coverage-v1/032-bottle-destination-learned/states.npz": "22bacb049da782d72e1d2781144e4942d943daa3155f9faa71073cb9eb3b3415",
+    "docs/robotics/evidence/manipulation-coverage-v1/032-bottle-destination-learned/report.json": "e19b99a1c31e7d24a8503bf93d4a7f9beb50efdbaf1858ebcae67a1231a70501",
+    "docs/robotics/evidence/manipulation-coverage-v1/032-bottle-destination-teacher/states.npz": "3dee3adb13c11bdefafcc12db68116051c8adf50dfe969a3d6580a19cc8e6167",
+    "docs/robotics/evidence/manipulation-coverage-v1/032-bottle-destination-teacher/report.json": "d07de0864442e3d8e0f43dbbb9f08a3c7a5a08e7a14f7dda070209195ec521c8",
+    "docs/robotics/evidence/manipulation-coverage-v1/033-bottle-destination-learned/states.npz": "22bacb049da782d72e1d2781144e4942d943daa3155f9faa71073cb9eb3b3415",
+    "docs/robotics/evidence/manipulation-coverage-v1/033-bottle-destination-learned/report.json": "9cf1a320064060b902d0c0f2766abaca225af350992096e36105520db834bbba",
+    "docs/robotics/evidence/manipulation-coverage-v1/033-bottle-destination-teacher/states.npz": "3dee3adb13c11bdefafcc12db68116051c8adf50dfe969a3d6580a19cc8e6167",
+    "docs/robotics/evidence/manipulation-coverage-v1/033-bottle-destination-teacher/report.json": "0d7c75dc176eb786963b21a834f76bce1847c31774ff14347d0bb67f7b4218cf"
+  },
+  "budget": {
+    "maximum_raw_and_packaged_gib": 4,
+    "maximum_physical_trials": 58,
+    "reserve_gib": 10
+  },
+  "decision": "A separate exposed-grid diagnostic follows a FAILED fresh synthetic perception gate. Do not run or tune on bottle-refinement-v1 physical seeds. No promotion, new-scene generalization or qualifying Intel claim can follow from this diagnostic.",
+  "reason": "Locate physical failure mechanisms and usable execution regions before another development change. Vision error alone does not identify motor/contact failures. These contexts contributed training images, and the older grid outcomes were already exposed.",
+  "parent_perception_result": {
+    "states": 512,
+    "present": 456,
+    "accepted_present": 433,
+    "absent": 56,
+    "false_accepted_absent": 0,
+    "accepted_fraction": 0.9495614035087719,
+    "p95_error_mm": 1.493560002081611,
+    "maximum_error_mm": 4.427195113147966,
+    "gate_passed": false
+  },
+  "preceding_attempt": {
+    "protocol": "docs/robotics/experiments/bottle-refinement-exposed-physics-v1.json",
+    "result": "Both anchors stopped before observations or control because the task-preset bottle destination is implicit. StopIteration, zero recorded control frames. All files remain retained.",
+    "repair": "Read the original declared layout default: bottle initial XY plus [0.07,-0.04] when no explicit target exists. This is the existing task destination, not a new controller target or physical threshold."
+  },
+  "selection": "Every original bottle case: one anchor, all 24 XY grid points, both yaw variations and both additional destinations. Keep invalid cases. No success-based case selection.",
+  "comparison": "Use exact original reset recipes. Reuse the preserved preset/teacher results only after verifying identical starting qpos/qvel. Live and per-leg frozen RGB use identical observer, motor, routes and physical thresholds.",
+  "stop": "Stop for a harness error; physical failures do not remove planned cases. Finish the declared diagnostic, preserve all outcomes and choose any change under a new protocol."
+}

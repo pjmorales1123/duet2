@@ -1,0 +1,1 @@
+{'mode': 'physical', 'summary': {'states': 144, 'present': 144, 'present_accepted': 144, 'coverage_fraction': 1.0, 'absent': 0, 'absent_false_accepts': 0, 'p95_3d_error_mm': 0.6166674405427075, 'maximum_3d_error_mm': 0.8928346612302582, 'p95_xy_error_mm': 0.6144471134455578, 'gate_passed': True}, 'wall_seconds': 9.210435200016946, 'inference_median_ms': 34.94379995390773}

@@ -1,0 +1,25 @@
+{
+  "command": [
+    "<OLD_CHECKOUT>\\.venv-training\\Scripts\\python.exe",
+    "scripts/verify_intel_submission.py",
+    "--suite",
+    "models/dinner_suite/suite.json",
+    "--output",
+    ".\\.run\\intel-final-laptop-gpu0",
+    "--device",
+    "GPU.0"
+  ],
+  "cwd": ".",
+  "output": ".\\.run\\intel-final-laptop-gpu0",
+  "console_log": ".\\.run\\session\\intel-final-laptop-gpu0.console.log",
+  "started_utc": "2026-09-14T05:16:47.536303+00:00",
+  "disk_free_before_bytes": 118804033536,
+  "additional_budget_bytes": 1073741824,
+  "reserve_bytes": 10737418240,
+  "status": "finished",
+  "process_id": 24788,
+  "exit_code": 1,
+  "wall_seconds": 92.56705030001467,
+  "finished_utc": "2026-09-14T05:18:20.112134+00:00",
+  "disk_free_after_bytes": 118792454144
+}

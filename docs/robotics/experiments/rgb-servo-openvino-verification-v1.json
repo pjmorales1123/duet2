@@ -1,0 +1,11 @@
+{
+  "schema": "talos.rgb-servo-openvino-verification.v1",
+  "declared_on": "2026-09-13",
+  "parent": "docs/robotics/experiments/rgb-servo-jaw-clearance-v1.json",
+  "networks": "Frozen observer V4 and motor V1, FP32 OpenVINO exports with numerical parity. Observer uses two consistent views and rigid geometry; controller uses RGB smoothing, 4 mm fixed-finger clearance and encoder feedback.",
+  "reason": "Three exposed PyTorch development regressions pass after the clearance change. Verify the complete six-scene development suite on the actual intended OpenVINO inference path before final physical evaluation.",
+  "development_cases": "All six declared development seeds in nominal, pushed live-image and pushed initial-image-frozen modes: 18 OpenVINO trials. Earlier PyTorch trials remain separate and are not relabeled as OpenVINO evidence.",
+  "freeze": "No changes to weights or physical success thresholds. Keep known unsupported-goal refusals in every denominator. Freeze the controller after this development check, before the untouched 12-seed final suite.",
+  "budget": {"max_new_openvino_development_trials": 18, "max_new_data_mib": 80, "reserve_gib": 10},
+  "scope": "Runtime and development verification on AMD CPU. This is not actual Intel-device evidence."
+}

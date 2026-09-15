@@ -1,0 +1,469 @@
+<?xml version="1.0"?>
+<net name="Model0" version="11">
+	<layers>
+		<layer id="0" name="visual" type="Parameter" version="opset1">
+			<data shape="20,32" element_type="f32" />
+			<output>
+				<port id="0" precision="FP32" names="visual">
+					<dim>20</dim>
+					<dim>32</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="1" name="seconds" type="Parameter" version="opset1">
+			<data shape="20" element_type="f32" />
+			<output>
+				<port id="0" precision="FP32" names="seconds">
+					<dim>20</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="2" name="4" type="Const" version="opset1">
+			<data element_type="i64" shape="" offset="0" size="8" />
+			<output>
+				<port id="0" precision="I64" names="4" />
+			</output>
+		</layer>
+		<layer id="3" name="aten::unsqueeze/Unsqueeze" type="Unsqueeze" version="opset1">
+			<input>
+				<port id="0" precision="FP32">
+					<dim>20</dim>
+				</port>
+				<port id="1" precision="I64" />
+			</input>
+			<output>
+				<port id="2" precision="FP32" names="5">
+					<dim>20</dim>
+					<dim>1</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="4" name="Constant_2572" type="Const" version="opset1">
+			<data element_type="f32" shape="1, 1" offset="8" size="4" />
+			<output>
+				<port id="0" precision="FP32">
+					<dim>1</dim>
+					<dim>1</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="5" name="aten::div/Divide" type="Divide" version="opset1">
+			<data auto_broadcast="numpy" m_pythondiv="true" />
+			<input>
+				<port id="0" precision="FP32">
+					<dim>20</dim>
+					<dim>1</dim>
+				</port>
+				<port id="1" precision="FP32">
+					<dim>1</dim>
+					<dim>1</dim>
+				</port>
+			</input>
+			<output>
+				<port id="2" precision="FP32" names="7,phase">
+					<dim>20</dim>
+					<dim>1</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="6" name="Constant_2573" type="Const" version="opset1">
+			<data element_type="f32" shape="1, 6" offset="12" size="24" />
+			<output>
+				<port id="0" precision="FP32">
+					<dim>1</dim>
+					<dim>6</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="7" name="aten::mul/Multiply_2" type="Multiply" version="opset1">
+			<data auto_broadcast="numpy" />
+			<input>
+				<port id="0" precision="FP32">
+					<dim>20</dim>
+					<dim>1</dim>
+				</port>
+				<port id="1" precision="FP32">
+					<dim>1</dim>
+					<dim>6</dim>
+				</port>
+			</input>
+			<output>
+				<port id="2" precision="FP32" names="20,angles">
+					<dim>20</dim>
+					<dim>6</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="8" name="aten::sin/Sin" type="Sin" version="opset1">
+			<input>
+				<port id="0" precision="FP32">
+					<dim>20</dim>
+					<dim>6</dim>
+				</port>
+			</input>
+			<output>
+				<port id="1" precision="FP32" names="21">
+					<dim>20</dim>
+					<dim>6</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="9" name="aten::cos/Cos" type="Cos" version="opset1">
+			<input>
+				<port id="0" precision="FP32">
+					<dim>20</dim>
+					<dim>6</dim>
+				</port>
+			</input>
+			<output>
+				<port id="1" precision="FP32" names="22">
+					<dim>20</dim>
+					<dim>6</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="10" name="aten::cat/Concat" type="Concat" version="opset1">
+			<data axis="-1" />
+			<input>
+				<port id="0" precision="FP32">
+					<dim>20</dim>
+					<dim>32</dim>
+				</port>
+				<port id="1" precision="FP32">
+					<dim>20</dim>
+					<dim>1</dim>
+				</port>
+				<port id="2" precision="FP32">
+					<dim>20</dim>
+					<dim>6</dim>
+				</port>
+				<port id="3" precision="FP32">
+					<dim>20</dim>
+					<dim>6</dim>
+				</port>
+			</input>
+			<output>
+				<port id="4" precision="FP32" names="25,input.1">
+					<dim>20</dim>
+					<dim>45</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="11" name="self.net.0.weight" type="Const" version="opset1">
+			<data element_type="f32" shape="256, 45" offset="36" size="46080" />
+			<output>
+				<port id="0" precision="FP32" names="self.net.0.weight">
+					<dim>256</dim>
+					<dim>45</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="12" name="__module.net.0/aten::linear/MatMul" type="MatMul" version="opset1">
+			<data transpose_a="false" transpose_b="true" />
+			<input>
+				<port id="0" precision="FP32">
+					<dim>20</dim>
+					<dim>45</dim>
+				</port>
+				<port id="1" precision="FP32">
+					<dim>256</dim>
+					<dim>45</dim>
+				</port>
+			</input>
+			<output>
+				<port id="2" precision="FP32">
+					<dim>20</dim>
+					<dim>256</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="13" name="Constant_2574" type="Const" version="opset1">
+			<data element_type="f32" shape="1, 256" offset="46116" size="1024" />
+			<output>
+				<port id="0" precision="FP32">
+					<dim>1</dim>
+					<dim>256</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="14" name="__module.net.0/aten::linear/Add" type="Add" version="opset1">
+			<data auto_broadcast="numpy" />
+			<input>
+				<port id="0" precision="FP32">
+					<dim>20</dim>
+					<dim>256</dim>
+				</port>
+				<port id="1" precision="FP32">
+					<dim>1</dim>
+					<dim>256</dim>
+				</port>
+			</input>
+			<output>
+				<port id="2" precision="FP32" names="36,input.3">
+					<dim>20</dim>
+					<dim>256</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="15" name="__module.net.1/aten::silu/Swish" type="Swish" version="opset4">
+			<input>
+				<port id="0" precision="FP32">
+					<dim>20</dim>
+					<dim>256</dim>
+				</port>
+			</input>
+			<output>
+				<port id="1" precision="FP32" names="37,input.5">
+					<dim>20</dim>
+					<dim>256</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="16" name="self.net.2.weight" type="Const" version="opset1">
+			<data element_type="f32" shape="256, 256" offset="47140" size="262144" />
+			<output>
+				<port id="0" precision="FP32" names="self.net.2.weight">
+					<dim>256</dim>
+					<dim>256</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="17" name="__module.net.2/aten::linear/MatMul" type="MatMul" version="opset1">
+			<data transpose_a="false" transpose_b="true" />
+			<input>
+				<port id="0" precision="FP32">
+					<dim>20</dim>
+					<dim>256</dim>
+				</port>
+				<port id="1" precision="FP32">
+					<dim>256</dim>
+					<dim>256</dim>
+				</port>
+			</input>
+			<output>
+				<port id="2" precision="FP32">
+					<dim>20</dim>
+					<dim>256</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="18" name="Constant_2575" type="Const" version="opset1">
+			<data element_type="f32" shape="1, 256" offset="309284" size="1024" />
+			<output>
+				<port id="0" precision="FP32">
+					<dim>1</dim>
+					<dim>256</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="19" name="__module.net.2/aten::linear/Add" type="Add" version="opset1">
+			<data auto_broadcast="numpy" />
+			<input>
+				<port id="0" precision="FP32">
+					<dim>20</dim>
+					<dim>256</dim>
+				</port>
+				<port id="1" precision="FP32">
+					<dim>1</dim>
+					<dim>256</dim>
+				</port>
+			</input>
+			<output>
+				<port id="2" precision="FP32" names="40,input.7">
+					<dim>20</dim>
+					<dim>256</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="20" name="__module.net.3/aten::silu/Swish" type="Swish" version="opset4">
+			<input>
+				<port id="0" precision="FP32">
+					<dim>20</dim>
+					<dim>256</dim>
+				</port>
+			</input>
+			<output>
+				<port id="1" precision="FP32" names="41,input.9">
+					<dim>20</dim>
+					<dim>256</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="21" name="self.net.4.weight" type="Const" version="opset1">
+			<data element_type="f32" shape="256, 256" offset="310308" size="262144" />
+			<output>
+				<port id="0" precision="FP32" names="self.net.4.weight">
+					<dim>256</dim>
+					<dim>256</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="22" name="__module.net.4/aten::linear/MatMul" type="MatMul" version="opset1">
+			<data transpose_a="false" transpose_b="true" />
+			<input>
+				<port id="0" precision="FP32">
+					<dim>20</dim>
+					<dim>256</dim>
+				</port>
+				<port id="1" precision="FP32">
+					<dim>256</dim>
+					<dim>256</dim>
+				</port>
+			</input>
+			<output>
+				<port id="2" precision="FP32">
+					<dim>20</dim>
+					<dim>256</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="23" name="Constant_2576" type="Const" version="opset1">
+			<data element_type="f32" shape="1, 256" offset="572452" size="1024" />
+			<output>
+				<port id="0" precision="FP32">
+					<dim>1</dim>
+					<dim>256</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="24" name="__module.net.4/aten::linear/Add" type="Add" version="opset1">
+			<data auto_broadcast="numpy" />
+			<input>
+				<port id="0" precision="FP32">
+					<dim>20</dim>
+					<dim>256</dim>
+				</port>
+				<port id="1" precision="FP32">
+					<dim>1</dim>
+					<dim>256</dim>
+				</port>
+			</input>
+			<output>
+				<port id="2" precision="FP32" names="44,input.11">
+					<dim>20</dim>
+					<dim>256</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="25" name="__module.net.5/aten::silu/Swish" type="Swish" version="opset4">
+			<input>
+				<port id="0" precision="FP32">
+					<dim>20</dim>
+					<dim>256</dim>
+				</port>
+			</input>
+			<output>
+				<port id="1" precision="FP32" names="45,input">
+					<dim>20</dim>
+					<dim>256</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="26" name="self.net.6.weight" type="Const" version="opset1">
+			<data element_type="f32" shape="12, 256" offset="573476" size="12288" />
+			<output>
+				<port id="0" precision="FP32" names="self.net.6.weight">
+					<dim>12</dim>
+					<dim>256</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="27" name="__module.net.6/aten::linear/MatMul" type="MatMul" version="opset1">
+			<data transpose_a="false" transpose_b="true" />
+			<input>
+				<port id="0" precision="FP32">
+					<dim>20</dim>
+					<dim>256</dim>
+				</port>
+				<port id="1" precision="FP32">
+					<dim>12</dim>
+					<dim>256</dim>
+				</port>
+			</input>
+			<output>
+				<port id="2" precision="FP32">
+					<dim>20</dim>
+					<dim>12</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="28" name="Constant_2577" type="Const" version="opset1">
+			<data element_type="f32" shape="1, 12" offset="585764" size="48" />
+			<output>
+				<port id="0" precision="FP32">
+					<dim>1</dim>
+					<dim>12</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="29" name="__module.net.6/aten::linear/Add" type="Add" version="opset1">
+			<data auto_broadcast="numpy" />
+			<input>
+				<port id="0" precision="FP32">
+					<dim>20</dim>
+					<dim>12</dim>
+				</port>
+				<port id="1" precision="FP32">
+					<dim>1</dim>
+					<dim>12</dim>
+				</port>
+			</input>
+			<output>
+				<port id="2" precision="FP32">
+					<dim>20</dim>
+					<dim>12</dim>
+				</port>
+			</output>
+		</layer>
+		<layer id="30" name="Result_89" type="Result" version="opset1">
+			<input>
+				<port id="0" precision="FP32">
+					<dim>20</dim>
+					<dim>12</dim>
+				</port>
+			</input>
+		</layer>
+	</layers>
+	<edges>
+		<edge from-layer="0" from-port="0" to-layer="10" to-port="0" />
+		<edge from-layer="1" from-port="0" to-layer="3" to-port="0" />
+		<edge from-layer="2" from-port="0" to-layer="3" to-port="1" />
+		<edge from-layer="3" from-port="2" to-layer="5" to-port="0" />
+		<edge from-layer="4" from-port="0" to-layer="5" to-port="1" />
+		<edge from-layer="5" from-port="2" to-layer="7" to-port="0" />
+		<edge from-layer="5" from-port="2" to-layer="10" to-port="1" />
+		<edge from-layer="6" from-port="0" to-layer="7" to-port="1" />
+		<edge from-layer="7" from-port="2" to-layer="8" to-port="0" />
+		<edge from-layer="7" from-port="2" to-layer="9" to-port="0" />
+		<edge from-layer="8" from-port="1" to-layer="10" to-port="2" />
+		<edge from-layer="9" from-port="1" to-layer="10" to-port="3" />
+		<edge from-layer="10" from-port="4" to-layer="12" to-port="0" />
+		<edge from-layer="11" from-port="0" to-layer="12" to-port="1" />
+		<edge from-layer="12" from-port="2" to-layer="14" to-port="0" />
+		<edge from-layer="13" from-port="0" to-layer="14" to-port="1" />
+		<edge from-layer="14" from-port="2" to-layer="15" to-port="0" />
+		<edge from-layer="15" from-port="1" to-layer="17" to-port="0" />
+		<edge from-layer="16" from-port="0" to-layer="17" to-port="1" />
+		<edge from-layer="17" from-port="2" to-layer="19" to-port="0" />
+		<edge from-layer="18" from-port="0" to-layer="19" to-port="1" />
+		<edge from-layer="19" from-port="2" to-layer="20" to-port="0" />
+		<edge from-layer="20" from-port="1" to-layer="22" to-port="0" />
+		<edge from-layer="21" from-port="0" to-layer="22" to-port="1" />
+		<edge from-layer="22" from-port="2" to-layer="24" to-port="0" />
+		<edge from-layer="23" from-port="0" to-layer="24" to-port="1" />
+		<edge from-layer="24" from-port="2" to-layer="25" to-port="0" />
+		<edge from-layer="25" from-port="1" to-layer="27" to-port="0" />
+		<edge from-layer="26" from-port="0" to-layer="27" to-port="1" />
+		<edge from-layer="27" from-port="2" to-layer="29" to-port="0" />
+		<edge from-layer="28" from-port="0" to-layer="29" to-port="1" />
+		<edge from-layer="29" from-port="2" to-layer="30" to-port="0" />
+	</edges>
+	<rt_info>
+		<info name="OpenVINO Runtime" value="2026.3.0-22451-8a17657b995-releases/2026/3" />
+		<Runtime_version value="2026.3.0-22451-8a17657b995-releases/2026/3" />
+		<conversion_parameters>
+			<framework value="pytorch" />
+			<is_python_object value="True" />
+		</conversion_parameters>
+	</rt_info>
+</net>

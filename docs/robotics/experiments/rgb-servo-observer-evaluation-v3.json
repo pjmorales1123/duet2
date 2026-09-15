@@ -1,0 +1,12 @@
+{
+  "schema": "talos.rgb-servo-observer-evaluation.v3",
+  "declared_on": "2026-09-13",
+  "parent": "docs/robotics/experiments/rgb-servo-observer-v3.json",
+  "evaluation_states": 256,
+  "evaluation_rng_seed": 2026095407,
+  "generator": "scripts/collect_rgb_servo_observer.py",
+  "checkpoint": ".run/rgb-servo-observer-fit-v3/step-004000/model.safetensors",
+  "checkpoint_sha256": "b72003f95e8ef8662a02a95aaf6fbc144bd9d23e4c947cb10c2425a5a0e68631",
+  "selection": "Freeze this checkpoint and the original three-view confidence gate before generating these observations. No training or selection on this fresh test. The previous v2 test stays preserved.",
+  "scope": "Synthetic RGB perception test only; all physical development/evaluation seeds remain separate."
+}

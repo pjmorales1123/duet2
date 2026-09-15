@@ -1,0 +1,45 @@
+{
+  "schema": "talos.dinner-spoon-diagnostic.v1r1",
+  "declared_on": "2026-09-14",
+  "purpose": "Explain placement failures before changing the selected learned dinner system. Inspect the existing fit, RGB conditioning and physical grasp/transport offsets without fitting, changing thresholds or running new manipulation trials.",
+  "baseline": "models/dinner_suite/spoon",
+  "baseline_sha256": "df5bdb17d0dc3a65dae7eba8fea9d5a3edb036edecf1bbb0c32021c64fbce47e",
+  "comparison": ".run/dinner-spoon-grip-lbfgs-v5/step-000400",
+  "comparison_sha256": "ec4f923ae70c5c8c0d421808b05c112cef640389c189e2ef1c1918c8a2fbb22d",
+  "training_input": "training/dinner_suite/spoon",
+  "training_input_sha256": "4ca7bdf183c5e66391502422682c34d24ee0715a1c4cc6b74cbe2f358832a4bf",
+  "exposed_sequence_evidence": "docs/robotics/evidence/composed-dinner-v1/evaluation",
+  "exposed_sequence_seeds": [
+    2026092801,
+    2026092802,
+    2026092806,
+    2026092808,
+    2026092809
+  ],
+  "method": "Score every existing spoon training endpoint for active-arm joint and forward-kinematic tool error. Re-render the initial spoon frame from five preserved integrated traces, then compare observed features, measured tool/object offsets through close/hold/lower/release/park, and final placement. Ground-truth geometry is diagnostic only and is never supplied to a deployed controller.",
+  "selection": "No model selection or promotion in this diagnostic. The comparison is the already-trained, preserved V5 L-BFGS checkpoint, not a new fit. Any follow-up needs a new protocol, fresh physical development/final scenes and unchanged physical limits.",
+  "budget": {
+    "maximum_training_steps": 0,
+    "maximum_new_physical_trials": 0,
+    "maximum_output_mib": 64,
+    "maximum_wall_minutes": 10,
+    "reserve_gib": 10
+  },
+  "scope": "Exposed-state and training-fit diagnosis only. All previous final outcomes remain unchanged; no new generalization, Intel, voice or hosted-demo claim. Preserve GitHub/HF privacy and never click Submit.",
+  "parent_sha256": "f68a90cab30ebe837c94e7cd38a2b1bbce9b209418fd69bcf4fa9bacae299d57",
+  "grasp_point_local_m": [
+    -0.003,
+    0.0,
+    -0.1
+  ],
+  "stage_probes": [
+    "close",
+    "hold",
+    "rotate",
+    "align",
+    "lower",
+    "release",
+    "park"
+  ],
+  "clarification": "The first report uses RobotGeometry\u2019s generic fixed wrist landmark. Retain it. This follow-up uses the actual spoon teacher grasp point from DinnerTask._plan and adds rotation/alignment probes to distinguish carry from release displacement. No controller or model changes."
+}

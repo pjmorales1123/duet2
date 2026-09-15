@@ -1,0 +1,88 @@
+* text=auto eol=lf
+*.py text eol=lf
+*.js text eol=lf
+*.css text eol=lf
+*.html text eol=lf
+*.md text eol=lf
+*.json text eol=lf
+*.xml text eol=lf
+*.ps1 text eol=crlf
+*.obj text eol=lf
+
+# Preserve generated artifacts byte-for-byte, including ASCII-encoded PDFs.
+*.pdf binary
+*.pptx binary
+*.mp4 binary
+*.png binary
+*.jpg binary
+*.stl binary
+*.npz binary
+*.zip binary
+*.npy binary
+*.safetensors binary
+*.bin binary
+
+# These evaluated packages contain byte-level manifests. Preserve original
+# newlines as well as binary weights so a fresh checkout matches their hashes.
+models/bottle_relays/** -text whitespace=cr-at-eol
+models/dinner_suite/** -text whitespace=cr-at-eol
+models/dinner_visual_mug_v1/** -text whitespace=cr-at-eol
+models/spoon_release_v1/** -text whitespace=cr-at-eol
+models/mug_release_v1/** -text whitespace=cr-at-eol
+models/mug_visual_observer_v1/** -text whitespace=cr-at-eol
+models/mug_keypoint_observer_v1/** -text whitespace=cr-at-eol
+models/mug_correction_motor_v1/** -text whitespace=cr-at-eol
+models/mug_correction_motor_v2/** -text whitespace=cr-at-eol
+training/bottle_relays/** -text whitespace=cr-at-eol
+training/dinner_suite/** -text whitespace=cr-at-eol
+training/spoon_release_v1/** -text whitespace=cr-at-eol
+training/mug_release_v1/** -text whitespace=cr-at-eol
+training/mug_visual_observer_v1/** -text whitespace=cr-at-eol
+training/mug_keypoint_observer_v1/** -text whitespace=cr-at-eol
+training/mug_correction_motor_v1/** -text whitespace=cr-at-eol
+training/mug_correction_motor_v2/** -text whitespace=cr-at-eol
+models/bottle_servo_v1/** -text whitespace=cr-at-eol
+training/bottle_servo_v1/** -text whitespace=cr-at-eol
+docs/robotics/evidence/** -text whitespace=cr-at-eol
+docs/robotics/experiments/** -text whitespace=cr-at-eol
+submission/verification-v1/** -text whitespace=cr-at-eol
+submission/verification-v1/pc-portability/*scene.xml -whitespace
+
+# Generated state scenes preserve their original XML indentation and hashes.
+docs/robotics/evidence/rgb-servo-v1/**/scene.xml -whitespace
+docs/robotics/evidence/rgb-servo-v2/**/scene.xml -whitespace
+docs/robotics/evidence/rgb-servo-v5/**/scene.xml -whitespace
+docs/robotics/evidence/rgb-servo-observer-camera-v1/validation/scene.xml -whitespace
+docs/robotics/evidence/composed-dinner-v1/**/scene.xml -whitespace
+docs/robotics/evidence/spoon-release-v1/**/scene.xml -whitespace
+docs/robotics/evidence/mug-release-v1/**/scene.xml -whitespace
+docs/robotics/evidence/mug-visual-correction-v*/**/*scene.xml -whitespace
+docs/robotics/evidence/visual-mug-deployment-v*/**/*scene.xml -whitespace
+docs/robotics/evidence/intel-final-legacy-v*/**/*scene.xml -whitespace
+training/bottle_servo_v1/motion/**/scene.xml -whitespace
+training/spoon_release_v1/**/scene.xml -whitespace
+training/mug_release_v1/**/scene.xml -whitespace
+
+submission/verification-v2/** -text whitespace=cr-at-eol
+submission/verification-v2/pc-portability/**/*scene.xml -whitespace
+
+docs/robotics/evidence/manipulation-coverage-v*/**/*scene.xml -whitespace
+models/bottle_refinement_v1/** -text whitespace=cr-at-eol
+training/bottle_refinement_v1/** -text whitespace=cr-at-eol
+training/bottle_refinement_v1/**/*scene.xml -whitespace
+docs/robotics/evidence/bottle-refinement-exposed-physics-v*/**/*scene.xml -whitespace
+docs/robotics/evidence/bottle-wide-physical-v*/**/*scene.xml -whitespace
+docs/robotics/evidence/bottle-wide-deployment-v*/**/*scene.xml -whitespace
+docs/robotics/evidence/drawer-configuration-diagnostic-v*/**/*scene.xml -whitespace
+models/bottle_wide_v1/** -text whitespace=cr-at-eol
+training/drawer_configurations_v1/** -text whitespace=cr-at-eol
+training/drawer_configurations_v1/**/*scene.xml -whitespace
+docs/robotics/evidence/bottle-wide-application-v*/**/*scene.xml -whitespace
+docs/robotics/evidence/whole-table-randomizer-v*/**/*scene.xml -whitespace
+docs/robotics/evidence/drawer-clearance-diagnostic-v*/**/*scene.xml -whitespace
+
+# Preserve the exact upstream/frozen bytes, including terminal blank lines.
+third_party/talos_cliport/LICENSE-CLIP -whitespace
+third_party/talos_cliport/models/core/fusion.py -whitespace
+third_party/talos_cliport/models/core/transport.py -whitespace
+docs/robotics/evidence/shared-table-pipeline-development-v1/runs/whole-table-development-v1/source/simulation_lab/table_teacher.py -whitespace

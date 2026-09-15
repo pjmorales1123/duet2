@@ -1,0 +1,20 @@
+{
+  "schema": "talos.rgb-servo-routing.v2-r2",
+  "declared_on": "2026-09-13",
+  "parent": "docs/robotics/experiments/rgb-servo-bottle-v2.json",
+  "previous_revision": "docs/robotics/experiments/rgb-servo-routing-v2.json",
+  "revision": 2,
+  "development_findings": "Training seed 5601 has an invalid start; 5602 loses RGB; 5603 refuses a near-boundary shared route; 5604 lifts but the actual closure offset leaves no supported high transport path; 5605 completes both physical relay legs with 3.310 mm final error. All are exposed development, not final successes.",
+  "changes": "Use fresh RGB grasp-offset checks at the start of align and lower, retaining proprioceptive control between these checkpoints. Permit lower transport after the verified supported lift and try three declared shared points. Do not change any model weights, neural guard, collision, release, placement or parking threshold.",
+  "lift_candidates_m": [0.070,0.065,0.060,0.055],
+  "transport_height_above_table_m": [0.198,0.1875,0.1775,0.1675,0.1575,0.1475],
+  "retract_candidates_m": [0.065,0.055,0.045,0.035],
+  "shared_bottle_position_m": [0,-0.10],
+  "shared_bottle_positions_m": [[0,-0.10],[0.015,-0.10],[-0.015,-0.10]],
+  "route_samples": 13,
+  "carry_visual_updates": true,
+  "maximum_carry_observation_age_s": 0.3,
+  "ablation": "Frozen uses one initial image per leg and skips carry/lower visual refresh. Live requires a fresh RGB observation at the align/lower checkpoints. RGB approach/descent freshness remains unchanged; no silent fallback after missing images.",
+  "scope": "Visual checkpoints after grasp, not continuous visual carry replanning. Every leg still needs the unchanged greater-than-50-mm supported hold and independent physical acceptance.",
+  "selection": "Second and final controller revision within V2. Only declared training/development scenes may guide selection. All 12 final V2 seeds remain unexposed."
+}

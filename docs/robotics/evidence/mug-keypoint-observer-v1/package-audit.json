@@ -1,0 +1,109 @@
+{
+  "schema": "talos.mug-keypoint-observer.v1",
+  "protocol_sha256": "e73c7058c662e3e200fc7264dea2c90e0fc1241a281a195d549cbddbd2442d4e",
+  "source_sha256": "7dcd5bfcd7e8c067c89583000b7db4777edf49a79d4bdadf0607d7281894f85a",
+  "passed": true,
+  "preflight": {
+    "free_bytes": 558758772736,
+    "estimated_additional_bytes": 22279301,
+    "reserve_bytes": 10737418240
+  },
+  "counts": {
+    "training": 4096,
+    "development": 512,
+    "fresh": 512,
+    "exposed_physical_states": 144
+  },
+  "both_checkpoints_retained": true,
+  "scores_independently_recomputed": true,
+  "fresh": {
+    "states": 512,
+    "present": 448,
+    "present_accepted": 448,
+    "coverage_fraction": 1.0,
+    "absent": 64,
+    "absent_false_accepts": 0,
+    "p95_3d_error_mm": 0.2700374194086802,
+    "maximum_3d_error_mm": 0.4216429028536392,
+    "p95_xy_error_mm": 0.21979910725884488,
+    "gate_passed": true
+  },
+  "physical_regression": {
+    "states": 144,
+    "present": 144,
+    "present_accepted": 144,
+    "coverage_fraction": 1.0,
+    "absent": 0,
+    "absent_false_accepts": 0,
+    "p95_3d_error_mm": 0.6166674405427075,
+    "maximum_3d_error_mm": 0.8928346612302582,
+    "p95_xy_error_mm": 0.6144471134455578,
+    "gate_passed": true
+  },
+  "console_provenance": {
+    "console/mug-keypoint-observer-v1-development-audit-r1.log": {
+      "original_sha256": "d1d9ba648468d50866c22052e23d1f2346438605a52241219962cfb1a3b9e70a",
+      "original_bytes": 1861,
+      "repository_path_redacted": false
+    },
+    "console/mug-keypoint-observer-v1-development.log": {
+      "original_sha256": "e671600e37040c42bcc4b11760fbf526f50454254106f8194441a86cc429aa25",
+      "original_bytes": 2011,
+      "repository_path_redacted": false
+    },
+    "console/mug-keypoint-observer-v1-evaluation-audit.log": {
+      "original_sha256": "c94b6bcfe1723513c5c82bdb392d2ae88b4006021f61ad3b4b37e9ac8c6ef10a",
+      "original_bytes": 1818,
+      "repository_path_redacted": false
+    },
+    "console/mug-keypoint-observer-v1-evaluation-data.log": {
+      "original_sha256": "2dab166846258161f0fd4090dc08471f704849f75ab6b7288e6a77ebbd1cea01",
+      "original_bytes": 1968,
+      "repository_path_redacted": false
+    },
+    "console/mug-keypoint-observer-v1-evaluation-score.log": {
+      "original_sha256": "44c95f1cc7316155e7cb0cc7cb4f73f4b8790c60a53d57442d35bebc858f880d",
+      "original_bytes": 558,
+      "repository_path_redacted": false
+    },
+    "console/mug-keypoint-observer-v1-export.log": {
+      "original_sha256": "97d58ab29c2ac81a847c79853222d252027b7058744e686f62910278ab472e10",
+      "original_bytes": 380,
+      "repository_path_redacted": false
+    },
+    "console/mug-keypoint-observer-v1-fit.log": {
+      "original_sha256": "ae79398fc0374b3d584b1e9dbc513bbde27790c690bf7b05aede60208b2f1ac4",
+      "original_bytes": 14055,
+      "repository_path_redacted": false
+    },
+    "console/mug-keypoint-observer-v1-package.log": {
+      "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "original_bytes": 0,
+      "repository_path_redacted": false
+    },
+    "console/mug-keypoint-observer-v1-physical-regression.log": {
+      "original_sha256": "b53fdd8a14c95c418de118c393ebd62790b84cc85ecc5c98b89a3c60a5d65376",
+      "original_bytes": 376,
+      "repository_path_redacted": false
+    },
+    "console/mug-keypoint-observer-v1-training-audit-r1.log": {
+      "original_sha256": "6a8924d1dc4b95041acb912e9c7e758f56cf3d588c39a69b3c8c2907809aa7ff",
+      "original_bytes": 1732,
+      "repository_path_redacted": false
+    },
+    "console/mug-keypoint-observer-v1-training-audit.log": {
+      "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "original_bytes": 0,
+      "repository_path_redacted": false
+    },
+    "console/mug-keypoint-observer-v1-training.log": {
+      "original_sha256": "60faae77570845d71353218e110e8d2fc82eb366a89218b85902ed8984e90838",
+      "original_bytes": 1971,
+      "repository_path_redacted": false
+    }
+  },
+  "new_physical_trials": 0,
+  "motor_integration": false,
+  "selected_dinner_models_unchanged": true,
+  "scope": "Passing bounded perception only. A separate live-versus-frozen physical controller experiment is still required."
+}

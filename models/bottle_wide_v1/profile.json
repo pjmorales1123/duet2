@@ -1,0 +1,214 @@
+{
+  "schema": "talos.bottle-wide-profile.v1",
+  "name": "Wide bottle \u00b7 live vision",
+  "observer": "models/bottle_wide_v1/observer",
+  "motor": "models/bottle_wide_v1/motor",
+  "routing": "docs/robotics/experiments/rgb-servo-routing-v2.json",
+  "camera_protocol": "docs/robotics/experiments/rgb-servo-visibility-v1.json",
+  "camera_configuration": "opposite_obliques",
+  "physical_audit": "docs/robotics/evidence/bottle-wide-physical-v1/audit.json",
+  "bound_files": {
+    "simulation_lab/act_learning.py": "0266d6ec1db5291a14f7b0cc2bdc1e6eb977497b3d6e1342eeb0a6e6db4ff4c2",
+    "simulation_lab/autonomy.py": "0e60140b1d3dd03c278592fb975393b50f6074235280472390f3a8feda142c95",
+    "simulation_lab/bottle_refinement.py": "3390e076a13759fcef7d37bf685e3ed57372e8a148e923a96556c06194553e39",
+    "simulation_lab/bottle_refinement_runtime.py": "d62bb641b1518ce6ec9e5224ffafd6f3177d0fdb26df72d7e1e5e0377d4b8fb4",
+    "simulation_lab/bottle_vision.py": "5b6ccf6e0224bf66ef7d4c69c382384add65d90ebfeedad838be5dc756bfa9ac",
+    "simulation_lab/command_task.py": "b3861f88af0a3535569e3d911f68e0e1d566f0b1f5f24b60c79417d561ce51a4",
+    "simulation_lab/dataset.py": "1c9310a12391a957563f317f0f260ebc5ff284b9050a27b4a27fcb3143f1b2d2",
+    "simulation_lab/dinner.py": "37107bcbd85a39466dcd01b202d6661f1e3c9f705e6865de05d6fa994e562c11",
+    "simulation_lab/dinner_autonomy.py": "717c03217039a8ce5234ff8554aeb948f444fa88644aafe5e456e1bd74c17eba",
+    "simulation_lab/dinner_monitor.py": "34b2a5356ffcb5c2cf888607ceb387e51ca2ed00f6fa8fa39a897744e8bebe54",
+    "simulation_lab/dinner_vision.py": "66d0bc15b9a9f40832db56378de62c1b5355cebf583ececf7d8fa936a192360e",
+    "simulation_lab/experiment_push.py": "156700845e130b86e93774c9dfae4221de5443f9855c86bd8e84d7f052a22003",
+    "simulation_lab/experiment_targets.py": "0704accb79c80d894efdf721e7a23437348c9dfe2d0d5edefd63e8b225ea9654",
+    "simulation_lab/hardware_evidence.py": "386d563af1666943fb1fcf0d545389220eb30f5808f361bbf72df4aa4a2d7222",
+    "simulation_lab/hosted_gpu.py": "668fd99bf83a52a8730179b33f93c5d319707033fecb0cf49f1bd39e2e727bb7",
+    "simulation_lab/hosted_worker.py": "60cf416fb7f6ef9f5151ccd9127fa821ddee3f65b74712f11ad11c37e6a3a5b2",
+    "simulation_lab/language.py": "8a6aa3efc5515e2da1d334432b884de297b53b1f048aba60c031d1739ddcfc1b",
+    "simulation_lab/learned_dinner.py": "5402aa9069b0a20b21c352272fbeb5dcf70d03ae555aa65d66574e5bf7975066",
+    "simulation_lab/learned_plan.py": "af91498d8f2d4cff06c829c1fc8c1075b359c00ed49e07043f8301bc4f85fcd8",
+    "simulation_lab/learned_skills.py": "3ef610a6e6d0516e8bf92d4e7f2b3d06540b49e2671682ab642239aa2cbb129b",
+    "simulation_lab/learned_task.py": "3bc2fc075d15e07d5717333fbd69541d2e76d2bd41621a71f1a6e51229d2e24f",
+    "simulation_lab/mug_correction_limits.py": "0b4db501846ff62e87cc6dbde453d6b1bf370cb12e60088e709f89068ecb2595",
+    "simulation_lab/mug_correction_motor.py": "38ca9f9d936c9ca50176c898904a680c1549df696c97475088852bc39be26313",
+    "simulation_lab/mug_correction_runtime.py": "eb580df116318a97fb2d24655d88a23be40a32beae186b0d03fbc88fc79e83f9",
+    "simulation_lab/mug_keypoint_observer.py": "dc5c76bd5b82ffb7191727690be3ac15b0003310ff0a69ef848213ce376a5fea",
+    "simulation_lab/mug_visual_control.py": "98503f8bfefff12a719e562471bd7819f192f9c20d519b4fc75ad6b5502310ae",
+    "simulation_lab/mug_visual_geometry.py": "d0840f195103bf8be317d33a2aed0f40dfe572aa8aeab1c988db08ae86e11091",
+    "simulation_lab/mug_visual_observer.py": "5d6fdd56a87035ac22eee40d20d8e09aa4b6a40f0b5695cf260243c6827a90c6",
+    "simulation_lab/mug_visual_profile.py": "a955e238d4f55a0d01eb832272f57ab2eb9d17ef37aaacb7b5ea1fca3d223d3c",
+    "simulation_lab/policy_cameras.py": "1415c5f173502017c99f651778245dae83116f4b91b7bbe8bf614cecf06b2752",
+    "simulation_lab/policy_control.py": "a418fe2619985852d4e65b40e20c18f82fd72076b4d8b9202507dda4a410b151",
+    "simulation_lab/policy_observation.py": "d15a9b72e7fb366681d29a21f598d21ffd147b1b9ba56729d296250a67b37af6",
+    "simulation_lab/primitive_policy.py": "60c009448171533385df1be82e3f64ed395f28d3e03145eb2f10ab6a791ef143",
+    "simulation_lab/recording.py": "073fc8a874a313288399f1827c2018198c92e3da2975b122655afe41aebe43a2",
+    "simulation_lab/relay_task.py": "a1387ecf36d24166b6cd356a14375aa47aceb4202687b4ccc96a3d305ab6bcd2",
+    "simulation_lab/rendering.py": "570f36b7b683c05d6c33aebc442828196db00596c10ed5e94df2b49ceccf0fcd",
+    "simulation_lab/retrieval_policy.py": "e47aab06fae8c825cccbe72dae7040edf3ee5d7b07a6537080b95efe001c6873",
+    "simulation_lab/rgb_bottle_observer.py": "45e93ab0d7930a15c82f5e84809eb0d8d7d8d376ed878558529560ff20c18d20",
+    "simulation_lab/rgb_servo_cameras.py": "eb750885e17ccc731ad9a80f3f5450ec2b5823c68e9dd57d9e325623d28eb3ec",
+    "simulation_lab/rgb_servo_controller.py": "6fb0d6ac81f717288a23aa88f60bcd84f95f0137b0660db7d35ebe2aeba7cf94",
+    "simulation_lab/rgb_servo_geometry.py": "bca323458c4971bab8534e36fb6f7d5aa668df188e7573efa095ebfbca4db1ae",
+    "simulation_lab/rgb_servo_motor.py": "3d90c40a5af68f0b04dfe5aafaa7de47f4c0b67211d40cc1a461eae2311e22b7",
+    "simulation_lab/rgb_servo_network.py": "3ef3cd8fcac1e40743893caab14fb94decf52d1c402c6ade69c342e8c97d9302",
+    "simulation_lab/rgb_servo_openvino.py": "2a091f27331304228bc57a306302cf05ced182af654a57c502b2bdea4bb1fa42",
+    "simulation_lab/rgb_servo_routing.py": "75acbf9a9e508ba24c29edc777c6ce83569d73bb9d7cbe567a2e7f40dffcafc6",
+    "simulation_lab/rgb_servo_vision.py": "498a5a52bd6fc207aa8754de074cc1c6d2ab9f10659e43f79d0aba12e9afcb1b",
+    "simulation_lab/scene.py": "b363abd064ed0983f9ba96381855f9fd079072dc48593f17fc0bf6e623468b19",
+    "simulation_lab/sequence_policy.py": "510695960009387afef87284e76e57fa0cce500acd29c380336c08cf865904a8",
+    "simulation_lab/slots.py": "41755919e4d2bbfb2b023e78c09370d2fbcd740f377bdf616551aff2aa827873",
+    "simulation_lab/speech.py": "66a50562886702017bdf9e0d2a1af31dfb4531061af9b8a6c5c9f16d02cce4a0",
+    "simulation_lab/storage.py": "adff62806bc5786ee7c374a09754d82e37474b97f4d37074551d02d3796f444f",
+    "simulation_lab/trial_preview.py": "59fc8b1dc83596856835b62a5153a85dbf39bf9f8e7c2be62b764bed70dfb11b",
+    "simulation_lab/__init__.py": "41d6e06b5cd49e86faaccfc822e0195485e4efed792c4ae28bdb42dc8e814220",
+    "simulation_lab/assets/so101/LICENSE": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
+    "simulation_lab/assets/so101/provenance.json": "c8975d2b1cf911a861a93851feb975a41608dbf9827d9ab4196647115452e6c1",
+    "simulation_lab/assets/so101/README.md": "e2344e7c14290bed85c7907247aecb8bf6cb4392e3de0d7c45680efe9bb9b5a9",
+    "simulation_lab/assets/so101/so101.xml": "5ad49f2b45c083baac9ffe5d4d3213a5da7eac8039095bb2df177a697aae8308",
+    "simulation_lab/assets/so101/assets/base_motor_holder_so101_v1.stl": "8cd2f241037ea377af1191fffe0dd9d9006beea6dcc48543660ed41647072424",
+    "simulation_lab/assets/so101/assets/base_so101_v2.stl": "bb12b7026575e1f70ccc7240051f9d943553bf34e5128537de6cd86fae33924d",
+    "simulation_lab/assets/so101/assets/motor_holder_so101_base_v1.stl": "31242ae6fb59d8b15c66617b88ad8e9bded62d57c35d11c0c43a70d2f4caa95b",
+    "simulation_lab/assets/so101/assets/motor_holder_so101_wrist_v1.stl": "887f92e6013cb64ea3a1ab8675e92da1e0beacfd5e001f972523540545e08011",
+    "simulation_lab/assets/so101/assets/moving_jaw_so101_gripper_part0_v1.stl": "3a92e115d1934d4c45cff808c4eff2ea10361a137a7f89940033a1f8a821b88c",
+    "simulation_lab/assets/so101/assets/moving_jaw_so101_gripper_part1_v1.stl": "d10f6c671d26f62988ec95efee9370a0657b5833b3c5f8aad59fd69a87ef2aee",
+    "simulation_lab/assets/so101/assets/moving_jaw_so101_gripper_v1.stl": "e8a5dc040b98e27453a5b74f9087d1dbca14589cf9a17c4de7868d5ab98413cd",
+    "simulation_lab/assets/so101/assets/moving_jaw_so101_v1.stl": "785a9dded2f474bc1d869e0d3dae398a3dcd9c0c345640040472210d2861fa9d",
+    "simulation_lab/assets/so101/assets/rotation_pitch_so101_v1.stl": "9be900cc2a2bf718102841ef82ef8d2873842427648092c8ed2ca1e2ef4ffa34",
+    "simulation_lab/assets/so101/assets/sts3215_03a_no_horn_v1.stl": "75ef3781b752e4065891aea855e34dc161a38a549549cd0970cedd07eae6f887",
+    "simulation_lab/assets/so101/assets/sts3215_03a_v1.stl": "a37c871fb502483ab96c256baf457d36f2e97afc9205313d9c5ab275ef941cd0",
+    "simulation_lab/assets/so101/assets/under_arm_so101_v1.stl": "d01d1f2de365651dcad9d6669e94ff87ff7652b5bb2d10752a66a456a86dbc71",
+    "simulation_lab/assets/so101/assets/upper_arm_so101_v1.stl": "475056e03a17e71919b82fd88ab9a0b898ab50164f2a7943652a6b2941bb2d4f",
+    "simulation_lab/assets/so101/assets/waveshare_mounting_plate_so101_v2.stl": "e197e24005a07d01bbc06a8c42311664eaeda415bf859f68fa247884d0f1a6e9",
+    "simulation_lab/assets/so101/assets/wrist_roll_follower_so101_camera_mount.stl": "58c457b33a26d9c9bb337aa351173e7123f84719a93f486541adef6eba57ae21",
+    "simulation_lab/assets/so101/assets/wrist_roll_follower_so101_gripper_part0_v1.stl": "370eb470a6ab48b08febcaeb5274d2bcc91246692532ce12c795fb82977def72",
+    "simulation_lab/assets/so101/assets/wrist_roll_follower_so101_v1.stl": "4b17b410a12d64ec39554abc3e8054d8a97384b2dc4a8d95a5ecb2a93670f5f4",
+    "simulation_lab/assets/so101/assets/wrist_roll_pitch_so101_v2.stl": "6c7ec5525b4d8b9e397a30ab4bb0037156a5d5f38a4adf2c7d943d6c56eda5ae",
+    "simulation_lab/assets/so101/assets/lod/base_motor_holder_so101_v1.stl": "2b868734361acd1ea0781dadf200e1cb339c9572b28d9cf6e56385cf4f9e006d",
+    "simulation_lab/assets/so101/assets/lod/base_so101_v2.stl": "4e303f0474673d7d491a39a674e53e3eeea5ed2db1c86974f681fefe009ca5f2",
+    "simulation_lab/assets/so101/assets/lod/motor_holder_so101_base_v1.stl": "6bc491c03b5a0a643d7f8826cf3ab570348deb9342dfb4c524559c49c2985437",
+    "simulation_lab/assets/so101/assets/lod/motor_holder_so101_wrist_v1.stl": "9b3eee01fda44a936ffd43e91fc4356bd8cdc8e279e54f0e66736f3738512cc1",
+    "simulation_lab/assets/so101/assets/lod/moving_jaw_so101_v1.stl": "598b024e20c6ef6f52641e1a2282e3f13ad14115c27e6191427847419c38fbf6",
+    "simulation_lab/assets/so101/assets/lod/provenance.json": "971c887d89e0b33bf4730054b261b7e901cf976b870cccb4b23775a5510b3bd6",
+    "simulation_lab/assets/so101/assets/lod/rotation_pitch_so101_v1.stl": "70528fb6248f3072809d5a91c571bee14348692c47c0637fbf11260d0f1fb536",
+    "simulation_lab/assets/so101/assets/lod/sts3215_03a_no_horn_v1.stl": "277c1bb22ca40a2ed11c33bf1777e9d5cdda5041973c1aa58ae0beaa9ec1686b",
+    "simulation_lab/assets/so101/assets/lod/sts3215_03a_v1.stl": "a3b9206d73815e96a5dd5cc9c62df6fd3442a5643bfdebcf8bed2fa0a8134e0a",
+    "simulation_lab/assets/so101/assets/lod/under_arm_so101_v1.stl": "b29737ef192d8be648835f6948c539c327777cd0fbfe9f98408cdb61880fe156",
+    "simulation_lab/assets/so101/assets/lod/upper_arm_so101_v1.stl": "01a121e9a04d142cb78a75d777b9d241883f3c7279e880e038d19f1fcd8ec6bf",
+    "simulation_lab/assets/so101/assets/lod/waveshare_mounting_plate_so101_v2.stl": "bcf273ebdc4420390a5076530bb64673ec5e1103c0874f9d754d47fbc2013e03",
+    "simulation_lab/assets/so101/assets/lod/wrist_roll_follower_so101_v1.stl": "7e4e58090b60ec2c89a9c44eec2412854f5e0ab9b5abe6c25b6739b5898406be",
+    "simulation_lab/assets/so101/assets/lod/wrist_roll_pitch_so101_v2.stl": "fcb60c7108a93a23a936a36fbd25c1f5c6360b4081a85056fef35617eac05d04",
+    "simulation_lab/wide_bottle_task.py": "15825e5beef63c60446c5298a61402976a8e24c5b670e90010b08f1f9d31dbad",
+    "models/bottle_wide_v1/observer/artifacts.json": "39708bf93fdedf3594be78b90c2d749705290affc409be5848b891b1a8f96721",
+    "models/bottle_wide_v1/observer/coarse.bin": "9ee387fc2bfbde69367e49f5ec7bc5b6b38f5faa1d7b80004d6773456f7c73f0",
+    "models/bottle_wide_v1/observer/coarse.xml": "542ac6cfe8903a66dd0c420f87bd571b49ba6873edd85cecbb87fd660b5adbe1",
+    "models/bottle_wide_v1/observer/protocol.json": "1e94fa0c2583faf5401a7341ed73f7009f15bf48accc05866fd233bc3124a633",
+    "models/bottle_wide_v1/observer/refiner.bin": "bbab8e76c42df89a7375389c40533e1252a9bd508be2d0cad571fbd00f5e196e",
+    "models/bottle_wide_v1/observer/refiner.xml": "038af07290c5bbbe318a47e1f5b61478ce13b2bbae0e2fb3d2a78a1a32fc1a15",
+    "models/bottle_wide_v1/motor/experiment.json": "ee2b6c994817e5ed37b627389f46924550784c533ff15142d90c6ab51ee6051b",
+    "models/bottle_wide_v1/motor/motor-export-parity.json": "084073dd232c4e475ac8517add1993a255e828472074e8ad75d8461bf4b237f4",
+    "models/bottle_wide_v1/motor/motor.safetensors": "ad1b9b7bbb4e45b7d89e2de4149b22e9a8b9d298ea8ed66073d24639f434ccb7",
+    "models/bottle_wide_v1/motor/observer.safetensors": "1b97d12a89d632462e27846846bae5be88d904d2c876901f05ec190f491d2851",
+    "models/bottle_wide_v1/motor/openvino/motor.bin": "277d06790b778ff5b45cabb44015e3f8cf2b7c38e8fb0c8a9b924fee6c385cd5",
+    "models/bottle_wide_v1/motor/openvino/motor.xml": "6380d60a8248492dcc9fdf3c14ac169222f55223318b32a39e2ad8719ca0a0f8",
+    "models/bottle_wide_v1/motor/openvino/observer.bin": "e76bc72eceeea26360f2971211142db989fbff486770fd455f5a29d7e520bb7f",
+    "models/bottle_wide_v1/motor/openvino/observer.xml": "542ac6cfe8903a66dd0c420f87bd571b49ba6873edd85cecbb87fd660b5adbe1",
+    "docs/robotics/evidence/bottle-wide-physical-v1/audit.json": "2074ed21beab9b19d47e7c4b91c0687296f38f346f2ae8d09793007d500e6128",
+    "docs/robotics/evidence/bottle-wide-physical-v1/manifest.json": "4dc083c19b519064bd84d0a5ce64c0be2e7d29fbe8305b84475d9dae29a4deaf",
+    "docs/robotics/experiments/bottle-wide-physical-v1.json": "07961d2203cf47d64d8bf6c29b7e3e58a19a3c2566e8a1e02828cd98077485e8",
+    "docs/robotics/experiments/rgb-servo-routing-v2.json": "a661bf87be300ffe125e5db87a25294d21bd8fc6afb85e859159d652eb39aa0d",
+    "docs/robotics/experiments/rgb-servo-visibility-v1.json": "1891981aaa203a9b58eae205572e0512c5642443c707b8113e92056044369711",
+    "docs/robotics/evidence/bottle-refinement-v1/fresh-perception.json": "c70e5263d291ad1f50dbbfcc7a02b307d7776a09149d19a9fa7f11205c7cf00e"
+  },
+  "source_workspace_m": {
+    "x": [
+      -0.14,
+      0.16
+    ],
+    "y": [
+      -0.18,
+      -0.06
+    ],
+    "yaw": [
+      -0.6,
+      0.6
+    ]
+  },
+  "source_observation_margin_m": 0.005,
+  "margin_interpretation": "A 5 mm image-localization tolerance for the source-region refusal check, not an extension of the tested physical source range.",
+  "destinations_xy_m": [
+    [
+      0.1,
+      -0.115
+    ],
+    [
+      0.2,
+      0.05
+    ]
+  ],
+  "standalone_perception_gate_remains_failed": true,
+  "scope": "Frozen wider upright-bottle execution at two explicit destinations. Source/scene randomization is declared; no arbitrary task, unknown geometry, moved cabinet or continuous visual carry correction claim.",
+  "production_integration_verified": false,
+  "model_copies": {
+    "models/bottle_wide_v1/observer/artifacts.json": {
+      "source": "models/bottle_refinement_v1/openvino/artifacts.json",
+      "sha256": "39708bf93fdedf3594be78b90c2d749705290affc409be5848b891b1a8f96721"
+    },
+    "models/bottle_wide_v1/observer/coarse.bin": {
+      "source": "models/bottle_refinement_v1/openvino/coarse.bin",
+      "sha256": "9ee387fc2bfbde69367e49f5ec7bc5b6b38f5faa1d7b80004d6773456f7c73f0"
+    },
+    "models/bottle_wide_v1/observer/coarse.xml": {
+      "source": "models/bottle_refinement_v1/openvino/coarse.xml",
+      "sha256": "542ac6cfe8903a66dd0c420f87bd571b49ba6873edd85cecbb87fd660b5adbe1"
+    },
+    "models/bottle_wide_v1/observer/protocol.json": {
+      "source": "models/bottle_refinement_v1/openvino/protocol.json",
+      "sha256": "1e94fa0c2583faf5401a7341ed73f7009f15bf48accc05866fd233bc3124a633"
+    },
+    "models/bottle_wide_v1/observer/refiner.bin": {
+      "source": "models/bottle_refinement_v1/openvino/refiner.bin",
+      "sha256": "bbab8e76c42df89a7375389c40533e1252a9bd508be2d0cad571fbd00f5e196e"
+    },
+    "models/bottle_wide_v1/observer/refiner.xml": {
+      "source": "models/bottle_refinement_v1/openvino/refiner.xml",
+      "sha256": "038af07290c5bbbe318a47e1f5b61478ce13b2bbae0e2fb3d2a78a1a32fc1a15"
+    },
+    "models/bottle_wide_v1/motor/experiment.json": {
+      "source": "docs/robotics/evidence/rgb-servo-v5/physical/model/experiment.json",
+      "sha256": "ee2b6c994817e5ed37b627389f46924550784c533ff15142d90c6ab51ee6051b"
+    },
+    "models/bottle_wide_v1/motor/motor-export-parity.json": {
+      "source": "docs/robotics/evidence/rgb-servo-v5/physical/model/motor-export-parity.json",
+      "sha256": "084073dd232c4e475ac8517add1993a255e828472074e8ad75d8461bf4b237f4"
+    },
+    "models/bottle_wide_v1/motor/motor.safetensors": {
+      "source": "docs/robotics/evidence/rgb-servo-v5/physical/model/motor.safetensors",
+      "sha256": "ad1b9b7bbb4e45b7d89e2de4149b22e9a8b9d298ea8ed66073d24639f434ccb7"
+    },
+    "models/bottle_wide_v1/motor/observer.safetensors": {
+      "source": "docs/robotics/evidence/rgb-servo-v5/physical/model/observer.safetensors",
+      "sha256": "1b97d12a89d632462e27846846bae5be88d904d2c876901f05ec190f491d2851"
+    },
+    "models/bottle_wide_v1/motor/openvino/motor.bin": {
+      "source": "docs/robotics/evidence/rgb-servo-v5/physical/model/openvino/motor.bin",
+      "sha256": "277d06790b778ff5b45cabb44015e3f8cf2b7c38e8fb0c8a9b924fee6c385cd5"
+    },
+    "models/bottle_wide_v1/motor/openvino/motor.xml": {
+      "source": "docs/robotics/evidence/rgb-servo-v5/physical/model/openvino/motor.xml",
+      "sha256": "6380d60a8248492dcc9fdf3c14ac169222f55223318b32a39e2ad8719ca0a0f8"
+    },
+    "models/bottle_wide_v1/motor/openvino/observer.bin": {
+      "source": "docs/robotics/evidence/rgb-servo-v5/physical/model/openvino/observer.bin",
+      "sha256": "e76bc72eceeea26360f2971211142db989fbff486770fd455f5a29d7e520bb7f"
+    },
+    "models/bottle_wide_v1/motor/openvino/observer.xml": {
+      "source": "docs/robotics/evidence/rgb-servo-v5/physical/model/openvino/observer.xml",
+      "sha256": "542ac6cfe8903a66dd0c420f87bd571b49ba6873edd85cecbb87fd660b5adbe1"
+    }
+  },
+  "preflight": {
+    "free_bytes": 548003491840,
+    "estimated_additional_bytes": 39804876,
+    "reserve_bytes": 10737418240
+  }
+}

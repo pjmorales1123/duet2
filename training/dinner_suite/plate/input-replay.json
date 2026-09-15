@@ -1,0 +1,1241 @@
+{
+  "schema": "talos.aligned-input-replay.v1",
+  "source_sha256": "f95af2dc7491c70b88dfe396a2fb6f9b06b89996a1ce9223aad313eef598ca88",
+  "skill": "plate",
+  "complete": true,
+  "passed": true,
+  "episodes": [
+    {
+      "episode": "seed-2026091701",
+      "passed": true,
+      "failure": null,
+      "metrics": {
+        "placement_error_mm": 1.3928117718973407,
+        "placement_z_error_mm": 0.0005272395808830765,
+        "placement_yaw_error_deg": 0.0,
+        "speed_mm_s": 0.01339800291028065,
+        "max_lift_cm": 4.7263755240870235,
+        "hold_verified_s": 9.630000000004927,
+        "longest_unsupported_gap_s": 0.0,
+        "stable_release_and_park_s": 0.5049999999995407,
+        "both_arms_parked": true,
+        "other_object_displacements_m": {
+          "side_plate": 3.4894547359006904e-07,
+          "mug": 3.200593136211358e-07,
+          "glass": 8.352099062576588e-08,
+          "bottle": 2.5539331812596516e-07,
+          "fork": 1.9039431402956233e-06,
+          "spoon": 4.876359681708246e-06
+        },
+        "other_object_max_displacement_m": 4.876359681708246e-06,
+        "parked_arm_max_motion_deg": 1.3939367513019312e-06,
+        "unexpected_collisions": 0
+      },
+      "teacher_updates": 0,
+      "scoring": "Privileged simulator state; no motor targets generated",
+      "wall_seconds": 4.088676300132647
+    },
+    {
+      "episode": "seed-2026091702",
+      "passed": true,
+      "failure": null,
+      "metrics": {
+        "placement_error_mm": 0.9338249986926592,
+        "placement_z_error_mm": 2.6629647709164317e-05,
+        "placement_yaw_error_deg": 0.0,
+        "speed_mm_s": 0.024072537947523485,
+        "max_lift_cm": 4.791453319455929,
+        "hold_verified_s": 9.665000000004945,
+        "longest_unsupported_gap_s": 0.0,
+        "stable_release_and_park_s": 0.5049999999995407,
+        "both_arms_parked": true,
+        "other_object_displacements_m": {
+          "side_plate": 2.2751463346766428e-07,
+          "mug": 1.3308128727293893e-07,
+          "glass": 4.260393268408896e-08,
+          "bottle": 7.921816513530698e-08,
+          "fork": 4.985510837702931e-06,
+          "spoon": 1.6823654001703048e-05
+        },
+        "other_object_max_displacement_m": 3.6778806003010075e-05,
+        "parked_arm_max_motion_deg": 1.3939367513019312e-06,
+        "unexpected_collisions": 0
+      },
+      "teacher_updates": 0,
+      "scoring": "Privileged simulator state; no motor targets generated",
+      "wall_seconds": 5.046044399961829
+    },
+    {
+      "episode": "seed-2026091703",
+      "passed": true,
+      "failure": null,
+      "metrics": {
+        "placement_error_mm": 1.5641769022228018,
+        "placement_z_error_mm": 0.0006366015677938819,
+        "placement_yaw_error_deg": 0.0,
+        "speed_mm_s": 0.033714111356706634,
+        "max_lift_cm": 4.759759897246174,
+        "hold_verified_s": 9.620000000004922,
+        "longest_unsupported_gap_s": 0.0,
+        "stable_release_and_park_s": 0.5049999999995407,
+        "both_arms_parked": true,
+        "other_object_displacements_m": {
+          "side_plate": 1.9468676311771735e-07,
+          "mug": 3.5852238014225385e-07,
+          "glass": 1.3943100085616637e-07,
+          "bottle": 3.316370545449655e-08,
+          "fork": 5.701707133294995e-06,
+          "spoon": 7.0157446679770635e-06
+        },
+        "other_object_max_displacement_m": 7.0157446679770635e-06,
+        "parked_arm_max_motion_deg": 1.3939366749686188e-06,
+        "unexpected_collisions": 0
+      },
+      "teacher_updates": 0,
+      "scoring": "Privileged simulator state; no motor targets generated",
+      "wall_seconds": 4.836272799875587
+    },
+    {
+      "episode": "seed-2026091704",
+      "passed": true,
+      "failure": null,
+      "metrics": {
+        "placement_error_mm": 1.2188725113757666,
+        "placement_z_error_mm": 0.0005499625678195841,
+        "placement_yaw_error_deg": 0.0,
+        "speed_mm_s": 0.009410868737279228,
+        "max_lift_cm": 4.693512549167956,
+        "hold_verified_s": 9.600000000004911,
+        "longest_unsupported_gap_s": 0.0,
+        "stable_release_and_park_s": 0.5049999999995407,
+        "both_arms_parked": true,
+        "other_object_displacements_m": {
+          "side_plate": 3.448973079174329e-08,
+          "mug": 3.359452484581732e-07,
+          "glass": 1.1345112351717666e-07,
+          "bottle": 8.994792825140646e-08,
+          "fork": 1.968569957307232e-06,
+          "spoon": 2.1635022120692793e-06
+        },
+        "other_object_max_displacement_m": 2.1635022120692793e-06,
+        "parked_arm_max_motion_deg": 1.3939367513019312e-06,
+        "unexpected_collisions": 0
+      },
+      "teacher_updates": 0,
+      "scoring": "Privileged simulator state; no motor targets generated",
+      "wall_seconds": 5.116260699927807
+    },
+    {
+      "episode": "seed-2026091705",
+      "passed": true,
+      "failure": null,
+      "metrics": {
+        "placement_error_mm": 0.889365020787063,
+        "placement_z_error_mm": 0.0003245691073683332,
+        "placement_yaw_error_deg": 0.0,
+        "speed_mm_s": 0.023895185687089045,
+        "max_lift_cm": 4.7691431783933975,
+        "hold_verified_s": 9.575000000004898,
+        "longest_unsupported_gap_s": 0.0,
+        "stable_release_and_park_s": 0.5049999999995407,
+        "both_arms_parked": true,
+        "other_object_displacements_m": {
+          "side_plate": 2.3200032497042692e-08,
+          "mug": 2.0397332634758753e-07,
+          "glass": 9.046182901167956e-08,
+          "bottle": 7.998344656801627e-08,
+          "fork": 2.0107837409656038e-06,
+          "spoon": 5.1175061565539295e-06
+        },
+        "other_object_max_displacement_m": 5.1175061565539295e-06,
+        "parked_arm_max_motion_deg": 1.3939367513019312e-06,
+        "unexpected_collisions": 0
+      },
+      "teacher_updates": 0,
+      "scoring": "Privileged simulator state; no motor targets generated",
+      "wall_seconds": 5.247542400145903
+    },
+    {
+      "episode": "seed-2026091706",
+      "passed": true,
+      "failure": null,
+      "metrics": {
+        "placement_error_mm": 1.1236021396773341,
+        "placement_z_error_mm": 3.712878560158117e-05,
+        "placement_yaw_error_deg": 0.0,
+        "speed_mm_s": 0.009300103161380609,
+        "max_lift_cm": 4.694820724354376,
+        "hold_verified_s": 9.505000000004863,
+        "longest_unsupported_gap_s": 0.0,
+        "stable_release_and_park_s": 0.5049999999995407,
+        "both_arms_parked": true,
+        "other_object_displacements_m": {
+          "side_plate": 5.00119971673446e-08,
+          "mug": 3.048667069906942e-07,
+          "glass": 1.1884390107541899e-07,
+          "bottle": 4.9253699227032966e-08,
+          "fork": 5.8514285899769626e-06,
+          "spoon": 6.722726395522349e-06
+        },
+        "other_object_max_displacement_m": 6.722726395522349e-06,
+        "parked_arm_max_motion_deg": 1.3939367513019312e-06,
+        "unexpected_collisions": 0
+      },
+      "teacher_updates": 0,
+      "scoring": "Privileged simulator state; no motor targets generated",
+      "wall_seconds": 4.833201400004327
+    },
+    {
+      "episode": "seed-2026091707",
+      "passed": true,
+      "failure": null,
+      "metrics": {
+        "placement_error_mm": 1.6160984146627257,
+        "placement_z_error_mm": 0.0005444479884708642,
+        "placement_yaw_error_deg": 0.0,
+        "speed_mm_s": 0.016545675848923795,
+        "max_lift_cm": 4.70824748743901,
+        "hold_verified_s": 9.615000000004919,
+        "longest_unsupported_gap_s": 0.0,
+        "stable_release_and_park_s": 0.5049999999995407,
+        "both_arms_parked": true,
+        "other_object_displacements_m": {
+          "side_plate": 2.4357835670115697e-07,
+          "mug": 2.7472802070850017e-07,
+          "glass": 8.664892885102785e-08,
+          "bottle": 5.6848827216455573e-08,
+          "fork": 6.222598131350513e-06,
+          "spoon": 5.448372350073428e-06
+        },
+        "other_object_max_displacement_m": 6.222598131350513e-06,
+        "parked_arm_max_motion_deg": 1.3939366495241812e-06,
+        "unexpected_collisions": 0
+      },
+      "teacher_updates": 0,
+      "scoring": "Privileged simulator state; no motor targets generated",
+      "wall_seconds": 4.802671899786219
+    },
+    {
+      "episode": "seed-2026091708",
+      "passed": true,
+      "failure": null,
+      "metrics": {
+        "placement_error_mm": 0.7561712509528203,
+        "placement_z_error_mm": 0.00010875355882511428,
+        "placement_yaw_error_deg": 0.0,
+        "speed_mm_s": 0.010955616342783733,
+        "max_lift_cm": 4.779279615317423,
+        "hold_verified_s": 9.630000000004927,
+        "longest_unsupported_gap_s": 0.0,
+        "stable_release_and_park_s": 0.5049999999995407,
+        "both_arms_parked": true,
+        "other_object_displacements_m": {
+          "side_plate": 1.9606705962068e-07,
+          "mug": 3.8633756436652985e-07,
+          "glass": 1.3694615049406032e-07,
+          "bottle": 1.1391826340419212e-07,
+          "fork": 1.7335229764766105e-06,
+          "spoon": 2.6891973470921087e-06
+        },
+        "other_object_max_displacement_m": 2.6891973470921087e-06,
+        "parked_arm_max_motion_deg": 1.3939366749686188e-06,
+        "unexpected_collisions": 0
+      },
+      "teacher_updates": 0,
+      "scoring": "Privileged simulator state; no motor targets generated",
+      "wall_seconds": 4.955065899994224
+    },
+    {
+      "episode": "seed-42",
+      "passed": true,
+      "failure": null,
+      "metrics": {
+        "placement_error_mm": 1.230945315210642,
+        "placement_z_error_mm": 0.00017643933791777755,
+        "placement_yaw_error_deg": 0.0,
+        "speed_mm_s": 0.033752629565899986,
+        "max_lift_cm": 4.652404288607725,
+        "hold_verified_s": 9.565000000004893,
+        "longest_unsupported_gap_s": 0.0,
+        "stable_release_and_park_s": 0.5049999999995407,
+        "both_arms_parked": true,
+        "other_object_displacements_m": {
+          "side_plate": 9.245821411672853e-08,
+          "mug": 3.0603665529188157e-07,
+          "glass": 1.3620576593414146e-07,
+          "bottle": 1.0785203790967309e-07,
+          "fork": 1.923837698132718e-06,
+          "spoon": 6.8003017303979616e-06
+        },
+        "other_object_max_displacement_m": 6.8003017303979616e-06,
+        "parked_arm_max_motion_deg": 1.3939366749686188e-06,
+        "unexpected_collisions": 0
+      },
+      "teacher_updates": 0,
+      "scoring": "Privileged simulator state; no motor targets generated",
+      "wall_seconds": 4.905430800048634
+    },
+    {
+      "episode": "seed-2026091709",
+      "passed": true,
+      "failure": null,
+      "metrics": {
+        "placement_error_mm": 0.847218737961124,
+        "placement_z_error_mm": 0.0003241061653502797,
+        "placement_yaw_error_deg": 0.0,
+        "speed_mm_s": 0.0021016512534628453,
+        "max_lift_cm": 4.77840395193766,
+        "hold_verified_s": 9.645000000004934,
+        "longest_unsupported_gap_s": 0.0,
+        "stable_release_and_park_s": 0.5049999999995407,
+        "both_arms_parked": true,
+        "other_object_displacements_m": {
+          "side_plate": 9.17631516041676e-08,
+          "mug": 3.885646939358267e-07,
+          "glass": 1.1157859937177785e-07,
+          "bottle": 1.281863878113513e-07,
+          "fork": 1.9273137461133265e-06,
+          "spoon": 5.1736643825339085e-06
+        },
+        "other_object_max_displacement_m": 5.1736643825339085e-06,
+        "parked_arm_max_motion_deg": 1.3939366749686188e-06,
+        "unexpected_collisions": 0
+      },
+      "teacher_updates": 0,
+      "scoring": "Privileged simulator state; no motor targets generated",
+      "wall_seconds": 5.121430999832228
+    },
+    {
+      "episode": "seed-2026091710",
+      "passed": true,
+      "failure": null,
+      "metrics": {
+        "placement_error_mm": 0.8542517375716099,
+        "placement_z_error_mm": 2.974182866655184e-05,
+        "placement_yaw_error_deg": 0.0,
+        "speed_mm_s": 0.008372390160954401,
+        "max_lift_cm": 4.8024642882225415,
+        "hold_verified_s": 9.65500000000494,
+        "longest_unsupported_gap_s": 0.0,
+        "stable_release_and_park_s": 0.5049999999995407,
+        "both_arms_parked": true,
+        "other_object_displacements_m": {
+          "side_plate": 2.1725963433939403e-07,
+          "mug": 1.662409839059504e-07,
+          "glass": 1.3841688171193197e-07,
+          "bottle": 9.104489547634488e-08,
+          "fork": 4.5334525583982986e-06,
+          "spoon": 4.772319614708019e-06
+        },
+        "other_object_max_displacement_m": 4.772319614708019e-06,
+        "parked_arm_max_motion_deg": 1.3939367513019312e-06,
+        "unexpected_collisions": 0
+      },
+      "teacher_updates": 0,
+      "scoring": "Privileged simulator state; no motor targets generated",
+      "wall_seconds": 4.817055199993774
+    },
+    {
+      "episode": "seed-2026091711",
+      "passed": true,
+      "failure": null,
+      "metrics": {
+        "placement_error_mm": 1.1965960661675845,
+        "placement_z_error_mm": 0.0003733287221585613,
+        "placement_yaw_error_deg": 0.0,
+        "speed_mm_s": 0.009444050370619187,
+        "max_lift_cm": 4.72929147331389,
+        "hold_verified_s": 9.530000000004875,
+        "longest_unsupported_gap_s": 0.0,
+        "stable_release_and_park_s": 0.5049999999995407,
+        "both_arms_parked": true,
+        "other_object_displacements_m": {
+          "side_plate": 9.803260732585051e-08,
+          "mug": 2.7499140635155543e-07,
+          "glass": 1.1529552233040946e-07,
+          "bottle": 8.545390395804627e-08,
+          "fork": 0.00015645522167332873,
+          "spoon": 6.733109379386014e-06
+        },
+        "other_object_max_displacement_m": 0.00015734894640270842,
+        "parked_arm_max_motion_deg": 1.3939367513019312e-06,
+        "unexpected_collisions": 0
+      },
+      "teacher_updates": 0,
+      "scoring": "Privileged simulator state; no motor targets generated",
+      "wall_seconds": 6.061179699841887
+    },
+    {
+      "episode": "seed-2026091712",
+      "passed": true,
+      "failure": null,
+      "metrics": {
+        "placement_error_mm": 0.8062370629223191,
+        "placement_z_error_mm": 0.00033086571304963286,
+        "placement_yaw_error_deg": 0.0,
+        "speed_mm_s": 0.02422980999474093,
+        "max_lift_cm": 4.808965672009813,
+        "hold_verified_s": 9.660000000004942,
+        "longest_unsupported_gap_s": 0.0,
+        "stable_release_and_park_s": 0.5049999999995407,
+        "both_arms_parked": true,
+        "other_object_displacements_m": {
+          "side_plate": 5.354277033419646e-08,
+          "mug": 3.1361169883754653e-07,
+          "glass": 1.0183522576835234e-07,
+          "bottle": 8.904190590842003e-08,
+          "fork": 4.8532710328741165e-06,
+          "spoon": 5.544253077852079e-06
+        },
+        "other_object_max_displacement_m": 5.544253077852079e-06,
+        "parked_arm_max_motion_deg": 1.3939367513019312e-06,
+        "unexpected_collisions": 0
+      },
+      "teacher_updates": 0,
+      "scoring": "Privileged simulator state; no motor targets generated",
+      "wall_seconds": 5.100126799894497
+    },
+    {
+      "episode": "seed-2026091713",
+      "passed": true,
+      "failure": null,
+      "metrics": {
+        "placement_error_mm": 0.982952746273331,
+        "placement_z_error_mm": 0.0002592677447177394,
+        "placement_yaw_error_deg": 0.0,
+        "speed_mm_s": 0.02382143136006969,
+        "max_lift_cm": 4.764497665697876,
+        "hold_verified_s": 9.640000000004932,
+        "longest_unsupported_gap_s": 0.0,
+        "stable_release_and_park_s": 0.5049999999995407,
+        "both_arms_parked": true,
+        "other_object_displacements_m": {
+          "side_plate": 3.2998015241965577e-07,
+          "mug": 1.5691646075728721e-07,
+          "glass": 1.2314314027482684e-07,
+          "bottle": 1.1105232959473547e-07,
+          "fork": 1.7228926400135481e-06,
+          "spoon": 3.7288540699572333e-06
+        },
+        "other_object_max_displacement_m": 3.7288540699572333e-06,
+        "parked_arm_max_motion_deg": 1.3939367513019312e-06,
+        "unexpected_collisions": 0
+      },
+      "teacher_updates": 0,
+      "scoring": "Privileged simulator state; no motor targets generated",
+      "wall_seconds": 5.233643000014126
+    },
+    {
+      "episode": "seed-2026091714",
+      "passed": true,
+      "failure": null,
+      "metrics": {
+        "placement_error_mm": 0.9198821803502877,
+        "placement_z_error_mm": 0.0003715520384695026,
+        "placement_yaw_error_deg": 0.0,
+        "speed_mm_s": 0.02346451556305773,
+        "max_lift_cm": 4.769686097220649,
+        "hold_verified_s": 9.625000000004924,
+        "longest_unsupported_gap_s": 0.0,
+        "stable_release_and_park_s": 0.5049999999995407,
+        "both_arms_parked": true,
+        "other_object_displacements_m": {
+          "side_plate": 1.758248740888684e-08,
+          "mug": 4.170306951532025e-07,
+          "glass": 7.616475694109984e-08,
+          "bottle": 8.328572917986949e-08,
+          "fork": 5.291395477705914e-06,
+          "spoon": 4.19533704941671e-06
+        },
+        "other_object_max_displacement_m": 5.291395477705914e-06,
+        "parked_arm_max_motion_deg": 1.3939366749686188e-06,
+        "unexpected_collisions": 0
+      },
+      "teacher_updates": 0,
+      "scoring": "Privileged simulator state; no motor targets generated",
+      "wall_seconds": 5.018349900143221
+    },
+    {
+      "episode": "seed-2026091715",
+      "passed": true,
+      "failure": null,
+      "metrics": {
+        "placement_error_mm": 0.5848539458033306,
+        "placement_z_error_mm": 0.0004165557946356202,
+        "placement_yaw_error_deg": 0.0,
+        "speed_mm_s": 0.008591156414376439,
+        "max_lift_cm": 4.809119879293355,
+        "hold_verified_s": 9.665000000004945,
+        "longest_unsupported_gap_s": 0.0,
+        "stable_release_and_park_s": 0.5049999999995407,
+        "both_arms_parked": true,
+        "other_object_displacements_m": {
+          "side_plate": 1.3277991888794538e-07,
+          "mug": 2.8334803691542475e-07,
+          "glass": 1.4430519650418002e-07,
+          "bottle": 1.1108315807834301e-07,
+          "fork": 6.120914524203714e-06,
+          "spoon": 4.292787521368664e-06
+        },
+        "other_object_max_displacement_m": 6.120914524203714e-06,
+        "parked_arm_max_motion_deg": 1.3939367513019312e-06,
+        "unexpected_collisions": 0
+      },
+      "teacher_updates": 0,
+      "scoring": "Privileged simulator state; no motor targets generated",
+      "wall_seconds": 5.00747080007568
+    },
+    {
+      "episode": "seed-2026091716",
+      "passed": true,
+      "failure": null,
+      "metrics": {
+        "placement_error_mm": 1.0986948064858388,
+        "placement_z_error_mm": 0.00042941201694457476,
+        "placement_yaw_error_deg": 0.0,
+        "speed_mm_s": 0.009814056337877684,
+        "max_lift_cm": 4.7283617451547855,
+        "hold_verified_s": 9.625000000004924,
+        "longest_unsupported_gap_s": 0.0,
+        "stable_release_and_park_s": 0.5049999999995407,
+        "both_arms_parked": true,
+        "other_object_displacements_m": {
+          "side_plate": 3.8040860669225576e-08,
+          "mug": 1.7472964436994488e-07,
+          "glass": 6.146673535902285e-08,
+          "bottle": 1.0892902136947767e-07,
+          "fork": 5.422832600568378e-05,
+          "spoon": 4.220612753877559e-06
+        },
+        "other_object_max_displacement_m": 5.4669970929299316e-05,
+        "parked_arm_max_motion_deg": 1.3939366749686188e-06,
+        "unexpected_collisions": 0
+      },
+      "teacher_updates": 0,
+      "scoring": "Privileged simulator state; no motor targets generated",
+      "wall_seconds": 5.003768799826503
+    },
+    {
+      "episode": "seed-2026091717",
+      "passed": true,
+      "failure": null,
+      "metrics": {
+        "placement_error_mm": 1.0153616135212293,
+        "placement_z_error_mm": 6.732922153140919e-05,
+        "placement_yaw_error_deg": 0.0,
+        "speed_mm_s": 0.019059008854508255,
+        "max_lift_cm": 4.7483628186930975,
+        "hold_verified_s": 9.640000000004932,
+        "longest_unsupported_gap_s": 0.0,
+        "stable_release_and_park_s": 0.5049999999995407,
+        "both_arms_parked": true,
+        "other_object_displacements_m": {
+          "side_plate": 7.89665124178309e-08,
+          "mug": 3.56253965478106e-07,
+          "glass": 3.5838212305048653e-08,
+          "bottle": 8.752701879957328e-08,
+          "fork": 5.21780323802231e-06,
+          "spoon": 3.6902134488158248e-06
+        },
+        "other_object_max_displacement_m": 5.21780323802231e-06,
+        "parked_arm_max_motion_deg": 1.3939366749686188e-06,
+        "unexpected_collisions": 0
+      },
+      "teacher_updates": 0,
+      "scoring": "Privileged simulator state; no motor targets generated",
+      "wall_seconds": 5.049742500064895
+    },
+    {
+      "episode": "seed-2026091718",
+      "passed": true,
+      "failure": null,
+      "metrics": {
+        "placement_error_mm": 1.2357613902211693,
+        "placement_z_error_mm": 0.0004456994124879543,
+        "placement_yaw_error_deg": 0.0,
+        "speed_mm_s": 0.006472244960077507,
+        "max_lift_cm": 4.69961343652705,
+        "hold_verified_s": 9.600000000004911,
+        "longest_unsupported_gap_s": 0.0,
+        "stable_release_and_park_s": 0.5049999999995407,
+        "both_arms_parked": true,
+        "other_object_displacements_m": {
+          "side_plate": 2.5464990901010466e-08,
+          "mug": 2.809468758478281e-07,
+          "glass": 1.13268215734454e-07,
+          "bottle": 9.20759673453903e-08,
+          "fork": 4.803489210684387e-06,
+          "spoon": 3.968579001254747e-06
+        },
+        "other_object_max_displacement_m": 4.803489210684387e-06,
+        "parked_arm_max_motion_deg": 1.3939367513019312e-06,
+        "unexpected_collisions": 0
+      },
+      "teacher_updates": 0,
+      "scoring": "Privileged simulator state; no motor targets generated",
+      "wall_seconds": 4.820569300092757
+    },
+    {
+      "episode": "seed-2026091719",
+      "passed": true,
+      "failure": null,
+      "metrics": {
+        "placement_error_mm": 1.2168501324230483,
+        "placement_z_error_mm": 0.0004897561793892891,
+        "placement_yaw_error_deg": 0.0,
+        "speed_mm_s": 0.02026994725661168,
+        "max_lift_cm": 4.704513774601027,
+        "hold_verified_s": 9.570000000004896,
+        "longest_unsupported_gap_s": 0.0,
+        "stable_release_and_park_s": 0.5049999999995407,
+        "both_arms_parked": true,
+        "other_object_displacements_m": {
+          "side_plate": 1.6192792957973198e-07,
+          "mug": 1.5101133190591077e-07,
+          "glass": 1.0938780975404406e-07,
+          "bottle": 1.066405519876813e-07,
+          "fork": 5.55913466646325e-06,
+          "spoon": 5.206847349477215e-06
+        },
+        "other_object_max_displacement_m": 5.55913466646325e-06,
+        "parked_arm_max_motion_deg": 1.3939367513019312e-06,
+        "unexpected_collisions": 0
+      },
+      "teacher_updates": 0,
+      "scoring": "Privileged simulator state; no motor targets generated",
+      "wall_seconds": 4.968266300158575
+    },
+    {
+      "episode": "seed-2026091720",
+      "passed": true,
+      "failure": null,
+      "metrics": {
+        "placement_error_mm": 0.785194619968959,
+        "placement_z_error_mm": 0.00045197037434885345,
+        "placement_yaw_error_deg": 0.0,
+        "speed_mm_s": 0.014840556324627318,
+        "max_lift_cm": 4.738612890985461,
+        "hold_verified_s": 9.570000000004896,
+        "longest_unsupported_gap_s": 0.0,
+        "stable_release_and_park_s": 0.5049999999995407,
+        "both_arms_parked": true,
+        "other_object_displacements_m": {
+          "side_plate": 1.1891903648888716e-07,
+          "mug": 4.0838068036346024e-07,
+          "glass": 1.5750624003956303e-07,
+          "bottle": 9.054961240943947e-08,
+          "fork": 1.8147032223803837e-06,
+          "spoon": 5.378681981198969e-06
+        },
+        "other_object_max_displacement_m": 5.378681981198969e-06,
+        "parked_arm_max_motion_deg": 1.3939366749686188e-06,
+        "unexpected_collisions": 0
+      },
+      "teacher_updates": 0,
+      "scoring": "Privileged simulator state; no motor targets generated",
+      "wall_seconds": 4.984658399829641
+    },
+    {
+      "episode": "seed-2026091721",
+      "passed": true,
+      "failure": null,
+      "metrics": {
+        "placement_error_mm": 1.62563926465705,
+        "placement_z_error_mm": 8.106544313601916e-05,
+        "placement_yaw_error_deg": 0.0,
+        "speed_mm_s": 0.025933070964255376,
+        "max_lift_cm": 4.6970670096372675,
+        "hold_verified_s": 9.610000000004916,
+        "longest_unsupported_gap_s": 0.0,
+        "stable_release_and_park_s": 0.5049999999995407,
+        "both_arms_parked": true,
+        "other_object_displacements_m": {
+          "side_plate": 1.7010726871912538e-07,
+          "mug": 3.655826844871704e-07,
+          "glass": 3.854422025735626e-08,
+          "bottle": 4.204738249975786e-08,
+          "fork": 1.9647157705988987e-06,
+          "spoon": 6.3489216142697005e-06
+        },
+        "other_object_max_displacement_m": 6.3489216142697005e-06,
+        "parked_arm_max_motion_deg": 1.3939367513019312e-06,
+        "unexpected_collisions": 0
+      },
+      "teacher_updates": 0,
+      "scoring": "Privileged simulator state; no motor targets generated",
+      "wall_seconds": 5.189866700209677
+    },
+    {
+      "episode": "seed-2026091722",
+      "passed": true,
+      "failure": null,
+      "metrics": {
+        "placement_error_mm": 1.1472247246523102,
+        "placement_z_error_mm": 9.598407768596218e-05,
+        "placement_yaw_error_deg": 0.0,
+        "speed_mm_s": 0.014850962472688493,
+        "max_lift_cm": 4.658567906273592,
+        "hold_verified_s": 9.585000000004904,
+        "longest_unsupported_gap_s": 0.0,
+        "stable_release_and_park_s": 0.5049999999995407,
+        "both_arms_parked": true,
+        "other_object_displacements_m": {
+          "side_plate": 1.6413443509731736e-07,
+          "mug": 2.95506645329272e-07,
+          "glass": 2.886294255044003e-08,
+          "bottle": 8.826179710761903e-08,
+          "fork": 1.7067627476893245e-06,
+          "spoon": 4.479901837219269e-06
+        },
+        "other_object_max_displacement_m": 4.479901837219269e-06,
+        "parked_arm_max_motion_deg": 1.3939367513019312e-06,
+        "unexpected_collisions": 0
+      },
+      "teacher_updates": 0,
+      "scoring": "Privileged simulator state; no motor targets generated",
+      "wall_seconds": 5.039582299999893
+    },
+    {
+      "episode": "seed-2026091723",
+      "passed": true,
+      "failure": null,
+      "metrics": {
+        "placement_error_mm": 1.1542401382559402,
+        "placement_z_error_mm": 0.0004625587134432507,
+        "placement_yaw_error_deg": 0.0,
+        "speed_mm_s": 0.004892268261050958,
+        "max_lift_cm": 4.7112824002782165,
+        "hold_verified_s": 9.585000000004904,
+        "longest_unsupported_gap_s": 0.0,
+        "stable_release_and_park_s": 0.5049999999995407,
+        "both_arms_parked": true,
+        "other_object_displacements_m": {
+          "side_plate": 4.977519328143459e-08,
+          "mug": 3.301877646344575e-07,
+          "glass": 8.385755994358352e-08,
+          "bottle": 1.0479350390097714e-07,
+          "fork": 1.6611815553149599e-06,
+          "spoon": 4.658529194211211e-06
+        },
+        "other_object_max_displacement_m": 4.658529194211211e-06,
+        "parked_arm_max_motion_deg": 1.3939366749686188e-06,
+        "unexpected_collisions": 0
+      },
+      "teacher_updates": 0,
+      "scoring": "Privileged simulator state; no motor targets generated",
+      "wall_seconds": 5.321508299792185
+    },
+    {
+      "episode": "seed-2026091724",
+      "passed": true,
+      "failure": null,
+      "metrics": {
+        "placement_error_mm": 1.6225355072453875,
+        "placement_z_error_mm": 0.0006825680327615657,
+        "placement_yaw_error_deg": 0.0,
+        "speed_mm_s": 0.02592687589389197,
+        "max_lift_cm": 4.684993282186889,
+        "hold_verified_s": 9.475000000004847,
+        "longest_unsupported_gap_s": 0.0,
+        "stable_release_and_park_s": 0.5049999999995407,
+        "both_arms_parked": true,
+        "other_object_displacements_m": {
+          "side_plate": 2.443026822415545e-07,
+          "mug": 2.6868423104757375e-07,
+          "glass": 8.094322046795434e-08,
+          "bottle": 3.080419854133361e-08,
+          "fork": 1.6615636794596951e-06,
+          "spoon": 3.5805411649783875e-06
+        },
+        "other_object_max_displacement_m": 3.5805411649783875e-06,
+        "parked_arm_max_motion_deg": 1.3939366749686188e-06,
+        "unexpected_collisions": 0
+      },
+      "teacher_updates": 0,
+      "scoring": "Privileged simulator state; no motor targets generated",
+      "wall_seconds": 5.024380300194025
+    },
+    {
+      "episode": "seed-2026091725",
+      "passed": true,
+      "failure": null,
+      "metrics": {
+        "placement_error_mm": 1.5957944481713149,
+        "placement_z_error_mm": 0.0007517766934528325,
+        "placement_yaw_error_deg": 0.0,
+        "speed_mm_s": 0.014177360145803414,
+        "max_lift_cm": 4.733180685637272,
+        "hold_verified_s": 9.640000000004932,
+        "longest_unsupported_gap_s": 0.0,
+        "stable_release_and_park_s": 0.5049999999995407,
+        "both_arms_parked": true,
+        "other_object_displacements_m": {
+          "side_plate": 2.56565111561687e-07,
+          "mug": 2.9113836050795775e-07,
+          "glass": 8.310668542512864e-08,
+          "bottle": 9.15255893751754e-08,
+          "fork": 1.6216122758967184e-06,
+          "spoon": 4.583925759278337e-06
+        },
+        "other_object_max_displacement_m": 4.583925759278337e-06,
+        "parked_arm_max_motion_deg": 1.3939366749686188e-06,
+        "unexpected_collisions": 0
+      },
+      "teacher_updates": 0,
+      "scoring": "Privileged simulator state; no motor targets generated",
+      "wall_seconds": 5.068039399804547
+    },
+    {
+      "episode": "seed-2026091726",
+      "passed": true,
+      "failure": null,
+      "metrics": {
+        "placement_error_mm": 0.8803828681368867,
+        "placement_z_error_mm": 0.00043480828870734456,
+        "placement_yaw_error_deg": 0.0,
+        "speed_mm_s": 0.002096323383198433,
+        "max_lift_cm": 4.71883494974048,
+        "hold_verified_s": 9.525000000004873,
+        "longest_unsupported_gap_s": 0.0,
+        "stable_release_and_park_s": 0.5049999999995407,
+        "both_arms_parked": true,
+        "other_object_displacements_m": {
+          "side_plate": 9.185014248788067e-08,
+          "mug": 3.385339294305749e-07,
+          "glass": 2.3636693222990193e-07,
+          "bottle": 1.1432050491007129e-07,
+          "fork": 0.00015386286383764058,
+          "spoon": 3.415558326386051e-06
+        },
+        "other_object_max_displacement_m": 0.00015526278671372295,
+        "parked_arm_max_motion_deg": 1.3939367513019312e-06,
+        "unexpected_collisions": 0
+      },
+      "teacher_updates": 0,
+      "scoring": "Privileged simulator state; no motor targets generated",
+      "wall_seconds": 4.9190575000829995
+    },
+    {
+      "episode": "seed-2026091727",
+      "passed": true,
+      "failure": null,
+      "metrics": {
+        "placement_error_mm": 0.9292888280136119,
+        "placement_z_error_mm": 0.0003797303895769488,
+        "placement_yaw_error_deg": 0.0,
+        "speed_mm_s": 0.024163965552795957,
+        "max_lift_cm": 4.7937495426670695,
+        "hold_verified_s": 9.650000000004937,
+        "longest_unsupported_gap_s": 0.0,
+        "stable_release_and_park_s": 0.5049999999995407,
+        "both_arms_parked": true,
+        "other_object_displacements_m": {
+          "side_plate": 1.7976651860199587e-07,
+          "mug": 3.7861932687956407e-07,
+          "glass": 9.385678241402173e-08,
+          "bottle": 1.1064996881803078e-07,
+          "fork": 1.7312757777222594e-06,
+          "spoon": 6.023224906985648e-06
+        },
+        "other_object_max_displacement_m": 6.023224906985648e-06,
+        "parked_arm_max_motion_deg": 1.3939366749686188e-06,
+        "unexpected_collisions": 0
+      },
+      "teacher_updates": 0,
+      "scoring": "Privileged simulator state; no motor targets generated",
+      "wall_seconds": 5.985516899963841
+    },
+    {
+      "episode": "seed-2026091728",
+      "passed": true,
+      "failure": null,
+      "metrics": {
+        "placement_error_mm": 1.2847150214909369,
+        "placement_z_error_mm": 0.00017951859132558923,
+        "placement_yaw_error_deg": 0.0,
+        "speed_mm_s": 0.04474093291251763,
+        "max_lift_cm": 4.712232198345689,
+        "hold_verified_s": 9.545000000004883,
+        "longest_unsupported_gap_s": 0.0,
+        "stable_release_and_park_s": 0.5049999999995407,
+        "both_arms_parked": true,
+        "other_object_displacements_m": {
+          "side_plate": 2.0730005079409472e-07,
+          "mug": 3.017267482454803e-07,
+          "glass": 1.3568617510893062e-07,
+          "bottle": 7.707549569707526e-08,
+          "fork": 5.832058093108388e-06,
+          "spoon": 6.8163316839781885e-06
+        },
+        "other_object_max_displacement_m": 6.8163316839781885e-06,
+        "parked_arm_max_motion_deg": 1.3939367513019312e-06,
+        "unexpected_collisions": 0
+      },
+      "teacher_updates": 0,
+      "scoring": "Privileged simulator state; no motor targets generated",
+      "wall_seconds": 4.837841299828142
+    },
+    {
+      "episode": "seed-2026091729",
+      "passed": true,
+      "failure": null,
+      "metrics": {
+        "placement_error_mm": 0.9440995034113476,
+        "placement_z_error_mm": 0.00044323089287701123,
+        "placement_yaw_error_deg": 0.0,
+        "speed_mm_s": 0.01599377636408581,
+        "max_lift_cm": 4.764282963381083,
+        "hold_verified_s": 9.670000000004947,
+        "longest_unsupported_gap_s": 0.0,
+        "stable_release_and_park_s": 0.5049999999995407,
+        "both_arms_parked": true,
+        "other_object_displacements_m": {
+          "side_plate": 2.3038398751870515e-07,
+          "mug": 1.7149867259431486e-07,
+          "glass": 4.376633654623477e-08,
+          "bottle": 2.754963806038659e-07,
+          "fork": 5.711167496615723e-06,
+          "spoon": 3.350477962240911e-06
+        },
+        "other_object_max_displacement_m": 5.711167496615723e-06,
+        "parked_arm_max_motion_deg": 1.3939367513019312e-06,
+        "unexpected_collisions": 0
+      },
+      "teacher_updates": 0,
+      "scoring": "Privileged simulator state; no motor targets generated",
+      "wall_seconds": 4.844198999926448
+    },
+    {
+      "episode": "seed-2026091730",
+      "passed": true,
+      "failure": null,
+      "metrics": {
+        "placement_error_mm": 0.7913558299612407,
+        "placement_z_error_mm": 0.00028185385947399055,
+        "placement_yaw_error_deg": 0.0,
+        "speed_mm_s": 0.024053550251157046,
+        "max_lift_cm": 4.801321366447575,
+        "hold_verified_s": 9.65500000000494,
+        "longest_unsupported_gap_s": 0.0,
+        "stable_release_and_park_s": 0.5049999999995407,
+        "both_arms_parked": true,
+        "other_object_displacements_m": {
+          "side_plate": 4.262405420940162e-08,
+          "mug": 4.489912161337959e-07,
+          "glass": 2.2173071506694137e-07,
+          "bottle": 9.12335208458425e-08,
+          "fork": 6.267177066479371e-06,
+          "spoon": 2.5338988762156086e-06
+        },
+        "other_object_max_displacement_m": 6.267177066479371e-06,
+        "parked_arm_max_motion_deg": 1.3939366749686188e-06,
+        "unexpected_collisions": 0
+      },
+      "teacher_updates": 0,
+      "scoring": "Privileged simulator state; no motor targets generated",
+      "wall_seconds": 4.765560900093988
+    },
+    {
+      "episode": "seed-2026091731",
+      "passed": true,
+      "failure": null,
+      "metrics": {
+        "placement_error_mm": 1.0463016595263341,
+        "placement_z_error_mm": 0.0004181058732566356,
+        "placement_yaw_error_deg": 0.0,
+        "speed_mm_s": 0.009178970382133058,
+        "max_lift_cm": 4.816241812493449,
+        "hold_verified_s": 9.67500000000495,
+        "longest_unsupported_gap_s": 0.0,
+        "stable_release_and_park_s": 0.5049999999995407,
+        "both_arms_parked": true,
+        "other_object_displacements_m": {
+          "side_plate": 6.424141154487632e-08,
+          "mug": 3.1749417923794515e-07,
+          "glass": 3.8714501462773184e-08,
+          "bottle": 1.2642313950990568e-07,
+          "fork": 1.78819785873722e-06,
+          "spoon": 6.893512024846971e-06
+        },
+        "other_object_max_displacement_m": 6.893512024846971e-06,
+        "parked_arm_max_motion_deg": 1.3939367513019312e-06,
+        "unexpected_collisions": 0
+      },
+      "teacher_updates": 0,
+      "scoring": "Privileged simulator state; no motor targets generated",
+      "wall_seconds": 4.832490300061181
+    },
+    {
+      "episode": "seed-2026091732",
+      "passed": true,
+      "failure": null,
+      "metrics": {
+        "placement_error_mm": 1.37440477785539,
+        "placement_z_error_mm": 0.00042229277152916467,
+        "placement_yaw_error_deg": 0.0,
+        "speed_mm_s": 0.015577751616118754,
+        "max_lift_cm": 4.795257019992527,
+        "hold_verified_s": 9.660000000004942,
+        "longest_unsupported_gap_s": 0.0,
+        "stable_release_and_park_s": 0.5049999999995407,
+        "both_arms_parked": true,
+        "other_object_displacements_m": {
+          "side_plate": 8.539236590200838e-08,
+          "mug": 4.06326673487969e-07,
+          "glass": 2.218204235740057e-07,
+          "bottle": 8.720164948430927e-08,
+          "fork": 5.387476773058272e-06,
+          "spoon": 5.8471718564310695e-06
+        },
+        "other_object_max_displacement_m": 5.8471718564310695e-06,
+        "parked_arm_max_motion_deg": 1.3939366749686188e-06,
+        "unexpected_collisions": 0
+      },
+      "teacher_updates": 0,
+      "scoring": "Privileged simulator state; no motor targets generated",
+      "wall_seconds": 4.510570399928838
+    },
+    {
+      "episode": "seed-2026091733",
+      "passed": true,
+      "failure": null,
+      "metrics": {
+        "placement_error_mm": 1.2081145798515514,
+        "placement_z_error_mm": 0.00029463142037222667,
+        "placement_yaw_error_deg": 0.0,
+        "speed_mm_s": 0.021368744810905293,
+        "max_lift_cm": 4.837407636941404,
+        "hold_verified_s": 9.67500000000495,
+        "longest_unsupported_gap_s": 0.0,
+        "stable_release_and_park_s": 0.5049999999995407,
+        "both_arms_parked": true,
+        "other_object_displacements_m": {
+          "side_plate": 2.3072581087952796e-07,
+          "mug": 2.9841712827806684e-07,
+          "glass": 9.525904505058353e-08,
+          "bottle": 1.0726274355710727e-07,
+          "fork": 4.641051621951951e-05,
+          "spoon": 3.6049448872343794e-06
+        },
+        "other_object_max_displacement_m": 4.6772959110980055e-05,
+        "parked_arm_max_motion_deg": 1.3939367513019312e-06,
+        "unexpected_collisions": 0
+      },
+      "teacher_updates": 0,
+      "scoring": "Privileged simulator state; no motor targets generated",
+      "wall_seconds": 4.406103200046346
+    },
+    {
+      "episode": "seed-2026091734",
+      "passed": true,
+      "failure": null,
+      "metrics": {
+        "placement_error_mm": 1.0039491504087377,
+        "placement_z_error_mm": 0.00020039376702474243,
+        "placement_yaw_error_deg": 0.0,
+        "speed_mm_s": 0.014224228775169295,
+        "max_lift_cm": 4.765779857602825,
+        "hold_verified_s": 9.600000000004911,
+        "longest_unsupported_gap_s": 0.0,
+        "stable_release_and_park_s": 0.5049999999995407,
+        "both_arms_parked": true,
+        "other_object_displacements_m": {
+          "side_plate": 2.65075473563475e-07,
+          "mug": 3.244779945255675e-07,
+          "glass": 7.123108249446545e-08,
+          "bottle": 8.355197741705183e-08,
+          "fork": 6.6899431973641174e-06,
+          "spoon": 5.029195329306352e-06
+        },
+        "other_object_max_displacement_m": 6.6899431973641174e-06,
+        "parked_arm_max_motion_deg": 1.3939366749686188e-06,
+        "unexpected_collisions": 0
+      },
+      "teacher_updates": 0,
+      "scoring": "Privileged simulator state; no motor targets generated",
+      "wall_seconds": 4.607972200028598
+    },
+    {
+      "episode": "seed-2026091735",
+      "passed": true,
+      "failure": null,
+      "metrics": {
+        "placement_error_mm": 0.8539972180603101,
+        "placement_z_error_mm": 5.4499731061419254e-05,
+        "placement_yaw_error_deg": 0.0,
+        "speed_mm_s": 0.019110107204318827,
+        "max_lift_cm": 4.782292186585224,
+        "hold_verified_s": 9.640000000004932,
+        "longest_unsupported_gap_s": 0.0,
+        "stable_release_and_park_s": 0.5049999999995407,
+        "both_arms_parked": true,
+        "other_object_displacements_m": {
+          "side_plate": 8.749595043432588e-08,
+          "mug": 2.8859230231668424e-07,
+          "glass": 3.119400407844489e-08,
+          "bottle": 9.220376626703809e-08,
+          "fork": 4.787770619696694e-06,
+          "spoon": 2.4556008833169743e-06
+        },
+        "other_object_max_displacement_m": 4.787770619696694e-06,
+        "parked_arm_max_motion_deg": 1.3939367513019312e-06,
+        "unexpected_collisions": 0
+      },
+      "teacher_updates": 0,
+      "scoring": "Privileged simulator state; no motor targets generated",
+      "wall_seconds": 4.830456500174478
+    },
+    {
+      "episode": "seed-2026091736",
+      "passed": true,
+      "failure": null,
+      "metrics": {
+        "placement_error_mm": 0.7982391289647064,
+        "placement_z_error_mm": 0.00041436991815579916,
+        "placement_yaw_error_deg": 0.0,
+        "speed_mm_s": 0.007907153638240256,
+        "max_lift_cm": 4.806327743138883,
+        "hold_verified_s": 9.67500000000495,
+        "longest_unsupported_gap_s": 0.0,
+        "stable_release_and_park_s": 0.5049999999995407,
+        "both_arms_parked": true,
+        "other_object_displacements_m": {
+          "side_plate": 6.450157661801229e-08,
+          "mug": 2.52527382290551e-07,
+          "glass": 7.63018770489849e-08,
+          "bottle": 2.857237721897857e-07,
+          "fork": 6.565743904185904e-06,
+          "spoon": 4.583426765930728e-05
+        },
+        "other_object_max_displacement_m": 4.8977651394818906e-05,
+        "parked_arm_max_motion_deg": 1.3939366495241812e-06,
+        "unexpected_collisions": 0
+      },
+      "teacher_updates": 0,
+      "scoring": "Privileged simulator state; no motor targets generated",
+      "wall_seconds": 4.849856900051236
+    },
+    {
+      "episode": "seed-2026091737",
+      "passed": true,
+      "failure": null,
+      "metrics": {
+        "placement_error_mm": 0.8454296757365893,
+        "placement_z_error_mm": 0.00033014805922437773,
+        "placement_yaw_error_deg": 0.0,
+        "speed_mm_s": 0.01493256041045235,
+        "max_lift_cm": 4.784897152768353,
+        "hold_verified_s": 9.610000000004916,
+        "longest_unsupported_gap_s": 0.0,
+        "stable_release_and_park_s": 0.5049999999995407,
+        "both_arms_parked": true,
+        "other_object_displacements_m": {
+          "side_plate": 2.3140831444426775e-07,
+          "mug": 2.7245550795022237e-07,
+          "glass": 7.701733648025984e-08,
+          "bottle": 8.400966836982265e-08,
+          "fork": 0.00015810158329019076,
+          "spoon": 5.538331357371684e-06
+        },
+        "other_object_max_displacement_m": 0.00015826360516035684,
+        "parked_arm_max_motion_deg": 1.3939366749686188e-06,
+        "unexpected_collisions": 0
+      },
+      "teacher_updates": 0,
+      "scoring": "Privileged simulator state; no motor targets generated",
+      "wall_seconds": 4.625385500025004
+    },
+    {
+      "episode": "seed-2026091738",
+      "passed": true,
+      "failure": null,
+      "metrics": {
+        "placement_error_mm": 1.6882944146730734,
+        "placement_z_error_mm": 0.0006047482851156971,
+        "placement_yaw_error_deg": 0.0,
+        "speed_mm_s": 0.03378756051611374,
+        "max_lift_cm": 4.693164826932716,
+        "hold_verified_s": 9.620000000004922,
+        "longest_unsupported_gap_s": 0.0,
+        "stable_release_and_park_s": 0.5049999999995407,
+        "both_arms_parked": true,
+        "other_object_displacements_m": {
+          "side_plate": 7.312732505141448e-08,
+          "mug": 3.4623594361909454e-07,
+          "glass": 1.637788290989629e-07,
+          "bottle": 8.722583101153018e-08,
+          "fork": 5.829252368180751e-06,
+          "spoon": 2.7425170075777967e-06
+        },
+        "other_object_max_displacement_m": 3.337418481597263e-05,
+        "parked_arm_max_motion_deg": 1.3939366749686188e-06,
+        "unexpected_collisions": 0
+      },
+      "teacher_updates": 0,
+      "scoring": "Privileged simulator state; no motor targets generated",
+      "wall_seconds": 4.903779800049961
+    },
+    {
+      "episode": "seed-2026091739",
+      "passed": true,
+      "failure": null,
+      "metrics": {
+        "placement_error_mm": 1.6172690748686664,
+        "placement_z_error_mm": 0.0006255882013528336,
+        "placement_yaw_error_deg": 0.0,
+        "speed_mm_s": 0.033758718145704115,
+        "max_lift_cm": 4.729165597276975,
+        "hold_verified_s": 9.615000000004919,
+        "longest_unsupported_gap_s": 0.0,
+        "stable_release_and_park_s": 0.5049999999995407,
+        "both_arms_parked": true,
+        "other_object_displacements_m": {
+          "side_plate": 1.532927626624306e-07,
+          "mug": 8.52433558237902e-08,
+          "glass": 2.2820318839572857e-07,
+          "bottle": 7.950382268414932e-08,
+          "fork": 6.9964662695184335e-06,
+          "spoon": 4.773105286564039e-06
+        },
+        "other_object_max_displacement_m": 6.9964662695184335e-06,
+        "parked_arm_max_motion_deg": 1.3939366749686188e-06,
+        "unexpected_collisions": 0
+      },
+      "teacher_updates": 0,
+      "scoring": "Privileged simulator state; no motor targets generated",
+      "wall_seconds": 5.1339469000231475
+    },
+    {
+      "episode": "seed-2026091740",
+      "passed": true,
+      "failure": null,
+      "metrics": {
+        "placement_error_mm": 0.81615670426324,
+        "placement_z_error_mm": 0.00041994353472407653,
+        "placement_yaw_error_deg": 0.0,
+        "speed_mm_s": 0.009244289210708728,
+        "max_lift_cm": 4.7864338880459485,
+        "hold_verified_s": 9.67500000000495,
+        "longest_unsupported_gap_s": 0.0,
+        "stable_release_and_park_s": 0.5049999999995407,
+        "both_arms_parked": true,
+        "other_object_displacements_m": {
+          "side_plate": 1.966608921975459e-07,
+          "mug": 1.4688235877083898e-07,
+          "glass": 1.8688375859812593e-07,
+          "bottle": 1.0566681436227659e-07,
+          "fork": 1.0521869959533056e-05,
+          "spoon": 5.446006001210952e-06
+        },
+        "other_object_max_displacement_m": 1.0524458515260629e-05,
+        "parked_arm_max_motion_deg": 1.3939367513019312e-06,
+        "unexpected_collisions": 0
+      },
+      "teacher_updates": 0,
+      "scoring": "Privileged simulator state; no motor targets generated",
+      "wall_seconds": 4.937326400075108
+    }
+  ],
+  "teacher_updates": 0,
+  "scope": "Physical replay of aligned training labels, not neural inference."
+}

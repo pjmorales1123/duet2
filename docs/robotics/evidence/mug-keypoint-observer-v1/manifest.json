@@ -1,0 +1,29 @@
+{
+  "schema": "talos.mug-keypoint-observer.v1",
+  "files": {
+    "audit-attempts/attempt-1/audit_mug_keypoint_data.py": "21254cc7034a8092e5ac37681807a005bf17e026e00d88d9d084eb15db488303",
+    "audit-attempts/attempt-1/incident.json": "4766c4c941026edebec6417c75c085e8c9b983c8e3a5c0d5e87ce2af6b8403b8",
+    "console/mug-keypoint-observer-v1-development-audit-r1.log": "d1d9ba648468d50866c22052e23d1f2346438605a52241219962cfb1a3b9e70a",
+    "console/mug-keypoint-observer-v1-development.log": "e671600e37040c42bcc4b11760fbf526f50454254106f8194441a86cc429aa25",
+    "console/mug-keypoint-observer-v1-evaluation-audit.log": "c94b6bcfe1723513c5c82bdb392d2ae88b4006021f61ad3b4b37e9ac8c6ef10a",
+    "console/mug-keypoint-observer-v1-evaluation-data.log": "2dab166846258161f0fd4090dc08471f704849f75ab6b7288e6a77ebbd1cea01",
+    "console/mug-keypoint-observer-v1-evaluation-score.log": "44c95f1cc7316155e7cb0cc7cb4f73f4b8790c60a53d57442d35bebc858f880d",
+    "console/mug-keypoint-observer-v1-export.log": "97d58ab29c2ac81a847c79853222d252027b7058744e686f62910278ab472e10",
+    "console/mug-keypoint-observer-v1-fit.log": "ae79398fc0374b3d584b1e9dbc513bbde27790c690bf7b05aede60208b2f1ac4",
+    "console/mug-keypoint-observer-v1-package.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "console/mug-keypoint-observer-v1-physical-regression.log": "b53fdd8a14c95c418de118c393ebd62790b84cc85ecc5c98b89a3c60a5d65376",
+    "console/mug-keypoint-observer-v1-training-audit-r1.log": "6a8924d1dc4b95041acb912e9c7e758f56cf3d588c39a69b3c8c2907809aa7ff",
+    "console/mug-keypoint-observer-v1-training-audit.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "console/mug-keypoint-observer-v1-training.log": "60faae77570845d71353218e110e8d2fc82eb366a89218b85902ed8984e90838",
+    "fresh-perception.json": "4fe6314bb0f007944d26d278fa96759f8fed9a86bddd39c0b07d6a19162202ec",
+    "package-audit.json": "4caf5de33323894ceb3a5aae2f732bf1e36997f3b80bba4623de7af4a9f86361",
+    "parity.json": "839b5ea24c9e948e418a5bea83c97180a8cdd2ebf3403288c7b9131c87b3954e",
+    "physical-regression.json": "4fd8161e5dd798782ac0f2a9eeca6ef4a0a275f6648f87c3708a9450fc5e1475",
+    "protocol.json": "e73c7058c662e3e200fc7264dea2c90e0fc1241a281a195d549cbddbd2442d4e",
+    "selection.json": "01f919517d73b2215f32ce8152c138aa990fefadca9d56ad15dc26d03c000d04",
+    "step-004000/development.json": "79f5ff863daea700b0618ac6fc8fbd088db614533ff034d152883c2bb106f9f2",
+    "step-008000/development.json": "ae401ed93a9f883e197dabeef402100c980f8149682ede099ecae14b9fcfd7bd",
+    "training.json": "d43b8e2d3e841abff2b7111a85e5cfd7acaa1aef1aed8c5780c1758a306bccdc"
+  },
+  "bytes": 4679154
+}

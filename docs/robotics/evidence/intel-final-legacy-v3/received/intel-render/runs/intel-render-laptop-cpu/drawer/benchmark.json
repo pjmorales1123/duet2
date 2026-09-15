@@ -1,0 +1,56 @@
+{
+  "openvino": "2026.3.0-22451-8a17657b995-releases/2026/3",
+  "source_sha256": "32115eb5dcc782d80c73d53925b0cb9dc610f03d149580a810752d2bb833cc3c",
+  "scope": "Neural network only. CPU visual encoding, joint-feedback guard and MuJoCo/rendering excluded from latency.",
+  "parity_inputs": "32 synthetic feature/time batches, not a physical success evaluation",
+  "devices": [
+    {
+      "device": "CPU",
+      "name": "Intel(R) Core(TM) i7-10850H CPU @ 2.70GHz",
+      "execution_devices": [
+        "CPU"
+      ],
+      "max_joint_error_rad": 3.7485463053599233e-06,
+      "parity_passed": true,
+      "median_ms": 0.14545000158250332,
+      "p95_ms": 0.20061995892319828,
+      "synchronous_chunks_per_second": 6502.979449276495,
+      "output_endpoints_per_chunk": 20,
+      "precision_hint": "<Type: 'float32'>",
+      "warmup_calls": 20,
+      "measured_calls": 300
+    },
+    {
+      "device": "GPU.0",
+      "name": "Intel(R) UHD Graphics (iGPU)",
+      "execution_devices": [
+        "GPU.0"
+      ],
+      "max_joint_error_rad": 3.0345374852913665e-06,
+      "parity_passed": true,
+      "median_ms": 0.6549499812535942,
+      "p95_ms": 4.702774994075303,
+      "synchronous_chunks_per_second": 961.3400310931778,
+      "output_endpoints_per_chunk": 20,
+      "precision_hint": "<Type: 'float32'>",
+      "warmup_calls": 20,
+      "measured_calls": 300
+    },
+    {
+      "device": "GPU.1",
+      "name": "Quadro T2000 with Max-Q Design (dGPU)",
+      "execution_devices": [
+        "GPU.1"
+      ],
+      "max_joint_error_rad": 4.46255512542848e-06,
+      "parity_passed": true,
+      "median_ms": 0.6380499980878085,
+      "p95_ms": 1.1146549746626992,
+      "synchronous_chunks_per_second": 1385.8464425630932,
+      "output_endpoints_per_chunk": 20,
+      "precision_hint": "<Type: 'float32'>",
+      "warmup_calls": 20,
+      "measured_calls": 300
+    }
+  ]
+}

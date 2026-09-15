@@ -1,0 +1,94 @@
+{
+  "date_utc": "2026-09-14",
+  "scope": "Release regression on exposed seed 42; no new training or holdout selection.",
+  "environment": {
+    "cpu": "AMD Ryzen 7 5800X 8-Core Processor",
+    "python": "3.12.10",
+    "mujoco": "3.12.0",
+    "openvino": "2026.3.0-22451-8a17657b995-releases/2026/3"
+  },
+  "runtime_tests": {
+    "application": 69,
+    "model_and_geometry_in_training_environment": 20,
+    "passed": true
+  },
+  "clean_cpu_environment": {
+    "torch": "2.8.0+cpu",
+    "install_completed": true,
+    "application_tests": 69,
+    "physical_cases": [
+      {
+        "preset": "upright",
+        "exit_code": 0,
+        "passed": true,
+        "wall_seconds": 37.143620799761266,
+        "trace_frames": 4955,
+        "correction_queries": 15,
+        "report_sha256": "a814cfbb38bfb7f1d2442fc72c8133a45d1362d0cf52ade007d851a96affeb1e"
+      },
+      {
+        "preset": "wide_left",
+        "exit_code": 0,
+        "passed": true,
+        "wall_seconds": 41.45069060008973,
+        "trace_frames": 5668,
+        "correction_queries": 15,
+        "report_sha256": "852888a650809225e4c58a6a40f7f8f39b0639ce9950845501ff3c1db9c38d5d"
+      }
+    ],
+    "physical_passed": true,
+    "qualifying_intel_hardware": false
+  },
+  "privacy": {
+    "git_commits_checked": 93,
+    "reachable_git_blobs_checked": 8317,
+    "neutral_commit_metadata": true,
+    "public_findings": 0,
+    "credential_locations": "Only the local ignored .env contained configured keys. Values were not printed.",
+    "hf_commits_checked_before_release": 7,
+    "hf_lfs_payloads_checked": 58,
+    "hf_findings": 0
+  },
+  "preservation": {
+    "published_model_files_unchanged": 189,
+    "promoted_dependencies_verified_in_index": 206,
+    "archived_files_hash_verified": 12178,
+    "archive_tag": "development-snapshot-2026-09-14"
+  },
+  "local_browser": {
+    "http_checks": [
+      {
+        "path": "/",
+        "status": 200,
+        "bytes": 15446
+      },
+      {
+        "path": "/static/app.js",
+        "status": 200,
+        "bytes": 29652
+      },
+      {
+        "path": "/static/style.css",
+        "status": 200,
+        "bytes": 13997
+      },
+      {
+        "path": "/static/speech.js",
+        "status": 200,
+        "bytes": 4280
+      },
+      {
+        "path": "/static/speech-worklet.js",
+        "status": 200,
+        "bytes": 289
+      }
+    ],
+    "all_five_assets_match_published_originals": true
+  },
+  "launcher": {
+    "retained_gpu_environment_used_when_cpu_environment_is_archived": true,
+    "fresh_server_started": true,
+    "fresh_server_stopped": true,
+    "user_port_8770_preserved": true
+  }
+}

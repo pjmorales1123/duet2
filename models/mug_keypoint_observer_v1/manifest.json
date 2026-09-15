@@ -1,0 +1,12 @@
+{
+  "schema": "talos.mug-keypoint-observer.v1",
+  "files": {
+    "openvino/observer.bin": "509aab137391cc90eaef10eb7b6164ff9c9e23bcea00695b2c7b29ebd7ce3357",
+    "openvino/observer.xml": "542ac6cfe8903a66dd0c420f87bd571b49ba6873edd85cecbb87fd660b5adbe1",
+    "protocol.json": "e73c7058c662e3e200fc7264dea2c90e0fc1241a281a195d549cbddbd2442d4e",
+    "selection.json": "01f919517d73b2215f32ce8152c138aa990fefadca9d56ad15dc26d03c000d04",
+    "step-004000/model.safetensors": "793b00876ed48f3a485405a89154a02d7048f56bf26cb058fcda55e503da5d1c",
+    "step-008000/model.safetensors": "e6db2942f2510cbb84bbe250e7e4fbb51aab4db95cbc601a70ffaa84845a898b"
+  },
+  "bytes": 4824090
+}

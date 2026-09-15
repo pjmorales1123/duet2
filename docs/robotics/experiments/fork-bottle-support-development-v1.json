@@ -1,0 +1,49 @@
+{
+  "schema": "talos.fork-bottle-support-development.v1",
+  "declared_before_execution": true,
+  "hypothesis": "The unchanged upright bottle neck rim can temporarily support an inverted fork with its center of mass over the mouth, enabling an underneath receiver grasp. There is no solid bottle cap added.",
+  "source": "V26joint direct-contact selected reset600-step settling followed by accepted-action00 bottle setting, reconstructed through exact recorded motor replay.",
+  "support_poses": {
+    "maximum": 2,
+    "selection": "Fork bodyY follows bottle-minus-left/right-shoulder planar bearing, making the negative-Y handle extend toward the corresponding receiver. COM projects to actual bottle center.",
+    "height": "Measured bottle collision top plus inverted fork lower extent and1mm reset clearance.",
+    "reset_only": true,
+    "settling_steps_per_pose": 600,
+    "independent_exact_replay": true
+  },
+  "receiver_gate": {
+    "pose": "Actually settled reset-only fork support pose; not physically delivered.",
+    "arm": "Pose corresponding left or right receiver",
+    "body_local_y_contacts_m": [
+      -0.045,
+      -0.03,
+      0.04
+    ],
+    "closing_axis_signs": [
+      -1,
+      1
+    ],
+    "tool_z_world": [
+      0,
+      0,
+      -1
+    ],
+    "wrist_roll_seeds_rad": [
+      0,
+      -2.4,
+      2.4
+    ],
+    "required_checks": "Actual full palm/camera/jaw collision geometry, below approach, unsupported lifted carry route and unchanged final fork placement endpoints. No contact, grasp or placement success from IK alone."
+  },
+  "limits": {
+    "support_physics_tests": 2,
+    "new_manipulation_trials": 0,
+    "fork_external_penetration_mm": 1.0,
+    "unexpected_robot_contact_mm": 0.8,
+    "bottle_and_other_item_displacement_mm": 4.0,
+    "minimum_final_stability_s": 0.5,
+    "physics_or_geometry_changes": false
+  },
+  "preservation": "Unused exclusive output and log, full source/model recipe snapshots, initial integration and actual controls/qpos/qvel/contact-force traces for both resets including failures, exact motor replay. Expected bytes plus10GiB reserve before each test/export.",
+  "interpretation": "Reset-only supported stability is not delivery, regrasp, final placement or whole-table coverage. If stability or clearance prevents the bounded route, stop; all failed prior evidence remains."
+}

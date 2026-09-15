@@ -1,0 +1,13 @@
+{
+  "schema": "talos.bottle-approach-feedback.v2",
+  "declared_on": "2026-09-13",
+  "parent": "bottle-approach-feedback-v1.json",
+  "v1_result": "At seed 42, both modes pass +/-0.6 N with less than 0.11 mm residual displacement at 2 seconds; both fail +/-0.9 N and +/-1.2 N, which substantially displace or tip the bottle. No correction benefit established.",
+  "reason": "A shorter physical impulse may produce a small recoverable position change instead of toppling the bottle.",
+  "development_seeds": [42, 2026091801, 2026091802, 2026091803],
+  "forces_x_n": [-2.0, -1.2, -0.9, 0.9, 1.2, 2.0],
+  "force_window_simulation_s": [0.8, 0.81],
+  "candidate": "Unchanged approach-refresh-v1 checkpoint and 3.0-second refresh limit, compared with unchanged initial-image baseline.",
+  "first_gate": "Inspect all six seed-42 paired impulses before other development seeds. Measure actual displacement and retain every failure. Evaluation seeds remain unexposed.",
+  "storage_reserve_gib": 10
+}

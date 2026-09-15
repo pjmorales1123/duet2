@@ -1,0 +1,17 @@
+{
+  "schema": "talos.bottle-refinement.v1",
+  "files": {
+    "coarse.safetensors": "2d82fc20ee8bc7d209be57ca1436361c4865b3ee3fb1d49a176d2ca2df5f1109",
+    "model.json": "9a88f4d6e5a5c4aa904b696b9247c2f049318e859f3282fd370c21a6bf957d33",
+    "README.md": "5cddc67426694c3a67d1d81e20f2a81aba369d21ed1a21997c6b051a08b09cfd",
+    "refiner.safetensors": "c089f3a8bcfaa0189459679f6f13853988059b4c4c4f61566092b85243f58632",
+    "openvino/artifacts.json": "39708bf93fdedf3594be78b90c2d749705290affc409be5848b891b1a8f96721",
+    "openvino/coarse.bin": "9ee387fc2bfbde69367e49f5ec7bc5b6b38f5faa1d7b80004d6773456f7c73f0",
+    "openvino/coarse.xml": "542ac6cfe8903a66dd0c420f87bd571b49ba6873edd85cecbb87fd660b5adbe1",
+    "openvino/protocol.json": "1e94fa0c2583faf5401a7341ed73f7009f15bf48accc05866fd233bc3124a633",
+    "openvino/refiner.bin": "bbab8e76c42df89a7375389c40533e1252a9bd508be2d0cad571fbd00f5e196e",
+    "openvino/refiner.xml": "038af07290c5bbbe318a47e1f5b61478ce13b2bbae0e2fb3d2a78a1a32fc1a15",
+    "candidates/step-004000/refiner.safetensors": "e90a8ba248df8dc8e504bbc9573a14395b14b9d6e337c9fb8118162e207614c4",
+    "candidates/step-008000/refiner.safetensors": "c089f3a8bcfaa0189459679f6f13853988059b4c4c4f61566092b85243f58632"
+  }
+}

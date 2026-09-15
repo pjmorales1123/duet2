@@ -1,0 +1,14 @@
+{
+  "schema": "talos.rgb-servo-observer-evaluation.v4",
+  "declared_on": "2026-09-13",
+  "evaluation_states": 256,
+  "evaluation_rng_seed": 2026095412,
+  "generator": "scripts/collect_rgb_servo_observer.py with the original exposed seed-42 arm-pose source and unchanged procedural ranges",
+  "checkpoint": ".run/rgb-servo-observer-fit-v4/step-004000/model.safetensors",
+  "checkpoint_sha256": "1b97d12a89d632462e27846846bae5be88d904d2c876901f05ec190f491d2851",
+  "minimum_confident_views": 2,
+  "confidence_protocol": "docs/robotics/experiments/rgb-servo-confidence-v2.json",
+  "selection_reason": "V4 passes the exposed right-arm physical case after RGB smoothing and its strict development p95 is 2.672 mm, maximum 3.306 mm. V5 improves development p95 but regresses that right-arm case and reaches 6.293 mm maximum development error. Preserve V5 and select V4 before generating this fresh test.",
+  "freeze": "Do not train or tune on this test. Unchanged accepted-error p95 threshold is 3 mm, with complete refusal and absent-scene denominators. A miss prevents promotion; it must not trigger test-set threshold tuning.",
+  "scope": "Perception accuracy only. Physical workspace and disturbance outcomes remain separately measured."
+}

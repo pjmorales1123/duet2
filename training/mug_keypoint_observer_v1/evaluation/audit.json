@@ -1,0 +1,28 @@
+{
+  "schema": "talos.mug-keypoint-observer.v1",
+  "protocol_sha256": "e73c7058c662e3e200fc7264dea2c90e0fc1241a281a195d549cbddbd2442d4e",
+  "source_sha256": "f81cd2e3519b6b830bc7bb53050a2fcb9d608f6d2c8a8f79c0cf77c118e73ceb",
+  "split": "evaluation",
+  "recipes_sha256": "da08f08fc519ec1acf4a7675bc4364bbd8b047cf92ed3db44edd2ff842ea934c",
+  "states": 512,
+  "verified_rgb_hashes": 1024,
+  "verified_rgb_pixels": 78643200,
+  "original_training_rgb_hashes_verified": 0,
+  "new_split_rgb_views_independently_rendered": 1024,
+  "maximum_geometric_label_difference_m": 0.0,
+  "maximum_projected_label_difference_px": 0.0,
+  "ideal_geometry_only": {
+    "present_accepted": 448,
+    "absent_false_accepts": 0,
+    "maximum_midpoint_error_m": 1.0155746105511488e-08
+  },
+  "mismatches": [],
+  "passed": true,
+  "preflight": {
+    "free_bytes": 558781485056,
+    "estimated_additional_bytes": 16777216,
+    "reserve_bytes": 10737418240
+  },
+  "wall_seconds": 18.00910250004381,
+  "scope": "Dataset storage/geometry and ideal-correspondence decoder checks. Not neural inference accuracy, physical success or deployment evidence."
+}

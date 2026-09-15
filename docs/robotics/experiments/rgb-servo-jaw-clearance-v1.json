@@ -1,0 +1,9 @@
+{
+  "schema": "talos.rgb-servo-jaw-clearance.v1",
+  "declared_on": "2026-09-13",
+  "reason": "Rigid perception passes its new frozen gate (1.938 mm p95), but an exposed right-arm descent stalls 15.5 mm above the neck with fixed-jaw contact. The licensed jaw geometry gives only about 0.85 mm tip clearance at the original nominal grasp point, smaller than measured visual and neural-motor errors.",
+  "change": "During approach/descent, shift the desired gripper point 4 mm away from its fixed finger, using robot-only forward kinematics for the local closing direction. The open moving finger has ample remaining clearance. The image-derived closure offset compensates the resulting grasp displacement during carrying.",
+  "scope": "Explicit geometric grasp margin in a hybrid RGB/neural-motor controller. No simulator object pose, IK action solver, attachment or hidden force. All physical contact, placement, release and parking thresholds stay unchanged.",
+  "selection": "Use exposed physical development cases first. Final physical evaluation seeds 2026095301..5312 stay untouched until controller selection freezes.",
+  "budget": {"additional_neural_training_steps": 0, "max_additional_development_trials": 18, "reserve_gib": 10}
+}

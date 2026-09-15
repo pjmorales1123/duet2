@@ -1,0 +1,25 @@
+{
+  "schema": "talos.rgb-servo-routing.v2",
+  "declared_on": "2026-09-13",
+  "parent": "docs/robotics/experiments/rgb-servo-bottle-v2.json",
+  "diagnostic": "156 declared arm/point probes: neural guard accepts 103, offline IK accepts 104. Only one neural refusal has a solver solution. The middle destination is reachable at placement height with the left arm, but neither arm solves the original high carry endpoint. No physical reachability claim follows from solver failure.",
+  "decision": "Skip additional motor training for now. Test task routing with frozen observer and motor weights; preserve all V1 code/models/evidence.",
+  "revision": 1,
+  "changes": [
+    "Choose a supported lift between 55 and 70 mm, preserving the physical monitor's greater-than-50-mm supported hold requirement.",
+    "Choose a reachable transport height separately from the initial lift; moving above a destination need not occur at the maximum lift height.",
+    "Check sampled Cartesian routes with the neural motor map and robot-only FK; these checks cannot prove collision freedom.",
+    "If one arm cannot reach both endpoints, attempt a table-supported two-arm relay through the existing shared point [0,-0.10] m. Each leg must physically release and park before the other begins.",
+    "Keep explicit phases, current RGB approach/descent and proprioceptive carry. Visual correction after grasp is deferred to the second allowed development revision, only if needed and observable."
+  ],
+  "lift_candidates_m": [0.070,0.065,0.060,0.055],
+  "transport_height_above_table_m": [0.198,0.1875,0.1775,0.1675],
+  "retract_candidates_m": [0.065,0.055,0.045,0.035],
+  "shared_bottle_position_m": [0,-0.10],
+  "route_samples": 13,
+  "neural_guard_unchanged": "1.5 mm position, 0.025 axis, original joint limits; no IK or saved-action fallback at inference.",
+  "monitor_unchanged": "Original DinnerPhysicalMonitor for every leg, plus cumulative non-target displacement below 4 mm. Report intermediate failures and retain all final seeds.",
+  "ablation": "Frozen means the initial RGB image of each leg is held throughout that leg. A new leg captures its own fresh initial image after the previous arm has released and parked. The live condition updates RGB continuously. This distinction must be explicit in final reports.",
+  "disturbance": "Same original disclosed force, applied once at global simulation time 1.5 s; no force during the later relay leg.",
+  "selection_data": "Only training seeds 2026095601..5616 and development 2026095701..5706. Evaluation 2026095801..5812 remains untouched until selection is frozen."
+}

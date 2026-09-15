@@ -1,0 +1,9 @@
+{
+  "protocol_sha256": "e73c7058c662e3e200fc7264dea2c90e0fc1241a281a195d549cbddbd2442d4e",
+  "training_report_sha256": "d43b8e2d3e841abff2b7111a85e5cfd7acaa1aef1aed8c5780c1758a306bccdc",
+  "development_gate_passed": true,
+  "checkpoint": ".run/mug-keypoint-observer-v1/fit/step-008000/model.safetensors",
+  "checkpoint_sha256": "e6db2942f2510cbb84bbe250e7e4fbb51aab4db95cbc601a70ffaa84845a898b",
+  "step": 8000,
+  "next_step": "FP32 CPU export/development check, then fresh perception"
+}

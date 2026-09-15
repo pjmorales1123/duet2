@@ -1,0 +1,205 @@
+{
+  "anonymous": true,
+  "authorization_headers": false,
+  "cookies": false,
+  "wall_seconds": 289.54390970012173,
+  "instruction": "Set the table",
+  "seed": 42,
+  "controller": "learned_visual",
+  "inference": "cpu",
+  "message": "Succeeded \u00b7 Completed all requested neural dinner skills; both arms parked.",
+  "report": {
+    "status": "succeeded",
+    "message": "Completed all requested neural dinner skills; both arms parked.",
+    "seed": 42,
+    "controller": "learned_visual",
+    "bottle_start": "upright",
+    "simulation_seconds": 247.655,
+    "wall_seconds": 278.03,
+    "progress": 1.0,
+    "completed_steps": [
+      "bottle",
+      "plate",
+      "mug",
+      "drawer",
+      "fork",
+      "spoon"
+    ],
+    "results": [
+      {
+        "skill": "bottle",
+        "status": "succeeded",
+        "message": "Neural bottle completed with physical release and both arms parked.",
+        "metrics": {
+          "placement_error_mm": 1.115372560994981,
+          "placement_z_error_mm": 6.854559675417704e-05,
+          "placement_yaw_error_deg": 0.0,
+          "speed_mm_s": 0.020474792158415512,
+          "max_lift_cm": 6.873318981831922,
+          "hold_verified_s": 9.659999999998297,
+          "longest_unsupported_gap_s": 0.0,
+          "stable_release_and_park_s": 0.5000000000002558,
+          "both_arms_parked": true,
+          "other_object_displacements_m": {
+            "plate": 1.9105091995929346e-07,
+            "side_plate": 1.4433683288666202e-07,
+            "mug": 2.79091870087983e-07,
+            "glass": 9.749519541249346e-08,
+            "fork": 1.974767627823949e-06,
+            "spoon": 6.9764144953141006e-06
+          },
+          "other_object_max_displacement_m": 6.9764144953141006e-06,
+          "parked_arm_max_motion_deg": 0.0014029929380921006,
+          "unexpected_collisions": 0
+        }
+      },
+      {
+        "skill": "plate",
+        "status": "succeeded",
+        "message": "Neural plate completed with physical release and both arms parked.",
+        "metrics": {
+          "placement_error_mm": 1.1121665707475565,
+          "placement_z_error_mm": 0.0002760750266173062,
+          "placement_yaw_error_deg": 0.0,
+          "speed_mm_s": 0.006457367257710979,
+          "max_lift_cm": 4.679356173110982,
+          "hold_verified_s": 9.525000000004873,
+          "longest_unsupported_gap_s": 0.0,
+          "stable_release_and_park_s": 0.5049999999995407,
+          "both_arms_parked": true,
+          "other_object_displacements_m": {
+            "side_plate": 4.07492778181762e-08,
+            "mug": 2.1534398114893477e-07,
+            "glass": 1.124445899793127e-07,
+            "bottle": 4.7718776246695295e-08,
+            "fork": 1.924355708346591e-06,
+            "spoon": 6.802149699487667e-06
+          },
+          "other_object_max_displacement_m": 6.802149699487667e-06,
+          "parked_arm_max_motion_deg": 0.00013219095365883888,
+          "unexpected_collisions": 0
+        }
+      },
+      {
+        "skill": "mug",
+        "status": "succeeded",
+        "message": "Neural mug completed with physical release and both arms parked.",
+        "metrics": {
+          "placement_error_mm": 0.5652293611289786,
+          "placement_z_error_mm": 0.0006528842252384592,
+          "placement_yaw_error_deg": 0.0,
+          "speed_mm_s": 0.0062835327390563765,
+          "max_lift_cm": 3.366770667201857,
+          "hold_verified_s": 9.659999999991214,
+          "longest_unsupported_gap_s": 0.0,
+          "stable_release_and_park_s": 0.5049999999995407,
+          "both_arms_parked": true,
+          "other_object_displacements_m": {
+            "plate": 2.7457320551171477e-07,
+            "side_plate": 1.7594778170830386e-07,
+            "glass": 1.0438310224919357e-07,
+            "bottle": 9.311891145370607e-08,
+            "fork": 2.1201748723611252e-06,
+            "spoon": 7.4987429645982165e-06
+          },
+          "other_object_max_displacement_m": 7.4987429645982165e-06,
+          "parked_arm_max_motion_deg": 0.003037256270455784,
+          "unexpected_collisions": 0
+        }
+      },
+      {
+        "skill": "drawer",
+        "status": "succeeded",
+        "message": "Neural drawer completed with physical release and both arms parked.",
+        "metrics": {
+          "drawer_open_m": 0.11776382870161661,
+          "max_opening_m": 0.11815040833766424,
+          "verified_handle_contact_s": 7.254999999993402,
+          "stable_release_and_park_s": 0.5049999999995407,
+          "both_arms_parked": true,
+          "other_object_displacements_m": {
+            "plate": 1.93420475911754e-07,
+            "side_plate": 8.575099898382159e-08,
+            "mug": 4.0332378400824343e-08,
+            "glass": 5.91882943273206e-08,
+            "bottle": 4.939671562908705e-08,
+            "fork": 0.11776537558426045,
+            "spoon": 0.11775232325126977
+          },
+          "other_object_max_displacement_m": 3.8245837669210415e-07,
+          "parked_arm_max_motion_deg": 0.003995098313730354,
+          "unexpected_collisions": 0
+        }
+      },
+      {
+        "skill": "fork",
+        "status": "succeeded",
+        "message": "Neural fork completed with physical release and both arms parked.",
+        "metrics": {
+          "placement_error_mm": 0.65078944921342,
+          "placement_z_error_mm": 0.02638953700806468,
+          "placement_yaw_error_deg": 0.20854086017841683,
+          "speed_mm_s": 8.013826600253912e-08,
+          "max_lift_cm": 3.402204212013671,
+          "hold_verified_s": 18.95499999998276,
+          "longest_unsupported_gap_s": 0.0,
+          "stable_release_and_park_s": 0.5049999999995407,
+          "both_arms_parked": true,
+          "other_object_displacements_m": {
+            "plate": 2.1550700223965456e-07,
+            "side_plate": 2.5819184831347243e-07,
+            "mug": 8.170831881535216e-08,
+            "glass": 1.2491291195618058e-07,
+            "bottle": 1.410675357176721e-07,
+            "spoon": 3.4883909127320746e-05
+          },
+          "other_object_max_displacement_m": 5.903371738987219e-05,
+          "parked_arm_max_motion_deg": 5.793062296817649e-11,
+          "unexpected_collisions": 0
+        }
+      },
+      {
+        "skill": "spoon",
+        "status": "succeeded",
+        "message": "Neural spoon completed with physical release and both arms parked.",
+        "metrics": {
+          "placement_error_mm": 4.468151679001184,
+          "placement_z_error_mm": 0.03493335619109139,
+          "placement_yaw_error_deg": 1.72507610026807,
+          "speed_mm_s": 2.144963494721403e-09,
+          "max_lift_cm": 3.385879045171092,
+          "hold_verified_s": 22.08999999997991,
+          "longest_unsupported_gap_s": 0.0,
+          "stable_release_and_park_s": 0.5049999999995407,
+          "both_arms_parked": true,
+          "other_object_displacements_m": {
+            "plate": 2.559019120434277e-07,
+            "side_plate": 3.760881636708729e-07,
+            "mug": 2.4102403029667136e-08,
+            "glass": 1.6707877232510594e-07,
+            "bottle": 9.461406866380966e-08,
+            "fork": 2.8651653503157705e-09
+          },
+          "other_object_max_displacement_m": 5.563014618111423e-07,
+          "parked_arm_max_motion_deg": 3.328132418683424e-11,
+          "unexpected_collisions": 0
+        }
+      }
+    ],
+    "plan": [
+      "bottle",
+      "plate",
+      "mug",
+      "drawer",
+      "fork",
+      "spoon"
+    ],
+    "camera_plan_reasons": [],
+    "physics_state_writes_during_control": 0,
+    "hidden_forces": 0,
+    "control_inputs": "Initial RGB views plus live stereo correction during mug placement; motor feedback and a separate physical stop/score monitor.",
+    "visual_feedback_profile": "dinner_visual_mug_v1",
+    "visual_feedback_scope": "late_mug_placement",
+    "inference_runtime": "OpenVINO CPU"
+  }
+}

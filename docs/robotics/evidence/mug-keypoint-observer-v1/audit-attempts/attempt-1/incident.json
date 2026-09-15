@@ -1,0 +1,8 @@
+{
+  "reason": "Repeated NpzFile indexing decompresses a whole RGB shard on every per-image read; stop the read-only audit and materialize each shard once.",
+  "source_sha256": "21254cc7034a8092e5ac37681807a005bf17e026e00d88d9d084eb15db488303",
+  "dataset_or_model_changes": 0,
+  "prior_console_log": ".run/final-goal/mug-keypoint-observer-v1-training-audit.log",
+  "prior_console_bytes": 0,
+  "audit_output_existed_before_stop": false
+}

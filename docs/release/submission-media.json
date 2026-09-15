@@ -1,0 +1,20 @@
+{
+  "video": {
+    "url": "https://storage.googleapis.com/lablab-video-submissions/submissions/i2i1ewt5t3e8vkvxda8cfkg9/w11fj22zo6jsas6i3ke7re6f/video/video_ae0xi0oazbzxjkl8z861gk0r.mp4",
+    "bytes": 25773834,
+    "sha256": "6705fe453e046745a3d9c08355c1051d572569b51dbfabcaa5393aa8ef022e43",
+    "persists_after_form_reopen": true
+  },
+  "presentation": {
+    "url": "https://storage.googleapis.com/lablab-static-eu/submissions/i2i1ewt5t3e8vkvxda8cfkg9/w11fj22zo6jsas6i3ke7re6f/presentation/presentation_nca1mwmu5x1evh3urxgt1hdi.pdf",
+    "bytes": 2223913,
+    "sha256": "39fd47e3568bababa04a7157a8a6905c7391113f411ef095bc9408a6fe065a6f",
+    "persists_after_form_reopen": true
+  },
+  "cover": {
+    "url": "https://storage.googleapis.com/lablab-static-eu/submissions/i2i1ewt5t3e8vkvxda8cfkg9/w11fj22zo6jsas6i3ke7re6f/image/image_kmizam31vptyb9sie6anvddj.jpg",
+    "bytes": 202903,
+    "sha256": "4d8d6c9e96f8eab157802a54e02685f4a21ffac61862928806f968e5ec59876d",
+    "persists_after_form_reopen": true
+  }
+}

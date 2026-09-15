@@ -1,0 +1,14 @@
+{
+  "schema": "talos.dinner-transition-hold.v6",
+  "declared_on": "2026-09-13",
+  "parent": "dinner-grip-repair-v5.json",
+  "finding": "Both v5 candidates pass five of six development scenes plus exposed seed 42. Adam reaches the drawer in scene 2026091802, but switching from the mug's settled motor targets to the drawer network's nominal inactive-arm HOME targets causes an abrupt right-arm correction and 1.074 degrees of parked-arm motion. The preserved trace shows this transition; no grasp acceptance threshold is changed.",
+  "intervention": "Reuse all five v5 Adam neural weights and exact training inputs. Opt these new candidate copies into an explicit inactive-arm motor hold: retain the previously applied six position targets of the inactive arm throughout each skill. The active arm still receives camera-conditioned neural targets and motor-feedback progress control. Original bottle and relay models keep their existing behavior.",
+  "training_steps": 0,
+  "acceptance": "Rerun the same six development scenes and seed 42 with the unchanged physical monitor. No final evaluation seeds before freezing. Preserve all v5 outcomes and original model bytes.",
+  "development_seeds": [2026091801,2026091802,2026091803,2026091804,2026091805,2026091806],
+  "exposed_regression_seed": 42,
+  "scope": "Motor-target continuity across single-arm neural skills, not new visual correction or general bimanual simultaneous control.",
+  "storage_reserve_gib": 10,
+  "expected_additional_gib": 0.2
+}

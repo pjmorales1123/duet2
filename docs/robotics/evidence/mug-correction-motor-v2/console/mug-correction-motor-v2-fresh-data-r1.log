@@ -1,0 +1,1 @@
+{'states': 1024, 'accepted_labels': 1024, 'label_coverage_passed': True, 'step_fraction': {'minimum': 0.0587671338080495, 'median': 1.0}, 'wall_seconds': 0.35745029989629984}

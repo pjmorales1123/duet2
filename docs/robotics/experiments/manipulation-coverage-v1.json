@@ -1,0 +1,1550 @@
+{
+  "schema": "talos.manipulation-coverage.v1",
+  "declared_on": "2026-09-14",
+  "purpose": "Measure broader supported-object and drawer coverage before choosing a substantive improvement.",
+  "context": "docs/robotics/evidence/visual-mug-deployment-v1/attempt-2/engine-upright",
+  "context_sha256": {
+    "scene.xml": "4cac1834af286e8f59cf58cc05e941afa0bfdeb7401baecd877c8cf37f664685",
+    "states.npz": "8feebf39c530807ce7b9ffeaf659d953261d40ad5f111eb79a67158be03b46c9",
+    "report.json": "78a2ac4e404d589dee4d751fb98f0186081f6431aeffcfa87fb45147ada42ee1"
+  },
+  "skill_context_frames": {
+    "bottle": 0,
+    "plate": 768,
+    "mug": 1515,
+    "drawer": 2338,
+    "fork": 2931,
+    "spoon": 3902
+  },
+  "source_seed": 42,
+  "source_sha256": {
+    "simulation_lab/__init__.py": "41d6e06b5cd49e86faaccfc822e0195485e4efed792c4ae28bdb42dc8e814220",
+    "simulation_lab/act_learning.py": "0266d6ec1db5291a14f7b0cc2bdc1e6eb977497b3d6e1342eeb0a6e6db4ff4c2",
+    "simulation_lab/autonomy.py": "0e60140b1d3dd03c278592fb975393b50f6074235280472390f3a8feda142c95",
+    "simulation_lab/bottle_vision.py": "5b6ccf6e0224bf66ef7d4c69c382384add65d90ebfeedad838be5dc756bfa9ac",
+    "simulation_lab/command_task.py": "b3861f88af0a3535569e3d911f68e0e1d566f0b1f5f24b60c79417d561ce51a4",
+    "simulation_lab/dataset.py": "1c9310a12391a957563f317f0f260ebc5ff284b9050a27b4a27fcb3143f1b2d2",
+    "simulation_lab/dinner.py": "37107bcbd85a39466dcd01b202d6661f1e3c9f705e6865de05d6fa994e562c11",
+    "simulation_lab/dinner_autonomy.py": "717c03217039a8ce5234ff8554aeb948f444fa88644aafe5e456e1bd74c17eba",
+    "simulation_lab/dinner_monitor.py": "34b2a5356ffcb5c2cf888607ceb387e51ca2ed00f6fa8fa39a897744e8bebe54",
+    "simulation_lab/dinner_vision.py": "66d0bc15b9a9f40832db56378de62c1b5355cebf583ececf7d8fa936a192360e",
+    "simulation_lab/experiment_push.py": "156700845e130b86e93774c9dfae4221de5443f9855c86bd8e84d7f052a22003",
+    "simulation_lab/experiment_targets.py": "0704accb79c80d894efdf721e7a23437348c9dfe2d0d5edefd63e8b225ea9654",
+    "simulation_lab/hardware_evidence.py": "386d563af1666943fb1fcf0d545389220eb30f5808f361bbf72df4aa4a2d7222",
+    "simulation_lab/hosted_gpu.py": "668fd99bf83a52a8730179b33f93c5d319707033fecb0cf49f1bd39e2e727bb7",
+    "simulation_lab/hosted_worker.py": "60cf416fb7f6ef9f5151ccd9127fa821ddee3f65b74712f11ad11c37e6a3a5b2",
+    "simulation_lab/language.py": "8a6aa3efc5515e2da1d334432b884de297b53b1f048aba60c031d1739ddcfc1b",
+    "simulation_lab/learned_dinner.py": "5402aa9069b0a20b21c352272fbeb5dcf70d03ae555aa65d66574e5bf7975066",
+    "simulation_lab/learned_plan.py": "af91498d8f2d4cff06c829c1fc8c1075b359c00ed49e07043f8301bc4f85fcd8",
+    "simulation_lab/learned_skills.py": "3ef610a6e6d0516e8bf92d4e7f2b3d06540b49e2671682ab642239aa2cbb129b",
+    "simulation_lab/learned_task.py": "3bc2fc075d15e07d5717333fbd69541d2e76d2bd41621a71f1a6e51229d2e24f",
+    "simulation_lab/mug_correction_limits.py": "0b4db501846ff62e87cc6dbde453d6b1bf370cb12e60088e709f89068ecb2595",
+    "simulation_lab/mug_correction_motor.py": "38ca9f9d936c9ca50176c898904a680c1549df696c97475088852bc39be26313",
+    "simulation_lab/mug_correction_runtime.py": "eb580df116318a97fb2d24655d88a23be40a32beae186b0d03fbc88fc79e83f9",
+    "simulation_lab/mug_keypoint_observer.py": "dc5c76bd5b82ffb7191727690be3ac15b0003310ff0a69ef848213ce376a5fea",
+    "simulation_lab/mug_visual_control.py": "98503f8bfefff12a719e562471bd7819f192f9c20d519b4fc75ad6b5502310ae",
+    "simulation_lab/mug_visual_geometry.py": "d0840f195103bf8be317d33a2aed0f40dfe572aa8aeab1c988db08ae86e11091",
+    "simulation_lab/mug_visual_observer.py": "5d6fdd56a87035ac22eee40d20d8e09aa4b6a40f0b5695cf260243c6827a90c6",
+    "simulation_lab/policy_cameras.py": "1415c5f173502017c99f651778245dae83116f4b91b7bbe8bf614cecf06b2752",
+    "simulation_lab/policy_control.py": "a418fe2619985852d4e65b40e20c18f82fd72076b4d8b9202507dda4a410b151",
+    "simulation_lab/policy_observation.py": "d15a9b72e7fb366681d29a21f598d21ffd147b1b9ba56729d296250a67b37af6",
+    "simulation_lab/primitive_policy.py": "60c009448171533385df1be82e3f64ed395f28d3e03145eb2f10ab6a791ef143",
+    "simulation_lab/recording.py": "073fc8a874a313288399f1827c2018198c92e3da2975b122655afe41aebe43a2",
+    "simulation_lab/relay_task.py": "a1387ecf36d24166b6cd356a14375aa47aceb4202687b4ccc96a3d305ab6bcd2",
+    "simulation_lab/rendering.py": "570f36b7b683c05d6c33aebc442828196db00596c10ed5e94df2b49ceccf0fcd",
+    "simulation_lab/retrieval_policy.py": "e47aab06fae8c825cccbe72dae7040edf3ee5d7b07a6537080b95efe001c6873",
+    "simulation_lab/rgb_bottle_observer.py": "45e93ab0d7930a15c82f5e84809eb0d8d7d8d376ed878558529560ff20c18d20",
+    "simulation_lab/rgb_servo_cameras.py": "eb750885e17ccc731ad9a80f3f5450ec2b5823c68e9dd57d9e325623d28eb3ec",
+    "simulation_lab/rgb_servo_controller.py": "6fb0d6ac81f717288a23aa88f60bcd84f95f0137b0660db7d35ebe2aeba7cf94",
+    "simulation_lab/rgb_servo_geometry.py": "bca323458c4971bab8534e36fb6f7d5aa668df188e7573efa095ebfbca4db1ae",
+    "simulation_lab/rgb_servo_motor.py": "3d90c40a5af68f0b04dfe5aafaa7de47f4c0b67211d40cc1a461eae2311e22b7",
+    "simulation_lab/rgb_servo_network.py": "3ef3cd8fcac1e40743893caab14fb94decf52d1c402c6ade69c342e8c97d9302",
+    "simulation_lab/rgb_servo_openvino.py": "2a091f27331304228bc57a306302cf05ced182af654a57c502b2bdea4bb1fa42",
+    "simulation_lab/rgb_servo_routing.py": "75acbf9a9e508ba24c29edc777c6ce83569d73bb9d7cbe567a2e7f40dffcafc6",
+    "simulation_lab/rgb_servo_vision.py": "498a5a52bd6fc207aa8754de074cc1c6d2ab9f10659e43f79d0aba12e9afcb1b",
+    "simulation_lab/scene.py": "b363abd064ed0983f9ba96381855f9fd079072dc48593f17fc0bf6e623468b19",
+    "simulation_lab/sequence_policy.py": "510695960009387afef87284e76e57fa0cce500acd29c380336c08cf865904a8",
+    "simulation_lab/slots.py": "41755919e4d2bbfb2b023e78c09370d2fbcd740f377bdf616551aff2aa827873",
+    "simulation_lab/speech.py": "66a50562886702017bdf9e0d2a1af31dfb4531061af9b8a6c5c9f16d02cce4a0",
+    "simulation_lab/storage.py": "adff62806bc5786ee7c374a09754d82e37474b97f4d37074551d02d3796f444f",
+    "docs/robotics/experiments/mug-visual-visibility-v1.json": "cb2126b09fb8490c1690f01c93af5697d039e5f0a7f1d3dddfb1fb91ee865714",
+    "models/bottle_relays/relay_bottle_left/benchmark.json": "367e1fb61b69f1e8fe2763a8c91789b2398274543fef45bff15a0e9ac685fce5",
+    "models/bottle_relays/relay_bottle_left/openvino.json": "00d12a2a6dd68d5d48d010074cfa0ac4c6058d024b7a8dd86b6ca12a3b327a5a",
+    "models/bottle_relays/relay_bottle_left/primitive.bin": "e211da7a2d80a64a44831b3c1daa9de8e0cdad5a0729dd441414168a622140c7",
+    "models/bottle_relays/relay_bottle_left/primitive.json": "a73a9f2c96885152a6b611a97ab311b72615f9eac3d3e3042b0522e7178598b9",
+    "models/bottle_relays/relay_bottle_left/primitive.safetensors": "e90a8e40688215c0672210d3aa5117b6d5855434826cafbbdeaf2f153c6074ae",
+    "models/bottle_relays/relay_bottle_left/primitive.xml": "85253525fcf0822b6dfe3c4e2d56300aa29a055dbd18b35ecb88042b07bb5e7b",
+    "models/bottle_relays/relay_bottle_left/talos_normalization.json": "18070e907ab87dbb47ae7d2692d1de696a06957eadc6f00aa46e3a237fa4a1a8",
+    "models/bottle_relays/relay_bottle_left/visual.npz": "90157ca7de0491966dd22f53aec1f2ab8830855e1c9bd7353cec9b6f7d85ac25",
+    "models/bottle_relays/relay_bottle_right/benchmark.json": "9090ace151e1ea1bed6bf01d5013077fcd235921a908a2f1cbf906053d194b40",
+    "models/bottle_relays/relay_bottle_right/openvino.json": "00d12a2a6dd68d5d48d010074cfa0ac4c6058d024b7a8dd86b6ca12a3b327a5a",
+    "models/bottle_relays/relay_bottle_right/primitive.bin": "5e6ef5ee3a3d57645ce3683e76ce2334c78068b83a9e1d0965dbe55d7607d747",
+    "models/bottle_relays/relay_bottle_right/primitive.json": "f5cbdc5519e9ba6a401f3109a6578beb9da44956c37e92fbf2ffe7917abbe899",
+    "models/bottle_relays/relay_bottle_right/primitive.safetensors": "e762d31985627113b82e58ce7c597a2b11d57801669543bf4b637b88192f7df8",
+    "models/bottle_relays/relay_bottle_right/primitive.xml": "85253525fcf0822b6dfe3c4e2d56300aa29a055dbd18b35ecb88042b07bb5e7b",
+    "models/bottle_relays/relay_bottle_right/talos_normalization.json": "18070e907ab87dbb47ae7d2692d1de696a06957eadc6f00aa46e3a237fa4a1a8",
+    "models/bottle_relays/relay_bottle_right/visual.npz": "90157ca7de0491966dd22f53aec1f2ab8830855e1c9bd7353cec9b6f7d85ac25",
+    "models/bottle_relays/reverse_bottle_left/benchmark.json": "79fb7d54ffab208847d8730c473aa9f9628d7bec34326f0d34a5c80956e5fd48",
+    "models/bottle_relays/reverse_bottle_left/openvino.json": "00d12a2a6dd68d5d48d010074cfa0ac4c6058d024b7a8dd86b6ca12a3b327a5a",
+    "models/bottle_relays/reverse_bottle_left/primitive.bin": "84e92009721e26afa5b8a33a6101d90684ddffabc83b79a659d468f15c958d06",
+    "models/bottle_relays/reverse_bottle_left/primitive.json": "1fbfbe55c68eb35f7b891f7b4ed405d17763e8e93d09c8639cd6bd4585aa8a3c",
+    "models/bottle_relays/reverse_bottle_left/primitive.safetensors": "4dc09e74e1a060b12eb9e2727b1643dc69654f77fb192d1e7c2257766d537863",
+    "models/bottle_relays/reverse_bottle_left/primitive.xml": "85253525fcf0822b6dfe3c4e2d56300aa29a055dbd18b35ecb88042b07bb5e7b",
+    "models/bottle_relays/reverse_bottle_left/talos_normalization.json": "18070e907ab87dbb47ae7d2692d1de696a06957eadc6f00aa46e3a237fa4a1a8",
+    "models/bottle_relays/reverse_bottle_left/visual.npz": "90157ca7de0491966dd22f53aec1f2ab8830855e1c9bd7353cec9b6f7d85ac25",
+    "models/bottle_relays/reverse_bottle_right/benchmark.json": "f106e3d9cdd66c29d024890e4b2e8efb2c0f6284b875b13979eaaf324086a14d",
+    "models/bottle_relays/reverse_bottle_right/openvino.json": "00d12a2a6dd68d5d48d010074cfa0ac4c6058d024b7a8dd86b6ca12a3b327a5a",
+    "models/bottle_relays/reverse_bottle_right/primitive.bin": "147d9fbea1d9aec5949b9884bc9c0d517fbe33824b2bcdfbe5cee3f55b74a0f3",
+    "models/bottle_relays/reverse_bottle_right/primitive.json": "95b42cf4044046f14951f5dbf25558423ab8ed6e1b3046f9bdef782195e5cb0c",
+    "models/bottle_relays/reverse_bottle_right/primitive.safetensors": "9287546d56b5b64eada1a1d21b2bde320d527ace025b7caa5d5adc802b39f96d",
+    "models/bottle_relays/reverse_bottle_right/primitive.xml": "85253525fcf0822b6dfe3c4e2d56300aa29a055dbd18b35ecb88042b07bb5e7b",
+    "models/bottle_relays/reverse_bottle_right/talos_normalization.json": "18070e907ab87dbb47ae7d2692d1de696a06957eadc6f00aa46e3a237fa4a1a8",
+    "models/bottle_relays/reverse_bottle_right/visual.npz": "90157ca7de0491966dd22f53aec1f2ab8830855e1c9bd7353cec9b6f7d85ac25",
+    "models/bottle_visual/openvino.json": "00d12a2a6dd68d5d48d010074cfa0ac4c6058d024b7a8dd86b6ca12a3b327a5a",
+    "models/bottle_visual/primitive.bin": "5d62de7468ff238558e5f0aed74977a5c557631d1a9d732b91c73699ee19282a",
+    "models/bottle_visual/primitive.json": "e2a5b913ea9c7b8028c53a176a9ce331df0adad6f4cb7b73246378b92d571974",
+    "models/bottle_visual/primitive.safetensors": "e2a1ff9400cdb49d7b9a38d5880759a0269814111c88b2081416f8e349c7564e",
+    "models/bottle_visual/primitive.xml": "5233b56e23ba997519e7195b2a05ff52dbb283050230c1c169d5bc0755b7ca64",
+    "models/bottle_visual/README.md": "64a06abc996a82fcd3d7d4a02cd12c7123108d1f1a5d3f48a4e6a44fa8f71f7d",
+    "models/bottle_visual/talos_normalization.json": "18070e907ab87dbb47ae7d2692d1de696a06957eadc6f00aa46e3a237fa4a1a8",
+    "models/bottle_visual/visual.npz": "90157ca7de0491966dd22f53aec1f2ab8830855e1c9bd7353cec9b6f7d85ac25",
+    "models/dinner_suite/drawer/benchmark.json": "aa6bf276c73eccafac3db2d4f1745825567e620496f70ba48e1b98bc0379dafe",
+    "models/dinner_suite/drawer/openvino.json": "00d12a2a6dd68d5d48d010074cfa0ac4c6058d024b7a8dd86b6ca12a3b327a5a",
+    "models/dinner_suite/drawer/primitive.bin": "88128ece626fa8e53f537a75fe5e4e6e072e493acf3326dbae942b5c97939682",
+    "models/dinner_suite/drawer/primitive.json": "b41ea1f7274478885517d8f25a81d05d83f6367ee9459e8b420becbc852ed2d6",
+    "models/dinner_suite/drawer/primitive.safetensors": "32115eb5dcc782d80c73d53925b0cb9dc610f03d149580a810752d2bb833cc3c",
+    "models/dinner_suite/drawer/primitive.xml": "85253525fcf0822b6dfe3c4e2d56300aa29a055dbd18b35ecb88042b07bb5e7b",
+    "models/dinner_suite/drawer/talos_normalization.json": "18070e907ab87dbb47ae7d2692d1de696a06957eadc6f00aa46e3a237fa4a1a8",
+    "models/dinner_suite/drawer/visual.npz": "90157ca7de0491966dd22f53aec1f2ab8830855e1c9bd7353cec9b6f7d85ac25",
+    "models/dinner_suite/fork/benchmark.json": "40859ac965ad093ccb59a8cf78b2d5e707d5e78fb4020d7b5dc5863aa63f8cec",
+    "models/dinner_suite/fork/openvino.json": "00d12a2a6dd68d5d48d010074cfa0ac4c6058d024b7a8dd86b6ca12a3b327a5a",
+    "models/dinner_suite/fork/primitive.bin": "dba73cf7e28f72889cb3db7f5786ebd644fdeca1c9105557c29e9df79c5b89f8",
+    "models/dinner_suite/fork/primitive.json": "234615d01c16d4dbbd1fc47803be92e02baedf84dfe5245109718094e242b94c",
+    "models/dinner_suite/fork/primitive.safetensors": "fbdc32af07b247af0771ec8ff0c029c57f558d02954be3bb77e07e9b0b5dd453",
+    "models/dinner_suite/fork/primitive.xml": "85253525fcf0822b6dfe3c4e2d56300aa29a055dbd18b35ecb88042b07bb5e7b",
+    "models/dinner_suite/fork/talos_normalization.json": "18070e907ab87dbb47ae7d2692d1de696a06957eadc6f00aa46e3a237fa4a1a8",
+    "models/dinner_suite/fork/visual.npz": "90157ca7de0491966dd22f53aec1f2ab8830855e1c9bd7353cec9b6f7d85ac25",
+    "models/dinner_suite/mug/benchmark.json": "0a4045587aa339421fba3c13f43d2eec59083a8c4b268c17030a09af6f6b7ea7",
+    "models/dinner_suite/mug/openvino.json": "00d12a2a6dd68d5d48d010074cfa0ac4c6058d024b7a8dd86b6ca12a3b327a5a",
+    "models/dinner_suite/mug/primitive.bin": "e060d1b9ef88cade0713ffb8f9ce5c2b67e4f0fe05f6dc1d542bbc44c8df17e7",
+    "models/dinner_suite/mug/primitive.json": "2c79c0cd61e954703344092e8e64fc2c11dc485df4fd3fef7be3af384ff16e8d",
+    "models/dinner_suite/mug/primitive.safetensors": "4a239422c24726a3c1319428f2dbf40e79b5f4ab3cf50f66ca53eb0b4134df62",
+    "models/dinner_suite/mug/primitive.xml": "85253525fcf0822b6dfe3c4e2d56300aa29a055dbd18b35ecb88042b07bb5e7b",
+    "models/dinner_suite/mug/talos_normalization.json": "18070e907ab87dbb47ae7d2692d1de696a06957eadc6f00aa46e3a237fa4a1a8",
+    "models/dinner_suite/mug/visual.npz": "90157ca7de0491966dd22f53aec1f2ab8830855e1c9bd7353cec9b6f7d85ac25",
+    "models/dinner_suite/plate/benchmark.json": "6dfc60f476f7dbbdd557cdd46cd2eb67ba1fa1cf12fee8c726617dd99bed069d",
+    "models/dinner_suite/plate/openvino.json": "00d12a2a6dd68d5d48d010074cfa0ac4c6058d024b7a8dd86b6ca12a3b327a5a",
+    "models/dinner_suite/plate/primitive.bin": "09a3a6e009097b0d367308faa0c33857018cd0584bf30cb72190676f8bb507b0",
+    "models/dinner_suite/plate/primitive.json": "5c36ac9e4e73ac12422bb75e79db5086278333c360c859744a0dad5b26530798",
+    "models/dinner_suite/plate/primitive.safetensors": "d8e55a0b354b84e7a458b6ddc824d499764ea595213c8f3a7a6c4194362f5247",
+    "models/dinner_suite/plate/primitive.xml": "85253525fcf0822b6dfe3c4e2d56300aa29a055dbd18b35ecb88042b07bb5e7b",
+    "models/dinner_suite/plate/talos_normalization.json": "18070e907ab87dbb47ae7d2692d1de696a06957eadc6f00aa46e3a237fa4a1a8",
+    "models/dinner_suite/plate/visual.npz": "90157ca7de0491966dd22f53aec1f2ab8830855e1c9bd7353cec9b6f7d85ac25",
+    "models/dinner_suite/spoon/benchmark.json": "349c1a2f44980e4ac92487f14bf4ed817adf26ac4036d10693566e2346c1f657",
+    "models/dinner_suite/spoon/openvino.json": "00d12a2a6dd68d5d48d010074cfa0ac4c6058d024b7a8dd86b6ca12a3b327a5a",
+    "models/dinner_suite/spoon/primitive.bin": "aec86485bd60e1198add32899c102f4a7a056d1d9e7d7f0e6a1e735082a4dd8c",
+    "models/dinner_suite/spoon/primitive.json": "5e7963776782d0bec51135194c8d652b42ec7c083819d854f0653718ee1dd550",
+    "models/dinner_suite/spoon/primitive.safetensors": "df5bdb17d0dc3a65dae7eba8fea9d5a3edb036edecf1bbb0c32021c64fbce47e",
+    "models/dinner_suite/spoon/primitive.xml": "85253525fcf0822b6dfe3c4e2d56300aa29a055dbd18b35ecb88042b07bb5e7b",
+    "models/dinner_suite/spoon/talos_normalization.json": "18070e907ab87dbb47ae7d2692d1de696a06957eadc6f00aa46e3a237fa4a1a8",
+    "models/dinner_suite/spoon/visual.npz": "90157ca7de0491966dd22f53aec1f2ab8830855e1c9bd7353cec9b6f7d85ac25",
+    "models/dinner_suite/suite.json": "2c521943f6feb2bbb988a196dbcc9ead72a88185a1de24709e51367304b35fff",
+    "models/mug_correction_motor_v2/manifest.json": "a2efa477aed1f126be3e4e350653eac052be111c84e2e4e6be6fa22c155f41b4",
+    "models/mug_correction_motor_v2/openvino/motor.bin": "a440def62b2eebc67dd1592b9bacb06b1975328555a12214d276b0db296a8441",
+    "models/mug_correction_motor_v2/openvino/motor.xml": "ff5171e83999571bbf60ac74768d6a3558ba44238cd295b5ca3c6e16c788a2cc",
+    "models/mug_correction_motor_v2/protocol.json": "468b469bb45238758fcaf1fb327b2b4186d475d8e462eacd34f8de6981fd900f",
+    "models/mug_correction_motor_v2/runtime.json": "62f3bd2b748483070450c07a61e0e14a259a52e1f5393b57952bc5dc88c79cf6",
+    "models/mug_correction_motor_v2/step-003000/model.safetensors": "67c1d3ae0f9d3eb91da9e933a2a22728fa9fa1c7d7e3cab3db624454face8d1a",
+    "models/mug_correction_motor_v2/step-006000/model.safetensors": "e9b0cedd850c000620ddebe0061a21ed0eabb49858a651562dfad2d5a1dcc36a",
+    "models/mug_keypoint_observer_v1/manifest.json": "5cde24caddd98c096fb82c0f61f3b12b14c326f4b5355d7bb010846667d602d9",
+    "models/mug_keypoint_observer_v1/openvino/observer.bin": "509aab137391cc90eaef10eb7b6164ff9c9e23bcea00695b2c7b29ebd7ce3357",
+    "models/mug_keypoint_observer_v1/openvino/observer.xml": "542ac6cfe8903a66dd0c420f87bd571b49ba6873edd85cecbb87fd660b5adbe1",
+    "models/mug_keypoint_observer_v1/protocol.json": "e73c7058c662e3e200fc7264dea2c90e0fc1241a281a195d549cbddbd2442d4e",
+    "models/mug_keypoint_observer_v1/selection.json": "01f919517d73b2215f32ce8152c138aa990fefadca9d56ad15dc26d03c000d04",
+    "models/mug_keypoint_observer_v1/step-004000/model.safetensors": "793b00876ed48f3a485405a89154a02d7048f56bf26cb058fcda55e503da5d1c",
+    "models/mug_keypoint_observer_v1/step-008000/model.safetensors": "e6db2942f2510cbb84bbe250e7e4fbb51aab4db95cbc601a70ffaa84845a898b",
+    "scripts/measure_manipulation_coverage.py": "79d4eb3aa16e04db6517353234083d5f581c3db1b3229b66b8f709e8b4bdd1d8",
+    "simulation_lab/engine.py": "7fe591389934e926b8c92395774e147530849f1e7905b228af0da7548c381603",
+    "simulation_lab/mug_visual_profile.py": "a955e238d4f55a0d01eb832272f57ab2eb9d17ef37aaacb7b5ea1fca3d223d3c",
+    "simulation_lab/public_trial.py": "d2ffcd66dd52c8334b92bee84bc83cb250582f311aaadfe82f68f81e9137305e",
+    "simulation_lab/server.py": "1db8f2dd5f2c9e234aee2144fb7d034e9d608a3791cc2c4b96223c2d99d041b4",
+    "simulation_lab/trial_preview.py": "59fc8b1dc83596856835b62a5153a85dbf39bf9f8e7c2be62b764bed70dfb11b"
+  },
+  "source_git_revision": "57566ca390fd95d69713a684062d916915756f9e",
+  "regions_m": {
+    "bottle": {
+      "x": [
+        -0.14,
+        0.16
+      ],
+      "y": [
+        -0.18,
+        -0.06
+      ],
+      "yaw_rad": [
+        -0.6,
+        0.6
+      ]
+    },
+    "plate": {
+      "x": [
+        -0.18,
+        -0.04
+      ],
+      "y": [
+        -0.05,
+        0.09
+      ],
+      "yaw_rad": [
+        -0.6,
+        0.6
+      ]
+    },
+    "mug": {
+      "x": [
+        0.17,
+        0.31
+      ],
+      "y": [
+        -0.14,
+        0.01
+      ],
+      "yaw_rad": [
+        -0.6,
+        0.6
+      ]
+    },
+    "fork": {
+      "drawer_local_x": [
+        -0.038,
+        -0.008
+      ],
+      "drawer_local_y": [
+        -0.04,
+        0.01
+      ],
+      "yaw_rad": [
+        -0.35,
+        0.35
+      ]
+    },
+    "spoon": {
+      "drawer_local_x": [
+        0.008,
+        0.038
+      ],
+      "drawer_local_y": [
+        -0.04,
+        0.01
+      ],
+      "yaw_rad": [
+        -0.35,
+        0.35
+      ]
+    },
+    "drawer": {
+      "closed_origin_x": [
+        -0.32,
+        -0.24
+      ],
+      "closed_origin_y": [
+        0.14,
+        0.22
+      ],
+      "yaw_rad": [
+        -0.26,
+        0.26
+      ],
+      "opening_m": [
+        0,
+        0.04,
+        0.08,
+        0.12
+      ]
+    }
+  },
+  "destinations_xy_m": {
+    "bottle": [
+      [
+        0.1,
+        -0.115
+      ],
+      [
+        0.16,
+        -0.06
+      ],
+      [
+        0.2,
+        0.05
+      ]
+    ],
+    "plate": [
+      [
+        -0.06,
+        -0.025
+      ],
+      [
+        -0.1,
+        -0.025
+      ],
+      [
+        -0.06,
+        -0.075
+      ]
+    ],
+    "mug": [
+      [
+        0.265,
+        0.005
+      ],
+      [
+        0.215,
+        0.005
+      ],
+      [
+        0.265,
+        0.055
+      ]
+    ],
+    "fork": [
+      [
+        -0.16,
+        -0.045
+      ],
+      [
+        -0.2,
+        -0.045
+      ],
+      [
+        -0.16,
+        -0.095
+      ]
+    ],
+    "spoon": [
+      [
+        -0.02,
+        -0.155
+      ],
+      [
+        -0.06,
+        -0.155
+      ],
+      [
+        -0.02,
+        -0.105
+      ]
+    ]
+  },
+  "cases": [
+    {
+      "id": "000-bottle-anchor",
+      "skill": "bottle",
+      "kind": "anchor"
+    },
+    {
+      "id": "001-plate-anchor",
+      "skill": "plate",
+      "kind": "anchor"
+    },
+    {
+      "id": "002-mug-anchor",
+      "skill": "mug",
+      "kind": "anchor"
+    },
+    {
+      "id": "003-drawer-anchor",
+      "skill": "drawer",
+      "kind": "anchor"
+    },
+    {
+      "id": "004-fork-anchor",
+      "skill": "fork",
+      "kind": "anchor"
+    },
+    {
+      "id": "005-spoon-anchor",
+      "skill": "spoon",
+      "kind": "anchor"
+    },
+    {
+      "id": "006-bottle-position",
+      "skill": "bottle",
+      "kind": "position",
+      "source_xy": [
+        -0.14,
+        -0.18
+      ],
+      "yaw_rad": 0.0,
+      "destination_xy": [
+        0.1,
+        -0.115
+      ]
+    },
+    {
+      "id": "007-bottle-position",
+      "skill": "bottle",
+      "kind": "position",
+      "source_xy": [
+        -0.14,
+        -0.13999999999999999
+      ],
+      "yaw_rad": 0.0,
+      "destination_xy": [
+        0.1,
+        -0.115
+      ]
+    },
+    {
+      "id": "008-bottle-position",
+      "skill": "bottle",
+      "kind": "position",
+      "source_xy": [
+        -0.14,
+        -0.09999999999999999
+      ],
+      "yaw_rad": 0.0,
+      "destination_xy": [
+        0.1,
+        -0.115
+      ]
+    },
+    {
+      "id": "009-bottle-position",
+      "skill": "bottle",
+      "kind": "position",
+      "source_xy": [
+        -0.14,
+        -0.06
+      ],
+      "yaw_rad": 0.0,
+      "destination_xy": [
+        0.1,
+        -0.115
+      ]
+    },
+    {
+      "id": "010-bottle-position",
+      "skill": "bottle",
+      "kind": "position",
+      "source_xy": [
+        -0.08,
+        -0.18
+      ],
+      "yaw_rad": 0.0,
+      "destination_xy": [
+        0.1,
+        -0.115
+      ]
+    },
+    {
+      "id": "011-bottle-position",
+      "skill": "bottle",
+      "kind": "position",
+      "source_xy": [
+        -0.08,
+        -0.13999999999999999
+      ],
+      "yaw_rad": 0.0,
+      "destination_xy": [
+        0.1,
+        -0.115
+      ]
+    },
+    {
+      "id": "012-bottle-position",
+      "skill": "bottle",
+      "kind": "position",
+      "source_xy": [
+        -0.08,
+        -0.09999999999999999
+      ],
+      "yaw_rad": 0.0,
+      "destination_xy": [
+        0.1,
+        -0.115
+      ]
+    },
+    {
+      "id": "013-bottle-position",
+      "skill": "bottle",
+      "kind": "position",
+      "source_xy": [
+        -0.08,
+        -0.06
+      ],
+      "yaw_rad": 0.0,
+      "destination_xy": [
+        0.1,
+        -0.115
+      ]
+    },
+    {
+      "id": "014-bottle-position",
+      "skill": "bottle",
+      "kind": "position",
+      "source_xy": [
+        -0.01999999999999999,
+        -0.18
+      ],
+      "yaw_rad": 0.0,
+      "destination_xy": [
+        0.1,
+        -0.115
+      ]
+    },
+    {
+      "id": "015-bottle-position",
+      "skill": "bottle",
+      "kind": "position",
+      "source_xy": [
+        -0.01999999999999999,
+        -0.13999999999999999
+      ],
+      "yaw_rad": 0.0,
+      "destination_xy": [
+        0.1,
+        -0.115
+      ]
+    },
+    {
+      "id": "016-bottle-position",
+      "skill": "bottle",
+      "kind": "position",
+      "source_xy": [
+        -0.01999999999999999,
+        -0.09999999999999999
+      ],
+      "yaw_rad": 0.0,
+      "destination_xy": [
+        0.1,
+        -0.115
+      ]
+    },
+    {
+      "id": "017-bottle-position",
+      "skill": "bottle",
+      "kind": "position",
+      "source_xy": [
+        -0.01999999999999999,
+        -0.06
+      ],
+      "yaw_rad": 0.0,
+      "destination_xy": [
+        0.1,
+        -0.115
+      ]
+    },
+    {
+      "id": "018-bottle-position",
+      "skill": "bottle",
+      "kind": "position",
+      "source_xy": [
+        0.040000000000000036,
+        -0.18
+      ],
+      "yaw_rad": 0.0,
+      "destination_xy": [
+        0.1,
+        -0.115
+      ]
+    },
+    {
+      "id": "019-bottle-position",
+      "skill": "bottle",
+      "kind": "position",
+      "source_xy": [
+        0.040000000000000036,
+        -0.13999999999999999
+      ],
+      "yaw_rad": 0.0,
+      "destination_xy": [
+        0.1,
+        -0.115
+      ]
+    },
+    {
+      "id": "020-bottle-position",
+      "skill": "bottle",
+      "kind": "position",
+      "source_xy": [
+        0.040000000000000036,
+        -0.09999999999999999
+      ],
+      "yaw_rad": 0.0,
+      "destination_xy": [
+        0.1,
+        -0.115
+      ]
+    },
+    {
+      "id": "021-bottle-position",
+      "skill": "bottle",
+      "kind": "position",
+      "source_xy": [
+        0.040000000000000036,
+        -0.06
+      ],
+      "yaw_rad": 0.0,
+      "destination_xy": [
+        0.1,
+        -0.115
+      ]
+    },
+    {
+      "id": "022-bottle-position",
+      "skill": "bottle",
+      "kind": "position",
+      "source_xy": [
+        0.10000000000000003,
+        -0.18
+      ],
+      "yaw_rad": 0.0,
+      "destination_xy": [
+        0.1,
+        -0.115
+      ]
+    },
+    {
+      "id": "023-bottle-position",
+      "skill": "bottle",
+      "kind": "position",
+      "source_xy": [
+        0.10000000000000003,
+        -0.13999999999999999
+      ],
+      "yaw_rad": 0.0,
+      "destination_xy": [
+        0.1,
+        -0.115
+      ]
+    },
+    {
+      "id": "024-bottle-position",
+      "skill": "bottle",
+      "kind": "position",
+      "source_xy": [
+        0.10000000000000003,
+        -0.09999999999999999
+      ],
+      "yaw_rad": 0.0,
+      "destination_xy": [
+        0.1,
+        -0.115
+      ]
+    },
+    {
+      "id": "025-bottle-position",
+      "skill": "bottle",
+      "kind": "position",
+      "source_xy": [
+        0.10000000000000003,
+        -0.06
+      ],
+      "yaw_rad": 0.0,
+      "destination_xy": [
+        0.1,
+        -0.115
+      ]
+    },
+    {
+      "id": "026-bottle-position",
+      "skill": "bottle",
+      "kind": "position",
+      "source_xy": [
+        0.16,
+        -0.18
+      ],
+      "yaw_rad": 0.0,
+      "destination_xy": [
+        0.1,
+        -0.115
+      ]
+    },
+    {
+      "id": "027-bottle-position",
+      "skill": "bottle",
+      "kind": "position",
+      "source_xy": [
+        0.16,
+        -0.13999999999999999
+      ],
+      "yaw_rad": 0.0,
+      "destination_xy": [
+        0.1,
+        -0.115
+      ]
+    },
+    {
+      "id": "028-bottle-position",
+      "skill": "bottle",
+      "kind": "position",
+      "source_xy": [
+        0.16,
+        -0.09999999999999999
+      ],
+      "yaw_rad": 0.0,
+      "destination_xy": [
+        0.1,
+        -0.115
+      ]
+    },
+    {
+      "id": "029-bottle-position",
+      "skill": "bottle",
+      "kind": "position",
+      "source_xy": [
+        0.16,
+        -0.06
+      ],
+      "yaw_rad": 0.0,
+      "destination_xy": [
+        0.1,
+        -0.115
+      ]
+    },
+    {
+      "id": "030-bottle-orientation",
+      "skill": "bottle",
+      "kind": "orientation",
+      "yaw_rad": -0.6,
+      "destination_xy": [
+        0.1,
+        -0.115
+      ]
+    },
+    {
+      "id": "031-bottle-orientation",
+      "skill": "bottle",
+      "kind": "orientation",
+      "yaw_rad": 0.6,
+      "destination_xy": [
+        0.1,
+        -0.115
+      ]
+    },
+    {
+      "id": "032-bottle-destination",
+      "skill": "bottle",
+      "kind": "destination",
+      "destination_xy": [
+        0.16,
+        -0.06
+      ]
+    },
+    {
+      "id": "033-bottle-destination",
+      "skill": "bottle",
+      "kind": "destination",
+      "destination_xy": [
+        0.2,
+        0.05
+      ]
+    },
+    {
+      "id": "034-plate-position",
+      "skill": "plate",
+      "kind": "position",
+      "source_xy": [
+        -0.18,
+        -0.05
+      ],
+      "yaw_rad": 0.0,
+      "destination_xy": [
+        -0.06,
+        -0.025
+      ]
+    },
+    {
+      "id": "035-plate-position",
+      "skill": "plate",
+      "kind": "position",
+      "source_xy": [
+        -0.18,
+        0.020000000000000004
+      ],
+      "yaw_rad": 0.0,
+      "destination_xy": [
+        -0.06,
+        -0.025
+      ]
+    },
+    {
+      "id": "036-plate-position",
+      "skill": "plate",
+      "kind": "position",
+      "source_xy": [
+        -0.18,
+        0.09
+      ],
+      "yaw_rad": 0.0,
+      "destination_xy": [
+        -0.06,
+        -0.025
+      ]
+    },
+    {
+      "id": "037-plate-position",
+      "skill": "plate",
+      "kind": "position",
+      "source_xy": [
+        -0.11,
+        -0.05
+      ],
+      "yaw_rad": 0.0,
+      "destination_xy": [
+        -0.06,
+        -0.025
+      ]
+    },
+    {
+      "id": "038-plate-position",
+      "skill": "plate",
+      "kind": "position",
+      "source_xy": [
+        -0.11,
+        0.020000000000000004
+      ],
+      "yaw_rad": 0.0,
+      "destination_xy": [
+        -0.06,
+        -0.025
+      ]
+    },
+    {
+      "id": "039-plate-position",
+      "skill": "plate",
+      "kind": "position",
+      "source_xy": [
+        -0.11,
+        0.09
+      ],
+      "yaw_rad": 0.0,
+      "destination_xy": [
+        -0.06,
+        -0.025
+      ]
+    },
+    {
+      "id": "040-plate-position",
+      "skill": "plate",
+      "kind": "position",
+      "source_xy": [
+        -0.04,
+        -0.05
+      ],
+      "yaw_rad": 0.0,
+      "destination_xy": [
+        -0.06,
+        -0.025
+      ]
+    },
+    {
+      "id": "041-plate-position",
+      "skill": "plate",
+      "kind": "position",
+      "source_xy": [
+        -0.04,
+        0.020000000000000004
+      ],
+      "yaw_rad": 0.0,
+      "destination_xy": [
+        -0.06,
+        -0.025
+      ]
+    },
+    {
+      "id": "042-plate-position",
+      "skill": "plate",
+      "kind": "position",
+      "source_xy": [
+        -0.04,
+        0.09
+      ],
+      "yaw_rad": 0.0,
+      "destination_xy": [
+        -0.06,
+        -0.025
+      ]
+    },
+    {
+      "id": "043-plate-orientation",
+      "skill": "plate",
+      "kind": "orientation",
+      "yaw_rad": -0.6,
+      "destination_xy": [
+        -0.06,
+        -0.025
+      ]
+    },
+    {
+      "id": "044-plate-orientation",
+      "skill": "plate",
+      "kind": "orientation",
+      "yaw_rad": 0.6,
+      "destination_xy": [
+        -0.06,
+        -0.025
+      ]
+    },
+    {
+      "id": "045-plate-destination",
+      "skill": "plate",
+      "kind": "destination",
+      "destination_xy": [
+        -0.1,
+        -0.025
+      ]
+    },
+    {
+      "id": "046-plate-destination",
+      "skill": "plate",
+      "kind": "destination",
+      "destination_xy": [
+        -0.06,
+        -0.075
+      ]
+    },
+    {
+      "id": "047-mug-position",
+      "skill": "mug",
+      "kind": "position",
+      "source_xy": [
+        0.17,
+        -0.14
+      ],
+      "yaw_rad": 0.0,
+      "destination_xy": [
+        0.265,
+        0.005
+      ]
+    },
+    {
+      "id": "048-mug-position",
+      "skill": "mug",
+      "kind": "position",
+      "source_xy": [
+        0.17,
+        -0.065
+      ],
+      "yaw_rad": 0.0,
+      "destination_xy": [
+        0.265,
+        0.005
+      ]
+    },
+    {
+      "id": "049-mug-position",
+      "skill": "mug",
+      "kind": "position",
+      "source_xy": [
+        0.17,
+        0.01
+      ],
+      "yaw_rad": 0.0,
+      "destination_xy": [
+        0.265,
+        0.005
+      ]
+    },
+    {
+      "id": "050-mug-position",
+      "skill": "mug",
+      "kind": "position",
+      "source_xy": [
+        0.24,
+        -0.14
+      ],
+      "yaw_rad": 0.0,
+      "destination_xy": [
+        0.265,
+        0.005
+      ]
+    },
+    {
+      "id": "051-mug-position",
+      "skill": "mug",
+      "kind": "position",
+      "source_xy": [
+        0.24,
+        -0.065
+      ],
+      "yaw_rad": 0.0,
+      "destination_xy": [
+        0.265,
+        0.005
+      ]
+    },
+    {
+      "id": "052-mug-position",
+      "skill": "mug",
+      "kind": "position",
+      "source_xy": [
+        0.24,
+        0.01
+      ],
+      "yaw_rad": 0.0,
+      "destination_xy": [
+        0.265,
+        0.005
+      ]
+    },
+    {
+      "id": "053-mug-position",
+      "skill": "mug",
+      "kind": "position",
+      "source_xy": [
+        0.31,
+        -0.14
+      ],
+      "yaw_rad": 0.0,
+      "destination_xy": [
+        0.265,
+        0.005
+      ]
+    },
+    {
+      "id": "054-mug-position",
+      "skill": "mug",
+      "kind": "position",
+      "source_xy": [
+        0.31,
+        -0.065
+      ],
+      "yaw_rad": 0.0,
+      "destination_xy": [
+        0.265,
+        0.005
+      ]
+    },
+    {
+      "id": "055-mug-position",
+      "skill": "mug",
+      "kind": "position",
+      "source_xy": [
+        0.31,
+        0.01
+      ],
+      "yaw_rad": 0.0,
+      "destination_xy": [
+        0.265,
+        0.005
+      ]
+    },
+    {
+      "id": "056-mug-orientation",
+      "skill": "mug",
+      "kind": "orientation",
+      "yaw_rad": -0.6,
+      "destination_xy": [
+        0.265,
+        0.005
+      ]
+    },
+    {
+      "id": "057-mug-orientation",
+      "skill": "mug",
+      "kind": "orientation",
+      "yaw_rad": 0.6,
+      "destination_xy": [
+        0.265,
+        0.005
+      ]
+    },
+    {
+      "id": "058-mug-destination",
+      "skill": "mug",
+      "kind": "destination",
+      "destination_xy": [
+        0.215,
+        0.005
+      ]
+    },
+    {
+      "id": "059-mug-destination",
+      "skill": "mug",
+      "kind": "destination",
+      "destination_xy": [
+        0.265,
+        0.055
+      ]
+    },
+    {
+      "id": "060-fork-position",
+      "skill": "fork",
+      "kind": "position",
+      "drawer_local_xy": [
+        -0.038,
+        -0.04
+      ],
+      "yaw_rad": 0.0,
+      "destination_xy": [
+        -0.16,
+        -0.045
+      ]
+    },
+    {
+      "id": "061-fork-position",
+      "skill": "fork",
+      "kind": "position",
+      "drawer_local_xy": [
+        -0.038,
+        -0.015
+      ],
+      "yaw_rad": 0.0,
+      "destination_xy": [
+        -0.16,
+        -0.045
+      ]
+    },
+    {
+      "id": "062-fork-position",
+      "skill": "fork",
+      "kind": "position",
+      "drawer_local_xy": [
+        -0.038,
+        0.01
+      ],
+      "yaw_rad": 0.0,
+      "destination_xy": [
+        -0.16,
+        -0.045
+      ]
+    },
+    {
+      "id": "063-fork-position",
+      "skill": "fork",
+      "kind": "position",
+      "drawer_local_xy": [
+        -0.023,
+        -0.04
+      ],
+      "yaw_rad": 0.0,
+      "destination_xy": [
+        -0.16,
+        -0.045
+      ]
+    },
+    {
+      "id": "064-fork-position",
+      "skill": "fork",
+      "kind": "position",
+      "drawer_local_xy": [
+        -0.023,
+        -0.015
+      ],
+      "yaw_rad": 0.0,
+      "destination_xy": [
+        -0.16,
+        -0.045
+      ]
+    },
+    {
+      "id": "065-fork-position",
+      "skill": "fork",
+      "kind": "position",
+      "drawer_local_xy": [
+        -0.023,
+        0.01
+      ],
+      "yaw_rad": 0.0,
+      "destination_xy": [
+        -0.16,
+        -0.045
+      ]
+    },
+    {
+      "id": "066-fork-position",
+      "skill": "fork",
+      "kind": "position",
+      "drawer_local_xy": [
+        -0.008,
+        -0.04
+      ],
+      "yaw_rad": 0.0,
+      "destination_xy": [
+        -0.16,
+        -0.045
+      ]
+    },
+    {
+      "id": "067-fork-position",
+      "skill": "fork",
+      "kind": "position",
+      "drawer_local_xy": [
+        -0.008,
+        -0.015
+      ],
+      "yaw_rad": 0.0,
+      "destination_xy": [
+        -0.16,
+        -0.045
+      ]
+    },
+    {
+      "id": "068-fork-position",
+      "skill": "fork",
+      "kind": "position",
+      "drawer_local_xy": [
+        -0.008,
+        0.01
+      ],
+      "yaw_rad": 0.0,
+      "destination_xy": [
+        -0.16,
+        -0.045
+      ]
+    },
+    {
+      "id": "069-fork-orientation",
+      "skill": "fork",
+      "kind": "orientation",
+      "yaw_rad": -0.35,
+      "destination_xy": [
+        -0.16,
+        -0.045
+      ]
+    },
+    {
+      "id": "070-fork-orientation",
+      "skill": "fork",
+      "kind": "orientation",
+      "yaw_rad": 0.35,
+      "destination_xy": [
+        -0.16,
+        -0.045
+      ]
+    },
+    {
+      "id": "071-fork-destination",
+      "skill": "fork",
+      "kind": "destination",
+      "destination_xy": [
+        -0.2,
+        -0.045
+      ]
+    },
+    {
+      "id": "072-fork-destination",
+      "skill": "fork",
+      "kind": "destination",
+      "destination_xy": [
+        -0.16,
+        -0.095
+      ]
+    },
+    {
+      "id": "073-spoon-position",
+      "skill": "spoon",
+      "kind": "position",
+      "drawer_local_xy": [
+        0.008,
+        -0.04
+      ],
+      "yaw_rad": 0.0,
+      "destination_xy": [
+        -0.02,
+        -0.155
+      ]
+    },
+    {
+      "id": "074-spoon-position",
+      "skill": "spoon",
+      "kind": "position",
+      "drawer_local_xy": [
+        0.008,
+        -0.015
+      ],
+      "yaw_rad": 0.0,
+      "destination_xy": [
+        -0.02,
+        -0.155
+      ]
+    },
+    {
+      "id": "075-spoon-position",
+      "skill": "spoon",
+      "kind": "position",
+      "drawer_local_xy": [
+        0.008,
+        0.01
+      ],
+      "yaw_rad": 0.0,
+      "destination_xy": [
+        -0.02,
+        -0.155
+      ]
+    },
+    {
+      "id": "076-spoon-position",
+      "skill": "spoon",
+      "kind": "position",
+      "drawer_local_xy": [
+        0.023,
+        -0.04
+      ],
+      "yaw_rad": 0.0,
+      "destination_xy": [
+        -0.02,
+        -0.155
+      ]
+    },
+    {
+      "id": "077-spoon-position",
+      "skill": "spoon",
+      "kind": "position",
+      "drawer_local_xy": [
+        0.023,
+        -0.015
+      ],
+      "yaw_rad": 0.0,
+      "destination_xy": [
+        -0.02,
+        -0.155
+      ]
+    },
+    {
+      "id": "078-spoon-position",
+      "skill": "spoon",
+      "kind": "position",
+      "drawer_local_xy": [
+        0.023,
+        0.01
+      ],
+      "yaw_rad": 0.0,
+      "destination_xy": [
+        -0.02,
+        -0.155
+      ]
+    },
+    {
+      "id": "079-spoon-position",
+      "skill": "spoon",
+      "kind": "position",
+      "drawer_local_xy": [
+        0.038,
+        -0.04
+      ],
+      "yaw_rad": 0.0,
+      "destination_xy": [
+        -0.02,
+        -0.155
+      ]
+    },
+    {
+      "id": "080-spoon-position",
+      "skill": "spoon",
+      "kind": "position",
+      "drawer_local_xy": [
+        0.038,
+        -0.015
+      ],
+      "yaw_rad": 0.0,
+      "destination_xy": [
+        -0.02,
+        -0.155
+      ]
+    },
+    {
+      "id": "081-spoon-position",
+      "skill": "spoon",
+      "kind": "position",
+      "drawer_local_xy": [
+        0.038,
+        0.01
+      ],
+      "yaw_rad": 0.0,
+      "destination_xy": [
+        -0.02,
+        -0.155
+      ]
+    },
+    {
+      "id": "082-spoon-orientation",
+      "skill": "spoon",
+      "kind": "orientation",
+      "yaw_rad": -0.35,
+      "destination_xy": [
+        -0.02,
+        -0.155
+      ]
+    },
+    {
+      "id": "083-spoon-orientation",
+      "skill": "spoon",
+      "kind": "orientation",
+      "yaw_rad": 0.35,
+      "destination_xy": [
+        -0.02,
+        -0.155
+      ]
+    },
+    {
+      "id": "084-spoon-destination",
+      "skill": "spoon",
+      "kind": "destination",
+      "destination_xy": [
+        -0.06,
+        -0.155
+      ]
+    },
+    {
+      "id": "085-spoon-destination",
+      "skill": "spoon",
+      "kind": "destination",
+      "destination_xy": [
+        -0.02,
+        -0.105
+      ]
+    },
+    {
+      "id": "086-drawer-cabinet_position",
+      "skill": "drawer",
+      "kind": "cabinet_position",
+      "cabinet_xy": [
+        -0.32,
+        0.14
+      ],
+      "cabinet_yaw_rad": 0.0,
+      "drawer_open_m": 0.0
+    },
+    {
+      "id": "087-drawer-cabinet_position",
+      "skill": "drawer",
+      "kind": "cabinet_position",
+      "cabinet_xy": [
+        -0.32,
+        0.18
+      ],
+      "cabinet_yaw_rad": 0.0,
+      "drawer_open_m": 0.0
+    },
+    {
+      "id": "088-drawer-cabinet_position",
+      "skill": "drawer",
+      "kind": "cabinet_position",
+      "cabinet_xy": [
+        -0.32,
+        0.22
+      ],
+      "cabinet_yaw_rad": 0.0,
+      "drawer_open_m": 0.0
+    },
+    {
+      "id": "089-drawer-cabinet_position",
+      "skill": "drawer",
+      "kind": "cabinet_position",
+      "cabinet_xy": [
+        -0.28,
+        0.14
+      ],
+      "cabinet_yaw_rad": 0.0,
+      "drawer_open_m": 0.0
+    },
+    {
+      "id": "090-drawer-cabinet_position",
+      "skill": "drawer",
+      "kind": "cabinet_position",
+      "cabinet_xy": [
+        -0.28,
+        0.18
+      ],
+      "cabinet_yaw_rad": 0.0,
+      "drawer_open_m": 0.0
+    },
+    {
+      "id": "091-drawer-cabinet_position",
+      "skill": "drawer",
+      "kind": "cabinet_position",
+      "cabinet_xy": [
+        -0.28,
+        0.22
+      ],
+      "cabinet_yaw_rad": 0.0,
+      "drawer_open_m": 0.0
+    },
+    {
+      "id": "092-drawer-cabinet_position",
+      "skill": "drawer",
+      "kind": "cabinet_position",
+      "cabinet_xy": [
+        -0.24,
+        0.14
+      ],
+      "cabinet_yaw_rad": 0.0,
+      "drawer_open_m": 0.0
+    },
+    {
+      "id": "093-drawer-cabinet_position",
+      "skill": "drawer",
+      "kind": "cabinet_position",
+      "cabinet_xy": [
+        -0.24,
+        0.18
+      ],
+      "cabinet_yaw_rad": 0.0,
+      "drawer_open_m": 0.0
+    },
+    {
+      "id": "094-drawer-cabinet_position",
+      "skill": "drawer",
+      "kind": "cabinet_position",
+      "cabinet_xy": [
+        -0.24,
+        0.22
+      ],
+      "cabinet_yaw_rad": 0.0,
+      "drawer_open_m": 0.0
+    },
+    {
+      "id": "095-drawer-cabinet_orientation",
+      "skill": "drawer",
+      "kind": "cabinet_orientation",
+      "cabinet_yaw_rad": -0.26
+    },
+    {
+      "id": "096-drawer-cabinet_orientation",
+      "skill": "drawer",
+      "kind": "cabinet_orientation",
+      "cabinet_yaw_rad": 0.26
+    },
+    {
+      "id": "097-drawer-opening",
+      "skill": "drawer",
+      "kind": "opening",
+      "drawer_open_m": 0.04
+    },
+    {
+      "id": "098-drawer-opening",
+      "skill": "drawer",
+      "kind": "opening",
+      "drawer_open_m": 0.08
+    },
+    {
+      "id": "099-drawer-opening",
+      "skill": "drawer",
+      "kind": "opening",
+      "drawer_open_m": 0.12
+    }
+  ],
+  "controllers": [
+    "learned",
+    "teacher"
+  ],
+  "maximum_workers": 2,
+  "maximum_wall_seconds_per_case": 120,
+  "maximum_simulated_seconds_per_case": 100,
+  "settle_steps": 300,
+  "storage_budget_bytes": 2147483648,
+  "reserve_gib": 10,
+  "setup": "Restore preceding skills from one exposed recorded context, park the arms, change only declared reset coordinates, and settle before control. This isolates each skill; it is not end-to-end or independent random-scene coverage.",
+  "learned": "Unchanged selected neural skills; mug uses its bound live late-placement controller in an isolated diagnostic harness. Public language routing is not bypassed or claimed supported by this experiment.",
+  "teacher": "Separate exact-state controller supplies only feasibility comparison, never actions or object pose to the learned rollout. Teacher failure means not demonstrated, not unreachable.",
+  "validity": "Retain all planned cases. Label initial inter-body penetration >1 mm, object tipping or off-table/unstable reset as invalid; no resampling. Table/drawer supporting contacts remain physical. Solver or perception refusals stay in the valid-case denominator.",
+  "exclusions": [
+    "Overlapping/colliding or unsupported reset arrangements",
+    "Unknown object geometry, liquids, side plates and glasses as manipulated objects",
+    "Airborne exchange, tipping/sideways objects, obstacle rearrangement and arbitrary destination yaw"
+  ],
+  "interpretation": "The boxes are candidate coverage targets, not asserted reachable sets. Report demonstrated physical feasibility and learned success separately for every point. Orientation/configuration/destination rows do not prove their full Cartesian product.",
+  "next_gate": "Require all six learned anchor regressions before broad rollout. Select one improvement from observed failures under a separately frozen training/development/fresh-evaluation protocol. No final-seed tuning here."
+}

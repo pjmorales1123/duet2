@@ -1,0 +1,64 @@
+{
+  "schema": "talos.rgb-servo-final-evaluation.v1",
+  "frozen_at_utc": "2026-09-13T20:00:15.478162+00:00",
+  "parent": "docs/robotics/experiments/rgb-servo-bottle-v1.json",
+  "observer_sha256": "1b97d12a89d632462e27846846bae5be88d904d2c876901f05ec190f491d2851",
+  "motor_sha256": "8e979711b4edf131bd662b3b34a869d629d34c415fd8d7e13038c41ccf3f9d92",
+  "openvino_artifact_sha256": {
+    "observer.xml": "542ac6cfe8903a66dd0c420f87bd571b49ba6873edd85cecbb87fd660b5adbe1",
+    "observer.bin": "e76bc72eceeea26360f2971211142db989fbff486770fd455f5a29d7e520bb7f",
+    "motor.xml": "6380d60a8248492dcc9fdf3c14ac169222f55223318b32a39e2ad8719ca0a0f8",
+    "motor.bin": "20f55afc49b18102131d61ffc7df7dfd17e233c5201e81fba6fa4b9627b5d497"
+  },
+  "source_sha256": {
+    "scripts/evaluate_rgb_servo_bottle.py": "853e764bc76a87c6751cf91327e56ebb6f2ea6df3616460070b22b8b36f5f32c",
+    "simulation_lab/rgb_servo_controller.py": "6fb0d6ac81f717288a23aa88f60bcd84f95f0137b0660db7d35ebe2aeba7cf94",
+    "simulation_lab/rgb_servo_motor.py": "3d90c40a5af68f0b04dfe5aafaa7de47f4c0b67211d40cc1a461eae2311e22b7",
+    "simulation_lab/rgb_bottle_observer.py": "45e93ab0d7930a15c82f5e84809eb0d8d7d8d376ed878558529560ff20c18d20",
+    "simulation_lab/rgb_servo_cameras.py": "eb750885e17ccc731ad9a80f3f5450ec2b5823c68e9dd57d9e325623d28eb3ec",
+    "simulation_lab/rgb_servo_network.py": "3ef3cd8fcac1e40743893caab14fb94decf52d1c402c6ade69c342e8c97d9302",
+    "simulation_lab/rgb_servo_geometry.py": "bca323458c4971bab8534e36fb6f7d5aa668df188e7573efa095ebfbca4db1ae",
+    "simulation_lab/experiment_targets.py": "0704accb79c80d894efdf721e7a23437348c9dfe2d0d5edefd63e8b225ea9654",
+    "simulation_lab/policy_control.py": "a418fe2619985852d4e65b40e20c18f82fd72076b4d8b9202507dda4a410b151",
+    "simulation_lab/rgb_servo_openvino.py": "2a091f27331304228bc57a306302cf05ced182af654a57c502b2bdea4bb1fa42",
+    "scripts/evaluate_rgb_servo_suite.py": "e301b1c2c5b96d025eede54955563b98f62af6a5b6d6aa6555e89a0dca475343",
+    "simulation_lab/dinner_monitor.py": "34b2a5356ffcb5c2cf888607ceb387e51ca2ed00f6fa8fa39a897744e8bebe54",
+    "simulation_lab/dinner_autonomy.py": "717c03217039a8ce5234ff8554aeb948f444fa88644aafe5e456e1bd74c17eba",
+    "simulation_lab/autonomy.py": "0e60140b1d3dd03c278592fb975393b50f6074235280472390f3a8feda142c95",
+    "simulation_lab/scene.py": "b363abd064ed0983f9ba96381855f9fd079072dc48593f17fc0bf6e623468b19",
+    "simulation_lab/dinner.py": "37107bcbd85a39466dcd01b202d6661f1e3c9f705e6865de05d6fa994e562c11"
+  },
+  "selection": "Frozen after all 18 OpenVINO development cases: 4/6 nominal live, 4/6 pushed live, 1/6 pushed frozen. Two seeds are refused by the motor geometry guard. Rigid RGB perception passes its separately frozen test at 1.938 mm p95 with 233/236 present acceptances and no absent false positives.",
+  "evaluation_seeds": [
+    2026095301,
+    2026095302,
+    2026095303,
+    2026095304,
+    2026095305,
+    2026095306,
+    2026095307,
+    2026095308,
+    2026095309,
+    2026095310,
+    2026095311,
+    2026095312
+  ],
+  "conditions": [
+    "nominal live images",
+    "nominal initial images frozen",
+    "disclosed push with live images",
+    "identical push with initial images frozen"
+  ],
+  "planned_trials": 48,
+  "why_four_conditions": "Include unperturbed frozen-image controls to separate ordinary grasp-offset errors from the effect of the disturbance. Report all cases and a clearly labeled comparison among seeds where both unperturbed conditions pass.",
+  "workspace_and_destinations": "Exactly the original declared workspace, pose generator and three destinations; retain known unsupported-goal and invalid-start refusals in the denominator.",
+  "push_protocol": "docs/robotics/experiments/rgb-servo-push-v1.json",
+  "inference_runtime": "OpenVINO CPU, FP32, on this AMD PC",
+  "controller": "Two confident RGB views, rigid 103 mm geometry, 0.35 exponential filter, 4 mm fixed-jaw clearance, neural Cartesian motor mapping and measured motor/encoder feedback; explicit skill phases and separate unchanged physical monitor.",
+  "no_tuning": "No model, controller, confidence or physical-threshold changes after these outcomes are exposed. Preserve every outcome and all source/model hashes. Any later candidate requires a separately declared test.",
+  "storage": {
+    "estimated_new_data_mib": 160,
+    "reserve_gib": 10
+  },
+  "scope": "Finite physical coverage and paired feedback evidence only, not any-reachable-position or arbitrary-object capability."
+}

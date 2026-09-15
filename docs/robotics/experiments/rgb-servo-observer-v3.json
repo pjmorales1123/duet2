@@ -1,0 +1,15 @@
+{
+  "schema": "talos.rgb-servo-observer.v3",
+  "declared_on": "2026-09-13",
+  "parent": "docs/robotics/experiments/rgb-servo-confidence-v1.json",
+  "reason": "The frozen v2 synthetic test passes its accepted-error gate (2.767 mm p95, 210/229 present states accepted, zero absent acceptances). Exposed real grasping footage still has 5.065 mm p95 error and 40/256 refusals. Do not deploy that observer for correction.",
+  "new_training": "Combine the original 4096 procedural training states with 128 frames from each of the 15 replay-verified nominal physical motions. The full collection attempted 24 declared training seeds; all nine failures remain recorded. Rendering changes light intensity by at most 15 percent; it does not change physical trajectories.",
+  "training_inputs": [".run/rgb-servo-observer-train-v2", ".run/rgb-servo-motion-labels-v1"],
+  "warm_start": ".run/rgb-servo-observer-fit-v2/step-006000/model.safetensors",
+  "steps": 4000,
+  "selection": "Use only the original exposed synthetic development split and seed-42 physical trace for selection. Do not reuse frozen observer evaluation seed 2026095404 for selection. A later final observer comparison requires a new declared seed.",
+  "unchanged_gate": "Three confident views, reprojection at most 1.5 px, known 103 mm axis within 6 mm, accepted maximum-keypoint 3D error p95 below 3 mm. Report all refusals and false positives.",
+  "recovery_seeds_reserved": [2026095125,2026095132],
+  "budget": {"max_additional_training_minutes": 10, "max_cumulative_steps": 13000, "max_peak_vram_gib": 10, "max_cumulative_new_data_gib": 2, "reserve_gib": 10},
+  "scope": "Still perception training. Neural corrective control and paired live/frozen-image physical trials are not complete."
+}

@@ -1,0 +1,1 @@
+{'split': 'training', 'states': 8192, 'accepted_labels': 8192, 'label_coverage_passed': True, 'step_fraction': {'minimum': 0.05770197128093923, 'median': 1.0}, 'wall_seconds': 1.7040686002001166}

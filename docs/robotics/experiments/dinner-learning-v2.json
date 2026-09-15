@@ -1,0 +1,17 @@
+{
+  "schema": "talos.dinner-learning-protocol.v2",
+  "declared_on": "2026-09-13",
+  "parent": "dinner-learning-v1.json",
+  "reason": "Nine training scenes underfit or overfit placement geometry. Preserve prior data, checkpoints and failures; add 32 declared training scenes before further fitting.",
+  "skills": ["bottle", "plate", "mug", "drawer", "fork", "spoon"],
+  "training_seeds": [42, 2026091701, 2026091702, 2026091703, 2026091704, 2026091705, 2026091706, 2026091707, 2026091708, 2026091709, 2026091710, 2026091711, 2026091712, 2026091713, 2026091714, 2026091715, 2026091716, 2026091717, 2026091718, 2026091719, 2026091720, 2026091721, 2026091722, 2026091723, 2026091724, 2026091725, 2026091726, 2026091727, 2026091728, 2026091729, 2026091730, 2026091731, 2026091732, 2026091733, 2026091734, 2026091735, 2026091736, 2026091737, 2026091738, 2026091739, 2026091740],
+  "development_seeds": [2026091801, 2026091802, 2026091803, 2026091804, 2026091805, 2026091806],
+  "evaluation_seeds": [2026091901, 2026091902, 2026091903, 2026091904, 2026091905, 2026091906, 2026091907, 2026091908, 2026091909, 2026091910],
+  "evaluation_policy": "Evaluation seeds remain unexposed; no demonstrations or candidate selection from them. Freeze final candidate and inference settings before evaluating all ten, retaining every outcome.",
+  "data_gate": "Every demonstration requires teacher success and independent exact float32 endpoint replay. Retain failed episodes; inspect failures before fitting or another collection batch.",
+  "perturbations": "Unchanged task preset; wider positions, shapes and backgrounds require separate measured extensions.",
+  "storage_reserve_gib": 10,
+  "expected_additional_dataset_gib": 1,
+  "conservative_collection_precheck_gib": 19.2,
+  "preserve": "All original models, v1 data, previous candidates and physical reports"
+}

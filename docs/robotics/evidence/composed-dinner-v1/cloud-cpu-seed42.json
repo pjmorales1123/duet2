@@ -1,0 +1,32 @@
+{
+  "schema": "talos.hosted-browser-selected-fields.v1",
+  "observed_on": "2026-09-14",
+  "source": "Selected fields read from the private Gradio trial-evidence UI; not a raw state recording.",
+  "space": "jannis-sms/talos-dinner-robotics",
+  "deployment_revision": "f6e59689a6ca75684f45b8cf8aa023e373468ef5",
+  "private": true,
+  "instruction": "Set the table",
+  "seed": 42,
+  "split": "exposed deployment regression",
+  "controller": "learned",
+  "bottle_start": "wide_left",
+  "camera": "opposite",
+  "inference_runtime": "OpenVINO CPU",
+  "status": "succeeded",
+  "simulation_seconds": 283.31,
+  "wall_seconds": 297.31,
+  "hosting_limit_seconds": 300,
+  "completed_steps": ["reverse_bottle_right", "reverse_bottle_left", "plate", "mug", "drawer", "fork", "spoon"],
+  "results": [
+    {"skill":"reverse_bottle_right", "status":"succeeded", "placement_error_mm":0.9523022977114589, "stable_release_and_park_s":0.5000000000002558, "both_arms_parked":true, "unexpected_collisions":0},
+    {"skill":"reverse_bottle_left", "status":"succeeded", "placement_error_mm":0.8536496056618063, "stable_release_and_park_s":0.5049999999995407, "both_arms_parked":true, "unexpected_collisions":0},
+    {"skill":"plate", "status":"succeeded", "placement_error_mm":1.110500601538087, "stable_release_and_park_s":0.5049999999995407, "both_arms_parked":true, "unexpected_collisions":0},
+    {"skill":"mug", "status":"succeeded", "placement_error_mm":1.1062382674389137, "stable_release_and_park_s":0.5049999999995407, "both_arms_parked":true, "unexpected_collisions":0},
+    {"skill":"drawer", "status":"succeeded", "drawer_open_m":0.11776373698489383, "stable_release_and_park_s":0.5049999999995407, "both_arms_parked":true, "unexpected_collisions":0},
+    {"skill":"fork", "status":"succeeded", "placement_error_mm":0.7921897080033026, "stable_release_and_park_s":0.5049999999995407, "both_arms_parked":true, "unexpected_collisions":0},
+    {"skill":"spoon", "status":"succeeded", "placement_error_mm":4.475159106135473, "stable_release_and_park_s":0.5049999999995407, "both_arms_parked":true, "unexpected_collisions":0}
+  ],
+  "physics_state_writes_during_control": 0,
+  "hidden_forces": 0,
+  "scope": "One signed-in cloud trial on exposed seed 42. The actual RGB/language planner selected the two reverse-relay legs before the dinner tasks. No new holdout, anonymous-access or Intel-hardware claim. The trial passed within 300 seconds, with only 2.69 seconds of reported wall-time margin."
+}

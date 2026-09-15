@@ -1,0 +1,286 @@
+{
+  "date": "2026-09-13",
+  "protocol_sha256": "5793f86747412506b510d4309fc998470b85a335d90deeec9e60e17d7cc8fede",
+  "protocol_sha256_scope": "Exact local declaration bytes with Windows CRLF line endings; Git publishes text with LF. Use canonical_protocol_sha256 for cross-checkout verification.",
+  "canonical_protocol_sha256": "c36aef045224ef837e1a46e4d25a9c3eb984285870e3697a9c43aeeac082c54a",
+  "canonical_protocol_encoding": "UTF-8 encoding of json.dumps(protocol, sort_keys=True, separators=(',', ':'))",
+  "scope": "Reconstructed exposed development starts, not fresh holdouts. All attempted cases retained.",
+  "baseline_checkpoint": "models/bottle_visual",
+  "baseline_hashes_scope": "Exact local file bytes at evaluation. Binary weights are byte-stable; text file line endings can differ across checkouts.",
+  "baseline_hashes": {
+    "openvino.json": "00d12a2a6dd68d5d48d010074cfa0ac4c6058d024b7a8dd86b6ca12a3b327a5a",
+    "primitive.bin": "5d62de7468ff238558e5f0aed74977a5c557631d1a9d732b91c73699ee19282a",
+    "primitive.json": "e2a5b913ea9c7b8028c53a176a9ce331df0adad6f4cb7b73246378b92d571974",
+    "primitive.safetensors": "e2a1ff9400cdb49d7b9a38d5880759a0269814111c88b2081416f8e349c7564e",
+    "primitive.xml": "5233b56e23ba997519e7195b2a05ff52dbb283050230c1c169d5bc0755b7ca64",
+    "README.md": "64a06abc996a82fcd3d7d4a02cd12c7123108d1f1a5d3f48a4e6a44fa8f71f7d",
+    "talos_normalization.json": "18070e907ab87dbb47ae7d2692d1de696a06957eadc6f00aa46e3a237fa4a1a8",
+    "visual.npz": "90157ca7de0491966dd22f53aec1f2ab8830855e1c9bd7353cec9b6f7d85ac25"
+  },
+  "attempted_training_cases": 3,
+  "eligible_training_cases": 2,
+  "planned_training_cap": 24,
+  "data_gate_passed": false,
+  "decision": "Stop this protocol before further collection/training; retain the published model.",
+  "reason": "Reconstructed original train-019 is rejected by the existing teacher grasp planner as outside useful reach; no valid replayable demonstration exists for this required region.",
+  "training_steps_run": 0,
+  "candidate_checkpoints_created": 0,
+  "development_cases_evaluated": 0,
+  "fresh_evaluation_cases_evaluated": 0,
+  "baseline_exposed_successes": 1,
+  "baseline_exposed_trials": 3,
+  "results": [
+    {
+      "case": "train-000",
+      "reconstructed_from": "original-count32/train-017",
+      "seed": 2026090018,
+      "pose": {
+        "x": -0.004839164417284991,
+        "y": -0.07114445094478791,
+        "yaw": 0.2809897527742853,
+        "sideways": false
+      },
+      "teacher": {
+        "status": "succeeded",
+        "message": "bottle physically lifted, held, placed and released.",
+        "elapsed_s": 38.17,
+        "training_eligible": true,
+        "replays": [
+          {
+            "hz": 200,
+            "passed": true,
+            "placement_error_m": 0.0009328648731483604,
+            "tilt_deg": 0.0014537634365813488,
+            "speed_m_s": 1.5378080058026822e-05,
+            "table_support_n": 0.8389220005442862,
+            "verified_hold_s": 1.8049999999999835,
+            "hold_bad_ticks": 0,
+            "longest_carry_contact_gap_s": 0.0,
+            "external_carry_ticks": 0,
+            "other_object_max_displacement_m": 2.580668431852507e-06,
+            "parked_arm_max_motion_deg": 3.40955461852889e-11,
+            "state_reset_count": 1,
+            "teacher_updates": 0
+          },
+          {
+            "hz": 20,
+            "passed": true,
+            "placement_error_m": 0.0009328648731483604,
+            "tilt_deg": 0.0014537634365813488,
+            "speed_m_s": 1.5378080058026822e-05,
+            "table_support_n": 0.8389220005442862,
+            "verified_hold_s": 1.8049999999999835,
+            "hold_bad_ticks": 0,
+            "longest_carry_contact_gap_s": 0.0,
+            "external_carry_ticks": 0,
+            "other_object_max_displacement_m": 2.580668431852507e-06,
+            "parked_arm_max_motion_deg": 3.40955461852889e-11,
+            "state_reset_count": 1,
+            "teacher_updates": 0
+          }
+        ]
+      },
+      "baseline": {
+        "status": "succeeded",
+        "message": "Neural policy physically lifted, held, released and placed the bottle.",
+        "elapsed_s": 28.49,
+        "metrics": {
+          "gripper_torque_limit_nm": 0.25,
+          "other_arm_max_motion_deg": 0.0015930088957009788,
+          "hold_verified_s": 9.60999999999837,
+          "unexpected_collisions": 0,
+          "lift_cm": -4.472872492389257e-05,
+          "max_lift_cm": 6.803729674735337,
+          "both_fingers": false,
+          "finger_forces_n": [
+            0.0,
+            0.0
+          ],
+          "external_contact_n": 0.8389220083004283,
+          "tilt_deg": 0.0014544334147466359,
+          "peak_tilt_deg": 1.3951485527332237,
+          "placement_error_mm": 0.9786847916094116,
+          "stable_release_s": 1.0049999999998,
+          "longest_unsupported_gap_s": 0.0,
+          "other_object_max_displacement_m": 2.3751313919698023e-06,
+          "parked_arm_max_motion_deg": 0.0015930088957009788
+        },
+        "initial_rgb_centroid_pixels": [
+          158.07999600032417,
+          161.09142775113293
+        ],
+        "max_sampled_guard_error_rad": 0.002738655808230628,
+        "physical_state_writes": 0,
+        "hidden_forces": 0,
+        "equality_constraints": 0
+      }
+    },
+    {
+      "case": "train-001",
+      "reconstructed_from": "original-count32/train-019",
+      "seed": 2026090020,
+      "pose": {
+        "x": -0.07340677663329064,
+        "y": -0.12157344846810123,
+        "yaw": 0.3096408082688602,
+        "sideways": false
+      },
+      "teacher": {
+        "status": "failed",
+        "message": "left: The requested gripper pose is outside this arm's useful reach. Physics paused for inspection.",
+        "elapsed_s": 0.0,
+        "training_eligible": false,
+        "replays": []
+      },
+      "baseline": {
+        "status": "failed",
+        "message": "Arm failed to track the neural primitive within ten seconds. Physics paused.",
+        "elapsed_s": 12.8,
+        "metrics": {
+          "gripper_torque_limit_nm": 0.25,
+          "other_arm_max_motion_deg": 0.008376095008355436,
+          "hold_verified_s": 0.0,
+          "unexpected_collisions": 0,
+          "lift_cm": -1.979880703828485e-06,
+          "max_lift_cm": 0.0,
+          "both_fingers": false,
+          "finger_forces_n": [
+            0.0,
+            0.0
+          ],
+          "external_contact_n": 0.7540473812436612,
+          "tilt_deg": 0.0010907672570331342,
+          "peak_tilt_deg": 0.0023848286737397396,
+          "placement_error_mm": 160.45778313586067,
+          "stable_release_s": 0.0,
+          "longest_unsupported_gap_s": 0.0,
+          "other_object_max_displacement_m": 5.94458824579361e-05,
+          "parked_arm_max_motion_deg": 0.008376095008355436
+        },
+        "initial_rgb_centroid_pixels": [
+          137.7934738198269,
+          176.11412968151882
+        ],
+        "max_sampled_guard_error_rad": 0.016334848404472746,
+        "physical_state_writes": 0,
+        "hidden_forces": 0,
+        "equality_constraints": 0
+      }
+    },
+    {
+      "case": "train-002",
+      "reconstructed_from": "original-count32/train-025",
+      "seed": 2026090026,
+      "pose": {
+        "x": 0.013685749953803256,
+        "y": -0.09793973749873204,
+        "yaw": -0.20973984655462818,
+        "sideways": false
+      },
+      "teacher": {
+        "status": "succeeded",
+        "message": "bottle physically lifted, held, placed and released.",
+        "elapsed_s": 38.18,
+        "training_eligible": true,
+        "replays": [
+          {
+            "hz": 200,
+            "passed": true,
+            "placement_error_m": 0.000867448617023609,
+            "tilt_deg": 0.0013252511492958712,
+            "speed_m_s": 6.891064872616934e-06,
+            "table_support_n": 0.7426329463546807,
+            "verified_hold_s": 1.8049999999999835,
+            "hold_bad_ticks": 0,
+            "longest_carry_contact_gap_s": 0.0,
+            "external_carry_ticks": 0,
+            "other_object_max_displacement_m": 5.813020605019936e-06,
+            "parked_arm_max_motion_deg": 3.40955461852889e-11,
+            "state_reset_count": 1,
+            "teacher_updates": 0
+          },
+          {
+            "hz": 20,
+            "passed": true,
+            "placement_error_m": 0.000867448617023609,
+            "tilt_deg": 0.0013252511492958712,
+            "speed_m_s": 6.891064872616934e-06,
+            "table_support_n": 0.7426329463546807,
+            "verified_hold_s": 1.8049999999999835,
+            "hold_bad_ticks": 0,
+            "longest_carry_contact_gap_s": 0.0,
+            "external_carry_ticks": 0,
+            "other_object_max_displacement_m": 5.813020605019936e-06,
+            "parked_arm_max_motion_deg": 3.40955461852889e-11,
+            "state_reset_count": 1,
+            "teacher_updates": 0
+          }
+        ]
+      },
+      "baseline": {
+        "status": "failed",
+        "message": "Physical monitor stopped the policy: lost support or disturbed another object/arm.",
+        "elapsed_s": 23.76,
+        "metrics": {
+          "gripper_torque_limit_nm": 0.25,
+          "other_arm_max_motion_deg": 0.0017106704106544918,
+          "hold_verified_s": 8.379999999998619,
+          "unexpected_collisions": 0,
+          "lift_cm": 4.523253050719978,
+          "max_lift_cm": 6.825219353986078,
+          "both_fingers": false,
+          "finger_forces_n": [
+            0.0,
+            0.0
+          ],
+          "external_contact_n": 0.0,
+          "tilt_deg": 0.3363550588796517,
+          "peak_tilt_deg": 1.4787950725190202,
+          "placement_error_mm": 2.4565085428243125,
+          "stable_release_s": 0.0,
+          "longest_unsupported_gap_s": 0.1849999999999632,
+          "other_object_max_displacement_m": 3.615987934057864e-06,
+          "parked_arm_max_motion_deg": 0.0017106704106544918
+        },
+        "initial_rgb_centroid_pixels": [
+          163.48333358896264,
+          169.01111105754325
+        ],
+        "max_sampled_guard_error_rad": 0.0027269140229825295,
+        "physical_state_writes": 0,
+        "hidden_forces": 0,
+        "equality_constraints": 0
+      }
+    }
+  ],
+  "human_voice_rehearsal": {
+    "provenance": "User reported actual microphone input and transcript Place. The bottle; live API independently verified learned physical completion.",
+    "audio_recording_saved": false,
+    "status": "succeeded",
+    "elapsed_s": 28.645,
+    "metrics": {
+      "gripper_torque_limit_nm": 0.25,
+      "other_arm_max_motion_deg": 0.001252057701605417,
+      "hold_verified_s": 9.659999999998078,
+      "unexpected_collisions": 0,
+      "lift_cm": -1.921232128943018e-05,
+      "max_lift_cm": 6.873421380169232,
+      "both_fingers": false,
+      "finger_forces_n": [
+        0.0,
+        0.0
+      ],
+      "external_contact_n": 0.8296847010202721,
+      "tilt_deg": 0.0016068557591975795,
+      "peak_tilt_deg": 1.2512579466826512,
+      "placement_error_mm": 1.1154095836865348,
+      "stable_release_s": 1.0000000000005116,
+      "longest_unsupported_gap_s": 0.0,
+      "other_object_max_displacement_m": 5.210267417930333e-06,
+      "parked_arm_max_motion_deg": 0.001252057701605417
+    }
+  },
+  "output_mib_before_report": 0.6832189559936523,
+  "reserve_gib": 10,
+  "free_gib_at_report": 535.0651397705078
+}

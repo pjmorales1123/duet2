@@ -1,0 +1,587 @@
+{
+  "schema": "talos.mug-visual-correction.v2",
+  "protocol_sha256": "6e34f2567a2075d0e44d7d626b8951e3b40d4eaabd7d8b6be8be19df257096f0",
+  "freeze_sha256": "6ea0f1992d6a49d2c10bdcb524b3cdb52f33f9bea73e815aa5fccddac5b38a0e",
+  "split": "development",
+  "planned": 36,
+  "completed": 36,
+  "rows": [
+    {
+      "seed": 2026100501,
+      "preset": "upright",
+      "variant": "baseline",
+      "exit_code": 0,
+      "status": "succeeded",
+      "mug_status": "succeeded",
+      "wall_seconds": 37.90791600011289,
+      "preflight": {
+        "free_bytes": 559227953152,
+        "estimated_additional_bytes": 16777216,
+        "reserve_bytes": 10737418240
+      },
+      "report": ".run/mug-visual-correction-v2/development/2026100501-upright-baseline/report.json",
+      "console": ".run/final-goal/mug-visual-correction-v2-development-2026100501-upright-baseline.log"
+    },
+    {
+      "seed": 2026100501,
+      "preset": "upright",
+      "variant": "frozen",
+      "exit_code": 0,
+      "status": "failed",
+      "mug_status": "failed",
+      "wall_seconds": 15.819284199737012,
+      "preflight": {
+        "free_bytes": 556497993728,
+        "estimated_additional_bytes": 16777216,
+        "reserve_bytes": 10737418240
+      },
+      "report": ".run/mug-visual-correction-v2/development/2026100501-upright-frozen/report.json",
+      "console": ".run/final-goal/mug-visual-correction-v2-development-2026100501-upright-frozen.log"
+    },
+    {
+      "seed": 2026100501,
+      "preset": "upright",
+      "variant": "live",
+      "exit_code": 0,
+      "status": "succeeded",
+      "mug_status": "succeeded",
+      "wall_seconds": 38.60223830025643,
+      "preflight": {
+        "free_bytes": 559227953152,
+        "estimated_additional_bytes": 16777216,
+        "reserve_bytes": 10737418240
+      },
+      "report": ".run/mug-visual-correction-v2/development/2026100501-upright-live/report.json",
+      "console": ".run/final-goal/mug-visual-correction-v2-development-2026100501-upright-live.log"
+    },
+    {
+      "seed": 2026100501,
+      "preset": "wide_left",
+      "variant": "baseline",
+      "exit_code": 0,
+      "status": "succeeded",
+      "mug_status": "succeeded",
+      "wall_seconds": 40.967880100011826,
+      "preflight": {
+        "free_bytes": 557624479744,
+        "estimated_additional_bytes": 16777216,
+        "reserve_bytes": 10737418240
+      },
+      "report": ".run/mug-visual-correction-v2/development/2026100501-wide_left-baseline/report.json",
+      "console": ".run/final-goal/mug-visual-correction-v2-development-2026100501-wide_left-baseline.log"
+    },
+    {
+      "seed": 2026100501,
+      "preset": "wide_left",
+      "variant": "frozen",
+      "exit_code": 0,
+      "status": "failed",
+      "mug_status": "failed",
+      "wall_seconds": 20.827244400046766,
+      "preflight": {
+        "free_bytes": 554046525440,
+        "estimated_additional_bytes": 16777216,
+        "reserve_bytes": 10737418240
+      },
+      "report": ".run/mug-visual-correction-v2/development/2026100501-wide_left-frozen/report.json",
+      "console": ".run/final-goal/mug-visual-correction-v2-development-2026100501-wide_left-frozen.log"
+    },
+    {
+      "seed": 2026100501,
+      "preset": "wide_left",
+      "variant": "live",
+      "exit_code": 0,
+      "status": "succeeded",
+      "mug_status": "succeeded",
+      "wall_seconds": 41.56778659997508,
+      "preflight": {
+        "free_bytes": 554051342336,
+        "estimated_additional_bytes": 16777216,
+        "reserve_bytes": 10737418240
+      },
+      "report": ".run/mug-visual-correction-v2/development/2026100501-wide_left-live/report.json",
+      "console": ".run/final-goal/mug-visual-correction-v2-development-2026100501-wide_left-live.log"
+    },
+    {
+      "seed": 2026100502,
+      "preset": "upright",
+      "variant": "baseline",
+      "exit_code": 0,
+      "status": "succeeded",
+      "mug_status": "succeeded",
+      "wall_seconds": 35.65082920016721,
+      "preflight": {
+        "free_bytes": 554041753600,
+        "estimated_additional_bytes": 16777216,
+        "reserve_bytes": 10737418240
+      },
+      "report": ".run/mug-visual-correction-v2/development/2026100502-upright-baseline/report.json",
+      "console": ".run/final-goal/mug-visual-correction-v2-development-2026100502-upright-baseline.log"
+    },
+    {
+      "seed": 2026100502,
+      "preset": "upright",
+      "variant": "frozen",
+      "exit_code": 0,
+      "status": "failed",
+      "mug_status": "failed",
+      "wall_seconds": 15.057277800049633,
+      "preflight": {
+        "free_bytes": 554035089408,
+        "estimated_additional_bytes": 16777216,
+        "reserve_bytes": 10737418240
+      },
+      "report": ".run/mug-visual-correction-v2/development/2026100502-upright-frozen/report.json",
+      "console": ".run/final-goal/mug-visual-correction-v2-development-2026100502-upright-frozen.log"
+    },
+    {
+      "seed": 2026100502,
+      "preset": "upright",
+      "variant": "live",
+      "exit_code": 0,
+      "status": "succeeded",
+      "mug_status": "succeeded",
+      "wall_seconds": 36.38489669980481,
+      "preflight": {
+        "free_bytes": 554039234560,
+        "estimated_additional_bytes": 16777216,
+        "reserve_bytes": 10737418240
+      },
+      "report": ".run/mug-visual-correction-v2/development/2026100502-upright-live/report.json",
+      "console": ".run/final-goal/mug-visual-correction-v2-development-2026100502-upright-live.log"
+    },
+    {
+      "seed": 2026100502,
+      "preset": "wide_left",
+      "variant": "baseline",
+      "exit_code": 0,
+      "status": "succeeded",
+      "mug_status": "succeeded",
+      "wall_seconds": 42.85023640003055,
+      "preflight": {
+        "free_bytes": 554030882816,
+        "estimated_additional_bytes": 16777216,
+        "reserve_bytes": 10737418240
+      },
+      "report": ".run/mug-visual-correction-v2/development/2026100502-wide_left-baseline/report.json",
+      "console": ".run/final-goal/mug-visual-correction-v2-development-2026100502-wide_left-baseline.log"
+    },
+    {
+      "seed": 2026100502,
+      "preset": "wide_left",
+      "variant": "frozen",
+      "exit_code": 0,
+      "status": "failed",
+      "mug_status": "failed",
+      "wall_seconds": 20.70877500018105,
+      "preflight": {
+        "free_bytes": 553959084032,
+        "estimated_additional_bytes": 16777216,
+        "reserve_bytes": 10737418240
+      },
+      "report": ".run/mug-visual-correction-v2/development/2026100502-wide_left-frozen/report.json",
+      "console": ".run/final-goal/mug-visual-correction-v2-development-2026100502-wide_left-frozen.log"
+    },
+    {
+      "seed": 2026100502,
+      "preset": "wide_left",
+      "variant": "live",
+      "exit_code": 0,
+      "status": "succeeded",
+      "mug_status": "succeeded",
+      "wall_seconds": 43.554522699676454,
+      "preflight": {
+        "free_bytes": 554028949504,
+        "estimated_additional_bytes": 16777216,
+        "reserve_bytes": 10737418240
+      },
+      "report": ".run/mug-visual-correction-v2/development/2026100502-wide_left-live/report.json",
+      "console": ".run/final-goal/mug-visual-correction-v2-development-2026100502-wide_left-live.log"
+    },
+    {
+      "seed": 2026100503,
+      "preset": "upright",
+      "variant": "baseline",
+      "exit_code": 0,
+      "status": "succeeded",
+      "mug_status": "succeeded",
+      "wall_seconds": 37.19692460028455,
+      "preflight": {
+        "free_bytes": 553955368960,
+        "estimated_additional_bytes": 16777216,
+        "reserve_bytes": 10737418240
+      },
+      "report": ".run/mug-visual-correction-v2/development/2026100503-upright-baseline/report.json",
+      "console": ".run/final-goal/mug-visual-correction-v2-development-2026100503-upright-baseline.log"
+    },
+    {
+      "seed": 2026100503,
+      "preset": "upright",
+      "variant": "frozen",
+      "exit_code": 0,
+      "status": "failed",
+      "mug_status": "failed",
+      "wall_seconds": 17.152413399890065,
+      "preflight": {
+        "free_bytes": 553892528128,
+        "estimated_additional_bytes": 16777216,
+        "reserve_bytes": 10737418240
+      },
+      "report": ".run/mug-visual-correction-v2/development/2026100503-upright-frozen/report.json",
+      "console": ".run/final-goal/mug-visual-correction-v2-development-2026100503-upright-frozen.log"
+    },
+    {
+      "seed": 2026100503,
+      "preset": "upright",
+      "variant": "live",
+      "exit_code": 0,
+      "status": "succeeded",
+      "mug_status": "succeeded",
+      "wall_seconds": 39.65354669978842,
+      "preflight": {
+        "free_bytes": 553952768000,
+        "estimated_additional_bytes": 16777216,
+        "reserve_bytes": 10737418240
+      },
+      "report": ".run/mug-visual-correction-v2/development/2026100503-upright-live/report.json",
+      "console": ".run/final-goal/mug-visual-correction-v2-development-2026100503-upright-live.log"
+    },
+    {
+      "seed": 2026100503,
+      "preset": "wide_left",
+      "variant": "baseline",
+      "exit_code": 0,
+      "status": "succeeded",
+      "mug_status": "succeeded",
+      "wall_seconds": 44.62095900019631,
+      "preflight": {
+        "free_bytes": 553885057024,
+        "estimated_additional_bytes": 16777216,
+        "reserve_bytes": 10737418240
+      },
+      "report": ".run/mug-visual-correction-v2/development/2026100503-wide_left-baseline/report.json",
+      "console": ".run/final-goal/mug-visual-correction-v2-development-2026100503-wide_left-baseline.log"
+    },
+    {
+      "seed": 2026100503,
+      "preset": "wide_left",
+      "variant": "frozen",
+      "exit_code": 0,
+      "status": "failed",
+      "mug_status": "failed",
+      "wall_seconds": 21.51276349974796,
+      "preflight": {
+        "free_bytes": 553875066880,
+        "estimated_additional_bytes": 16777216,
+        "reserve_bytes": 10737418240
+      },
+      "report": ".run/mug-visual-correction-v2/development/2026100503-wide_left-frozen/report.json",
+      "console": ".run/final-goal/mug-visual-correction-v2-development-2026100503-wide_left-frozen.log"
+    },
+    {
+      "seed": 2026100503,
+      "preset": "wide_left",
+      "variant": "live",
+      "exit_code": 0,
+      "status": "succeeded",
+      "mug_status": "succeeded",
+      "wall_seconds": 44.79483689973131,
+      "preflight": {
+        "free_bytes": 553883168768,
+        "estimated_additional_bytes": 16777216,
+        "reserve_bytes": 10737418240
+      },
+      "report": ".run/mug-visual-correction-v2/development/2026100503-wide_left-live/report.json",
+      "console": ".run/final-goal/mug-visual-correction-v2-development-2026100503-wide_left-live.log"
+    },
+    {
+      "seed": 2026100504,
+      "preset": "upright",
+      "variant": "baseline",
+      "exit_code": 0,
+      "status": "succeeded",
+      "mug_status": "succeeded",
+      "wall_seconds": 38.07391759986058,
+      "preflight": {
+        "free_bytes": 553869959168,
+        "estimated_additional_bytes": 16777216,
+        "reserve_bytes": 10737418240
+      },
+      "report": ".run/mug-visual-correction-v2/development/2026100504-upright-baseline/report.json",
+      "console": ".run/final-goal/mug-visual-correction-v2-development-2026100504-upright-baseline.log"
+    },
+    {
+      "seed": 2026100504,
+      "preset": "upright",
+      "variant": "frozen",
+      "exit_code": 0,
+      "status": "failed",
+      "mug_status": "failed",
+      "wall_seconds": 16.91140739992261,
+      "preflight": {
+        "free_bytes": 553858502656,
+        "estimated_additional_bytes": 16777216,
+        "reserve_bytes": 10737418240
+      },
+      "report": ".run/mug-visual-correction-v2/development/2026100504-upright-frozen/report.json",
+      "console": ".run/final-goal/mug-visual-correction-v2-development-2026100504-upright-frozen.log"
+    },
+    {
+      "seed": 2026100504,
+      "preset": "upright",
+      "variant": "live",
+      "exit_code": 0,
+      "status": "succeeded",
+      "mug_status": "succeeded",
+      "wall_seconds": 39.52169260010123,
+      "preflight": {
+        "free_bytes": 553862537216,
+        "estimated_additional_bytes": 16777216,
+        "reserve_bytes": 10737418240
+      },
+      "report": ".run/mug-visual-correction-v2/development/2026100504-upright-live/report.json",
+      "console": ".run/final-goal/mug-visual-correction-v2-development-2026100504-upright-live.log"
+    },
+    {
+      "seed": 2026100504,
+      "preset": "wide_left",
+      "variant": "baseline",
+      "exit_code": 0,
+      "status": "succeeded",
+      "mug_status": "succeeded",
+      "wall_seconds": 43.802324399817735,
+      "preflight": {
+        "free_bytes": 553854255104,
+        "estimated_additional_bytes": 16777216,
+        "reserve_bytes": 10737418240
+      },
+      "report": ".run/mug-visual-correction-v2/development/2026100504-wide_left-baseline/report.json",
+      "console": ".run/final-goal/mug-visual-correction-v2-development-2026100504-wide_left-baseline.log"
+    },
+    {
+      "seed": 2026100504,
+      "preset": "wide_left",
+      "variant": "frozen",
+      "exit_code": 0,
+      "status": "failed",
+      "mug_status": "failed",
+      "wall_seconds": 29.248720000032336,
+      "preflight": {
+        "free_bytes": 557019979776,
+        "estimated_additional_bytes": 16777216,
+        "reserve_bytes": 10737418240
+      },
+      "report": ".run/mug-visual-correction-v2/development/2026100504-wide_left-frozen/report.json",
+      "console": ".run/final-goal/mug-visual-correction-v2-development-2026100504-wide_left-frozen.log"
+    },
+    {
+      "seed": 2026100504,
+      "preset": "wide_left",
+      "variant": "live",
+      "exit_code": 0,
+      "status": "succeeded",
+      "mug_status": "succeeded",
+      "wall_seconds": 44.51688770018518,
+      "preflight": {
+        "free_bytes": 557023756288,
+        "estimated_additional_bytes": 16777216,
+        "reserve_bytes": 10737418240
+      },
+      "report": ".run/mug-visual-correction-v2/development/2026100504-wide_left-live/report.json",
+      "console": ".run/final-goal/mug-visual-correction-v2-development-2026100504-wide_left-live.log"
+    },
+    {
+      "seed": 2026100505,
+      "preset": "upright",
+      "variant": "baseline",
+      "exit_code": 0,
+      "status": "succeeded",
+      "mug_status": "succeeded",
+      "wall_seconds": 42.835180799942464,
+      "preflight": {
+        "free_bytes": 557237358592,
+        "estimated_additional_bytes": 16777216,
+        "reserve_bytes": 10737418240
+      },
+      "report": ".run/mug-visual-correction-v2/development/2026100505-upright-baseline/report.json",
+      "console": ".run/final-goal/mug-visual-correction-v2-development-2026100505-upright-baseline.log"
+    },
+    {
+      "seed": 2026100505,
+      "preset": "upright",
+      "variant": "frozen",
+      "exit_code": 0,
+      "status": "failed",
+      "mug_status": "failed",
+      "wall_seconds": 26.915206500329077,
+      "preflight": {
+        "free_bytes": 554674462720,
+        "estimated_additional_bytes": 16777216,
+        "reserve_bytes": 10737418240
+      },
+      "report": ".run/mug-visual-correction-v2/development/2026100505-upright-frozen/report.json",
+      "console": ".run/final-goal/mug-visual-correction-v2-development-2026100505-upright-frozen.log"
+    },
+    {
+      "seed": 2026100505,
+      "preset": "upright",
+      "variant": "live",
+      "exit_code": 0,
+      "status": "succeeded",
+      "mug_status": "succeeded",
+      "wall_seconds": 39.46121650002897,
+      "preflight": {
+        "free_bytes": 554679803904,
+        "estimated_additional_bytes": 16777216,
+        "reserve_bytes": 10737418240
+      },
+      "report": ".run/mug-visual-correction-v2/development/2026100505-upright-live/report.json",
+      "console": ".run/final-goal/mug-visual-correction-v2-development-2026100505-upright-live.log"
+    },
+    {
+      "seed": 2026100505,
+      "preset": "wide_left",
+      "variant": "baseline",
+      "exit_code": 0,
+      "status": "succeeded",
+      "mug_status": "succeeded",
+      "wall_seconds": 57.02038440015167,
+      "preflight": {
+        "free_bytes": 554624446464,
+        "estimated_additional_bytes": 16777216,
+        "reserve_bytes": 10737418240
+      },
+      "report": ".run/mug-visual-correction-v2/development/2026100505-wide_left-baseline/report.json",
+      "console": ".run/final-goal/mug-visual-correction-v2-development-2026100505-wide_left-baseline.log"
+    },
+    {
+      "seed": 2026100505,
+      "preset": "wide_left",
+      "variant": "frozen",
+      "exit_code": 0,
+      "status": "failed",
+      "mug_status": "failed",
+      "wall_seconds": 36.31378019973636,
+      "preflight": {
+        "free_bytes": 554615513088,
+        "estimated_additional_bytes": 16777216,
+        "reserve_bytes": 10737418240
+      },
+      "report": ".run/mug-visual-correction-v2/development/2026100505-wide_left-frozen/report.json",
+      "console": ".run/final-goal/mug-visual-correction-v2-development-2026100505-wide_left-frozen.log"
+    },
+    {
+      "seed": 2026100505,
+      "preset": "wide_left",
+      "variant": "live",
+      "exit_code": 0,
+      "status": "succeeded",
+      "mug_status": "succeeded",
+      "wall_seconds": 57.32513519981876,
+      "preflight": {
+        "free_bytes": 554619990016,
+        "estimated_additional_bytes": 16777216,
+        "reserve_bytes": 10737418240
+      },
+      "report": ".run/mug-visual-correction-v2/development/2026100505-wide_left-live/report.json",
+      "console": ".run/final-goal/mug-visual-correction-v2-development-2026100505-wide_left-live.log"
+    },
+    {
+      "seed": 2026100506,
+      "preset": "upright",
+      "variant": "baseline",
+      "exit_code": 0,
+      "status": "succeeded",
+      "mug_status": "succeeded",
+      "wall_seconds": 47.31769840000197,
+      "preflight": {
+        "free_bytes": 554610708480,
+        "estimated_additional_bytes": 16777216,
+        "reserve_bytes": 10737418240
+      },
+      "report": ".run/mug-visual-correction-v2/development/2026100506-upright-baseline/report.json",
+      "console": ".run/final-goal/mug-visual-correction-v2-development-2026100506-upright-baseline.log"
+    },
+    {
+      "seed": 2026100506,
+      "preset": "upright",
+      "variant": "frozen",
+      "exit_code": 0,
+      "status": "failed",
+      "mug_status": "failed",
+      "wall_seconds": 31.718066799920052,
+      "preflight": {
+        "free_bytes": 554591141888,
+        "estimated_additional_bytes": 16777216,
+        "reserve_bytes": 10737418240
+      },
+      "report": ".run/mug-visual-correction-v2/development/2026100506-upright-frozen/report.json",
+      "console": ".run/final-goal/mug-visual-correction-v2-development-2026100506-upright-frozen.log"
+    },
+    {
+      "seed": 2026100506,
+      "preset": "upright",
+      "variant": "live",
+      "exit_code": 0,
+      "status": "succeeded",
+      "mug_status": "succeeded",
+      "wall_seconds": 49.42160330014303,
+      "preflight": {
+        "free_bytes": 554597007360,
+        "estimated_additional_bytes": 16777216,
+        "reserve_bytes": 10737418240
+      },
+      "report": ".run/mug-visual-correction-v2/development/2026100506-upright-live/report.json",
+      "console": ".run/final-goal/mug-visual-correction-v2-development-2026100506-upright-live.log"
+    },
+    {
+      "seed": 2026100506,
+      "preset": "wide_left",
+      "variant": "baseline",
+      "exit_code": 0,
+      "status": "succeeded",
+      "mug_status": "succeeded",
+      "wall_seconds": 56.205530900042504,
+      "preflight": {
+        "free_bytes": 554908225536,
+        "estimated_additional_bytes": 16777216,
+        "reserve_bytes": 10737418240
+      },
+      "report": ".run/mug-visual-correction-v2/development/2026100506-wide_left-baseline/report.json",
+      "console": ".run/final-goal/mug-visual-correction-v2-development-2026100506-wide_left-baseline.log"
+    },
+    {
+      "seed": 2026100506,
+      "preset": "wide_left",
+      "variant": "frozen",
+      "exit_code": 0,
+      "status": "failed",
+      "mug_status": "failed",
+      "wall_seconds": 36.4741446999833,
+      "preflight": {
+        "free_bytes": 554889826304,
+        "estimated_additional_bytes": 16777216,
+        "reserve_bytes": 10737418240
+      },
+      "report": ".run/mug-visual-correction-v2/development/2026100506-wide_left-frozen/report.json",
+      "console": ".run/final-goal/mug-visual-correction-v2-development-2026100506-wide_left-frozen.log"
+    },
+    {
+      "seed": 2026100506,
+      "preset": "wide_left",
+      "variant": "live",
+      "exit_code": 0,
+      "status": "succeeded",
+      "mug_status": "succeeded",
+      "wall_seconds": 56.69972789986059,
+      "preflight": {
+        "free_bytes": 554906869760,
+        "estimated_additional_bytes": 16777216,
+        "reserve_bytes": 10737418240
+      },
+      "report": ".run/mug-visual-correction-v2/development/2026100506-wide_left-live/report.json",
+      "console": ".run/final-goal/mug-visual-correction-v2-development-2026100506-wide_left-live.log"
+    }
+  ],
+  "scope": "All declared physical workflows attempted. Acceptance requires the separate complete paired-result audit."
+}

@@ -1,0 +1,13 @@
+{
+  "schema": "talos.dinner-grip-repair.v5",
+  "declared_on": "2026-09-13",
+  "parents": ["dinner-fitting-v4.json", "relay-grip-repair-v3.json"],
+  "finding": "The larger v4 model still fails spoon orientation/release and drawer tracking in development. Relay diagnostics identified fragile gripper target transitions; all 52 repaired relay-leg training trajectories pass independent physical replay.",
+  "intervention": "New offline inputs sustain the closed-gripper target during carry stages. Use calibrated RGB handle geometry for the fixed drawer instead of whole-frame PCA, avoiding sensitivity to previously placed dishes. Keep the 41 declared training scenes (39 available for fork/spoon), all failures, and the original physical acceptance thresholds.",
+  "gate": "Every included stage-aligned training trajectory must pass independent physical replay before fitting modified labels. Stop a skill's fit if its gate fails.",
+  "training_budget_per_skill": {"adam_steps":40000,"refinement_max_steps":400,"visual_scaling":"standard","cosine_decay":true},
+  "selection": "Only the existing six development scenes and exposed seed 42. The final ten seeds remain unexposed until freezing.",
+  "scope": "Initial RGB-conditioned motion with motor feedback. This intervention is not continuous visual correction.",
+  "storage_reserve_gib": 10,
+  "expected_additional_gib": 0.25
+}

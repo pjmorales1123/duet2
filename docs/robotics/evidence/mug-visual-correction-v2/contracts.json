@@ -1,0 +1,22 @@
+{
+  "passed": true,
+  "test_count": 5,
+  "runner": "unittest",
+  "command": ".venv-training/Scripts/python -m unittest discover -s training_tests -p test_mug_visual_control.py -v",
+  "console": ".run/final-goal/mug-visual-correction-v1-contracts-unittest.log",
+  "console_sha256": "60573da0f17a7574b13e2698a49bc0088d3d67db6d58d8a7b01410acc5d286d0",
+  "source_sha256": {
+    "simulation_lab/mug_visual_control.py": "98503f8bfefff12a719e562471bd7819f192f9c20d519b4fc75ad6b5502310ae",
+    "simulation_lab/primitive_policy.py": "60c009448171533385df1be82e3f64ed395f28d3e03145eb2f10ab6a791ef143",
+    "simulation_lab/mug_visual_geometry.py": "d0840f195103bf8be317d33a2aed0f40dfe572aa8aeab1c988db08ae86e11091",
+    "training_tests/test_mug_visual_control.py": "12d996647fc9f68e52d9c72b1faa15afceb84c4259ecbb5cbb4fb5ef41b9de9b"
+  },
+  "scope": "Five no-physics contracts passed on unchanged controller/test bytes. They check chunk offset accumulation, tracking waits, raw frozen-image copying, refusals, taper and cancellation; not physical placement. An earlier missing-pytest launcher executed no cases and is preserved under attempts/test-runner-1.",
+  "preflight": {
+    "free_bytes": 558654435328,
+    "estimated_additional_bytes": 65536,
+    "reserve_bytes": 10737418240
+  },
+  "reused_contract_sha256": "04792cdc5aad30c777edea43140be67bf222ecab51af56cca9d8122e9880d701",
+  "reuse_reason": "The same controller and tests remain byte-identical; V2 changes only sequence renderer replacement order, separately checked without physics."
+}

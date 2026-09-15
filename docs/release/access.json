@@ -1,0 +1,14 @@
+{
+  "source_repository": "jannissio/talos-ai-infra",
+  "github_private": false,
+  "github_anonymous_api_access": true,
+  "default_branch": "main",
+  "space_repository": "jannis-sms/talos-dinner-robotics",
+  "space_private": false,
+  "space_revision": "791cac979ae06c1943678b73d5424368668c2d2d",
+  "space_stage": "RUNNING",
+  "anonymous_six_skill_trial": "anonymous-demo.json",
+  "media_persisted_after_reopening": true,
+  "final_submit_clicked": false,
+  "remaining_requirement_uncertainty": "Core Ultra Series 2/3 eligibility; the written brief and livestream clarification conflict. Legacy Intel execution is documented."
+}

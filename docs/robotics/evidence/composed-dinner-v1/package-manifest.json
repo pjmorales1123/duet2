@@ -1,0 +1,845 @@
+{
+  "files": [
+    {
+      "source": "docs/robotics/experiments/composed-dinner-final-v1.json",
+      "source_sha256": "2c42c4ed114fd9953b5a1f786bf966b6702411c524f8219987f931c34548a276",
+      "file": "docs/robotics/evidence/composed-dinner-v1/frozen-selection.json",
+      "sha256": "2c42c4ed114fd9953b5a1f786bf966b6702411c524f8219987f931c34548a276",
+      "bytes": 15845,
+      "transformation": "byte-identical copy"
+    },
+    {
+      "source": "simulation_lab/__init__.py",
+      "source_sha256": "41d6e06b5cd49e86faaccfc822e0195485e4efed792c4ae28bdb42dc8e814220",
+      "file": "docs/robotics/evidence/composed-dinner-v1/evaluated-source/simulation_lab/__init__.py",
+      "sha256": "41d6e06b5cd49e86faaccfc822e0195485e4efed792c4ae28bdb42dc8e814220",
+      "bytes": 82,
+      "transformation": "byte-identical copy"
+    },
+    {
+      "source": "simulation_lab/act_learning.py",
+      "source_sha256": "0266d6ec1db5291a14f7b0cc2bdc1e6eb977497b3d6e1342eeb0a6e6db4ff4c2",
+      "file": "docs/robotics/evidence/composed-dinner-v1/evaluated-source/simulation_lab/act_learning.py",
+      "sha256": "0266d6ec1db5291a14f7b0cc2bdc1e6eb977497b3d6e1342eeb0a6e6db4ff4c2",
+      "bytes": 4203,
+      "transformation": "byte-identical copy"
+    },
+    {
+      "source": "simulation_lab/autonomy.py",
+      "source_sha256": "0e60140b1d3dd03c278592fb975393b50f6074235280472390f3a8feda142c95",
+      "file": "docs/robotics/evidence/composed-dinner-v1/evaluated-source/simulation_lab/autonomy.py",
+      "sha256": "0e60140b1d3dd03c278592fb975393b50f6074235280472390f3a8feda142c95",
+      "bytes": 32350,
+      "transformation": "byte-identical copy"
+    },
+    {
+      "source": "simulation_lab/bottle_vision.py",
+      "source_sha256": "5b6ccf6e0224bf66ef7d4c69c382384add65d90ebfeedad838be5dc756bfa9ac",
+      "file": "docs/robotics/evidence/composed-dinner-v1/evaluated-source/simulation_lab/bottle_vision.py",
+      "sha256": "5b6ccf6e0224bf66ef7d4c69c382384add65d90ebfeedad838be5dc756bfa9ac",
+      "bytes": 1651,
+      "transformation": "byte-identical copy"
+    },
+    {
+      "source": "simulation_lab/command_task.py",
+      "source_sha256": "b3861f88af0a3535569e3d911f68e0e1d566f0b1f5f24b60c79417d561ce51a4",
+      "file": "docs/robotics/evidence/composed-dinner-v1/evaluated-source/simulation_lab/command_task.py",
+      "sha256": "b3861f88af0a3535569e3d911f68e0e1d566f0b1f5f24b60c79417d561ce51a4",
+      "bytes": 6890,
+      "transformation": "byte-identical copy"
+    },
+    {
+      "source": "simulation_lab/dataset.py",
+      "source_sha256": "1c9310a12391a957563f317f0f260ebc5ff284b9050a27b4a27fcb3143f1b2d2",
+      "file": "docs/robotics/evidence/composed-dinner-v1/evaluated-source/simulation_lab/dataset.py",
+      "sha256": "1c9310a12391a957563f317f0f260ebc5ff284b9050a27b4a27fcb3143f1b2d2",
+      "bytes": 2391,
+      "transformation": "byte-identical copy"
+    },
+    {
+      "source": "simulation_lab/dinner.py",
+      "source_sha256": "37107bcbd85a39466dcd01b202d6661f1e3c9f705e6865de05d6fa994e562c11",
+      "file": "docs/robotics/evidence/composed-dinner-v1/evaluated-source/simulation_lab/dinner.py",
+      "sha256": "37107bcbd85a39466dcd01b202d6661f1e3c9f705e6865de05d6fa994e562c11",
+      "bytes": 15459,
+      "transformation": "byte-identical copy"
+    },
+    {
+      "source": "simulation_lab/dinner_autonomy.py",
+      "source_sha256": "717c03217039a8ce5234ff8554aeb948f444fa88644aafe5e456e1bd74c17eba",
+      "file": "docs/robotics/evidence/composed-dinner-v1/evaluated-source/simulation_lab/dinner_autonomy.py",
+      "sha256": "717c03217039a8ce5234ff8554aeb948f444fa88644aafe5e456e1bd74c17eba",
+      "bytes": 32018,
+      "transformation": "byte-identical copy"
+    },
+    {
+      "source": "simulation_lab/dinner_monitor.py",
+      "source_sha256": "34b2a5356ffcb5c2cf888607ceb387e51ca2ed00f6fa8fa39a897744e8bebe54",
+      "file": "docs/robotics/evidence/composed-dinner-v1/evaluated-source/simulation_lab/dinner_monitor.py",
+      "sha256": "34b2a5356ffcb5c2cf888607ceb387e51ca2ed00f6fa8fa39a897744e8bebe54",
+      "bytes": 5552,
+      "transformation": "byte-identical copy"
+    },
+    {
+      "source": "simulation_lab/dinner_vision.py",
+      "source_sha256": "66d0bc15b9a9f40832db56378de62c1b5355cebf583ececf7d8fa936a192360e",
+      "file": "docs/robotics/evidence/composed-dinner-v1/evaluated-source/simulation_lab/dinner_vision.py",
+      "sha256": "66d0bc15b9a9f40832db56378de62c1b5355cebf583ececf7d8fa936a192360e",
+      "bytes": 4673,
+      "transformation": "byte-identical copy"
+    },
+    {
+      "source": "simulation_lab/engine.py",
+      "source_sha256": "84e69918d2bc9a98bcb5d23f7e9d2a6bb8410c25d6c1fe4eba24b766d4d77035",
+      "file": "docs/robotics/evidence/composed-dinner-v1/evaluated-source/simulation_lab/engine.py",
+      "sha256": "84e69918d2bc9a98bcb5d23f7e9d2a6bb8410c25d6c1fe4eba24b766d4d77035",
+      "bytes": 25351,
+      "transformation": "byte-identical copy"
+    },
+    {
+      "source": "simulation_lab/experiment_push.py",
+      "source_sha256": "156700845e130b86e93774c9dfae4221de5443f9855c86bd8e84d7f052a22003",
+      "file": "docs/robotics/evidence/composed-dinner-v1/evaluated-source/simulation_lab/experiment_push.py",
+      "sha256": "156700845e130b86e93774c9dfae4221de5443f9855c86bd8e84d7f052a22003",
+      "bytes": 712,
+      "transformation": "byte-identical copy"
+    },
+    {
+      "source": "simulation_lab/experiment_targets.py",
+      "source_sha256": "0704accb79c80d894efdf721e7a23437348c9dfe2d0d5edefd63e8b225ea9654",
+      "file": "docs/robotics/evidence/composed-dinner-v1/evaluated-source/simulation_lab/experiment_targets.py",
+      "sha256": "0704accb79c80d894efdf721e7a23437348c9dfe2d0d5edefd63e8b225ea9654",
+      "bytes": 722,
+      "transformation": "byte-identical copy"
+    },
+    {
+      "source": "simulation_lab/hardware_evidence.py",
+      "source_sha256": "386d563af1666943fb1fcf0d545389220eb30f5808f361bbf72df4aa4a2d7222",
+      "file": "docs/robotics/evidence/composed-dinner-v1/evaluated-source/simulation_lab/hardware_evidence.py",
+      "sha256": "386d563af1666943fb1fcf0d545389220eb30f5808f361bbf72df4aa4a2d7222",
+      "bytes": 488,
+      "transformation": "byte-identical copy"
+    },
+    {
+      "source": "simulation_lab/hosted_gpu.py",
+      "source_sha256": "668fd99bf83a52a8730179b33f93c5d319707033fecb0cf49f1bd39e2e727bb7",
+      "file": "docs/robotics/evidence/composed-dinner-v1/evaluated-source/simulation_lab/hosted_gpu.py",
+      "sha256": "668fd99bf83a52a8730179b33f93c5d319707033fecb0cf49f1bd39e2e727bb7",
+      "bytes": 4389,
+      "transformation": "byte-identical copy"
+    },
+    {
+      "source": "simulation_lab/hosted_worker.py",
+      "source_sha256": "60cf416fb7f6ef9f5151ccd9127fa821ddee3f65b74712f11ad11c37e6a3a5b2",
+      "file": "docs/robotics/evidence/composed-dinner-v1/evaluated-source/simulation_lab/hosted_worker.py",
+      "sha256": "60cf416fb7f6ef9f5151ccd9127fa821ddee3f65b74712f11ad11c37e6a3a5b2",
+      "bytes": 5050,
+      "transformation": "byte-identical copy"
+    },
+    {
+      "source": "simulation_lab/language.py",
+      "source_sha256": "8a6aa3efc5515e2da1d334432b884de297b53b1f048aba60c031d1739ddcfc1b",
+      "file": "docs/robotics/evidence/composed-dinner-v1/evaluated-source/simulation_lab/language.py",
+      "sha256": "8a6aa3efc5515e2da1d334432b884de297b53b1f048aba60c031d1739ddcfc1b",
+      "bytes": 5801,
+      "transformation": "byte-identical copy"
+    },
+    {
+      "source": "simulation_lab/learned_dinner.py",
+      "source_sha256": "5402aa9069b0a20b21c352272fbeb5dcf70d03ae555aa65d66574e5bf7975066",
+      "file": "docs/robotics/evidence/composed-dinner-v1/evaluated-source/simulation_lab/learned_dinner.py",
+      "sha256": "5402aa9069b0a20b21c352272fbeb5dcf70d03ae555aa65d66574e5bf7975066",
+      "bytes": 12677,
+      "transformation": "byte-identical copy"
+    },
+    {
+      "source": "simulation_lab/learned_plan.py",
+      "source_sha256": "af91498d8f2d4cff06c829c1fc8c1075b359c00ed49e07043f8301bc4f85fcd8",
+      "file": "docs/robotics/evidence/composed-dinner-v1/evaluated-source/simulation_lab/learned_plan.py",
+      "sha256": "af91498d8f2d4cff06c829c1fc8c1075b359c00ed49e07043f8301bc4f85fcd8",
+      "bytes": 4681,
+      "transformation": "byte-identical copy"
+    },
+    {
+      "source": "simulation_lab/learned_skills.py",
+      "source_sha256": "3ef610a6e6d0516e8bf92d4e7f2b3d06540b49e2671682ab642239aa2cbb129b",
+      "file": "docs/robotics/evidence/composed-dinner-v1/evaluated-source/simulation_lab/learned_skills.py",
+      "sha256": "3ef610a6e6d0516e8bf92d4e7f2b3d06540b49e2671682ab642239aa2cbb129b",
+      "bytes": 698,
+      "transformation": "byte-identical copy"
+    },
+    {
+      "source": "simulation_lab/learned_task.py",
+      "source_sha256": "3bc2fc075d15e07d5717333fbd69541d2e76d2bd41621a71f1a6e51229d2e24f",
+      "file": "docs/robotics/evidence/composed-dinner-v1/evaluated-source/simulation_lab/learned_task.py",
+      "sha256": "3bc2fc075d15e07d5717333fbd69541d2e76d2bd41621a71f1a6e51229d2e24f",
+      "bytes": 8314,
+      "transformation": "byte-identical copy"
+    },
+    {
+      "source": "simulation_lab/policy_cameras.py",
+      "source_sha256": "1415c5f173502017c99f651778245dae83116f4b91b7bbe8bf614cecf06b2752",
+      "file": "docs/robotics/evidence/composed-dinner-v1/evaluated-source/simulation_lab/policy_cameras.py",
+      "sha256": "1415c5f173502017c99f651778245dae83116f4b91b7bbe8bf614cecf06b2752",
+      "bytes": 723,
+      "transformation": "byte-identical copy"
+    },
+    {
+      "source": "simulation_lab/policy_control.py",
+      "source_sha256": "a418fe2619985852d4e65b40e20c18f82fd72076b4d8b9202507dda4a410b151",
+      "file": "docs/robotics/evidence/composed-dinner-v1/evaluated-source/simulation_lab/policy_control.py",
+      "sha256": "a418fe2619985852d4e65b40e20c18f82fd72076b4d8b9202507dda4a410b151",
+      "bytes": 904,
+      "transformation": "byte-identical copy"
+    },
+    {
+      "source": "simulation_lab/policy_observation.py",
+      "source_sha256": "d15a9b72e7fb366681d29a21f598d21ffd147b1b9ba56729d296250a67b37af6",
+      "file": "docs/robotics/evidence/composed-dinner-v1/evaluated-source/simulation_lab/policy_observation.py",
+      "sha256": "d15a9b72e7fb366681d29a21f598d21ffd147b1b9ba56729d296250a67b37af6",
+      "bytes": 131,
+      "transformation": "byte-identical copy"
+    },
+    {
+      "source": "simulation_lab/primitive_policy.py",
+      "source_sha256": "60c009448171533385df1be82e3f64ed395f28d3e03145eb2f10ab6a791ef143",
+      "file": "docs/robotics/evidence/composed-dinner-v1/evaluated-source/simulation_lab/primitive_policy.py",
+      "sha256": "60c009448171533385df1be82e3f64ed395f28d3e03145eb2f10ab6a791ef143",
+      "bytes": 8906,
+      "transformation": "byte-identical copy"
+    },
+    {
+      "source": "simulation_lab/public_trial.py",
+      "source_sha256": "12c83dc1c598b5a6138ecf7ce89ee15c654adb3f110f010963fe152f830c926d",
+      "file": "docs/robotics/evidence/composed-dinner-v1/evaluated-source/simulation_lab/public_trial.py",
+      "sha256": "12c83dc1c598b5a6138ecf7ce89ee15c654adb3f110f010963fe152f830c926d",
+      "bytes": 7411,
+      "transformation": "byte-identical copy"
+    },
+    {
+      "source": "simulation_lab/recording.py",
+      "source_sha256": "073fc8a874a313288399f1827c2018198c92e3da2975b122655afe41aebe43a2",
+      "file": "docs/robotics/evidence/composed-dinner-v1/evaluated-source/simulation_lab/recording.py",
+      "sha256": "073fc8a874a313288399f1827c2018198c92e3da2975b122655afe41aebe43a2",
+      "bytes": 17533,
+      "transformation": "byte-identical copy"
+    },
+    {
+      "source": "simulation_lab/relay_task.py",
+      "source_sha256": "a1387ecf36d24166b6cd356a14375aa47aceb4202687b4ccc96a3d305ab6bcd2",
+      "file": "docs/robotics/evidence/composed-dinner-v1/evaluated-source/simulation_lab/relay_task.py",
+      "sha256": "a1387ecf36d24166b6cd356a14375aa47aceb4202687b4ccc96a3d305ab6bcd2",
+      "bytes": 2646,
+      "transformation": "byte-identical copy"
+    },
+    {
+      "source": "simulation_lab/rendering.py",
+      "source_sha256": "570f36b7b683c05d6c33aebc442828196db00596c10ed5e94df2b49ceccf0fcd",
+      "file": "docs/robotics/evidence/composed-dinner-v1/evaluated-source/simulation_lab/rendering.py",
+      "sha256": "570f36b7b683c05d6c33aebc442828196db00596c10ed5e94df2b49ceccf0fcd",
+      "bytes": 3069,
+      "transformation": "byte-identical copy"
+    },
+    {
+      "source": "simulation_lab/retrieval_policy.py",
+      "source_sha256": "e47aab06fae8c825cccbe72dae7040edf3ee5d7b07a6537080b95efe001c6873",
+      "file": "docs/robotics/evidence/composed-dinner-v1/evaluated-source/simulation_lab/retrieval_policy.py",
+      "sha256": "e47aab06fae8c825cccbe72dae7040edf3ee5d7b07a6537080b95efe001c6873",
+      "bytes": 5478,
+      "transformation": "byte-identical copy"
+    },
+    {
+      "source": "simulation_lab/rgb_bottle_observer.py",
+      "source_sha256": "45e93ab0d7930a15c82f5e84809eb0d8d7d8d376ed878558529560ff20c18d20",
+      "file": "docs/robotics/evidence/composed-dinner-v1/evaluated-source/simulation_lab/rgb_bottle_observer.py",
+      "sha256": "45e93ab0d7930a15c82f5e84809eb0d8d7d8d376ed878558529560ff20c18d20",
+      "bytes": 3852,
+      "transformation": "byte-identical copy"
+    },
+    {
+      "source": "simulation_lab/rgb_servo_cameras.py",
+      "source_sha256": "eb750885e17ccc731ad9a80f3f5450ec2b5823c68e9dd57d9e325623d28eb3ec",
+      "file": "docs/robotics/evidence/composed-dinner-v1/evaluated-source/simulation_lab/rgb_servo_cameras.py",
+      "sha256": "eb750885e17ccc731ad9a80f3f5450ec2b5823c68e9dd57d9e325623d28eb3ec",
+      "bytes": 2283,
+      "transformation": "byte-identical copy"
+    },
+    {
+      "source": "simulation_lab/rgb_servo_controller.py",
+      "source_sha256": "6fb0d6ac81f717288a23aa88f60bcd84f95f0137b0660db7d35ebe2aeba7cf94",
+      "file": "docs/robotics/evidence/composed-dinner-v1/evaluated-source/simulation_lab/rgb_servo_controller.py",
+      "sha256": "6fb0d6ac81f717288a23aa88f60bcd84f95f0137b0660db7d35ebe2aeba7cf94",
+      "bytes": 9675,
+      "transformation": "byte-identical copy"
+    },
+    {
+      "source": "simulation_lab/rgb_servo_geometry.py",
+      "source_sha256": "bca323458c4971bab8534e36fb6f7d5aa668df188e7573efa095ebfbca4db1ae",
+      "file": "docs/robotics/evidence/composed-dinner-v1/evaluated-source/simulation_lab/rgb_servo_geometry.py",
+      "sha256": "bca323458c4971bab8534e36fb6f7d5aa668df188e7573efa095ebfbca4db1ae",
+      "bytes": 2220,
+      "transformation": "byte-identical copy"
+    },
+    {
+      "source": "simulation_lab/rgb_servo_motor.py",
+      "source_sha256": "3d90c40a5af68f0b04dfe5aafaa7de47f4c0b67211d40cc1a461eae2311e22b7",
+      "file": "docs/robotics/evidence/composed-dinner-v1/evaluated-source/simulation_lab/rgb_servo_motor.py",
+      "sha256": "3d90c40a5af68f0b04dfe5aafaa7de47f4c0b67211d40cc1a461eae2311e22b7",
+      "bytes": 4412,
+      "transformation": "byte-identical copy"
+    },
+    {
+      "source": "simulation_lab/rgb_servo_network.py",
+      "source_sha256": "3ef3cd8fcac1e40743893caab14fb94decf52d1c402c6ade69c342e8c97d9302",
+      "file": "docs/robotics/evidence/composed-dinner-v1/evaluated-source/simulation_lab/rgb_servo_network.py",
+      "sha256": "3ef3cd8fcac1e40743893caab14fb94decf52d1c402c6ade69c342e8c97d9302",
+      "bytes": 3547,
+      "transformation": "byte-identical copy"
+    },
+    {
+      "source": "simulation_lab/rgb_servo_openvino.py",
+      "source_sha256": "2a091f27331304228bc57a306302cf05ced182af654a57c502b2bdea4bb1fa42",
+      "file": "docs/robotics/evidence/composed-dinner-v1/evaluated-source/simulation_lab/rgb_servo_openvino.py",
+      "sha256": "2a091f27331304228bc57a306302cf05ced182af654a57c502b2bdea4bb1fa42",
+      "bytes": 2062,
+      "transformation": "byte-identical copy"
+    },
+    {
+      "source": "simulation_lab/rgb_servo_routing.py",
+      "source_sha256": "75acbf9a9e508ba24c29edc777c6ce83569d73bb9d7cbe567a2e7f40dffcafc6",
+      "file": "docs/robotics/evidence/composed-dinner-v1/evaluated-source/simulation_lab/rgb_servo_routing.py",
+      "sha256": "75acbf9a9e508ba24c29edc777c6ce83569d73bb9d7cbe567a2e7f40dffcafc6",
+      "bytes": 5932,
+      "transformation": "byte-identical copy"
+    },
+    {
+      "source": "simulation_lab/rgb_servo_vision.py",
+      "source_sha256": "498a5a52bd6fc207aa8754de074cc1c6d2ab9f10659e43f79d0aba12e9afcb1b",
+      "file": "docs/robotics/evidence/composed-dinner-v1/evaluated-source/simulation_lab/rgb_servo_vision.py",
+      "sha256": "498a5a52bd6fc207aa8754de074cc1c6d2ab9f10659e43f79d0aba12e9afcb1b",
+      "bytes": 1447,
+      "transformation": "byte-identical copy"
+    },
+    {
+      "source": "simulation_lab/scene.py",
+      "source_sha256": "b363abd064ed0983f9ba96381855f9fd079072dc48593f17fc0bf6e623468b19",
+      "file": "docs/robotics/evidence/composed-dinner-v1/evaluated-source/simulation_lab/scene.py",
+      "sha256": "b363abd064ed0983f9ba96381855f9fd079072dc48593f17fc0bf6e623468b19",
+      "bytes": 13823,
+      "transformation": "byte-identical copy"
+    },
+    {
+      "source": "simulation_lab/sequence_policy.py",
+      "source_sha256": "510695960009387afef87284e76e57fa0cce500acd29c380336c08cf865904a8",
+      "file": "docs/robotics/evidence/composed-dinner-v1/evaluated-source/simulation_lab/sequence_policy.py",
+      "sha256": "510695960009387afef87284e76e57fa0cce500acd29c380336c08cf865904a8",
+      "bytes": 5049,
+      "transformation": "byte-identical copy"
+    },
+    {
+      "source": "simulation_lab/server.py",
+      "source_sha256": "724722f43bb88ee487fe1e94797fa0d658131d11f4455f3c5b1363c262bca6e8",
+      "file": "docs/robotics/evidence/composed-dinner-v1/evaluated-source/simulation_lab/server.py",
+      "sha256": "724722f43bb88ee487fe1e94797fa0d658131d11f4455f3c5b1363c262bca6e8",
+      "bytes": 8114,
+      "transformation": "byte-identical copy"
+    },
+    {
+      "source": "simulation_lab/slots.py",
+      "source_sha256": "41755919e4d2bbfb2b023e78c09370d2fbcd740f377bdf616551aff2aa827873",
+      "file": "docs/robotics/evidence/composed-dinner-v1/evaluated-source/simulation_lab/slots.py",
+      "sha256": "41755919e4d2bbfb2b023e78c09370d2fbcd740f377bdf616551aff2aa827873",
+      "bytes": 1870,
+      "transformation": "byte-identical copy"
+    },
+    {
+      "source": "simulation_lab/speech.py",
+      "source_sha256": "66a50562886702017bdf9e0d2a1af31dfb4531061af9b8a6c5c9f16d02cce4a0",
+      "file": "docs/robotics/evidence/composed-dinner-v1/evaluated-source/simulation_lab/speech.py",
+      "sha256": "66a50562886702017bdf9e0d2a1af31dfb4531061af9b8a6c5c9f16d02cce4a0",
+      "bytes": 2143,
+      "transformation": "byte-identical copy"
+    },
+    {
+      "source": "simulation_lab/storage.py",
+      "source_sha256": "adff62806bc5786ee7c374a09754d82e37474b97f4d37074551d02d3796f444f",
+      "file": "docs/robotics/evidence/composed-dinner-v1/evaluated-source/simulation_lab/storage.py",
+      "sha256": "adff62806bc5786ee7c374a09754d82e37474b97f4d37074551d02d3796f444f",
+      "bytes": 723,
+      "transformation": "byte-identical copy"
+    },
+    {
+      "source": "scripts/evaluate_composed_dinner.py",
+      "source_sha256": "c8b277e637542fcb343bea13cc2e0f5314cd079f2bdad4d73004eb3287f862eb",
+      "file": "docs/robotics/evidence/composed-dinner-v1/evaluated-source/scripts/evaluate_composed_dinner.py",
+      "sha256": "c8b277e637542fcb343bea13cc2e0f5314cd079f2bdad4d73004eb3287f862eb",
+      "bytes": 7696,
+      "transformation": "byte-identical copy"
+    },
+    {
+      "source": "scripts/evaluate_composed_dinner_suite.py",
+      "source_sha256": "362c6282999d66bbd3efbe4c774df40b6b826a4c1b49498fc803f516139ab94b",
+      "file": "docs/robotics/evidence/composed-dinner-v1/evaluated-source/scripts/evaluate_composed_dinner_suite.py",
+      "sha256": "362c6282999d66bbd3efbe4c774df40b6b826a4c1b49498fc803f516139ab94b",
+      "bytes": 3501,
+      "transformation": "byte-identical copy"
+    },
+    {
+      "source": ".run/composed-dinner-v1-development/42/report.json",
+      "source_sha256": "54a3644da18532703b4ff5e7807e0c336edae4d4f2e517c28ea9961657be454b",
+      "file": "docs/robotics/evidence/composed-dinner-v1/development/42/report.json",
+      "sha256": "54a3644da18532703b4ff5e7807e0c336edae4d4f2e517c28ea9961657be454b",
+      "bytes": 42123,
+      "transformation": "byte-identical copy"
+    },
+    {
+      "source": ".run/composed-dinner-v1-development/42/states.npz",
+      "source_sha256": "a179f157a8f7130f3cb1a2fdbea7133584b3e825fb195b997e46648d8d306c00",
+      "file": "docs/robotics/evidence/composed-dinner-v1/development/42/states.npz",
+      "sha256": "a179f157a8f7130f3cb1a2fdbea7133584b3e825fb195b997e46648d8d306c00",
+      "bytes": 4498102,
+      "transformation": "byte-identical copy"
+    },
+    {
+      "source": ".run/composed-dinner-v1-development/42/scene.xml",
+      "source_sha256": "7c7b493c9a939bb84d7e9aa991e08d049495ca0211afa7470a67c6ae9114fd16",
+      "file": "docs/robotics/evidence/composed-dinner-v1/development/42/scene.xml",
+      "sha256": "4cac1834af286e8f59cf58cc05e941afa0bfdeb7401baecd877c8cf37f664685",
+      "bytes": 135597,
+      "transformation": "Only compiler meshdir remapped to the same repository assets."
+    },
+    {
+      "source": ".run/composed-dinner-v1-development/42/frozen-inputs.json",
+      "source_sha256": "bd747361205f57ad05618624c131182159c03f594266cfdafa369cc7bbc033b7",
+      "file": "docs/robotics/evidence/composed-dinner-v1/development/42/frozen-inputs.json",
+      "sha256": "bd747361205f57ad05618624c131182159c03f594266cfdafa369cc7bbc033b7",
+      "bytes": 13666,
+      "transformation": "byte-identical copy"
+    },
+    {
+      "source": ".run/composed-dinner-v1-development/2026092701/report.json",
+      "source_sha256": "d9e70b5102b94b51b3d36d6857fdcd421fc2648a59ed15d973620a25762ca7ad",
+      "file": "docs/robotics/evidence/composed-dinner-v1/development/2026092701/report.json",
+      "sha256": "d9e70b5102b94b51b3d36d6857fdcd421fc2648a59ed15d973620a25762ca7ad",
+      "bytes": 42135,
+      "transformation": "byte-identical copy"
+    },
+    {
+      "source": ".run/composed-dinner-v1-development/2026092701/states.npz",
+      "source_sha256": "27ca7b9600edffad82557c50082c517df3a621f00c5a9477e8f52c5ff96262d5",
+      "file": "docs/robotics/evidence/composed-dinner-v1/development/2026092701/states.npz",
+      "sha256": "27ca7b9600edffad82557c50082c517df3a621f00c5a9477e8f52c5ff96262d5",
+      "bytes": 4557523,
+      "transformation": "byte-identical copy"
+    },
+    {
+      "source": ".run/composed-dinner-v1-development/2026092701/scene.xml",
+      "source_sha256": "ee619336b0769cd58151bd350ad5d2994b5043c3fdb994442e4aaed77e2241c5",
+      "file": "docs/robotics/evidence/composed-dinner-v1/development/2026092701/scene.xml",
+      "sha256": "e4e118f2fbfe60460b08f6631b491b13d67206ee8d0841c88aae6ccf7e348dea",
+      "bytes": 135643,
+      "transformation": "Only compiler meshdir remapped to the same repository assets."
+    },
+    {
+      "source": ".run/composed-dinner-v1-development/2026092701/frozen-inputs.json",
+      "source_sha256": "bd747361205f57ad05618624c131182159c03f594266cfdafa369cc7bbc033b7",
+      "file": "docs/robotics/evidence/composed-dinner-v1/development/2026092701/frozen-inputs.json",
+      "sha256": "bd747361205f57ad05618624c131182159c03f594266cfdafa369cc7bbc033b7",
+      "bytes": 13666,
+      "transformation": "byte-identical copy"
+    },
+    {
+      "source": ".run/composed-dinner-v1-development/2026092702/report.json",
+      "source_sha256": "0174c6b2102dfc7a484ec384a524cff824e103b5cd2b78af1bba239fb94fb7a2",
+      "file": "docs/robotics/evidence/composed-dinner-v1/development/2026092702/report.json",
+      "sha256": "0174c6b2102dfc7a484ec384a524cff824e103b5cd2b78af1bba239fb94fb7a2",
+      "bytes": 42142,
+      "transformation": "byte-identical copy"
+    },
+    {
+      "source": ".run/composed-dinner-v1-development/2026092702/states.npz",
+      "source_sha256": "72c88ba179c5b493e23e06e5a4fa9e345a01d1a1a02d6dbe9d11f1c217d31f68",
+      "file": "docs/robotics/evidence/composed-dinner-v1/development/2026092702/states.npz",
+      "sha256": "72c88ba179c5b493e23e06e5a4fa9e345a01d1a1a02d6dbe9d11f1c217d31f68",
+      "bytes": 4598431,
+      "transformation": "byte-identical copy"
+    },
+    {
+      "source": ".run/composed-dinner-v1-development/2026092702/scene.xml",
+      "source_sha256": "330fc73de2ad71a95c63c019510638efc22874ac9488bdd6c888c924d7a662a5",
+      "file": "docs/robotics/evidence/composed-dinner-v1/development/2026092702/scene.xml",
+      "sha256": "8e5e9b11f97e408a88252aa4f573cc65235dc5f63c540b29ee53d11a6d02ceaa",
+      "bytes": 135634,
+      "transformation": "Only compiler meshdir remapped to the same repository assets."
+    },
+    {
+      "source": ".run/composed-dinner-v1-development/2026092702/frozen-inputs.json",
+      "source_sha256": "bd747361205f57ad05618624c131182159c03f594266cfdafa369cc7bbc033b7",
+      "file": "docs/robotics/evidence/composed-dinner-v1/development/2026092702/frozen-inputs.json",
+      "sha256": "bd747361205f57ad05618624c131182159c03f594266cfdafa369cc7bbc033b7",
+      "bytes": 13666,
+      "transformation": "byte-identical copy"
+    },
+    {
+      "source": ".run/composed-dinner-v1-development/2026092703/report.json",
+      "source_sha256": "0fcd6e09578434b47ad5f2eda21f896685c643700baf5513879444cd69939281",
+      "file": "docs/robotics/evidence/composed-dinner-v1/development/2026092703/report.json",
+      "sha256": "0fcd6e09578434b47ad5f2eda21f896685c643700baf5513879444cd69939281",
+      "bytes": 42148,
+      "transformation": "byte-identical copy"
+    },
+    {
+      "source": ".run/composed-dinner-v1-development/2026092703/states.npz",
+      "source_sha256": "ad6c7f2dbc0b9055403f4fcc1524ae24cbd1927af9146e01f13c5c118c97f9f4",
+      "file": "docs/robotics/evidence/composed-dinner-v1/development/2026092703/states.npz",
+      "sha256": "ad6c7f2dbc0b9055403f4fcc1524ae24cbd1927af9146e01f13c5c118c97f9f4",
+      "bytes": 4598112,
+      "transformation": "byte-identical copy"
+    },
+    {
+      "source": ".run/composed-dinner-v1-development/2026092703/scene.xml",
+      "source_sha256": "4edaf9c1bb295dbf96d31654d281ee8a914c659adb652e772f69b6fb4e7a365b",
+      "file": "docs/robotics/evidence/composed-dinner-v1/development/2026092703/scene.xml",
+      "sha256": "3a0fecd259ed67d7d60525e44d339fe8a39c102a7d4c29bd1e8e240ecfa80c1b",
+      "bytes": 135535,
+      "transformation": "Only compiler meshdir remapped to the same repository assets."
+    },
+    {
+      "source": ".run/composed-dinner-v1-development/2026092703/frozen-inputs.json",
+      "source_sha256": "bd747361205f57ad05618624c131182159c03f594266cfdafa369cc7bbc033b7",
+      "file": "docs/robotics/evidence/composed-dinner-v1/development/2026092703/frozen-inputs.json",
+      "sha256": "bd747361205f57ad05618624c131182159c03f594266cfdafa369cc7bbc033b7",
+      "bytes": 13666,
+      "transformation": "byte-identical copy"
+    },
+    {
+      "source": ".run/composed-dinner-v1-final/2026092801/report.json",
+      "source_sha256": "a925a63dedda299d06e3255bddf90b280ddf0b1650178ec23f8a431cc70ace19",
+      "file": "docs/robotics/evidence/composed-dinner-v1/evaluation/2026092801/report.json",
+      "sha256": "a925a63dedda299d06e3255bddf90b280ddf0b1650178ec23f8a431cc70ace19",
+      "bytes": 42126,
+      "transformation": "byte-identical copy"
+    },
+    {
+      "source": ".run/composed-dinner-v1-final/2026092801/states.npz",
+      "source_sha256": "879253b101c56716db4a0a9f6dca279a97546ec74ab7171c5463d9691dd0b5ff",
+      "file": "docs/robotics/evidence/composed-dinner-v1/evaluation/2026092801/states.npz",
+      "sha256": "879253b101c56716db4a0a9f6dca279a97546ec74ab7171c5463d9691dd0b5ff",
+      "bytes": 4571793,
+      "transformation": "byte-identical copy"
+    },
+    {
+      "source": ".run/composed-dinner-v1-final/2026092801/scene.xml",
+      "source_sha256": "5aa8aaea49162ca8b8a727fb26f3453bc6d08ad6797f8cbb44b80c6a1b1c9d7d",
+      "file": "docs/robotics/evidence/composed-dinner-v1/evaluation/2026092801/scene.xml",
+      "sha256": "ef3c8d7e40cebf28d18b45768e1bda2d3bf69e4ade97e20ae51fdf1e3415ee43",
+      "bytes": 135646,
+      "transformation": "Only compiler meshdir remapped to the same repository assets."
+    },
+    {
+      "source": ".run/composed-dinner-v1-final/2026092801/frozen-inputs.json",
+      "source_sha256": "bd747361205f57ad05618624c131182159c03f594266cfdafa369cc7bbc033b7",
+      "file": "docs/robotics/evidence/composed-dinner-v1/evaluation/2026092801/frozen-inputs.json",
+      "sha256": "bd747361205f57ad05618624c131182159c03f594266cfdafa369cc7bbc033b7",
+      "bytes": 13666,
+      "transformation": "byte-identical copy"
+    },
+    {
+      "source": ".run/composed-dinner-v1-final/2026092802/report.json",
+      "source_sha256": "111feb7d9f7515e4b2aa7a714ba00f4350c46c853327d0346081258d6d700ce9",
+      "file": "docs/robotics/evidence/composed-dinner-v1/evaluation/2026092802/report.json",
+      "sha256": "111feb7d9f7515e4b2aa7a714ba00f4350c46c853327d0346081258d6d700ce9",
+      "bytes": 42051,
+      "transformation": "byte-identical copy"
+    },
+    {
+      "source": ".run/composed-dinner-v1-final/2026092802/states.npz",
+      "source_sha256": "956b839aa91df7a6f3524c2ea7572a7a460aa1f9c51fa07d1649a240468a5068",
+      "file": "docs/robotics/evidence/composed-dinner-v1/evaluation/2026092802/states.npz",
+      "sha256": "956b839aa91df7a6f3524c2ea7572a7a460aa1f9c51fa07d1649a240468a5068",
+      "bytes": 5042419,
+      "transformation": "byte-identical copy"
+    },
+    {
+      "source": ".run/composed-dinner-v1-final/2026092802/scene.xml",
+      "source_sha256": "df722b8ee62f2a4624b7ee5bbfdf1eec4f89e9ede39f3fab157a88a8115e8bbe",
+      "file": "docs/robotics/evidence/composed-dinner-v1/evaluation/2026092802/scene.xml",
+      "sha256": "d2b8601118c7eed8e949719ae2ebd01888a9ee70481a1010c097732b37aea883",
+      "bytes": 135648,
+      "transformation": "Only compiler meshdir remapped to the same repository assets."
+    },
+    {
+      "source": ".run/composed-dinner-v1-final/2026092802/frozen-inputs.json",
+      "source_sha256": "bd747361205f57ad05618624c131182159c03f594266cfdafa369cc7bbc033b7",
+      "file": "docs/robotics/evidence/composed-dinner-v1/evaluation/2026092802/frozen-inputs.json",
+      "sha256": "bd747361205f57ad05618624c131182159c03f594266cfdafa369cc7bbc033b7",
+      "bytes": 13666,
+      "transformation": "byte-identical copy"
+    },
+    {
+      "source": ".run/composed-dinner-v1-final/2026092803/report.json",
+      "source_sha256": "e6d690cc749fe3e5e7337adb1655df20ee18eb82518a71fbe5835bf748e17f54",
+      "file": "docs/robotics/evidence/composed-dinner-v1/evaluation/2026092803/report.json",
+      "sha256": "e6d690cc749fe3e5e7337adb1655df20ee18eb82518a71fbe5835bf748e17f54",
+      "bytes": 42129,
+      "transformation": "byte-identical copy"
+    },
+    {
+      "source": ".run/composed-dinner-v1-final/2026092803/states.npz",
+      "source_sha256": "ae3b7589af3e227b5a900be9c47d9195b8b0f08cf86711ff69aa72ff2a310a1a",
+      "file": "docs/robotics/evidence/composed-dinner-v1/evaluation/2026092803/states.npz",
+      "sha256": "ae3b7589af3e227b5a900be9c47d9195b8b0f08cf86711ff69aa72ff2a310a1a",
+      "bytes": 4481523,
+      "transformation": "byte-identical copy"
+    },
+    {
+      "source": ".run/composed-dinner-v1-final/2026092803/scene.xml",
+      "source_sha256": "0a3a0a97c4bf05a2b5dc1f8a2857231470bb3b4dbf797fea2196ec4d9a44b6b0",
+      "file": "docs/robotics/evidence/composed-dinner-v1/evaluation/2026092803/scene.xml",
+      "sha256": "5bce265c066a1f5e93fcca1ab73c4322c2cc4a89f52248ab8d772ab7d5625997",
+      "bytes": 135636,
+      "transformation": "Only compiler meshdir remapped to the same repository assets."
+    },
+    {
+      "source": ".run/composed-dinner-v1-final/2026092803/frozen-inputs.json",
+      "source_sha256": "bd747361205f57ad05618624c131182159c03f594266cfdafa369cc7bbc033b7",
+      "file": "docs/robotics/evidence/composed-dinner-v1/evaluation/2026092803/frozen-inputs.json",
+      "sha256": "bd747361205f57ad05618624c131182159c03f594266cfdafa369cc7bbc033b7",
+      "bytes": 13666,
+      "transformation": "byte-identical copy"
+    },
+    {
+      "source": ".run/composed-dinner-v1-final/2026092804/report.json",
+      "source_sha256": "8870e22f1a9a635f790c07d20bb0086d1ad049ff01674681dc9366533dd47fe2",
+      "file": "docs/robotics/evidence/composed-dinner-v1/evaluation/2026092804/report.json",
+      "sha256": "8870e22f1a9a635f790c07d20bb0086d1ad049ff01674681dc9366533dd47fe2",
+      "bytes": 42131,
+      "transformation": "byte-identical copy"
+    },
+    {
+      "source": ".run/composed-dinner-v1-final/2026092804/states.npz",
+      "source_sha256": "ae2bd3c87ada5e36fb9e9f45b27aab6f9c6ff54b3f899565a82240cf23e737c3",
+      "file": "docs/robotics/evidence/composed-dinner-v1/evaluation/2026092804/states.npz",
+      "sha256": "ae2bd3c87ada5e36fb9e9f45b27aab6f9c6ff54b3f899565a82240cf23e737c3",
+      "bytes": 4505112,
+      "transformation": "byte-identical copy"
+    },
+    {
+      "source": ".run/composed-dinner-v1-final/2026092804/scene.xml",
+      "source_sha256": "4104455cbe4ca273a4cb8e157bc8874e77b247d64a9b19b5912be831016e4d74",
+      "file": "docs/robotics/evidence/composed-dinner-v1/evaluation/2026092804/scene.xml",
+      "sha256": "1b848a31409bab0a07f290fe30e5528e91359520f764489baebb4c5c532155d5",
+      "bytes": 135641,
+      "transformation": "Only compiler meshdir remapped to the same repository assets."
+    },
+    {
+      "source": ".run/composed-dinner-v1-final/2026092804/frozen-inputs.json",
+      "source_sha256": "bd747361205f57ad05618624c131182159c03f594266cfdafa369cc7bbc033b7",
+      "file": "docs/robotics/evidence/composed-dinner-v1/evaluation/2026092804/frozen-inputs.json",
+      "sha256": "bd747361205f57ad05618624c131182159c03f594266cfdafa369cc7bbc033b7",
+      "bytes": 13666,
+      "transformation": "byte-identical copy"
+    },
+    {
+      "source": ".run/composed-dinner-v1-final/2026092805/report.json",
+      "source_sha256": "47d83e5597ab9e0f3a7c7c4e773879ab894f5a37adfcf31ac608bdf70f70f7d1",
+      "file": "docs/robotics/evidence/composed-dinner-v1/evaluation/2026092805/report.json",
+      "sha256": "47d83e5597ab9e0f3a7c7c4e773879ab894f5a37adfcf31ac608bdf70f70f7d1",
+      "bytes": 42159,
+      "transformation": "byte-identical copy"
+    },
+    {
+      "source": ".run/composed-dinner-v1-final/2026092805/states.npz",
+      "source_sha256": "661198d86ce3215d30812c9ab801b4fa617df8ce34696b95b2ffae4e4673a961",
+      "file": "docs/robotics/evidence/composed-dinner-v1/evaluation/2026092805/states.npz",
+      "sha256": "661198d86ce3215d30812c9ab801b4fa617df8ce34696b95b2ffae4e4673a961",
+      "bytes": 4667116,
+      "transformation": "byte-identical copy"
+    },
+    {
+      "source": ".run/composed-dinner-v1-final/2026092805/scene.xml",
+      "source_sha256": "c3fd20150ff45745617a6c69c9d970582b54ff1462849fb82bc9b9da7e3b3fd8",
+      "file": "docs/robotics/evidence/composed-dinner-v1/evaluation/2026092805/scene.xml",
+      "sha256": "4e82c9a3a24b856343ae6315deb3a0c961610aea25006d75b194bba97e6c20cc",
+      "bytes": 135643,
+      "transformation": "Only compiler meshdir remapped to the same repository assets."
+    },
+    {
+      "source": ".run/composed-dinner-v1-final/2026092805/frozen-inputs.json",
+      "source_sha256": "bd747361205f57ad05618624c131182159c03f594266cfdafa369cc7bbc033b7",
+      "file": "docs/robotics/evidence/composed-dinner-v1/evaluation/2026092805/frozen-inputs.json",
+      "sha256": "bd747361205f57ad05618624c131182159c03f594266cfdafa369cc7bbc033b7",
+      "bytes": 13666,
+      "transformation": "byte-identical copy"
+    },
+    {
+      "source": ".run/composed-dinner-v1-final/2026092806/report.json",
+      "source_sha256": "388ee16bc5f02dab21543a30eb74b2964fb23abcbb93e7989a49bc998c8f8bf5",
+      "file": "docs/robotics/evidence/composed-dinner-v1/evaluation/2026092806/report.json",
+      "sha256": "388ee16bc5f02dab21543a30eb74b2964fb23abcbb93e7989a49bc998c8f8bf5",
+      "bytes": 42121,
+      "transformation": "byte-identical copy"
+    },
+    {
+      "source": ".run/composed-dinner-v1-final/2026092806/states.npz",
+      "source_sha256": "f77f217a2ca497afd777720d76b54c54b3d0669237ba2463cc90f36d7c12eb2c",
+      "file": "docs/robotics/evidence/composed-dinner-v1/evaluation/2026092806/states.npz",
+      "sha256": "f77f217a2ca497afd777720d76b54c54b3d0669237ba2463cc90f36d7c12eb2c",
+      "bytes": 4547204,
+      "transformation": "byte-identical copy"
+    },
+    {
+      "source": ".run/composed-dinner-v1-final/2026092806/scene.xml",
+      "source_sha256": "02df272253d9b6169f2d66aa157a1014ead18c697090ca2b893f52189c435437",
+      "file": "docs/robotics/evidence/composed-dinner-v1/evaluation/2026092806/scene.xml",
+      "sha256": "1f9e5235a26045c6545d65df68c7b2d00644fe3342f3099dad5326054a4c6942",
+      "bytes": 135643,
+      "transformation": "Only compiler meshdir remapped to the same repository assets."
+    },
+    {
+      "source": ".run/composed-dinner-v1-final/2026092806/frozen-inputs.json",
+      "source_sha256": "bd747361205f57ad05618624c131182159c03f594266cfdafa369cc7bbc033b7",
+      "file": "docs/robotics/evidence/composed-dinner-v1/evaluation/2026092806/frozen-inputs.json",
+      "sha256": "bd747361205f57ad05618624c131182159c03f594266cfdafa369cc7bbc033b7",
+      "bytes": 13666,
+      "transformation": "byte-identical copy"
+    },
+    {
+      "source": ".run/composed-dinner-v1-final/2026092807/report.json",
+      "source_sha256": "c414888ce5c8dee10db61f3697878ddfea8a77192647698daa27279eba4a3c21",
+      "file": "docs/robotics/evidence/composed-dinner-v1/evaluation/2026092807/report.json",
+      "sha256": "c414888ce5c8dee10db61f3697878ddfea8a77192647698daa27279eba4a3c21",
+      "bytes": 42148,
+      "transformation": "byte-identical copy"
+    },
+    {
+      "source": ".run/composed-dinner-v1-final/2026092807/states.npz",
+      "source_sha256": "ae6395b0bddd501f91de47ce003f84e37a20117b659ac8276ad0b0ee2d25d567",
+      "file": "docs/robotics/evidence/composed-dinner-v1/evaluation/2026092807/states.npz",
+      "sha256": "ae6395b0bddd501f91de47ce003f84e37a20117b659ac8276ad0b0ee2d25d567",
+      "bytes": 4515327,
+      "transformation": "byte-identical copy"
+    },
+    {
+      "source": ".run/composed-dinner-v1-final/2026092807/scene.xml",
+      "source_sha256": "23b1bf72d111f14f288a9841430cc71d3af2e31b9c1dcd94d8d0da7d10f45909",
+      "file": "docs/robotics/evidence/composed-dinner-v1/evaluation/2026092807/scene.xml",
+      "sha256": "4fe03a56e1cfe7522fa8eac2ec02887fe7a9435f16c20e03ea5801e3a11594bc",
+      "bytes": 135644,
+      "transformation": "Only compiler meshdir remapped to the same repository assets."
+    },
+    {
+      "source": ".run/composed-dinner-v1-final/2026092807/frozen-inputs.json",
+      "source_sha256": "bd747361205f57ad05618624c131182159c03f594266cfdafa369cc7bbc033b7",
+      "file": "docs/robotics/evidence/composed-dinner-v1/evaluation/2026092807/frozen-inputs.json",
+      "sha256": "bd747361205f57ad05618624c131182159c03f594266cfdafa369cc7bbc033b7",
+      "bytes": 13666,
+      "transformation": "byte-identical copy"
+    },
+    {
+      "source": ".run/composed-dinner-v1-final/2026092808/report.json",
+      "source_sha256": "4b472f1d01fccc5852068ed0b4bf9ca720a2f793b038f2c13e3c20feac882d09",
+      "file": "docs/robotics/evidence/composed-dinner-v1/evaluation/2026092808/report.json",
+      "sha256": "4b472f1d01fccc5852068ed0b4bf9ca720a2f793b038f2c13e3c20feac882d09",
+      "bytes": 42134,
+      "transformation": "byte-identical copy"
+    },
+    {
+      "source": ".run/composed-dinner-v1-final/2026092808/states.npz",
+      "source_sha256": "d6cc37a0a316a2411c52ca0482737960c19609d4090055fc3f5e9ccff81c3dec",
+      "file": "docs/robotics/evidence/composed-dinner-v1/evaluation/2026092808/states.npz",
+      "sha256": "d6cc37a0a316a2411c52ca0482737960c19609d4090055fc3f5e9ccff81c3dec",
+      "bytes": 4534391,
+      "transformation": "byte-identical copy"
+    },
+    {
+      "source": ".run/composed-dinner-v1-final/2026092808/scene.xml",
+      "source_sha256": "949d5cfe8b89e6d521c232f9e1d66a371562b5e364a47deddfce5e6504ab6b94",
+      "file": "docs/robotics/evidence/composed-dinner-v1/evaluation/2026092808/scene.xml",
+      "sha256": "949d2e6dfcb67ca275c2802355739c35da9e76c6fb59035843fa925f84778afb",
+      "bytes": 135589,
+      "transformation": "Only compiler meshdir remapped to the same repository assets."
+    },
+    {
+      "source": ".run/composed-dinner-v1-final/2026092808/frozen-inputs.json",
+      "source_sha256": "bd747361205f57ad05618624c131182159c03f594266cfdafa369cc7bbc033b7",
+      "file": "docs/robotics/evidence/composed-dinner-v1/evaluation/2026092808/frozen-inputs.json",
+      "sha256": "bd747361205f57ad05618624c131182159c03f594266cfdafa369cc7bbc033b7",
+      "bytes": 13666,
+      "transformation": "byte-identical copy"
+    },
+    {
+      "source": ".run/composed-dinner-v1-final/2026092809/report.json",
+      "source_sha256": "b24523aafb7356919274f38451a2d562e592a489e3f791ef3efcba650310c4ee",
+      "file": "docs/robotics/evidence/composed-dinner-v1/evaluation/2026092809/report.json",
+      "sha256": "b24523aafb7356919274f38451a2d562e592a489e3f791ef3efcba650310c4ee",
+      "bytes": 42050,
+      "transformation": "byte-identical copy"
+    },
+    {
+      "source": ".run/composed-dinner-v1-final/2026092809/states.npz",
+      "source_sha256": "e213301218f1252a33597cb02e96eefe7e4ba5e0c430fd10c6e8aedac52d5105",
+      "file": "docs/robotics/evidence/composed-dinner-v1/evaluation/2026092809/states.npz",
+      "sha256": "e213301218f1252a33597cb02e96eefe7e4ba5e0c430fd10c6e8aedac52d5105",
+      "bytes": 5093667,
+      "transformation": "byte-identical copy"
+    },
+    {
+      "source": ".run/composed-dinner-v1-final/2026092809/scene.xml",
+      "source_sha256": "8fa5fd4db13d05fec59b338f4fe2afaaa7f2105a73a4bc366eed665a0c8b1a7d",
+      "file": "docs/robotics/evidence/composed-dinner-v1/evaluation/2026092809/scene.xml",
+      "sha256": "99a7a6d318a94e3a8598835d1117257a8149f389c0a7724ae45ac571439a9a6c",
+      "bytes": 135505,
+      "transformation": "Only compiler meshdir remapped to the same repository assets."
+    },
+    {
+      "source": ".run/composed-dinner-v1-final/2026092809/frozen-inputs.json",
+      "source_sha256": "bd747361205f57ad05618624c131182159c03f594266cfdafa369cc7bbc033b7",
+      "file": "docs/robotics/evidence/composed-dinner-v1/evaluation/2026092809/frozen-inputs.json",
+      "sha256": "bd747361205f57ad05618624c131182159c03f594266cfdafa369cc7bbc033b7",
+      "bytes": 13666,
+      "transformation": "byte-identical copy"
+    },
+    {
+      "source": ".run/composed-dinner-v1-final/2026092810/report.json",
+      "source_sha256": "e976552d8689fe45a63955cfce9ca904198dc37e81f0052f44d89051f8c95449",
+      "file": "docs/robotics/evidence/composed-dinner-v1/evaluation/2026092810/report.json",
+      "sha256": "e976552d8689fe45a63955cfce9ca904198dc37e81f0052f44d89051f8c95449",
+      "bytes": 42153,
+      "transformation": "byte-identical copy"
+    },
+    {
+      "source": ".run/composed-dinner-v1-final/2026092810/states.npz",
+      "source_sha256": "09e7f8911631d40fffa10df06cde23aa273ffadb844d081ddf8079ccde7b4af5",
+      "file": "docs/robotics/evidence/composed-dinner-v1/evaluation/2026092810/states.npz",
+      "sha256": "09e7f8911631d40fffa10df06cde23aa273ffadb844d081ddf8079ccde7b4af5",
+      "bytes": 4567456,
+      "transformation": "byte-identical copy"
+    },
+    {
+      "source": ".run/composed-dinner-v1-final/2026092810/scene.xml",
+      "source_sha256": "f5ac3e8743319c50ce640a3ea2f11a8fd1ae2bacfb2ddc18a6d67bfff57569f4",
+      "file": "docs/robotics/evidence/composed-dinner-v1/evaluation/2026092810/scene.xml",
+      "sha256": "2150386ce064c968f281dcebdf459a9dc64e2c1e89bcbbc6b1fd30097bbb2ceb",
+      "bytes": 135615,
+      "transformation": "Only compiler meshdir remapped to the same repository assets."
+    },
+    {
+      "source": ".run/composed-dinner-v1-final/2026092810/frozen-inputs.json",
+      "source_sha256": "bd747361205f57ad05618624c131182159c03f594266cfdafa369cc7bbc033b7",
+      "file": "docs/robotics/evidence/composed-dinner-v1/evaluation/2026092810/frozen-inputs.json",
+      "sha256": "bd747361205f57ad05618624c131182159c03f594266cfdafa369cc7bbc033b7",
+      "bytes": 13666,
+      "transformation": "byte-identical copy"
+    },
+    {
+      "source": ".run/composed-dinner-v1-final/summary.json",
+      "source_sha256": "83d4e9b36dd1b345a07572997b24da4d5dba7ca50db164648553bd5d5efd6285",
+      "file": "docs/robotics/evidence/composed-dinner-v1/original-final-summary.json",
+      "sha256": "83d4e9b36dd1b345a07572997b24da4d5dba7ca50db164648553bd5d5efd6285",
+      "bytes": 18917,
+      "transformation": "byte-identical copy"
+    }
+  ],
+  "originals_modified": false
+}

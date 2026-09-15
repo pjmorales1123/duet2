@@ -1,0 +1,17 @@
+{
+  "schema": "talos.composed-dinner-relay.v1",
+  "declared_on": "2026-09-13",
+  "purpose": "Verify RGB-grounded selection of a two-arm bottle relay followed by the remaining dinner tasks through the actual language-command entry point.",
+  "instruction": "set the table",
+  "bottle_start": "wide_left",
+  "expected_steps": ["reverse_bottle_right", "reverse_bottle_left", "plate", "mug", "drawer", "fork", "spoon"],
+  "development_seeds": [42, 2026092701, 2026092702, 2026092703],
+  "evaluation_seeds": [2026092801, 2026092802, 2026092803, 2026092804, 2026092805, 2026092806, 2026092807, 2026092808, 2026092809, 2026092810],
+  "models": "models/dinner_suite/suite.json; all existing weights and metadata unchanged",
+  "entry_point": "LabEngine._reset followed by LabEngine._language_command(mode=learned_dinner); no supplied skill list or simulator-position plan input",
+  "acceptance": "Every expected step completes with unchanged physical monitors, stable release and both arms parked; drawer stays open and no later skill disturbs an earlier final placement by more than 4 mm.",
+  "development_gate": "At least 3/4 complete development sequences before exposing final seeds. Otherwise preserve failures and diagnose under a separate revision before freezing.",
+  "final_gate": "At least 8/10 complete frozen sequences supports a bounded integration claim; all failures remain included and broad reachable-workspace coverage remains unproven.",
+  "budget": {"extra_training_steps": 0, "new_teacher_episodes": 0, "maximum_raw_and_packaged_mib": 256, "reserve_gib": 10, "maximum_simulation_seconds_per_trial": 450},
+  "scope": "Existing finite left-reach bottle preset and dinner randomization. No general hand-to-hand exchange, new destinations, arbitrary language or new model training. Preserve all previous frozen experiments."
+}

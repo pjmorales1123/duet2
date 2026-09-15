@@ -1,0 +1,7 @@
+Traceback (most recent call last):
+  File "<repository>\scripts\mug_correction_motor_v2.py", line 260, in <module>
+    prepare(p,args)
+  File "<repository>\scripts\mug_correction_motor_v2.py", line 62, in prepare
+    fit,checkpoint=frozen(p,args)
+                   ^^^^^^
+UnboundLocalError: cannot access local variable 'frozen' where it is not associated with a value

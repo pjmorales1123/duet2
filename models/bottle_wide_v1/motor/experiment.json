@@ -1,0 +1,23 @@
+{
+  "schema": "talos.rgb-servo-package.v5",
+  "status": "experimental; not promoted",
+  "observer": "observer.safetensors",
+  "observer_sha256": "1b97d12a89d632462e27846846bae5be88d904d2c876901f05ec190f491d2851",
+  "motor": "motor.safetensors",
+  "motor_sha256": "ad1b9b7bbb4e45b7d89e2de4149b22e9a8b9d298ea8ed66073d24639f434ccb7",
+  "openvino": "openvino",
+  "openvino_artifact_sha256": {
+    "observer.xml": "542ac6cfe8903a66dd0c420f87bd571b49ba6873edd85cecbb87fd660b5adbe1",
+    "observer.bin": "e76bc72eceeea26360f2971211142db989fbff486770fd455f5a29d7e520bb7f",
+    "motor.xml": "6380d60a8248492dcc9fdf3c14ac169222f55223318b32a39e2ad8719ca0a0f8",
+    "motor.bin": "277d06790b778ff5b45cabb44015e3f8cf2b7c38e8fb0c8a9b924fee6c385cd5"
+  },
+  "minimum_views": 2,
+  "rigid_geometry": true,
+  "evidence": "../../docs/robotics/evidence/rgb-servo-v5/audit.json",
+  "baseline": "../dinner_suite/suite.json",
+  "license": "MIT",
+  "scope": "V5 motor refinement with unchanged observer and V2 R1 routing. Offline gate passed; physical development/final gates remain required. Not deployed.",
+  "training_protocol": "../../docs/robotics/experiments/rgb-servo-bottle-v5.json",
+  "export_note": "Observer IR is copied byte-for-byte from V1. Motor IR is the new parity-checked FP32 export. The full export probe folder is retained separately."
+}

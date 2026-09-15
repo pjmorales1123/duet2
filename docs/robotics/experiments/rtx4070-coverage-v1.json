@@ -1,0 +1,456 @@
+{
+  "version": 1,
+  "purpose": "Bounded upright bottle coverage; not full workspace coverage",
+  "baseline": "models/bottle_visual",
+  "training": [
+    {
+      "id": "train-000",
+      "seed": 2026090018,
+      "split": "training",
+      "pose": {
+        "x": -0.004839164417284991,
+        "y": -0.07114445094478791,
+        "yaw": 0.2809897527742853,
+        "sideways": false
+      },
+      "reconstructed_from": "original-count32/train-017"
+    },
+    {
+      "id": "train-001",
+      "seed": 2026090020,
+      "split": "training",
+      "pose": {
+        "x": -0.07340677663329064,
+        "y": -0.12157344846810123,
+        "yaw": 0.3096408082688602,
+        "sideways": false
+      },
+      "reconstructed_from": "original-count32/train-019"
+    },
+    {
+      "id": "train-002",
+      "seed": 2026090026,
+      "split": "training",
+      "pose": {
+        "x": 0.013685749953803256,
+        "y": -0.09793973749873204,
+        "yaw": -0.20973984655462818,
+        "sideways": false
+      },
+      "reconstructed_from": "original-count32/train-025"
+    },
+    {
+      "id": "train-003",
+      "seed": 2026091404,
+      "split": "training",
+      "pose": {
+        "x": -0.01427371298901289,
+        "y": -0.05765105757365113,
+        "yaw": 0.2809897527742853,
+        "sideways": false
+      }
+    },
+    {
+      "id": "train-004",
+      "seed": 2026091405,
+      "split": "training",
+      "pose": {
+        "x": -0.08474854427089518,
+        "y": -0.12380263790208018,
+        "yaw": 0.3096408082688602,
+        "sideways": false
+      }
+    },
+    {
+      "id": "train-005",
+      "seed": 2026091406,
+      "split": "training",
+      "pose": {
+        "x": 0.024412764731028283,
+        "y": -0.09732105045339814,
+        "yaw": -0.20973984655462818,
+        "sideways": false
+      }
+    },
+    {
+      "id": "train-006",
+      "seed": 2026091407,
+      "split": "training",
+      "pose": {
+        "x": -0.005621992682397993,
+        "y": -0.08337769480208729,
+        "yaw": 0.2809897527742853,
+        "sideways": false
+      }
+    },
+    {
+      "id": "train-007",
+      "seed": 2026091408,
+      "split": "training",
+      "pose": {
+        "x": -0.08354789496410205,
+        "y": -0.1186067157966986,
+        "yaw": 0.3096408082688602,
+        "sideways": false
+      }
+    },
+    {
+      "id": "train-008",
+      "seed": 2026091409,
+      "split": "training",
+      "pose": {
+        "x": 0.003171729927751268,
+        "y": -0.10121983236183672,
+        "yaw": -0.20973984655462818,
+        "sideways": false
+      }
+    },
+    {
+      "id": "train-009",
+      "seed": 2026091410,
+      "split": "training",
+      "pose": {
+        "x": -0.006907288726236039,
+        "y": -0.05911447848556109,
+        "yaw": 0.2809897527742853,
+        "sideways": false
+      }
+    },
+    {
+      "id": "train-010",
+      "seed": 2026091411,
+      "split": "training",
+      "pose": {
+        "x": -0.06955732326334382,
+        "y": -0.1185945798995548,
+        "yaw": 0.3096408082688602,
+        "sideways": false
+      }
+    },
+    {
+      "id": "train-011",
+      "seed": 2026091412,
+      "split": "training",
+      "pose": {
+        "x": 0.017071004656756095,
+        "y": -0.08345292516121659,
+        "yaw": -0.20973984655462818,
+        "sideways": false
+      }
+    },
+    {
+      "id": "train-012",
+      "seed": 2026091413,
+      "split": "training",
+      "pose": {
+        "x": -0.00034287257662755227,
+        "y": -0.07281668874245296,
+        "yaw": 0.2809897527742853,
+        "sideways": false
+      }
+    },
+    {
+      "id": "train-013",
+      "seed": 2026091414,
+      "split": "training",
+      "pose": {
+        "x": -0.06892015850284569,
+        "y": -0.10938884143283137,
+        "yaw": 0.3096408082688602,
+        "sideways": false
+      }
+    },
+    {
+      "id": "train-014",
+      "seed": 2026091415,
+      "split": "training",
+      "pose": {
+        "x": 0.006993659988817692,
+        "y": -0.08424365687258221,
+        "yaw": -0.20973984655462818,
+        "sideways": false
+      }
+    },
+    {
+      "id": "train-015",
+      "seed": 2026091416,
+      "split": "training",
+      "pose": {
+        "x": 0.007871579915364805,
+        "y": -0.05781127676256319,
+        "yaw": 0.2809897527742853,
+        "sideways": false
+      }
+    },
+    {
+      "id": "train-016",
+      "seed": 2026091417,
+      "split": "training",
+      "pose": {
+        "x": -0.0695800539305982,
+        "y": -0.12490485977833482,
+        "yaw": 0.3096408082688602,
+        "sideways": false
+      }
+    },
+    {
+      "id": "train-017",
+      "seed": 2026091418,
+      "split": "training",
+      "pose": {
+        "x": 0.024283525312396855,
+        "y": -0.10545690098467586,
+        "yaw": -0.20973984655462818,
+        "sideways": false
+      }
+    },
+    {
+      "id": "train-018",
+      "seed": 2026091419,
+      "split": "training"
+    },
+    {
+      "id": "train-019",
+      "seed": 2026091420,
+      "split": "training"
+    },
+    {
+      "id": "train-020",
+      "seed": 2026091421,
+      "split": "training"
+    },
+    {
+      "id": "train-021",
+      "seed": 2026091422,
+      "split": "training"
+    },
+    {
+      "id": "train-022",
+      "seed": 2026091423,
+      "split": "training"
+    },
+    {
+      "id": "train-023",
+      "seed": 2026091424,
+      "split": "training"
+    }
+  ],
+  "development": [
+    {
+      "id": "dev-000",
+      "seed": 2026091501,
+      "split": "development",
+      "pose": {
+        "x": 0.008304457028674238,
+        "y": -0.06491568026220879,
+        "yaw": 0.2809897527742853,
+        "sideways": false
+      }
+    },
+    {
+      "id": "dev-001",
+      "seed": 2026091502,
+      "split": "development",
+      "pose": {
+        "x": -0.07876136964536684,
+        "y": -0.11662299297475501,
+        "yaw": 0.3096408082688602,
+        "sideways": false
+      }
+    },
+    {
+      "id": "dev-002",
+      "seed": 2026091503,
+      "split": "development",
+      "pose": {
+        "x": 0.014257809164741692,
+        "y": -0.08660948260291712,
+        "yaw": -0.20973984655462818,
+        "sideways": false
+      }
+    },
+    {
+      "id": "dev-003",
+      "seed": 2026091504,
+      "split": "development",
+      "pose": {
+        "x": -0.008823308435608166,
+        "y": -0.07832130914263206,
+        "yaw": 0.2809897527742853,
+        "sideways": false
+      }
+    },
+    {
+      "id": "dev-004",
+      "seed": 2026091505,
+      "split": "development",
+      "pose": {
+        "x": -0.06804080235623608,
+        "y": -0.13381720887023965,
+        "yaw": 0.3096408082688602,
+        "sideways": false
+      }
+    },
+    {
+      "id": "dev-005",
+      "seed": 2026091506,
+      "split": "development",
+      "pose": {
+        "x": 0.021967095687849433,
+        "y": -0.09918477539756941,
+        "yaw": -0.20973984655462818,
+        "sideways": false
+      }
+    }
+  ],
+  "evaluation": [
+    {
+      "id": "eval-000",
+      "seed": 2026091601,
+      "split": "evaluation"
+    },
+    {
+      "id": "eval-001",
+      "seed": 2026091602,
+      "split": "evaluation"
+    },
+    {
+      "id": "eval-002",
+      "seed": 2026091603,
+      "split": "evaluation"
+    },
+    {
+      "id": "eval-003",
+      "seed": 2026091604,
+      "split": "evaluation",
+      "pose": {
+        "x": 0.009170532846849988,
+        "y": -0.07732071307993983,
+        "yaw": 0.2809897527742853,
+        "sideways": false
+      }
+    },
+    {
+      "id": "eval-004",
+      "seed": 2026091605,
+      "split": "evaluation",
+      "pose": {
+        "x": -0.06097220697495141,
+        "y": -0.11526395057631304,
+        "yaw": 0.3096408082688602,
+        "sideways": false
+      }
+    },
+    {
+      "id": "eval-005",
+      "seed": 2026091606,
+      "split": "evaluation",
+      "pose": {
+        "x": 0.018464072522000753,
+        "y": -0.09591818522597233,
+        "yaw": -0.20973984655462818,
+        "sideways": false
+      }
+    },
+    {
+      "id": "eval-006",
+      "seed": 2026091607,
+      "split": "evaluation",
+      "pose": {
+        "x": -0.008372138832913992,
+        "y": -0.07505677771406347,
+        "yaw": 0.2809897527742853,
+        "sideways": false
+      }
+    },
+    {
+      "id": "eval-007",
+      "seed": 2026091608,
+      "split": "evaluation",
+      "pose": {
+        "x": -0.07191915717056634,
+        "y": -0.11075679335120742,
+        "yaw": 0.3096408082688602,
+        "sideways": false
+      }
+    },
+    {
+      "id": "eval-008",
+      "seed": 2026091609,
+      "split": "evaluation",
+      "pose": {
+        "x": 0.006008894844438918,
+        "y": -0.11155848114273233,
+        "yaw": -0.20973984655462818,
+        "sideways": false
+      }
+    },
+    {
+      "id": "eval-009",
+      "seed": 2026091610,
+      "split": "evaluation",
+      "pose": {
+        "x": -0.010153493616137297,
+        "y": -0.0843020116442773,
+        "yaw": 0.2809897527742853,
+        "sideways": false
+      }
+    },
+    {
+      "id": "eval-010",
+      "seed": 2026091611,
+      "split": "evaluation",
+      "pose": {
+        "x": -0.07147046563500434,
+        "y": -0.10761779689701134,
+        "yaw": 0.3096408082688602,
+        "sideways": false
+      }
+    },
+    {
+      "id": "eval-011",
+      "seed": 2026091612,
+      "split": "evaluation",
+      "pose": {
+        "x": 0.020786624332923793,
+        "y": -0.11160664220699242,
+        "yaw": -0.20973984655462818,
+        "sideways": false
+      }
+    }
+  ],
+  "regression_seeds": [
+    42,
+    2026091301,
+    2026091302,
+    2026091303,
+    2026091304,
+    2026091305,
+    2026091306,
+    2026091307,
+    2026091308,
+    2026091309,
+    2026091310
+  ],
+  "training_budget": {
+    "adam_steps": 16000,
+    "lbfgs_steps": 400,
+    "selection_checkpoints": [
+      "adam-16000",
+      "lbfgs-400"
+    ],
+    "selection": "Development physical success count, then mean placement error; tie retains Adam."
+  },
+  "promotion": {
+    "fresh_successes_min": 10,
+    "strictly_beat_baseline": true,
+    "all_11_regressions_pass": true
+  },
+  "data_gate": "All three reconstructed teacher runs and their 200/20 Hz replays must pass before further collection/training.",
+  "storage": {
+    "output_budget_gib": 1,
+    "reserve_gib": 10
+  },
+  "provenance": "First three training attempts retain original scene seeds. Remaining 21 use fresh seeds. Raw laptop states are absent; reconstructions are not byte-identical copies.",
+  "pose_distribution": "Upright only; 15 mm axis offsets around three exposed positions; 3 mm minimum separation of explicit XY starts; yaw fixed per region. Six training and three evaluation task-preset anchors."
+}

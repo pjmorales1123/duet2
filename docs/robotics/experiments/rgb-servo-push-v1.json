@@ -1,0 +1,15 @@
+{
+  "schema": "talos.rgb-servo-push.v1",
+  "declared_on": "2026-09-13",
+  "parent": "docs/robotics/experiments/rgb-servo-bottle-v1.json",
+  "calibration": ".run/rgb-servo-push-calibration-v2/results.json",
+  "calibration_seed": 2026095102,
+  "force_n": [0.75, 0.0, 0.0],
+  "application_height_above_bottle_origin_m": 0.012,
+  "starts_at_simulation_s": 1.5,
+  "duration_s": 0.1,
+  "calibration_result": {"final_translation_mm": 12.0508, "peak_translation_mm": 12.2009, "peak_tilt_deg": 6.4777, "upright_after_settling": true},
+  "mechanism": "Explicit external force plus its moment about the bottle center of mass, applied at base height. No object teleportation or attachment. Magnitude and true displacement are scoring/setup data and never enter the learned controller.",
+  "comparison": "Run identical seed and force in live-image and initial-image-frozen modes. At the same measured robot state, record both image-conditioned joint predictions. Preserve all physical failures and any displacement outside the calibrated range.",
+  "initial_trial": "Exposed training seed 2026095102 only. Development/evaluation seeds stay separate until a controller is selected."
+}

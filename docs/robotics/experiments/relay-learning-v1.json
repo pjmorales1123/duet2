@@ -1,0 +1,83 @@
+{
+  "schema": "talos.relay-learning.v1",
+  "declared_on": "2026-09-13",
+  "purpose": "Prepare two separately learned legs of the existing left-to-right table-supported bottle relay, with physical replay before training.",
+  "training": [
+    {
+      "seed": 2026092101
+    },
+    {
+      "seed": 2026092102
+    },
+    {
+      "seed": 2026092103
+    },
+    {
+      "seed": 2026092104
+    },
+    {
+      "seed": 2026092105
+    },
+    {
+      "seed": 2026092106
+    },
+    {
+      "seed": 2026092107
+    },
+    {
+      "seed": 2026092108
+    },
+    {
+      "seed": 2026092109
+    },
+    {
+      "seed": 2026092110
+    },
+    {
+      "seed": 2026092111
+    },
+    {
+      "seed": 2026092112
+    }
+  ],
+  "legs": [
+    {
+      "name": "relay_bottle_left",
+      "arm": "left",
+      "destination_xy": [
+        0.0,
+        -0.1
+      ]
+    },
+    {
+      "name": "relay_bottle_right",
+      "arm": "right",
+      "destination_xy": [
+        0.2,
+        0.05
+      ]
+    }
+  ],
+  "data_gate": "Both teacher legs and exact saved float32 endpoint replays must pass before collecting a larger training batch.",
+  "evaluation": "Seed 42 is exposed. No holdout evaluation or learned success is implied.",
+  "storage_reserve_gib": 10,
+  "additional_training_source": "The passing exposed feasibility case is also training; combine compact inputs without overwriting either collection.",
+  "development_seeds": [
+    2026092301,
+    2026092302,
+    2026092303
+  ],
+  "evaluation_seeds": [
+    2026092501,
+    2026092502,
+    2026092503,
+    2026092504,
+    2026092505
+  ],
+  "split_policy": "No teacher collection from development or evaluation seeds. Freeze candidate before evaluation. Reverse test poses use the declared center with +/-6 mm XY and +/-0.08 rad yaw, sampled from each scene seed.",
+  "training_budget": {
+    "adam_steps": 16000,
+    "refinement_max_steps": 400,
+    "promotion": "Physical success on both legs without reset; report all declared evaluation cases and preserve every failed outcome."
+  }
+}

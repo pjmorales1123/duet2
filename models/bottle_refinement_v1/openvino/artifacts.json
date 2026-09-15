@@ -1,0 +1,21 @@
+{
+  "schema": "talos.bottle-refinement.v1",
+  "selected_checkpoint_sha256": "c089f3a8bcfaa0189459679f6f13853988059b4c4c4f61566092b85243f58632",
+  "coarse_checkpoint_sha256": "2d82fc20ee8bc7d209be57ca1436361c4865b3ee3fb1d49a176d2ca2df5f1109",
+  "files": {
+    "coarse.xml": "542ac6cfe8903a66dd0c420f87bd571b49ba6873edd85cecbb87fd660b5adbe1",
+    "coarse.bin": "9ee387fc2bfbde69367e49f5ec7bc5b6b38f5faa1d7b80004d6773456f7c73f0",
+    "refiner.xml": "038af07290c5bbbe318a47e1f5b61478ce13b2bbae0e2fb3d2a78a1a32fc1a15",
+    "refiner.bin": "bbab8e76c42df89a7375389c40533e1252a9bd508be2d0cad571fbd00f5e196e",
+    "protocol.json": "1e94fa0c2583faf5401a7341ed73f7009f15bf48accc05866fd233bc3124a633"
+  },
+  "runtime_sources": {
+    "simulation_lab/bottle_refinement.py": "3390e076a13759fcef7d37bf685e3ed57372e8a148e923a96556c06194553e39",
+    "simulation_lab/bottle_refinement_runtime.py": "d62bb641b1518ce6ec9e5224ffafd6f3177d0fdb26df72d7e1e5e0377d4b8fb4",
+    "simulation_lab/rgb_servo_network.py": "3ef3cd8fcac1e40743893caab14fb94decf52d1c402c6ade69c342e8c97d9302",
+    "simulation_lab/rgb_servo_cameras.py": "eb750885e17ccc731ad9a80f3f5450ec2b5823c68e9dd57d9e325623d28eb3ec",
+    "simulation_lab/rgb_servo_geometry.py": "bca323458c4971bab8534e36fb6f7d5aa668df188e7573efa095ebfbca4db1ae"
+  },
+  "exporter_sha256": "b7c63b8cb2796bcb74d29ec2b842cba508f33ade1b7dcc5de18ab7d5dfc9d6e4",
+  "scope": "Experimental CPU exports. Physical promotion is a separate gate."
+}

@@ -1,0 +1,33 @@
+{
+  "cases": [
+    {
+      "surface": "engine",
+      "preset": "upright",
+      "exit_code": 0,
+      "passed": true,
+      "report_sha256": "78a2ac4e404d589dee4d751fb98f0186081f6431aeffcfa87fb45147ada42ee1"
+    },
+    {
+      "surface": "engine",
+      "preset": "wide_left",
+      "exit_code": 0,
+      "passed": true,
+      "report_sha256": "61e7fa15cee62fab5594e4f8fe3940db0f0824eaabcf2c7fd9d29ade46f1312d"
+    },
+    {
+      "surface": "public",
+      "preset": "upright",
+      "exit_code": 0,
+      "passed": true,
+      "report_sha256": "56c0eb7d9cf526e2612822b567f3c39b2def8cdd49f331b4fae9eaea560c2276"
+    },
+    {
+      "surface": "public",
+      "preset": "wide_left",
+      "exit_code": 0,
+      "passed": true,
+      "report_sha256": "ede874a679af3a4461f8f40a94eddbb1abde08e16b1eb471fe4836282fcf239d"
+    }
+  ],
+  "passed": true
+}

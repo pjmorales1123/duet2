@@ -1,0 +1,15 @@
+{
+  "schema": "talos.rgb-servo-rigid-evaluation.v1",
+  "declared_on": "2026-09-13",
+  "evaluation_states": 256,
+  "evaluation_rng_seed": 2026095413,
+  "generator": "scripts/collect_rgb_servo_observer.py, original seed-42 arm poses and unchanged procedural ranges",
+  "checkpoint": ".run/rgb-servo-observer-fit-v4/step-004000/model.safetensors",
+  "checkpoint_sha256": "1b97d12a89d632462e27846846bae5be88d904d2c876901f05ec190f491d2851",
+  "minimum_confident_views": 2,
+  "rigid_geometry": true,
+  "geometry_protocol": "docs/robotics/experiments/rgb-servo-rigid-observer-v1.json",
+  "selection_result": "On original development observations, rigid fitting reduces accepted p95 from 2.672 to 2.134 mm, retaining 222/225 present acceptances and zero absent acceptances. No frozen-test observations were used for this selection.",
+  "freeze": "Network weights, geometric fit and confidence rules are fixed before generation. Accepted maximum-keypoint 3D error p95 must remain below 3 mm. Report every refusal and absent-object false acceptance; do not train or tune on this test.",
+  "scope": "Perception evaluation only; frozen full physical evaluation is still separate."
+}

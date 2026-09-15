@@ -1,0 +1,5 @@
+{'scored_observations': 128, 'total': 512}
+{'scored_observations': 256, 'total': 512}
+{'scored_observations': 384, 'total': 512}
+{'scored_observations': 512, 'total': 512}
+{'maximum_absolute_keypoint_parity_px': 0.0006866455078125, 'parity_passed': True, 'passed': True, 'inference_median_ms': 29.550899984315038, 'device': 'AMD Ryzen 7 5800X 8-Core Processor             '}

@@ -1,0 +1,20 @@
+{
+  "schema": "talos.dinner-fitting.v4",
+  "declared_on": "2026-09-13",
+  "parent": "dinner-learning-v2.json",
+  "data_gate_review": "The added 32 scenes produced 188 passing exact endpoint replays from 190 attempted skills. Fork planning failed on training seeds 2026091738 and 2026091739 because of cabinet clearance; their following spoon episodes were not collected. Preserve both failures and exclude them. Combined with the original nine scenes, use at most 41 demonstrations per skill, 39 for fork and spoon. No development or evaluation demonstrations are added.",
+  "training": {
+    "skills": ["plate", "mug", "drawer", "fork", "spoon"],
+    "encoder": "Fixed workspace RGB geometry for tableware; existing three-camera PCA for drawer",
+    "visual_scaling": "standard",
+    "adam_steps": 40000,
+    "learning_rate": 0.0003,
+    "cosine_decay": true,
+    "refinement_max_steps": 400,
+    "selection": "Compare final Adam and, if needed, final LBFGS checkpoints on the six declared development scenes. Preserve every result. Do not fit or select on the final ten evaluation seeds."
+  },
+  "unchanged_bottle": "Keep the preserved upright bottle model for the standard starting region.",
+  "acceptance": "Stable physical release, both arms parked, original collision/disturbance/placement thresholds, no reset between skills, no teacher action generation",
+  "storage_reserve_gib": 10,
+  "expected_inputs_and_checkpoints_gib": 0.25
+}

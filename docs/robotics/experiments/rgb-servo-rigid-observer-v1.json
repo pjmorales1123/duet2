@@ -1,0 +1,12 @@
+{
+  "schema": "talos.rgb-servo-rigid-observer.v1",
+  "declared_on": "2026-09-13",
+  "parent": "docs/robotics/experiments/rgb-servo-confidence-v2.json",
+  "reason": "The frozen v4 two-view observer test reaches 3.180 mm p95 and misses the unchanged 3 mm requirement. Preserve that result and do not tune on its examples. The training budget is complete; investigate a separate geometric refinement with frozen network weights.",
+  "weights": "Observer v4, SHA256 1b97d12a89d632462e27846846bae5be88d904d2c876901f05ec190f491d2851",
+  "method": "Jointly fit both RGB-predicted keypoints to all accepted calibrated views while enforcing the known 103 mm separation. Five parameters describe the lower point and upright axis direction. Damped finite-difference least squares uses image residuals only; no simulator object pose or robot action optimization is permitted.",
+  "bounds": "At most eight small iterations; each accepted step reduces the rigid-fit objective. Retain the pre-fit confidence/axis-length check, reject non-finite results, and recheck the original 1.5 px reprojection threshold. The constrained fit need not improve the unconstrained image residual because it adds known shape information.",
+  "selection": "Use only original observer development seed 2026095402 and exposed physical development/training traces. All frozen perception tests remain excluded. A new declared perception test and untouched physical evaluation cases are required before promotion.",
+  "budget": {"additional_neural_training_steps": 0, "max_compute_minutes": 10, "max_new_data_mib": 32, "reserve_gib": 10},
+  "scope": "Classical calibrated geometry after learned RGB keypoints. This is not a foundation-model change, a relaxed physical threshold or a claim of general manipulation."
+}

@@ -1,0 +1,29 @@
+{
+  "schema": "talos.mug-correction-motor.v2",
+  "files": {
+    "attempts/fresh-dispatch-1/incident.json": "35962272eea235216cf49cf50f5d6dba3f652d222b79847b9d52eddc9a6de8a8",
+    "attempts/fresh-dispatch-1/mug_correction_motor_v2.py": "e6c8f2c06093f29db776de5165d892f411649961bf447172c927b581e6681c08",
+    "attempts/path-resolution-1/incident.json": "e02df806d228d86cd2ea678c4b8f50bb44a8a224bc6beadf9243d01097440c62",
+    "attempts/path-resolution-1/mug_correction_motor_v2.py": "c5bf50ee005283d443e07c40618c723201484b0f8bdcb7e1e07415d0092b87ef",
+    "callable-reproduction.json": "b8d58a741d078f54aa5b17687aed0a0a13477b5e316947e76a669ed8375f745b",
+    "console/mug-correction-motor-v2-development-audit-r1.log": "2a9d36c03c31ec58c35ba40b52d5811d035745f8e7e763e826233e37d6b233cc",
+    "console/mug-correction-motor-v2-development-data-r1.log": "3535504fed86a0c854b81dcec597f1fa97dd750547cf3b0e45a370e8ea38ee99",
+    "console/mug-correction-motor-v2-export.log": "a1deffc61588035a15f7ae1e2f1403d62240bacdde34fbec98dc82ee908f8095",
+    "console/mug-correction-motor-v2-fit.log": "89f08d0f5963d8c5962579164ff7d21ab2dc4fd06582ef6d189186ffd32bb16b",
+    "console/mug-correction-motor-v2-fresh-audit-r1.log": "3b5243d0aa8877da3101d9836a3444e15e074f08e2cac006b9d97f1196d56847",
+    "console/mug-correction-motor-v2-fresh-data-r1.log": "13112558c0c85a75d72a473b7e9256b86796d4ec3ba5399fc7d2d8f7ebed1ef9",
+    "console/mug-correction-motor-v2-fresh-data.log": "acbf5bd8247b5f3503b97a670a501fa805fa250abaedf87eb0a920a6f21bf9d5",
+    "console/mug-correction-motor-v2-fresh-score-r1.log": "91b13428073462ad49d02e81e9036ce829c31a26bdc4effca2367af7a0a5259b",
+    "console/mug-correction-motor-v2-training-audit-r1.log": "b3f86b977221b5170bd36139395fb4affa11d49d8baa0d1601adf34445dc8909",
+    "console/mug-correction-motor-v2-training-data-r1.log": "2c6fc69fe0f29d10d71520859b594960fa87b9cebab490ea4ab7304dc1d7c0f0",
+    "console/mug-correction-motor-v2-training-data.log": "24ab69146bf119328ca4fcb2a1d1b6ee1d7c3220f755c9492be1e7aa18d860d4",
+    "fresh-kinematics.json": "1e38b4b80238d569b1973d2deeb2a574eb1a0ff86db69b9dac1ba7b08ae70b5a",
+    "package-audit.json": "43dee95a5d8432cdece2cfa5704d2a23450cea71c57078ff3c04732259d813fc",
+    "parity.json": "5e59803cf0fdb258d7f80d2ba5bfaf91453168c2f37888d9b969b20a39d98d27",
+    "protocol.json": "468b469bb45238758fcaf1fb327b2b4186d475d8e462eacd34f8de6981fd900f",
+    "step-003000/development.json": "2394b7fcd69a7f831ce9aa82353b705537178f0e53c06287cbed5d8f92ca87af",
+    "step-006000/development.json": "7519060425493df66e53aa37aac56b2b67d818e60ea97fca02badbdc218b8243",
+    "training.json": "dd1a89b30f6dc782f8ec5807d7a2c16d0bb8527470a51872bf2d4c69d5a75d94"
+  },
+  "bytes": 4964504
+}
