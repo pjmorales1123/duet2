@@ -35,6 +35,21 @@ class ServerContractTests(unittest.TestCase):
             self.assertNotIn(control, html)
             self.assertNotIn(control, script)
 
+    def test_demo_has_honest_rubric_evidence_for_all_six_criteria(self):
+        html = (Path(__file__).parents[1]/'simulation_lab'/'web'/'demo.html').read_text(encoding='utf-8')
+        for criterion in (
+            'End-to-End Task Completion &amp; Bimanual Manipulation',
+            'VLA / Multi-Modal Reasoning',
+            'Robustness &amp; Generalization',
+            'OpenVINO &amp; Intel Core Ultra Optimization',
+            'Technical Quality &amp; Reproducibility',
+            'Innovation &amp; Technical Demonstration',
+            'Verified evidence',
+            'Experimental',
+            'In progress',
+        ):
+            self.assertIn(criterion, html)
+
 
 if __name__ == '__main__':
     unittest.main()

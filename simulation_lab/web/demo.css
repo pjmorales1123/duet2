@@ -210,6 +210,27 @@ code { background: #eaeef4; border-radius: 5px; padding: .06em .38em; font-size:
 .trial-thumbs button:hover { border-color: var(--accent); color: var(--accent); }
 .trial-thumbs svg { width: 13px; height: 13px; }
 
+/* ---------- rubric evidence ---------- */
+.rubric-evidence { margin-top: 1.5rem; }
+.rubric-head { display: flex; justify-content: space-between; gap: 2rem; align-items: end; margin-bottom: 1rem; }
+.rubric-head .eyebrow { color: var(--accent); margin-bottom: .35rem; }
+.rubric-head h2 { margin: 0; font-size: 1.35rem; letter-spacing: -.02em; }
+.rubric-head > p { max-width: 62ch; margin: 0; color: var(--muted); font-size: .9rem; }
+.rubric-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: .9rem; }
+.rubric-card { border: 1px solid var(--line); border-radius: var(--radius); padding: 1rem 1.05rem; background: var(--surface); box-shadow: var(--shadow); }
+.rubric-card.verified { border-top: 4px solid var(--good); }
+.rubric-card.experimental { border-top: 4px solid var(--warm); }
+.rubric-card.progress { border-top: 4px solid var(--accent); }
+.rubric-card-head { display: flex; justify-content: space-between; gap: .6rem; align-items: center; color: var(--muted); font-size: .76rem; text-transform: uppercase; letter-spacing: .06em; }
+.rubric-card-head strong { border-radius: 999px; padding: .18rem .45rem; background: var(--accent-soft); color: var(--accent); font-size: .68rem; letter-spacing: .03em; }
+.rubric-card.experimental .rubric-card-head strong { background: var(--warm-soft); color: var(--warm); }
+.rubric-card.verified .rubric-card-head strong { background: #e6f4ec; color: var(--good); }
+.rubric-card h3 { margin: .7rem 0 .45rem; font-size: 1rem; }
+.rubric-card p { margin: 0; color: var(--muted); font-size: .86rem; }
+.rubric-card ul { margin: .7rem 0 0; padding-left: 1.05rem; color: var(--muted); font-size: .81rem; }
+.rubric-card li { margin-bottom: .32rem; }
+.rubric-card code { font-size: .9em; }
+
 /* ---------- modal ---------- */
 .modal[hidden] { display: none; }
 .modal { position: fixed; inset: 0; background: rgba(13, 22, 36, .74); display: flex; align-items: center; justify-content: center; z-index: 30; padding: 2rem; }
@@ -223,6 +244,7 @@ footer { text-align: center; color: var(--muted); margin-top: 2.2rem; font-size:
 @media (max-width: 1100px) {
   .hero-grid { grid-template-columns: 1fr; }
   .log-cols { grid-template-columns: 1fr; }
+  .rubric-grid { grid-template-columns: repeat(2, 1fr); }
   .hero-seedlist { max-height: 240px; }
   .stats { gap: 1.4rem; }
 }
@@ -231,4 +253,7 @@ footer { text-align: center; color: var(--muted); margin-top: 2.2rem; font-size:
   .tabs { flex-direction: column; gap: .3rem; }
   .tab { border-radius: 10px; border-bottom: 1px solid var(--line); }
   .tab-panel { border-top: 1px solid var(--line); }
+  .rubric-head { display: block; }
+  .rubric-head > p { margin-top: .6rem; }
+  .rubric-grid { grid-template-columns: 1fr; }
 }

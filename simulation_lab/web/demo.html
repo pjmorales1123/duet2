@@ -5,8 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Duet 2 — bimanual dinner-table manipulation with two SO-101 arms in MuJoCo: verified expert teacher, live SmolVLA policy, OpenVINO on Intel Core Ultra.">
   <title>Duet 2 · Bimanual dinner service</title>
-  <link rel="stylesheet" href="/static/demo.css?v=6">
-  <script type="module" src="/static/demo.js?v=6"></script>
+  <link rel="stylesheet" href="/static/demo.css?v=7">
+  <script type="module" src="/static/demo.js?v=7"></script>
 </head>
 <body>
 
@@ -223,6 +223,54 @@
     <p>The VLA is trained on that output, and it has had one small dataset and one short fine-tune. It reproduces the teacher's motion style and responds to language and pixels for real, but 60 episodes is not enough for reliable millimetre placement, so it misses targets that the teacher hits every time. That gap is the honest current state, and it is a data-and-training-time gap rather than an architectural one: the same pipeline scales by recording more teacher episodes.</p>
     <p>Judging aid: the <strong>Expert tab</strong> is where to look for end-to-end task completion and the two-arm pour hand-off. The <strong>VLA tab</strong> is where to look for genuine language-and-vision-conditioned control. Both run live in this browser against the same MuJoCo simulator — nothing on this page is a recording unless it is explicitly labelled as one.</p>
   </article>
+
+  <section id="rubric-evidence" class="rubric-evidence" aria-labelledby="rubric-evidence-title">
+    <div class="rubric-head">
+      <div>
+        <p class="eyebrow">Judging Criteria</p>
+        <h2 id="rubric-evidence-title">What we built, tested, and can show live</h2>
+      </div>
+      <p>Evidence is separated from work still in progress. The expert teacher is the verified end-to-end system; the learned policy is shown as a real but experimental stage of the same pipeline.</p>
+    </div>
+    <div class="rubric-grid">
+      <article class="rubric-card verified">
+        <div class="rubric-card-head"><span>30 points</span><strong>Verified evidence</strong></div>
+        <h3>End-to-End Task Completion &amp; Bimanual Manipulation</h3>
+        <p>The expert completes bottle, plate, mug, fork, spoon, then a two-arm bottle relay and pour in one shared MuJoCo workspace.</p>
+        <ul><li>Real grasp/contact, release, clearance and final-pose checks</li><li>Pour test checks bottle-mouth-in-cup geometry and cup stillness</li><li>10 seeded expert runs and replayed HD evidence</li></ul>
+      </article>
+      <article class="rubric-card experimental">
+        <div class="rubric-card-head"><span>20 points</span><strong>Experimental</strong></div>
+        <h3>VLA / Multi-Modal Reasoning</h3>
+        <p>The live SmolVLA checkpoint receives camera images, language and robot state to produce motor targets; it is not a scripted fallback.</p>
+        <ul><li>Fine-tuned <code>smolvla_base</code> for 7,000 steps from teacher data</li><li>Live tab exposes the checkpoint’s actual behavior</li><li>Reliable placement success is not established; this is not presented as task completion</li></ul>
+      </article>
+      <article class="rubric-card verified">
+        <div class="rubric-card-head"><span>15 points</span><strong>Verified evidence</strong></div>
+        <h3>Robustness &amp; Generalization</h3>
+        <p>The expert was evaluated across 10 fixed, inspectable random seeds rather than ten copies of one scene.</p>
+        <ul><li>Spawn offsets, object rotations, lighting and table tint vary per seed</li><li>Expert pour succeeds after table setting on 10/10 seeds</li><li>No learned-policy generalization claim is made from those runs</li></ul>
+      </article>
+      <article class="rubric-card progress">
+        <div class="rubric-card-head"><span>20 points</span><strong>In progress</strong></div>
+        <h3>OpenVINO &amp; Intel Core Ultra Optimization</h3>
+        <p>We reduced live inference work and prepared an OpenVINO export path, but do not claim a validated OpenVINO policy deployment.</p>
+        <ul><li>CPU inference uses fewer denoising steps, a bounded thread budget and checkpoint preload</li><li>Fast Preview reduces only camera rendering work; physics is unchanged</li><li>OpenVINO conversion is awaiting output-equivalence validation</li></ul>
+      </article>
+      <article class="rubric-card verified">
+        <div class="rubric-card-head"><span>10 points</span><strong>Verified evidence</strong></div>
+        <h3>Technical Quality &amp; Reproducibility</h3>
+        <p>The demo exposes repeatable inputs and retains evidence instead of relying on a one-off recording.</p>
+        <ul><li>Deterministic seed manifest, recorded trajectories and HD replay</li><li>Public LeRobot dataset and checkpoint links</li><li>Physical pour suite: relay, fixed-cup and supported-start checks</li></ul>
+      </article>
+      <article class="rubric-card verified">
+        <div class="rubric-card-head"><span>5 points</span><strong>Verified evidence</strong></div>
+        <h3>Innovation &amp; Technical Demonstration</h3>
+        <p>Duet 2 is a teacher-to-policy workflow: build a physically checked bimanual expert, record only certified episodes, then train and inspect a learned policy from that evidence.</p>
+        <ul><li>Two arms coordinate a genuine relay and pour, not a teleport</li><li>Failures remain visible and are not masked by the teacher</li><li>The same browser makes the verified and experimental stages easy to compare</li></ul>
+      </article>
+    </div>
+  </section>
 </section>
 
 <div id="modal" class="modal" hidden>
