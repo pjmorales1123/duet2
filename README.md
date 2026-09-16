@@ -50,8 +50,9 @@ python -c "from huggingface_hub import snapshot_download; snapshot_download('pjm
 
 ### OpenVINO inference
 
-The live VLA runs its vision tower through **OpenVINO CPU FP32**. Build the IR
-once per checkpoint (it lands in `models/<name>/openvino/`, which is gitignored):
+The live VLA runs its vision tower through **OpenVINO CPU FP32** when its
+parity-checked IR is present. Build the IR once per checkpoint (it lands in
+`models/<name>/openvino/`, which is gitignored):
 
 ```powershell
 python scripts/export_smolvla_vision.py
@@ -71,10 +72,12 @@ physics loop on your hardware:
 python scripts/benchmark_live_vla.py --sim-seconds 6
 ```
 
-On the CPU-only demo laptop (i5-8265U, no discrete GPU) this work took the live
-policy from a real-time factor of **0.05 to 0.49** — a **10.3× end-to-end
-speedup** with no loss of accuracy. What was measured, what was changed, and
-what was deliberately rejected is written up in
+The committed benchmark baseline, captured on an i5-8265U, took the live policy
+from a real-time factor of **0.05 to 0.49** — a **10.3× end-to-end speedup**
+with no loss of accuracy. The deployment target is an **Intel Core i5-12400**;
+rebuild the IR and rerun the benchmark there before publishing target-hardware
+latency claims. What was measured, what was changed, and what was deliberately
+rejected is written up in
 [`OPTIMIZATIONS.md`](OPTIMIZATIONS.md).
 
 ## Attribution

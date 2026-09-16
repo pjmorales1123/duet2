@@ -4,9 +4,11 @@ What we measured, what we changed, and what we deliberately did **not** change,
 while getting the fine-tuned SmolVLA checkpoint running live against the
 simulator on the demo laptop.
 
-Target hardware: **Intel Core i5-8265U + Intel UHD Graphics 620**, CPU-only
-PyTorch, no discrete GPU. Everything below is measured on that machine, not
-estimated. Reproduce any number with:
+Measured baseline hardware: **Intel Core i5-8265U + Intel UHD Graphics 620**,
+CPU-only PyTorch, no discrete GPU. The deployment target is now an **Intel Core
+i5-12400**. All numeric results below remain measurements from the 8265U—not
+estimates for the 12400—so rebuild the IR and rerun the commands below on the
+deployment machine before making target-hardware latency claims:
 
 ```powershell
 python scripts/export_smolvla_vision.py      # build the OpenVINO IR, once per checkpoint
