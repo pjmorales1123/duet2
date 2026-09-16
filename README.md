@@ -51,7 +51,8 @@ the table.
 Training data and the fine-tuned checkpoint are hosted on Hugging Face, not
 committed to this repo:
 
-- Dataset: [`pjmorales04/duet-micro-v1`](https://huggingface.co/datasets/pjmorales04/duet-micro-v1)
+- Dataset used by v2 training: [`pjmorales04/duet-micro-v1-lerobot`](https://huggingface.co/datasets/pjmorales04/duet-micro-v1-lerobot)
+- Source/export dataset: [`pjmorales04/duet-micro-v1`](https://huggingface.co/datasets/pjmorales04/duet-micro-v1)
 - Model (current, 7000 steps): [`pjmorales04/duet-smolvla-v2`](https://huggingface.co/pjmorales04/duet-smolvla-v2)
 - Model (earlier): [`pjmorales04/duet-smolvla-v1`](https://huggingface.co/pjmorales04/duet-smolvla-v1)
 
@@ -62,10 +63,12 @@ python -c "from huggingface_hub import snapshot_download; snapshot_download('pjm
 To download the LeRobot training data used for the fine-tune as well:
 
 ```powershell
-python -c "from huggingface_hub import snapshot_download; snapshot_download('pjmorales04/duet-micro-v1', repo_type='dataset', local_dir='datasets/duet-micro-v1')"
+python -c "from huggingface_hub import snapshot_download; snapshot_download('pjmorales04/duet-micro-v1-lerobot', repo_type='dataset', local_dir='datasets/duet-micro-v1-lerobot')"
 ```
 
-The dataset contains the verified teacher episodes (placement and pour data),
+The `duet-micro-v1-lerobot` dataset contains the verified teacher episodes
+(placement and pour data) in the exact LeRobot layout consumed by the v2
+training run; `duet-micro-v1` is the source/export dataset lineage.
 while the model repository contains the trained SmolVLA checkpoint and its
 parity-checked OpenVINO vision runtime. Both downloads are optional for simply
 running the already-trained demo; the dataset is needed for inspection,
