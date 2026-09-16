@@ -24,7 +24,7 @@
     "changes": "bottle spawn shifted 5.9 cm, rotations up to 19\u00b0, lighting at 123% brightness, unique table tint."
   },
   {
-    "seed": "30261008",
+    "seed": "30261009",
     "skills": [
       "bottle",
       "plate",
@@ -32,8 +32,8 @@
       "fork",
       "spoon"
     ],
-    "video": "seed-30261008.mp4",
-    "changes": "plate spawn shifted 7.4 cm, rotations up to 22\u00b0, lighting at 141% brightness, unique table tint."
+    "video": "seed-30261009.mp4",
+    "changes": "glass spawn shifted 7.5 cm, rotations up to 20\u00b0, lighting at 101% brightness, unique table tint."
   },
   {
     "seed": "30261016",
