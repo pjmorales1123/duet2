@@ -146,6 +146,25 @@ The deployment must run the long-lived FastAPI/MuJoCo server with
 appropriate for the persistent simulator and camera context. Always run the
 benchmark on the deployment CPU before publishing its latency.
 
+The parity-checked OpenVINO files are published in the model repository at
+[`openvino/`](https://huggingface.co/pjmorales04/duet-smolvla-v2/tree/main/openvino)
+([upload commit](https://huggingface.co/pjmorales04/duet-smolvla-v2/commit/e308bceb6f6f66ebfd540fb15bea85cec068ceae)). A fresh
+`snapshot_download` therefore includes the optimized runtime automatically.
+
+### Submission checklist
+
+1. Download `duet-smolvla-v2` with `snapshot_download`.
+2. Confirm `models/duet-smolvla-v2/openvino/parity.json` reports
+   `parity_passed: true`.
+3. Start the server with the OpenVINO CPU settings above and verify the startup
+   runtime line.
+4. Open `/demo`: use the Expert tab for verified table-setting and pour
+   completion; use the VLA tab to demonstrate the real, multimodal checkpoint
+   while describing it honestly as experimental.
+5. For a hosted demo, expose the long-lived server from a persistent container
+   and run the six-second benchmark on that deployment CPU before claiming its
+   speed.
+
 ## Attribution
 
 This project started from an MIT-licensed baseline; see
