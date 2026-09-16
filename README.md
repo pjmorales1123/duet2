@@ -24,13 +24,27 @@ Bimanual VLA track.
 
 ## Running it
 
+### Local setup (Windows / CPU)
+
 ```powershell
+git clone https://github.com/pjmorales1123/duet2.git
+cd duet2
+python -m venv .venv
+.\.venv\Scripts\Activate.ps1
 pip install -r requirements.txt
 python -m simulation_lab.server
 ```
 
 Then open `http://127.0.0.1:8765/` for the full engineering console, or
 `http://127.0.0.1:8765/demo` for the judge-facing dashboard.
+
+The server starts the MuJoCo physics loop and camera process locally. The
+Expert tab is the verified scripted teacher: it uses exact simulator state and
+physical contact/placement checks. The VLA tab is different: it is the real
+fine-tuned SmolVLA checkpoint receiving camera pixels, language and robot state
+and producing action targets. It is not a scripted fallback, but it is still an
+unfinished research result and should not be described as reliably completing
+the table.
 
 ## Data and model checkpoints
 
@@ -58,12 +72,30 @@ parity-checked IR is present. Build the IR once per checkpoint (it lands in
 python scripts/export_smolvla_vision.py
 ```
 
-The export writes a `parity.json` recording SHA-256 of the IR, checkpoint and
-exporter, and fails if numerical parity against the PyTorch reference regresses.
-If the IR is absent the policy falls back to PyTorch automatically — slower,
-never silently different. Environment overrides: `DUET_VLA_OPENVINO=0` forces
-PyTorch, `DUET_VLA_OV_DEVICE` selects the plugin, `DUET_VLA_BF16=1` restores the
-checkpoint's original dtype for A/B comparison.
+Run the export after downloading the checkpoint and before starting the server.
+Do not commit the generated `.xml`/`.bin` files to GitHub; they are large build
+artifacts. If a valid export already exists, the exporter refuses to overwrite
+it unless `--force` is passed. The export is tied to the checkpoint and records
+the IR, source and runtime hashes in `parity.json`.
+
+For the normal optimized CPU path, use these settings (the defaults already do
+this, but making them explicit is useful for a judge machine):
+
+```powershell
+$env:DUET_VLA_OPENVINO = "1"
+$env:DUET_VLA_OV_DEVICE = "CPU"
+Remove-Item Env:DUET_VLA_BF16 -ErrorAction SilentlyContinue
+python -m simulation_lab.server
+```
+
+At startup, the log should report `OpenVINO CPU FP32 vision tower + PyTorch
+CPU FP32 expert`. The VLA task snapshot also exposes the active runtime in
+`policy_details.neural_runtime`. If the IR is missing, invalid, or fails its
+parity gate, the code falls back to PyTorch and reports the slower runtime; it
+never silently uses an unverified graph. Set `DUET_VLA_OPENVINO=0` only for an
+A/B comparison. Do not set `DUET_VLA_BF16=1` on CPUs without native bf16
+instructions: that restores the checkpoint's original format and is expected
+to be much slower.
 
 To check that a checkpoint loads and to measure whether it can keep up with the
 physics loop on your hardware:
@@ -79,6 +111,40 @@ rebuild the IR and rerun the benchmark there before publishing target-hardware
 latency claims. What was measured, what was changed, and what was deliberately
 rejected is written up in
 [`OPTIMIZATIONS.md`](OPTIMIZATIONS.md).
+
+### What was optimized for Intel
+
+The optimization is deliberately split between model math and camera work:
+
+- The checkpoint's bf16 weights are cast to FP32 because the reference CPU
+  cannot execute bf16 natively; this removed the emulation penalty without
+  changing the weights.
+- The SigLIP vision tower is exported to OpenVINO CPU FP32 with
+  `PERFORMANCE_HINT=LATENCY`, explicit FP32 precision and a parity gate.
+- Flow-matching denoising was reduced from 10 to 5 steps, PyTorch threads are
+  bounded so physics keeps CPU capacity, and the checkpoint is preloaded.
+- SmolVLA predicts 50-action chunks. Camera frames are rendered only when a
+  fresh model query consumes them; cached action pops do not redo vision work.
+- The dashboard's Fast Preview changes only camera rendering (resolution,
+  shadows and anti-aliasing), never collision geometry or task physics.
+
+On the i5-8265U baseline, the measured end-to-end real-time factor improved
+from **0.05 to 0.49** (10.3×). Those figures are historical baseline numbers;
+the stated deployment target is the i5-12400, so rerun the benchmark there.
+The iGPU and INT8 experiments were rejected when they failed the FP32 accuracy
+or latency contract. See [`OPTIMIZATIONS.md`](OPTIMIZATIONS.md) for the full
+measurement trail and rejected alternatives.
+
+### Making OpenVINO available to judges
+
+GitHub contains the exporter and runtime, but the generated IR is gitignored.
+For a hosted judge demo, download the checkpoint and either build the IR during
+image setup or upload the three `openvino/` artifacts (`vision_tower.xml`,
+`vision_tower.bin`, `parity.json`) to the Hugging Face checkpoint repository.
+The deployment must run the long-lived FastAPI/MuJoCo server with
+`DUET_VLA_OPENVINO=1` and `DUET_VLA_OV_DEVICE=CPU`; a serverless function is not
+appropriate for the persistent simulator and camera context. Always run the
+benchmark on the deployment CPU before publishing its latency.
 
 ## Attribution
 
