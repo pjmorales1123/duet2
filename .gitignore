@@ -1,0 +1,38 @@
+.venv/
+credentials.md
+.venv-training/
+.venv-hosting/
+__pycache__/
+*.py[cod]
+.run/
+.pytest_cache/
+tmp/
+
+# Credentials, private training output and downloaded reference material.
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+checkpoints/
+datasets/
+wandb/
+docs/hackathon/sources/*
+!docs/hackathon/sources/*.json
+!docs/hackathon/sources/2026-09-10/
+docs/hackathon/sources/2026-09-10/*
+!docs/hackathon/sources/2026-09-10/*.json
+cover_image.jpg
+
+# Private supplied transcript and local crash output.
+docs/hackathon/transcript_livestream.txt
+kernel.errors.txt
+
+# User's original screen recordings and personal narration stay on this PC.
+/submission/video_recordings/
+# Edited personal-voice submission exports are delivered locally, not in Git.
+/submission/final-video/
+/submission/demo.mp4
+/submission/demo.srt
+# Office lock files can contain personal metadata.
+~$*

@@ -1,0 +1,48 @@
+<mujoco model="duet2_spoon">
+  <compiler angle="radian" autolimits="true" />
+  <option timestep=".005" integrator="implicitfast" cone="elliptic" iterations="30" />
+  <asset>
+    <material name="base_motor_holder_so101_v1_material" rgba="1 0.82 0.12 1" />
+    <material name="base_so101_v2_material" rgba="1 0.82 0.12 1" />
+    <material name="sts3215_03a_v1_material" rgba="0.1 0.1 0.1 1" />
+    <material name="waveshare_mounting_plate_so101_v2_material" rgba="1 0.82 0.12 1" />
+    <material name="motor_holder_so101_base_v1_material" rgba="1 0.82 0.12 1" />
+    <material name="rotation_pitch_so101_v1_material" rgba="1 0.82 0.12 1" />
+    <material name="upper_arm_so101_v1_material" rgba="1 0.82 0.12 1" />
+    <material name="under_arm_so101_v1_material" rgba="1 0.82 0.12 1" />
+    <material name="motor_holder_so101_wrist_v1_material" rgba="1 0.82 0.12 1" />
+    <material name="sts3215_03a_no_horn_v1_material" rgba="0.1 0.1 0.1 1.0" />
+    <material name="wrist_roll_pitch_so101_v2_material" rgba="1 0.82 0.12 1" />
+    <material name="wrist_roll_follower_so101_v1_material" rgba="1 0.82 0.12 1" />
+    <material name="moving_jaw_so101_v1_material" rgba="1 0.82 0.12 1" />
+    <texture name="sky" type="skybox" builtin="gradient" rgb1="0.15 0.21 0.29" rgb2="0.04 0.07 0.12" width="512" height="3072" />
+    <texture name="floor_tex" type="2d" builtin="checker" width="512" height="512" rgb1="0.18 0.22 0.28" rgb2="0.20 0.24 0.30" />
+    <material name="floor_mat" texture="floor_tex" texrepeat="8 8" reflectance="0.05" />
+    <material name="table_mat" rgba=".69 .53 .37 1" specular="0.25" shininess="0.3" />
+    <material name="edge_mat" rgba="0.07 0.12 0.17 1" specular="0.45" />
+    <material name="tube_mat" rgba="0.71 0.88 0.94 0.78" specular="0.6" shininess="0.8" />
+    <material name="ceramic" rgba=".95 .95 .90 1" specular=".3" shininess=".65" />
+    <material name="plate_blue" rgba=".33 .51 .76 1" specular=".35" shininess=".65" />
+    <material name="plate_gold" rgba=".81 .56 .28 1" specular=".35" shininess=".65" />
+    <material name="mug_teal" rgba=".06 .53 .49 1" specular=".4" shininess=".65" />
+    <material name="clear_glass" rgba=".66 .87 .92 .30" specular=".75" shininess=".65" />
+    <material name="glass_rim" rgba=".62 .84 .89 .8" specular=".6" shininess=".65" />
+    <material name="amber_glass" rgba=".55 .32 .13 .78" specular=".6" shininess=".65" />
+    <material name="bottle_label" rgba=".96 .91 .72 1" specular=".1" shininess=".65" />
+    <material name="steel" rgba=".72 .78 .83 1" specular=".85" shininess=".65" />
+    <material name="drawer_wood" rgba=".37 .21 .12 1" specular=".2" shininess=".65" />
+    <material name="drawer_lining" rgba=".20 .28 .27 1" specular=".1" shininess=".65" />
+  </asset>
+  <worldbody>
+    <light pos="0 -.3 2" dir="0 0 -1" />
+    <geom name="inspection_floor" type="plane" size=".4 .4 .05" pos="0 0 0.0" rgba=".27 .32 .36 1" />
+    <body name="spoon" pos="0 0 0.001" euler="0 0 0">
+      <freejoint name="spoon_free" />
+      <inertial pos="0 0 0.008" mass="0.014" diaginertia="1.4415333e-05 8.6333333e-07 1.4681333e-05" />
+      <geom name="spoon_handle" type="box" size="0.0045 0.034 0.008" pos="0 -0.019 0.008" mass="0" friction="0.8 0.005 0.0001" condim="4" solref=".012 1" material="steel" />
+      <geom name="spoon_neck" type="box" size="0.003 0.01 0.004" pos="0 0.02 0.004" mass="0" friction="0.8 0.005 0.0001" condim="4" solref=".012 1" material="steel" />
+      <geom name="spoon_bowl" type="ellipsoid" size="0.011 0.019 0.003" pos="0 0.038 0.004" mass="0" friction="0.8 0.005 0.0001" condim="4" solref=".012 1" material="steel" />
+      <site name="spoon_grasp" pos="0 0 0.008" size=".002" group="4" rgba="0 1 0 1" />
+    </body>
+  </worldbody>
+</mujoco>

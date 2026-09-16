@@ -1,0 +1,84 @@
+{
+  "description": "Derived from the Apache-2.0 Menagerie SO-101 models. Visual-only quadric decimation; collision meshes are unchanged.",
+  "tool": "trimesh + fast-simplification",
+  "files": [
+    {
+      "file": "waveshare_mounting_plate_so101_v2.stl",
+      "original_triangles": 1254,
+      "visual_triangles": 600,
+      "sha256": "bcf273ebdc4420390a5076530bb64673ec5e1103c0874f9d754d47fbc2013e03"
+    },
+    {
+      "file": "sts3215_03a_v1.stl",
+      "original_triangles": 19080,
+      "visual_triangles": 6384,
+      "sha256": "a3b9206d73815e96a5dd5cc9c62df6fd3442a5643bfdebcf8bed2fa0a8134e0a"
+    },
+    {
+      "file": "motor_holder_so101_base_v1.stl",
+      "original_triangles": 22586,
+      "visual_triangles": 5002,
+      "sha256": "6bc491c03b5a0a643d7f8826cf3ab570348deb9342dfb4c524559c49c2985437"
+    },
+    {
+      "file": "wrist_roll_follower_so101_v1.stl",
+      "original_triangles": 28796,
+      "visual_triangles": 14120,
+      "sha256": "7e4e58090b60ec2c89a9c44eec2412854f5e0ab9b5abe6c25b6739b5898406be"
+    },
+    {
+      "file": "moving_jaw_so101_v1.stl",
+      "original_triangles": 28270,
+      "visual_triangles": 10186,
+      "sha256": "598b024e20c6ef6f52641e1a2282e3f13ad14115c27e6191427847419c38fbf6"
+    },
+    {
+      "file": "base_motor_holder_so101_v1.stl",
+      "original_triangles": 37540,
+      "visual_triangles": 7240,
+      "sha256": "2b868734361acd1ea0781dadf200e1cb339c9572b28d9cf6e56385cf4f9e006d"
+    },
+    {
+      "file": "upper_arm_so101_v1.stl",
+      "original_triangles": 26068,
+      "visual_triangles": 8544,
+      "sha256": "01a121e9a04d142cb78a75d777b9d241883f3c7279e880e038d19f1fcd8ec6bf"
+    },
+    {
+      "file": "wrist_roll_pitch_so101_v2.stl",
+      "original_triangles": 53994,
+      "visual_triangles": 13290,
+      "sha256": "fcb60c7108a93a23a936a36fbd25c1f5c6360b4081a85056fef35617eac05d04"
+    },
+    {
+      "file": "under_arm_so101_v1.stl",
+      "original_triangles": 39516,
+      "visual_triangles": 9456,
+      "sha256": "b29737ef192d8be648835f6948c539c327777cd0fbfe9f98408cdb61880fe156"
+    },
+    {
+      "file": "rotation_pitch_so101_v1.stl",
+      "original_triangles": 17672,
+      "visual_triangles": 6896,
+      "sha256": "70528fb6248f3072809d5a91c571bee14348692c47c0637fbf11260d0f1fb536"
+    },
+    {
+      "file": "motor_holder_so101_wrist_v1.stl",
+      "original_triangles": 21042,
+      "visual_triangles": 4654,
+      "sha256": "9b3eee01fda44a936ffd43e91fc4356bd8cdc8e279e54f0e66736f3738512cc1"
+    },
+    {
+      "file": "sts3215_03a_no_horn_v1.stl",
+      "original_triangles": 17316,
+      "visual_triangles": 6368,
+      "sha256": "277c1bb22ca40a2ed11c33bf1777e9d5cdda5041973c1aa58ae0beaa9ec1686b"
+    },
+    {
+      "file": "base_so101_v2.stl",
+      "original_triangles": 9430,
+      "visual_triangles": 1778,
+      "sha256": "4e303f0474673d7d491a39a674e53e3eeea5ed2db1c86974f681fefe009ca5f2"
+    }
+  ]
+}

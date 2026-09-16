@@ -1,0 +1,254 @@
+{
+  "schema": "duet2.dinner-assets.v1",
+  "license": "MIT",
+  "source": "simulation_lab/dinner.py",
+  "generator": "scripts/export_dinner_assets.py",
+  "units": {
+    "length": "m",
+    "mass": "kg",
+    "angle": "rad"
+  },
+  "assets": [
+    {
+      "file": "plate.xml",
+      "sha256": "d658b3d8561f8112a167802db764719321de811f8c7f87be04bc26b58f9f57ce",
+      "spec": {
+        "id": "plate",
+        "body": "plate",
+        "label": "Blue-rim plate",
+        "kind": "plate",
+        "mass_kg": 0.065,
+        "size_m": [
+          0.132,
+          0.132,
+          0.024
+        ],
+        "color": "#719acb",
+        "grasp_local_m": [
+          0,
+          -0.061,
+          0.01
+        ],
+        "grasp_width_m": 0.009,
+        "friction": 0.8,
+        "initial_position_m": [
+          0,
+          0,
+          0.001
+        ],
+        "initial_yaw_rad": 0.0,
+        "grasp_site": "plate_grasp",
+        "grasp_status": "candidate_only_not_a_verified_grasp"
+      }
+    },
+    {
+      "file": "side_plate.xml",
+      "sha256": "0c1a8a8ed23e8c31ce8b0728359a7d8b5f19d693a51162f02e68728c683d59de",
+      "spec": {
+        "id": "side_plate",
+        "body": "side_plate",
+        "label": "Gold-rim side plate",
+        "kind": "plate",
+        "mass_kg": 0.045,
+        "size_m": [
+          0.106,
+          0.106,
+          0.012
+        ],
+        "color": "#dfac65",
+        "grasp_local_m": [
+          0,
+          -0.048,
+          0.009
+        ],
+        "grasp_width_m": 0.009,
+        "friction": 0.8,
+        "initial_position_m": [
+          0,
+          0,
+          0.001
+        ],
+        "initial_yaw_rad": 0.0,
+        "grasp_site": "side_plate_grasp",
+        "grasp_status": "candidate_only_not_a_verified_grasp"
+      }
+    },
+    {
+      "file": "mug.xml",
+      "sha256": "ae8654ababc4c6b3b794b31d07f10cba0fe833e390123401316ce4a8c2fd0c9b",
+      "spec": {
+        "id": "mug",
+        "body": "mug",
+        "label": "Teal mug",
+        "kind": "mug",
+        "mass_kg": 0.045,
+        "size_m": [
+          0.077,
+          0.05,
+          0.064
+        ],
+        "color": "#54b9b1",
+        "grasp_local_m": [
+          0.047,
+          0,
+          0.041
+        ],
+        "grasp_width_m": 0.008,
+        "friction": 0.8,
+        "initial_position_m": [
+          0,
+          0,
+          0.001
+        ],
+        "initial_yaw_rad": 0.0,
+        "grasp_site": "mug_grasp",
+        "grasp_status": "candidate_only_not_a_verified_grasp"
+      }
+    },
+    {
+      "file": "glass.xml",
+      "sha256": "00d724aac6c29a92eb0372a9515e5dcd6ca8eac677eb7c9be175ce2a6900f9eb",
+      "spec": {
+        "id": "glass",
+        "body": "glass",
+        "label": "Clear drinking glass",
+        "kind": "glass",
+        "mass_kg": 0.035,
+        "size_m": [
+          0.048,
+          0.048,
+          0.074
+        ],
+        "color": "#b3dcdf",
+        "grasp_local_m": [
+          0,
+          0,
+          0.045
+        ],
+        "grasp_width_m": 0.048,
+        "friction": 0.8,
+        "initial_position_m": [
+          0,
+          0,
+          0.001
+        ],
+        "initial_yaw_rad": 0.0,
+        "grasp_site": "glass_grasp",
+        "grasp_status": "candidate_only_not_a_verified_grasp"
+      }
+    },
+    {
+      "file": "bottle.xml",
+      "sha256": "1043f787aee9c547d73a76121e5c7cadbd94098c033ea6d5efb6ecc9c4bdd537",
+      "spec": {
+        "id": "bottle",
+        "body": "bottle",
+        "label": "Amber water bottle",
+        "kind": "bottle",
+        "mass_kg": 0.08,
+        "size_m": [
+          0.048,
+          0.048,
+          0.14
+        ],
+        "color": "#cf995b",
+        "grasp_local_m": [
+          0,
+          0,
+          0.128
+        ],
+        "grasp_width_m": 0.022,
+        "friction": 0.8,
+        "initial_position_m": [
+          0,
+          0,
+          0.001
+        ],
+        "initial_yaw_rad": 0.0,
+        "grasp_site": "bottle_grasp",
+        "grasp_status": "candidate_only_not_a_verified_grasp"
+      }
+    },
+    {
+      "file": "fork.xml",
+      "sha256": "25d3a7a6b2c993c1aee9c32429ecf6a453e5b201aca32ad5ac41b6ee19ee91a7",
+      "spec": {
+        "id": "fork",
+        "body": "fork",
+        "label": "Fork",
+        "kind": "fork",
+        "mass_kg": 0.012,
+        "size_m": [
+          0.017,
+          0.11,
+          0.016
+        ],
+        "color": "#cad5de",
+        "grasp_local_m": [
+          0,
+          0,
+          0.008
+        ],
+        "grasp_width_m": 0.009,
+        "friction": 0.8,
+        "initial_position_m": [
+          0,
+          0,
+          0.001
+        ],
+        "initial_yaw_rad": 0.0,
+        "grasp_site": "fork_grasp",
+        "grasp_status": "candidate_only_not_a_verified_grasp"
+      }
+    },
+    {
+      "file": "spoon.xml",
+      "sha256": "d4eaf783ed6550b10a5449ebcc80a0cd307370ff997f071322ac5db3486a24b0",
+      "spec": {
+        "id": "spoon",
+        "body": "spoon",
+        "label": "Spoon",
+        "kind": "spoon",
+        "mass_kg": 0.014,
+        "size_m": [
+          0.022,
+          0.11,
+          0.016
+        ],
+        "color": "#cad5de",
+        "grasp_local_m": [
+          0,
+          0,
+          0.008
+        ],
+        "grasp_width_m": 0.009,
+        "friction": 0.8,
+        "initial_position_m": [
+          0,
+          0,
+          0.001
+        ],
+        "initial_yaw_rad": 0.0,
+        "grasp_site": "spoon_grasp",
+        "grasp_status": "candidate_only_not_a_verified_grasp"
+      }
+    },
+    {
+      "file": "drawer.xml",
+      "sha256": "a7db71d966e4b25122b3702ef1ef83c89f780c4af164e4c674c1a1c389c81513",
+      "spec": {
+        "body": "cutlery_drawer",
+        "joint": "drawer_slide",
+        "travel_m": 0.12,
+        "initial_open_m": 0.0,
+        "handle_site": "drawer_handle_grasp",
+        "actuated": false,
+        "closed_origin_m": [
+          -0.28,
+          0.18,
+          0.76
+        ]
+      }
+    }
+  ]
+}

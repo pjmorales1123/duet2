@@ -1,0 +1,122 @@
+[
+  {
+    "seed": "30261005",
+    "skills": [
+      "bottle",
+      "plate",
+      "mug",
+      "fork",
+      "spoon"
+    ],
+    "video": "seed-30261005.mp4",
+    "changes": "side_plate spawn shifted 6.5 cm, rotations up to 25\u00b0, lighting at 77% brightness, unique table tint."
+  },
+  {
+    "seed": "30261007",
+    "skills": [
+      "bottle",
+      "plate",
+      "mug",
+      "fork",
+      "spoon"
+    ],
+    "video": "seed-30261007.mp4",
+    "changes": "bottle spawn shifted 5.9 cm, rotations up to 19\u00b0, lighting at 123% brightness, unique table tint."
+  },
+  {
+    "seed": "30261008",
+    "skills": [
+      "bottle",
+      "plate",
+      "mug",
+      "fork",
+      "spoon"
+    ],
+    "video": "seed-30261008.mp4",
+    "changes": "plate spawn shifted 7.4 cm, rotations up to 22\u00b0, lighting at 141% brightness, unique table tint."
+  },
+  {
+    "seed": "30261016",
+    "skills": [
+      "bottle",
+      "plate",
+      "mug",
+      "fork",
+      "spoon"
+    ],
+    "video": "seed-30261016.mp4",
+    "changes": "side_plate spawn shifted 5.8 cm, rotations up to 18\u00b0, lighting at 76% brightness, unique table tint."
+  },
+  {
+    "seed": "30261017",
+    "skills": [
+      "bottle",
+      "plate",
+      "mug",
+      "fork",
+      "spoon"
+    ],
+    "video": "seed-30261017.mp4",
+    "changes": "mug spawn shifted 5.6 cm, rotations up to 25\u00b0, lighting at 62% brightness, unique table tint."
+  },
+  {
+    "seed": "30261022",
+    "skills": [
+      "bottle",
+      "plate",
+      "mug",
+      "fork",
+      "spoon"
+    ],
+    "video": "seed-30261022.mp4",
+    "changes": "bottle spawn shifted 5.7 cm, rotations up to 15\u00b0, lighting at 119% brightness, unique table tint."
+  },
+  {
+    "seed": "30261024",
+    "skills": [
+      "bottle",
+      "plate",
+      "mug",
+      "fork",
+      "spoon"
+    ],
+    "video": "seed-30261024.mp4",
+    "changes": "glass spawn shifted 6.5 cm, rotations up to 25\u00b0, lighting at 153% brightness, unique table tint."
+  },
+  {
+    "seed": "30261025",
+    "skills": [
+      "bottle",
+      "plate",
+      "mug",
+      "fork",
+      "spoon"
+    ],
+    "video": "seed-30261025.mp4",
+    "changes": "plate spawn shifted 6.3 cm, rotations up to 26\u00b0, lighting at 79% brightness, unique table tint."
+  },
+  {
+    "seed": "30261027",
+    "skills": [
+      "bottle",
+      "plate",
+      "mug",
+      "fork",
+      "spoon"
+    ],
+    "video": "seed-30261027.mp4",
+    "changes": "side_plate spawn shifted 6.6 cm, rotations up to 25\u00b0, lighting at 101% brightness, unique table tint."
+  },
+  {
+    "seed": "30261029",
+    "skills": [
+      "bottle",
+      "plate",
+      "mug",
+      "fork",
+      "spoon"
+    ],
+    "video": "seed-30261029.mp4",
+    "changes": "plate spawn shifted 5.5 cm, rotations up to 25\u00b0, lighting at 72% brightness, unique table tint."
+  }
+]

@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Duet 2 judge demo: expert teacher policy gallery and live bimanual VLA.">
+  <title>Duet 2 · Demo dashboard</title>
+  <link rel="stylesheet" href="/static/demo.css">
+  <script type="module" src="/static/demo.js"></script>
+</head>
+<body>
+  <header class="hero">
+    <h1>Duet 2 — Coordinated dinner service</h1>
+    <p>Two SO-101 arms set a dinner table from a cluttered cabinet zone. This page has two parts: the <strong>expert teacher policy</strong> we built and hardened first, and the <strong>live VLA</strong> we are fine-tuning on top of it.</p>
+  </header>
+
+  <section class="target-panel">
+    <img src="/media/target_arrangement.jpg" alt="Target table arrangement: plate, side plate, mug, glass, bottle, fork and spoon in their final places">
+    <div>
+      <h2>Target layout</h2>
+      <p>Every seed below starts from a scrambled cabinet and is judged against this same final arrangement: plate + side plate set, mug and glass placed, fork and spoon beside the plate, carafe in the serving area.</p>
+    </div>
+  </section>
+
+  <nav class="tabs" role="tablist">
+    <button class="tab selected" data-tab="expert" role="tab" aria-selected="true">Expert demo · teacher policy</button>
+    <button class="tab" data-tab="vla" role="tab" aria-selected="false">Live VLA demo</button>
+  </nav>
+
+  <main id="panel-expert" class="tab-panel">
+    <p class="lede">10 seeds, each with its own randomized item positions, table tint and lighting — not 10 copies of the same layout. Watch the recorded run, or press <strong>Try live</strong> to have the actual physics teacher run that seed right now.</p>
+    <img class="diff-collage" src="/media/expert/seed_diff_collage.png" alt="Side-by-side comparison of all 10 seeds' spawn arrangement, table tint and lighting">
+    <div id="seed-grid" class="seed-grid"><p class="loading-note">Loading gallery…</p></div>
+
+    <section class="generalize-panel">
+      <h2>Generalization check</h2>
+      <p>Not one of the ten above — a fresh random seed the policy has never been shown a recording of. Randomize the table, then ask the teacher to arrange it live.</p>
+      <div class="generalize-actions">
+        <button id="randomize-btn" class="primary">Randomize a new table</button>
+        <button id="arrange-btn" disabled>Arrange table</button>
+        <span id="generalize-seed" class="seed-tag"></span>
+      </div>
+    </section>
+
+    <section id="live-viewer" class="live-viewer" hidden>
+      <div class="live-viewer-head">
+        <strong id="live-viewer-title">Live simulator</strong>
+        <button id="live-viewer-close">Close</button>
+      </div>
+      <img id="live-frame" src="/stream" alt="Live MuJoCo camera feed">
+      <p id="live-status" role="status"></p>
+    </section>
+  </main>
+
+  <main id="panel-vla" class="tab-panel" hidden>
+    <div class="coming-soon">
+      <h2>Live SmolVLA demo</h2>
+      <p>Fine-tuned on the expert's demonstrations (1000 steps, duet-micro-v1). Type an instruction and watch the policy control both arms live, from raw camera pixels, with no scripted motion. Reset the scene first if the table isn't in its starting layout.</p>
+      <label for="vla-instruction">Instruction</label>
+      <textarea id="vla-instruction" rows="2" placeholder="Place the fork beside the plate.">Place the fork beside the plate.</textarea>
+      <button id="vla-run" class="primary">Run instruction</button>
+      <p id="vla-status" role="status"></p>
+    </div>
+  </main>
+
+  <footer><span>SO-101 × 2 · MuJoCo simulator · Intel Bimanual VLA track</span></footer>
+</body>
+</html>
