@@ -52,6 +52,23 @@ $('live-viewer-close').addEventListener('click', () => {
 });
 
 // --- expert seed gallery ---
+async function runExpertSequence(seed, reset = true) {
+  if (reset) {
+    await api('/api/reset', { scenario: 'dinner', seed, dinner_preset: 'task' });
+  }
+  await api('/api/task', { action: 'start', kind: 'set_table' });
+  for (;;) {
+    const state = await (await fetch('/api/state')).json();
+    const task = state.task || {};
+    if (task.status === 'failed' || task.status === 'cancelled') {
+      throw new Error(task.message || 'Table-setting stage failed.');
+    }
+    if (task.status === 'succeeded') break;
+    await new Promise(resolve => setTimeout(resolve, 250));
+  }
+  await api('/api/command', { text: 'pour water', mode: 'programmed' });
+}
+
 async function loadGallery() {
   const grid = $('seed-grid');
   let entries;
@@ -76,8 +93,7 @@ async function loadGallery() {
       const seed = Number(event.target.dataset.seed);
       event.target.disabled = true;
       try {
-        await api('/api/reset', { scenario: 'dinner', seed, dinner_preset: 'task' });
-        await api('/api/task', { action: 'start', kind: 'set_table' });
+        await runExpertSequence(seed);
         showLiveViewer(`Live — seed ${seed}`);
       } catch (err) {
         alert('Could not start the live run: ' + err.message);
@@ -110,7 +126,7 @@ $('randomize-btn').addEventListener('click', async () => {
 $('arrange-btn').addEventListener('click', async () => {
   $('arrange-btn').disabled = true;
   try {
-    await api('/api/task', { action: 'start', kind: 'set_table' });
+    await runExpertSequence(Number($('generalize-seed').dataset.seed), false);
     showLiveViewer(`Live — seed ${$('generalize-seed').dataset.seed}`);
   } catch (err) {
     alert('Could not start the arrangement task: ' + err.message);
