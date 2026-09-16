@@ -1,0 +1,192 @@
+[
+  {
+    "seed": "20261001",
+    "skills": [
+      "bottle",
+      "plate",
+      "mug",
+      "fork",
+      "spoon"
+    ],
+    "video": "seed-20261001.mp4",
+    "changes": "bottle spawn shifted 0.4 cm, rotations up to 2\u00b0, lighting at 134% brightness, unique table tint.",
+    "instructions": {
+      "bottle": "Place the bottle on the table.",
+      "plate": "Place the dinner plate.",
+      "mug": "Place the mug above the plate.",
+      "fork": "Place the fork beside the plate.",
+      "spoon": "Place the spoon beside the plate."
+    }
+  },
+  {
+    "seed": "20261002",
+    "skills": [
+      "bottle",
+      "plate",
+      "mug",
+      "fork",
+      "spoon"
+    ],
+    "video": "seed-20261002.mp4",
+    "changes": "glass spawn shifted 0.4 cm, rotations up to 3\u00b0, lighting at 80% brightness, unique table tint.",
+    "instructions": {
+      "bottle": "Move the carafe down.",
+      "plate": "Put the plate in its spot.",
+      "mug": "Put the cup down.",
+      "fork": "Put the fork down.",
+      "spoon": "Put the spoon down."
+    }
+  },
+  {
+    "seed": "20261003",
+    "skills": [
+      "bottle",
+      "plate",
+      "mug",
+      "fork",
+      "spoon"
+    ],
+    "video": "seed-20261003.mp4",
+    "changes": "side_plate spawn shifted 0.4 cm, rotations up to 2\u00b0, lighting at 117% brightness, unique table tint.",
+    "instructions": {
+      "bottle": "Put the bottle in its spot.",
+      "plate": "Set the plate down.",
+      "mug": "Set the mug in its spot.",
+      "fork": "Set the fork in its spot.",
+      "spoon": "Set the spoon in its spot."
+    }
+  },
+  {
+    "seed": "20261004",
+    "skills": [
+      "bottle",
+      "plate",
+      "mug",
+      "fork",
+      "spoon"
+    ],
+    "video": "seed-20261004.mp4",
+    "changes": "bottle spawn shifted 0.4 cm, rotations up to 3\u00b0, lighting at 68% brightness, unique table tint.",
+    "instructions": {
+      "bottle": "Place the bottle on the table.",
+      "plate": "Place the dinner plate.",
+      "mug": "Place the mug above the plate.",
+      "fork": "Place the fork beside the plate.",
+      "spoon": "Place the spoon beside the plate."
+    }
+  },
+  {
+    "seed": "20261005",
+    "skills": [
+      "bottle",
+      "plate",
+      "mug",
+      "fork",
+      "spoon"
+    ],
+    "video": "seed-20261005.mp4",
+    "changes": "bottle spawn shifted 0.4 cm, rotations up to 3\u00b0, lighting at 141% brightness, unique table tint.",
+    "instructions": {
+      "bottle": "Move the carafe down.",
+      "plate": "Put the plate in its spot.",
+      "mug": "Put the cup down.",
+      "fork": "Put the fork down.",
+      "spoon": "Put the spoon down."
+    }
+  },
+  {
+    "seed": "20261006",
+    "skills": [
+      "bottle",
+      "plate",
+      "mug",
+      "fork",
+      "spoon"
+    ],
+    "video": "seed-20261006.mp4",
+    "changes": "bottle spawn shifted 0.5 cm, rotations up to 2\u00b0, lighting at 74% brightness, unique table tint.",
+    "instructions": {
+      "bottle": "Put the bottle in its spot.",
+      "plate": "Set the plate down.",
+      "mug": "Set the mug in its spot.",
+      "fork": "Set the fork in its spot.",
+      "spoon": "Set the spoon in its spot."
+    }
+  },
+  {
+    "seed": "20261007",
+    "skills": [
+      "bottle",
+      "plate",
+      "mug",
+      "fork",
+      "spoon"
+    ],
+    "video": "seed-20261007.mp4",
+    "changes": "side_plate spawn shifted 0.4 cm, rotations up to 2\u00b0, lighting at 78% brightness, unique table tint.",
+    "instructions": {
+      "bottle": "Place the bottle on the table.",
+      "plate": "Place the dinner plate.",
+      "mug": "Place the mug above the plate.",
+      "fork": "Place the fork beside the plate.",
+      "spoon": "Place the spoon beside the plate."
+    }
+  },
+  {
+    "seed": "20261008",
+    "skills": [
+      "bottle",
+      "plate",
+      "mug",
+      "fork",
+      "spoon"
+    ],
+    "video": "seed-20261008.mp4",
+    "changes": "mug spawn shifted 0.5 cm, rotations up to 2\u00b0, lighting at 66% brightness, unique table tint.",
+    "instructions": {
+      "bottle": "Move the carafe down.",
+      "plate": "Put the plate in its spot.",
+      "mug": "Put the cup down.",
+      "fork": "Put the fork down.",
+      "spoon": "Put the spoon down."
+    }
+  },
+  {
+    "seed": "20261009",
+    "skills": [
+      "bottle",
+      "plate",
+      "mug",
+      "fork",
+      "spoon"
+    ],
+    "video": "seed-20261009.mp4",
+    "changes": "bottle spawn shifted 0.5 cm, rotations up to 3\u00b0, lighting at 62% brightness, unique table tint.",
+    "instructions": {
+      "bottle": "Put the bottle in its spot.",
+      "plate": "Set the plate down.",
+      "mug": "Set the mug in its spot.",
+      "fork": "Set the fork in its spot.",
+      "spoon": "Set the spoon in its spot."
+    }
+  },
+  {
+    "seed": "20261010",
+    "skills": [
+      "bottle",
+      "plate",
+      "mug",
+      "fork",
+      "spoon"
+    ],
+    "video": "seed-20261010.mp4",
+    "changes": "mug spawn shifted 0.4 cm, rotations up to 2\u00b0, lighting at 100% brightness, unique table tint.",
+    "instructions": {
+      "bottle": "Place the bottle on the table.",
+      "plate": "Place the dinner plate.",
+      "mug": "Place the mug above the plate.",
+      "fork": "Place the fork beside the plate.",
+      "spoon": "Place the spoon beside the plate."
+    }
+  }
+]
