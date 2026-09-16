@@ -56,6 +56,14 @@ class DinnerLayoutTests(unittest.TestCase):
         self.assertGreater(task["fork"]["position_m"][2], TABLE_Z + .02)
         self.assertGreater(task["spoon"]["position_m"][2], TABLE_Z + .02)
 
+    def test_mug_final_position_is_beside_bottle(self):
+        final = canonical_dinner_layout()["objects"]
+        bottle_x, bottle_y, _ = final["bottle"]["position_m"]
+        mug_x, mug_y, _ = final["mug"]["position_m"]
+        self.assertGreater(mug_x - bottle_x, .075)
+        self.assertLess(mug_x - bottle_x, .105)
+        self.assertAlmostEqual(mug_y, .02, places=3)
+
 
 if __name__ == "__main__":
     unittest.main()

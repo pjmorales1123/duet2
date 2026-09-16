@@ -1,4 +1,4 @@
-<mujoco model="talos_bottle">
+<mujoco model="duet2_bottle">
   <compiler angle="radian" autolimits="true" />
   <option timestep=".005" integrator="implicitfast" cone="elliptic" iterations="30" />
   <asset>

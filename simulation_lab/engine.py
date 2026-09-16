@@ -253,6 +253,19 @@ class LabEngine:
             self.running = True
 
     def _language_command(self,payload):
+        if payload.get('mode') == 'learned_vla':
+            # Bypasses the constrained grammar entirely: the whole point of a
+            # live VLA is that it takes arbitrary free text, not phrasing the
+            # grammar recognizes.
+            if self.layout.get('scenario') != 'dinner':raise ValueError('Language commands use the dinner scene.')
+            if self.task.active:raise ValueError('A task is running. Say stop or wait for it to finish.')
+            try:from .vla_task import SmolVLATask
+            except ImportError:raise ValueError('Use an environment with lerobot installed to enable the live VLA.') from None
+            candidate=SmolVLATask(self.model,self.data,self.layout)
+            candidate.start(payload['text'])
+            if hasattr(self.task,'close'):self.task.close()
+            self.task=candidate;self.motion_started=None;self.running=True
+            return
         from .language import parse_command, instruction_metadata
         from .command_task import CommandSequence
         plan=parse_command(payload['text'],getattr(self,'last_command_object',None))
@@ -298,6 +311,10 @@ class LabEngine:
             except ImportError:raise ValueError('Use the training Python environment to enable learned control.') from None
             checkpoint=LEGACY_CHECKPOINT if payload.get('mode')=='learned_bottle_legacy' else DEFAULT_CHECKPOINT
             candidate=LearnedBottleTask(self.model,self.data,self.layout,checkpoint=checkpoint)
+        elif len(plan['steps'])==1 and plan['steps'][0]['kind']=='pour_water':
+            from .pour_task import PourWaterTask
+            candidate=PourWaterTask(self.model,self.data,self.layout)
+            candidate.start()
         else:
             candidate=CommandSequence(self.model,self.data,self.layout)
             candidate.start_plan(plan)

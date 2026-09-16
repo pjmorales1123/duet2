@@ -112,7 +112,8 @@ class DinnerTask(LiftReturn):
         base = np.array([-.25 if self.side == 'left' else .25, -.235])
         toward_object = self.origin[:2]-base
         norm = np.linalg.norm(toward_object)
-        candidates = [toward_object/norm] if norm > 1e-6 else []
+        candidates = [np.asarray(direction, dtype=float) for direction in getattr(self, 'preferred_grasp_directions', [])]
+        candidates += [toward_object/norm] if norm > 1e-6 else []
         candidates += [np.array([np.cos(a), np.sin(a)]) for a in np.linspace(-np.pi, np.pi, 12, endpoint=False)]
         last_exc = None
         for xy in candidates:
@@ -147,7 +148,10 @@ class DinnerTask(LiftReturn):
 
 
     def _plan(self, targets):
-        if np.max(np.abs(self.data.qpos[:12]-np.array(HOME*2))) > .10 or np.max(np.abs(self.data.qvel[:12])) > .12:
+        # Default True preserves every existing single-arm skill unchanged; a
+        # two-arm task (pour_task.py) sets this False on the arm that must
+        # plan while the other arm is deliberately holding something.
+        if getattr(self, 'require_home_start', True) and (np.max(np.abs(self.data.qpos[:12]-np.array(HOME*2))) > .10 or np.max(np.abs(self.data.qvel[:12])) > .12):
             raise PlanningError('Start with both arms parked.')
         item = next(o for o in self.layout['objects'] if o['id'] == self.requested_object)
         failures = []
@@ -164,6 +168,8 @@ class DinnerTask(LiftReturn):
             try:
                 self._select_item(side, item)
                 self.grasp = self.data.site(item['grasp_site']).xpos.copy()
+                if getattr(self, 'grasp_local_override', None) is not None:
+                    self.grasp = self.origin + self.data.xmat[self.body].reshape(3, 3) @ self.grasp_local_override
                 if self.sideways:
                     self.grasp = self.origin + self.ik.axis_target*.070
                 if item['id'] in ('fork','spoon'):
@@ -195,7 +201,13 @@ class DinnerTask(LiftReturn):
                 approach = self._joint_path(self.data.qpos[self.offset:self.offset+5], above, self.open_grip)
                 self._cartesian(self.hover, self.grasp, above, self.open_grip)
                 self.attempts = 1
-                targets[:] = HOME*2
+                # Only this arm's own slice: for every single-arm skill both
+                # arms are already at HOME here (require_home_start already
+                # checked that), so this is behavior-identical - but a
+                # two-arm task (pour_task.py) that sets require_home_start
+                # False depends on this NOT stomping the other arm's target
+                # while it's deliberately holding something elsewhere.
+                targets[self.offset:self.offset+6] = HOME
                 self._move('approach', approach, self.open_grip, 3.)
                 return
             except PlanningError as exc:
@@ -232,9 +244,11 @@ class DinnerTask(LiftReturn):
         points = self._cartesian(self.ik.point(self.data), np.asarray(end), self.data.qpos[self.offset:self.offset+5], grip, check=False)
         carry = self._carry_reference() if stage in ('lift','transit','align','lower') else None
         actual_grip = float(self.data.qpos[self.offset+5]) if carry is not None else grip
-        if stage == 'lift' and self.sideways:
-            # Permit initial table support only at departure; the remaining
-            # hypothetical carried path must clear the table normally.
+        if stage == 'lift':
+            # Every object starts a lift still resting on the table, not
+            # just the sideways (lying-down bottle) case - permit initial
+            # table support only at departure; the remaining hypothetical
+            # carried path must clear the table normally.
             self._check_path(points[:2], actual_grip, True, carry=carry, support=self.base_geom)
             self._check_path(points[2:], actual_grip, True, carry=carry)
         else:
@@ -294,7 +308,10 @@ class DinnerTask(LiftReturn):
             if collision:
                 self.metrics['unexpected_collisions'] += 1
                 raise PlanningError('Unexpected contact: '+collision)
-            if self.metrics['other_arm_max_motion_deg'] > 1.:
+            # Default 1deg preserves every existing single-arm skill unchanged; a
+            # two-arm task (pour_task.py) raises this on the arm whose partner is
+            # deliberately holding something elsewhere, instead of parked at HOME.
+            if self.metrics['other_arm_max_motion_deg'] > getattr(self, 'other_arm_tolerance_deg', 1.):
                 raise PlanningError('The parked arm moved unexpectedly.')
             if self.stage in ('lift', 'hold', 'transit', 'rotate', 'align', 'lower') and lift > .012:
                 if not both:

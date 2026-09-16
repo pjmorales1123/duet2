@@ -29,7 +29,7 @@ OBJECTS = {
     "mug": {"label": "Cobalt cup", "kind": "mug", "mass_kg": .045, "size_m": [.077, .050, .064], "color": "#5b7dd1", "grasp_local_m": [.047, 0, .041], "grasp_width_m": .008},
     "glass": {"label": "Moonlit tumbler", "kind": "glass", "mass_kg": .035, "size_m": [.048, .048, .074], "color": "#c4d3ff", "grasp_local_m": [0, 0, .045], "grasp_width_m": .048},
     "bottle": {"label": "Plum carafe", "kind": "bottle", "mass_kg": .080, "size_m": [.048, .048, .140], "color": "#5b294c", "grasp_local_m": [0, 0, .128], "grasp_width_m": .022},
-    "fork": {"label": "Service fork", "kind": "fork", "mass_kg": .012, "size_m": [.017, .110, .016], "color": "#b5bdd3", "grasp_local_m": [0, 0, .008], "grasp_candidates_local_m": [[0, -.030, .008], [0, -.019, .008], [0, 0, .008]], "grasp_width_m": .009},
+    "fork": {"label": "Service fork", "kind": "fork", "mass_kg": .012, "size_m": [.017, .110, .016], "color": "#ff2fb0", "grasp_local_m": [0, 0, .008], "grasp_candidates_local_m": [[0, -.030, .008], [0, -.019, .008], [0, 0, .008]], "grasp_width_m": .009},
     "spoon": {"label": "Service spoon", "kind": "spoon", "mass_kg": .014, "size_m": [.022, .110, .016], "color": "#4caf50", "grasp_local_m": [0, 0, .008], "grasp_candidates_local_m": [[0, -.030, .008], [0, -.019, .008], [0, 0, .008]], "grasp_width_m": .009},
 }
 
@@ -222,7 +222,7 @@ def add_dinner_scene(root, seed, preset="task", drawer_open=False, variation_pro
     variation = sample_dinner_variation(seed, tuple(OBJECTS), variation_profile)
     final_layout = canonical_dinner_layout()
     exact_layout = load_dinner_layout(dinner_layout, tuple(OBJECTS)) if dinner_layout is not None else None
-    sources = cabinet_source_poses(final_layout, variation, TABLE_Z)
+    sources = cabinet_source_poses(final_layout, variation, TABLE_Z, profile=variation_profile)
     if exact_layout is not None:
         sources.update(exact_layout['objects'])
     materials = {
@@ -264,8 +264,12 @@ def add_dinner_scene(root, seed, preset="task", drawer_open=False, variation_pro
                 stacklevel=3,
             )
 
-    # Keep the neutral studio table: it maximizes object/robot readability in RGB data.
-    asset.find("material[@name='table_mat']").set("rgba", ".78 .72 .68 1")
+    # Tint the table with the seed's backdrop color so scene variation is visible
+    # in the overhead training/demo frame, not just off-camera in the sky texture.
+    base = np.array([.78, .72, .68])
+    tint = np.array(variation.backdrop_rgba[:3])
+    table_rgba = np.clip(base*.55 + tint*.9, 0, 1)
+    asset.find("material[@name='table_mat']").set("rgba", vec(table_rgba)+" 1")
     asset.find("texture[@name='sky']").set("rgb1", vec(variation.backdrop_rgba[:3]))
     for grid in list(world.findall("geom")):
         if grid.get("name", "").startswith("grid_"):

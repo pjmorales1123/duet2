@@ -67,7 +67,12 @@ class ArmIK:
     def point(self, data):
         return data.xpos[self.body] + data.xmat[self.body].reshape(3, 3) @ self.grasp_point
 
-    def solve(self, position, initial):
+    def solve(self, position, initial, tol=1e-5):
+        # Default preserves every existing skill's exact convergence behavior;
+        # a caller with a coarser physical tolerance (pour_task.py's transit
+        # toward a hovering target, not a precision grasp) can loosen this
+        # when the solver plateaus a hair above 1e-5 near an ill-conditioned
+        # direction instead of genuinely being out of reach.
         q = np.asarray(initial).copy()
         for _ in range(180):
             self.data.qpos[self.indices] = q
@@ -82,7 +87,7 @@ class ArmIK:
             if self.x_target is not None:
                 xaxis = self.data.xmat[self.body].reshape(3, 3)[:, 0]
                 error = np.r_[error, .08*(self.x_target-xaxis)]
-            if np.linalg.norm(error) < 1e-5:
+            if np.linalg.norm(error) < tol:
                 return q
             mujoco.mj_jac(self.model, self.data, self.jp, self.jr, point, self.body)
             jac = self.jp[:, self.indices]
@@ -257,7 +262,7 @@ class LiftReturn:
         scratch.qpos[:] = self.data.qpos
         scratch.qvel[:] = 0
         scratch.ctrl[:] = self.data.ctrl
-        for q in points:
+        for sample_index, q in enumerate(points):
             scratch.qpos[self.offset:self.offset+5] = q
             scratch.qpos[self.offset+5] = grip
             if carry is not None:
@@ -280,13 +285,23 @@ class LiftReturn:
                         continue
                     other = b if self.model.geom_bodyid[a] == self.body else a
                     if c.dist < -.00015 and other not in self.jaw_geoms and other != support:
-                        raise PlanningError("The carried tube's path intersects " + (self.model.geom(other).name or "another object") + ".")
+                        other_name = self.model.geom(other).name or self.model.body(self.model.geom_bodyid[other]).name or "another object"
+                        raise PlanningError(
+                            "The carried tube's path intersects "
+                            + other_name
+                            + f" at sample {sample_index + 1}/{len(points)}."
+                        )
 
-    def _cartesian(self, start, end, initial, grip, check=True):
+    def _cartesian(self, start, end, initial, grip, check=True, tol=1e-5):
+        # Only the final sample gets the looser tolerance: intermediate
+        # samples feed the next solve as its seed, so loosening those
+        # compounds drift step over step. The last sample doesn't feed
+        # anything further, so it's safe to relax there alone.
         count = max(3, int(np.linalg.norm(end - start) / .002) + 2)
         points, q = [], initial.copy()
-        for a in np.linspace(0., 1., count):
-            q = self.ik.solve(start + (end - start) * a, q)
+        samples = np.linspace(0., 1., count)
+        for i, a in enumerate(samples):
+            q = self.ik.solve(start + (end - start) * a, q, tol=tol if i == len(samples)-1 else 1e-5)
             points.append(q.copy())
         points = np.array(points)
         if check:

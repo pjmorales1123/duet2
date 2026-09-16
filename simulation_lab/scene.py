@@ -126,18 +126,20 @@ def build_scene(seed: int = 42, count: int = 3, racks: list[RackPose] | None = N
     ET.SubElement(root, "size", njmax="4000", nconmax="1000")
     visual = ET.SubElement(root, "visual")
     ET.SubElement(visual, "global", offwidth="1280", offheight="720")
-    ET.SubElement(visual, "quality", shadowsize="1024", offsamples="1")
-    ET.SubElement(visual, "headlight", ambient="0.35 0.35 0.35", diffuse="0.50 0.50 0.50", specular="0.20 0.20 0.20")
-    ET.SubElement(visual, "rgba", haze="0.16 0.20 0.26 1")
+    ET.SubElement(visual, "quality", shadowsize="2048", offsamples="4")
+    ET.SubElement(visual, "headlight", ambient="0.45 0.45 0.47", diffuse="0.55 0.55 0.58", specular="0.15 0.15 0.15")
+    ET.SubElement(visual, "rgba", haze="0.55 0.60 0.68 1")
     root.append(deepcopy(source.find("default")))
     asset = deepcopy(source.find("asset"))
     # Use source meshes for presentation and RGB training data. The optional LOD
     # assets make the robot visibly faceted and are reserved for a later speed mode.
     root.append(asset)
-    ET.SubElement(asset, "texture", name="sky", type="skybox", builtin="gradient", rgb1="0.18 0.14 0.24", rgb2="0.05 0.04 0.09", width="512", height="3072")
-    ET.SubElement(asset, "texture", name="floor_tex", type="2d", builtin="flat", width="512", height="512", rgb1="0.16 0.13 0.16", rgb2="0.16 0.13 0.16")
+    # ponytail: soft blue-gray studio backdrop (was near-black) so small light
+    # objects like the fork don't need to fight a blown-out white/black scene.
+    ET.SubElement(asset, "texture", name="sky", type="skybox", builtin="gradient", rgb1="0.62 0.68 0.75", rgb2="0.22 0.26 0.32", width="512", height="3072")
+    ET.SubElement(asset, "texture", name="floor_tex", type="2d", builtin="flat", width="512", height="512", rgb1="0.30 0.33 0.37", rgb2="0.30 0.33 0.37")
     ET.SubElement(asset, "material", name="floor_mat", texture="floor_tex", texrepeat="1 1", reflectance="0.05")
-    ET.SubElement(asset, "material", name="table_mat", rgba="0.78 0.72 0.68 1", specular="0.25", shininess="0.3")
+    ET.SubElement(asset, "material", name="table_mat", rgba="0.62 0.60 0.58 1", specular="0.15", shininess="0.15")
     ET.SubElement(asset, "material", name="edge_mat", rgba="0.17 0.09 0.14 1", specular="0.45")
     ET.SubElement(asset, "material", name="tube_mat", rgba="0.71 0.88 0.94 0.78", specular="0.6", shininess="0.8")
     world = ET.SubElement(root, "worldbody")

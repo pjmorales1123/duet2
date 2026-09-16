@@ -185,6 +185,14 @@ Counts describe this task's new pipeline, not the separate existing project's fi
 - Full browser instruction `set the table`, seed 42, recording off: **SUCCEEDED**, completed 5 physical skills, objects released, both arms parked, 210.9 simulation seconds. Browser placement errors: bottle 0.6 mm, plate 2.4 mm, mug 0.3 mm, fork 0.2 mm, spoon 0.1 mm. Browser tab left open as deliverable. Video's final overhead frame visually inspected at `.run/cabinet-final-preview.png`.
 - Existing recording metadata integration retained with overlapping engine changes. Language/server contracts passed; recording tests require discovery because of their existing sibling import: `.\.venv\Scripts\python.exe -m unittest discover -s tests -p test_recording.py -q`: 3/3 passed. Existing mesh assets and editor are included as scene/test dependencies; unrelated hosting, speech and session changes remain unstaged.
 
+## 2026-09-16 — verified two-arm pour motion
+
+- Added the programmed `pour_water` sequence: the right arm physically relays the bottle to the left, the left arm regrips at a lower shoulder point, and the right arm grips the cup from its outside rim.
+- During the pour phase the cup arm's command remains fixed while the bottle takes a collision-checked escape/traverse/approach path, tilts 51 degrees toward the cup, holds, returns upright, and is placed back. The cup then returns at carry height before lowering, avoiding the fixed cutlery ledges.
+- Both objects remain free bodies held only by measured finger contacts. No object pose writes, equality attachments, or applied forces were added.
+- Verification: `python -m unittest tests.test_pour_task tests.test_dinner_autonomy tests.test_language tests.test_server_contract -v` passed 15/15; `py_compile` and `git diff --check` passed. The end-to-end seed-1000 rollout reports success and returns both objects.
+- Review artifact: `.run/two-arm-pour-success.mp4` (130.9 s, overhead view with live phase/stage captions). This is programmed exact-state controller evidence, not a learned-policy result.
+
 ## Final evaluation ledger
 
 | Seed | Baseline outcome | Duet outcome | Failure/recovery | Recording |

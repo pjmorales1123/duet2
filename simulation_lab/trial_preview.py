@@ -11,7 +11,7 @@ class TrialPreview:
         self.inputs, self.outputs = Queue(maxsize=1), Queue(maxsize=1)
         self.closed = False
         self.thread = Thread(target=self._run, args=(xml, width, height), daemon=True,
-                             name='talos-passive-preview')
+                             name='duet2-passive-preview')
         self.thread.start()
 
     def _run(self, xml, width, height):

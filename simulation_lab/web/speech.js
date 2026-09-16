@@ -34,7 +34,7 @@ export async function initSpeech({button,feedback,onTranscript}){
         const data=JSON.parse(event.data);
         if(data.message==='RecognitionStarted'){
           clearTimeout(timer);
-          const source=context.createMediaStreamSource(mic);worklet=new AudioWorkletNode(context,'talos-microphone');
+          const source=context.createMediaStreamSource(mic);worklet=new AudioWorkletNode(context,'duet2-microphone');
           worklet.port.onmessage=event=>{if(!stopping&&socket.readyState===WebSocket.OPEN){socket.send(event.data);seq++;}};
           source.connect(worklet);const silent=context.createGain();silent.gain.value=0;worklet.connect(silent).connect(context.destination);
           active={stop,cancel:cleanup};button.disabled=false;button.textContent='Finish recording';feedback.textContent='Listening…';

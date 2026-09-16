@@ -38,6 +38,8 @@ def parse_command(text,last_object=None):
         return {'instruction':original,'interpreter':'constrained_grammar','control':'cancel','steps':[]}
     if s in ('set the table','set up the table','set the dinner table','arrange the table','deck den tisch'):
         return {'instruction':original,'interpreter':'constrained_grammar','steps':[asdict(Intent('set_table'))]}
+    if s in ('put water','pour water','pour the water','pour some water','give me water'):
+        return {'instruction':original,'interpreter':'constrained_grammar','steps':[asdict(Intent('pour_water'))]}
     clauses=re.split(r'\s*(?:;|,?\s+(?:and then|then)|\.\s+)\s*',s)
     if len(clauses)>8:raise CommandError('Use at most eight task steps.')
     intents=[];context=last_object

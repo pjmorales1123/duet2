@@ -46,26 +46,28 @@ def skill_instruction(skill, seed):
     return options[seed % len(options)]
 
 
-def render(renderer, data):
+def render(renderer, data, camera='overview'):
     option = mujoco.MjvOption()
     option.geomgroup[3:] = 0
-    renderer.update_scene(data, camera='overhead', scene_option=option)
+    renderer.update_scene(data, camera=camera, scene_option=option)
     renderer.scene.flags[mujoco.mjtRndFlag.mjRND_SHADOW] = False
     return renderer.render().copy()
 
 
-def replay(model, initial, layout, skill, side, cap, endpoints, indices, folder):
+def replay(model, initial, layout, skill, side, cap, endpoints, indices, folder, render_size=(320, 240)):
     data = mujoco.MjData(model)
     mujoco.mj_setState(model, data, initial, STATE)
     mujoco.mj_forward(model, data)
     monitor = DinnerPhysicalMonitor(model, data, layout, skill, side)
-    frames, joints, frame_indices = [], [], []
-    renderer = mujoco.Renderer(model, height=240, width=320)
+    wrist_camera = 'left_wrist_cam' if side == 'left' else 'right_wrist_cam'
+    frames, wrist_frames, joints, frame_indices = [], [], [], []
+    renderer = mujoco.Renderer(model, height=render_size[1], width=render_size[0])
     try:
         for tick in range(int(indices[-1])+1+300):
             if tick % 100 == 0:
                 require_space(folder, 64*1024**2)
-                frames.append(render(renderer, data))
+                frames.append(render(renderer, data, 'overview'))
+                wrist_frames.append(render(renderer, data, wrist_camera))
                 joints.append(np.r_[data.qpos[:12], data.qvel[:12]])
                 frame_indices.append(tick)
             if monitor.update(): break
@@ -76,7 +78,8 @@ def replay(model, initial, layout, skill, side, cap, endpoints, indices, folder)
         monitor.update()
     finally:
         renderer.close()
-    return monitor.report(), np.array(frames), np.array(joints, dtype=np.float32), np.array(frame_indices)
+    return (monitor.report(), np.array(frames), np.array(wrist_frames),
+            np.array(joints, dtype=np.float32), np.array(frame_indices))
 
 
 def collect_episode(model, data, layout, skill, folder, side='auto'):
@@ -121,24 +124,28 @@ def collect_episode(model, data, layout, skill, folder, side='auto'):
         indices = np.unique(np.r_[np.arange(0, len(actions), 10), len(actions)-1])
         # Replay exactly the float32 values subsequently stored for training.
         endpoints = np.clip(raw[indices], model.actuator_ctrlrange[:, 0], model.actuator_ctrlrange[:, 1]).astype('float32')
-        report, frames, joints, frame_indices = replay(model, initial, layout, skill, task.side, cap, endpoints, indices, folder)
+        report, frames, wrist_frames, joints, frame_indices = replay(
+            model, initial, layout, skill, task.side, cap, endpoints, indices, folder)
         manifest['replay'] = report
         manifest['replayed_saved_float32_endpoints'] = True
         manifest['training_eligible'] = report['passed']
         require_space(folder, 96*1024**2)
         np.savez_compressed(folder/'trajectory.npz', actions20=endpoints.astype('float32'),
                             action_indices=indices, stages=np.array(stages)[indices], physics_steps=len(actions))
-        np.savez_compressed(folder/'observations.npz', overhead=frames, state=joints, action_indices=frame_indices)
+        np.savez_compressed(folder/'observations.npz', overhead=frames, wrist=wrist_frames,
+                             state=joints, action_indices=frame_indices)
         Image.fromarray(frames[0]).save(folder/'overhead.png')
+        Image.fromarray(wrist_frames[0]).save(folder/'wrist.png')
     save_json(folder/'manifest.json', manifest)
     return {'skill': skill, 'teacher_status': task.status, 'message': task.message,
             'arm': task.side, 'training_eligible': manifest['training_eligible'], 'replay': manifest['replay']}
 
 
-def collect_sequence(seed, out):
+def collect_sequence(seed, out, dinner_variation="duet_v1", dinner_layout=None, skills=None):
     require_space(out, 600*1024**2)
     out.mkdir(parents=True)
-    xml, layout = build_scene(seed=seed, scenario='dinner', dinner_preset='task')
+    xml, layout = build_scene(seed=seed, scenario='dinner', dinner_preset='task',
+                              dinner_variation=dinner_variation, dinner_layout=dinner_layout)
     model = mujoco.MjModel.from_xml_string(xml)
     model.vis.quality.offsamples = 0
     data = mujoco.MjData(model)
@@ -152,10 +159,11 @@ def collect_sequence(seed, out):
     compiler.set('meshdir', os.path.relpath(compiler.get('meshdir'), out).replace('\\', '/'))
     (out/'scene.xml').write_text(ET.tostring(scene, encoding='unicode'), encoding='utf-8')
     rows = []
-    for skill in SKILLS:
+    planned_skills = tuple(skills or SKILLS)
+    for skill in planned_skills:
         rows.append(collect_episode(model, data, layout, skill, out/skill))
         report = {'schema': 'talos.dinner-learning-collection.v1', 'seed': seed, 'split': 'training',
-                  'planned_skills': list(SKILLS), 'episodes': rows,
+                  'planned_skills': list(planned_skills), 'episodes': rows,
                   'eligible': sum(r['training_eligible'] for r in rows), 'simulation_seconds': float(data.time)}
         save_json(out/'summary.json', report)
         print(json.dumps({'seed': seed, **rows[-1]}), flush=True)

@@ -30,7 +30,7 @@ async def lifespan(app):
     engine.close()
 
 
-app = FastAPI(title="Talos dinner-table simulator", lifespan=lifespan)
+app = FastAPI(title="Duet 2 dinner-table simulator", lifespan=lifespan)
 app.add_middleware(TrustedHostMiddleware, allowed_hosts=["127.0.0.1", "localhost", "testserver"])
 
 
@@ -97,7 +97,7 @@ class LanguageCommand(BaseModel):
     model_config=ConfigDict(extra='forbid')
     text:str=Field(min_length=1,max_length=500)
     record:bool=False
-    mode:Literal['programmed','learned_bottle','learned_bottle_legacy','learned_dinner','learned_dinner_visual','learned_dinner_wide']='programmed'
+    mode:Literal['programmed','learned_bottle','learned_bottle_legacy','learned_dinner','learned_dinner_visual','learned_dinner_wide','learned_vla']='programmed'
 
 
 class Layout(BaseModel):
@@ -119,6 +119,11 @@ def send(operation, payload):
 @app.get("/")
 def index():
     return FileResponse(STATIC / "index.html")
+
+
+@app.get("/demo")
+def demo():
+    return FileResponse(STATIC / "demo.html")
 
 
 @app.get("/api/state")
@@ -196,6 +201,7 @@ async def stream(request: Request):
 
 
 app.mount("/static", StaticFiles(directory=STATIC), name="static")
+app.mount("/media", StaticFiles(directory=STATIC / "media"), name="media")
 
 
 if __name__ == "__main__":
@@ -219,4 +225,16 @@ if __name__ == "__main__":
         # a throwaway model here caused large live-thread inference overhead.
         if not (DEFAULT_CHECKPOINT/'primitive.json').is_file():
             raise RuntimeError('Packaged learned bottle model is missing.')
+    try:
+        # ponytail: _load_policy()'s cache is a module-level dict, and the
+        # physics loop runs in a thread (not a process) - so warming it here,
+        # before uvicorn starts, means the first live VLA click hits a warm
+        # cache instead of a cold multi-second load racing engine.submit's
+        # 15s timeout.
+        from .vla_task import _load_policy
+        print("Preloading the SmolVLA checkpoint...")
+        _load_policy()
+        print("SmolVLA checkpoint ready.")
+    except ImportError:
+        print("lerobot not installed - the live VLA demo will report a clear error instead of preloading.")
     uvicorn.run(app, host="127.0.0.1", port=args.port, access_log=False)
