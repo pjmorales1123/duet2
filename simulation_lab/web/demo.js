@@ -31,6 +31,19 @@ async function stopRun() {
   try { await api('/api/task', { action: 'cancel' }); } catch (err) { /* already idle */ }
 }
 
+const previewMode = $('preview-mode');
+fetchState().then((state) => { previewMode.value = state.preview_mode || 'hd'; }).catch(() => {});
+previewMode.addEventListener('change', async () => {
+  previewMode.disabled = true;
+  try {
+    await api('/api/control', { preview_mode: previewMode.value });
+  } catch (err) {
+    previewMode.value = 'hd';
+  } finally {
+    previewMode.disabled = false;
+  }
+});
+
 // --- tabs ---
 let vlaStarted = false;
 for (const tab of document.querySelectorAll('.tab')) {

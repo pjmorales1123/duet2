@@ -56,6 +56,13 @@
         <button id="hero-target-btn" class="ghost">Show expected final table</button>
         <button id="hero-stop" class="stop" disabled>Stop run</button>
       </div>
+      <label class="preview-control">Live render
+        <select id="preview-mode" aria-label="Live render quality">
+          <option value="hd">HD</option>
+          <option value="fast">Fast preview</option>
+        </select>
+      </label>
+      <p class="preview-note">Fast preview halves camera resolution and disables shadows and anti-aliasing. It never changes collision geometry or task physics.</p>
       <div id="hero-target-ref" class="target-ref" hidden>
         <figure><img data-zoom src="/media/target_arrangement.jpg" alt="Expected final arrangement, top view"><figcaption>Expected result · top</figcaption></figure>
         <figure><img data-zoom src="/media/target_arrangement_side.jpg" alt="Expected final arrangement, side angle"><figcaption>Expected result · side</figcaption></figure>

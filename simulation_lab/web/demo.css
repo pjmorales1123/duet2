@@ -113,6 +113,9 @@ h1, h2, h3, h4 { line-height: 1.25; }
 
 .live-actions { display: flex; gap: .5rem; margin-top: .6rem; }
 .live-actions button { flex: 1; }
+.preview-control { display: flex; align-items: center; gap: .45rem; margin-top: .7rem; color: var(--muted); font-size: .8rem; }
+.preview-control select { border: 1px solid var(--line); border-radius: 7px; padding: .3rem .45rem; background: var(--surface); color: var(--ink); font: inherit; }
+.preview-note { margin: .35rem 0 0; color: var(--muted); font-size: .72rem; }
 
 .target-ref[hidden] { display: none; }
 .target-ref { display: flex; gap: .6rem; margin-top: .7rem; }
