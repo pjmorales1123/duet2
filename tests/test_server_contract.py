@@ -1,5 +1,6 @@
 """Ensure cabinet browser requests match the local server's strict schemas."""
 import unittest
+import json
 from pathlib import Path
 from pydantic import ValidationError
 from simulation_lab.server import Control, LanguageCommand, Reset, TaskCommand
@@ -49,6 +50,16 @@ class ServerContractTests(unittest.TestCase):
             'In progress',
         ):
             self.assertIn(criterion, html)
+
+    def test_expert_gallery_requires_table_arrangement_before_pour(self):
+        """The manifest must supply the five ordered steps that gate the pour."""
+        manifest = Path(__file__).parents[1] / 'simulation_lab' / 'web' / 'media' / 'expert' / 'manifest.json'
+        entries = json.loads(manifest.read_text(encoding='utf-8'))
+        expected = ('bottle', 'plate', 'mug', 'fork', 'spoon')
+        self.assertEqual(len(entries), 10)
+        for entry in entries:
+            self.assertEqual(tuple(entry['instructions']), expected)
+            self.assertEqual(entry['skills'], list(expected) + ['pour'])
 
 
 if __name__ == '__main__':

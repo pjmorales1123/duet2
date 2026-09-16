@@ -24,6 +24,13 @@ if not FFMPEG:
     raise SystemExit("ffmpeg not found on PATH.")
 
 SKILL_ORDER = ["bottle", "plate", "mug", "fork", "spoon"]
+INSTRUCTIONS = {
+    "bottle": "Place the bottle on the table.",
+    "plate": "Place the dinner plate.",
+    "mug": "Place the mug above the plate.",
+    "fork": "Place the fork beside the plate.",
+    "spoon": "Place the spoon beside the plate.",
+}
 SIZE = (640, 480)
 
 
@@ -95,7 +102,8 @@ def build_seed_video(seed_dir: Path, output_path: Path) -> dict:
              "-c:v", "libx264", "-pix_fmt", "yuv420p", str(output_path)],
             check=True, capture_output=True,
         )
-    return {"seed": seed_label, "skills": skills_present, "video": output_path.name, "changes": changes}
+    return {"seed": seed_label, "skills": skills_present, "video": output_path.name,
+            "changes": changes, "instructions": {skill: INSTRUCTIONS[skill] for skill in skills_present}}
 
 
 def main() -> None:
