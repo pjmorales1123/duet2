@@ -16,5 +16,6 @@ torch==2.8.0; platform_system == "Darwin"
 # Live SmolVLA demo (simulation_lab/vla_task.py)
 lerobot[dataset]
 transformers
+accelerate
 num2words
 huggingface_hub
