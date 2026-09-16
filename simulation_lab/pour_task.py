@@ -1,83 +1,39 @@
-"""Two-arm 'put water' skill with a table-supported cup relay.
+"""Two-arm 'put water' skill with a table-supported bottle relay.
 
-The right arm sets the cup down at a shared relay point and parks; the left
-arm regrips it and holds it for the right arm's bottle pour. Both objects then
-return to their own table settings. Built from the existing physical
-pick/place primitives: no airborne handoff or object-state writes.
+The bottle is relayed right-to-left, the right arm grips and holds the cup
+completely still, and only the left bottle arm approaches and tilts. Both
+objects return to their table settings without object-state writes.
 """
 from copy import deepcopy
 import math
 import numpy as np
 from .autonomy import PlanningError
-from .carry_routing import plan_disc_detour, segment_clear_of_disc
 from .dinner_autonomy import CLOSED, DinnerSequence, DinnerTask
 
-CUP_RELAY_POINT = (.15, -.14)  # reachable by the donor and clear of the plate's rim
-MUG_HOLD_XY = (.10, -.08)  # verified via full-physics sweep: right can carry-hold here without hitting a joint limit, and it's close enough to center that left's pour approach has ~0.58rad of joint-limit margin (vs. ~0 at the mug's natural far-side resting spot)
-MUG_HOLD_HEIGHT = .05  # above the table - low enough to stay in reach, high enough to clear cabinet/plate fixtures while translating in
-POUR_OFFSET = np.array([0., -.03, .12])  # beside/above the held mug - the bottle's grasp point sits near its neck, well above its base, so it needs real clearance above the mug's low hold height to keep the bottle's body off the table
-POUR_TILT_RAD = .9  # ~50 degrees, tips the grasped neck toward the mug
+BOTTLE_RELAY_POINT = (0., -.14)
+MUG_HOLD_XY = (.16, -.08)
+MUG_POUR_XY = (.10, -.08)
+MUG_HOLD_HEIGHT = .05
+POUR_OFFSET = np.array([0., -.085, .12])
+POUR_STANDOFF = .085
+POUR_DESCENT = .10
+POUR_TILT_RAD = .9  # ~50 degrees, tips the neck toward the cup
 
-
-
-def _route_around_discs(start, end, discs):
-    """Route from start to end clearing every (center, radius) obstacle in
-    discs. plan_disc_detour only routes around one obstacle at a time, so
-    detour around each disc in turn, then re-validate every leg of the
-    result against *all* discs - a detour built for the plate can still clip
-    the camera box, and vice versa - inserting one more detour wherever it
-    does, until a single pass leaves nothing to fix."""
-    route = [start, end]
-    for _ in range(len(discs) + 1):
-        fixed = True
-        next_route = [route[0]]
-        for a, b in zip(route, route[1:]):
-            leg = [a, b]
-            for center, radius in discs:
-                if not segment_clear_of_disc(leg[0], leg[-1], center, radius):
-                    leg = plan_disc_detour(leg[0], leg[-1], center, radius)
-                    fixed = False
-                    break
-            next_route.extend(leg[1:])
-        route = next_route
-        if fixed:
-            return route
-    raise ValueError('No planar route clears every obstacle.')
-
-
-def _with_object_at_relay_point(layout, object_id, point):
+def _with_bottle_at_relay_point(layout):
     layout = deepcopy(layout)
-    target = next(t for t in layout['targets'] if t['object_id'] == object_id)
-    target['position_m'] = [point[0], point[1], layout['table_z']]
+    target = next(t for t in layout['targets'] if t['object_id'] == 'bottle')
+    target['position_m'] = [BOTTLE_RELAY_POINT[0], BOTTLE_RELAY_POINT[1], layout['table_z']]
     return layout
 
 
-class CupDonorTask(DinnerTask):
-    """Right arm placing the cup at the verified shared relay point."""
+class BottleDonorTask(DinnerTask):
+    """Right arm places the bottle at the shared table relay point."""
 
     def _move_center(self, stage, center, grip, duration):
-        if stage != 'align':
-            super()._move_center(stage, center, grip, duration)
-            return
-        # The direct cup path crosses the two fixed cabinet ledges at x=.18.
-        # Move rearward first, then across to the relay point, while retaining
-        # the physically held cup's measured carry height.
-        current_center = self.data.xpos[self.body].copy()
-        relay_center = center.copy()
-        relay_center[2] = self.destination_position[2] + .030
-        waypoints = [np.array([current_center[0], -.120, current_center[2]]), relay_center]
-        reference = self._carry_reference()
-        current_point = self.ik.point(self.data).copy()
-        q = self.data.qpos[self.offset:self.offset+5].copy()
-        paths = []
-        for waypoint in waypoints:
-            point, _ = self._point_for_center(waypoint, reference, q)
-            path = self._cartesian(current_point, point, q, grip, check=False)
-            paths.append(path)
-            current_point, q = point, path[-1]
-        points = np.vstack(paths)
-        self._check_path(points, float(self.data.qpos[self.offset+5]), True, carry=reference)
-        self._move('align', points, grip, duration)
+        if stage == 'align':
+            center = center.copy()
+            center[2] += .025
+        super()._move_center(stage, center, grip, duration)
 
 
 class HoldTask(DinnerTask):
@@ -92,6 +48,25 @@ class HoldTask(DinnerTask):
             center = np.asarray(self.hold_point)
         if stage == 'lower' and not getattr(self, 'cleared_to_place', False):
             return  # keep holding; the last commanded target already holds steady
+        if stage == 'lower' and self.hold_point is not None:
+            current = self.data.xpos[self.body].copy()
+            waypoints = [
+                np.array([center[0], center[1], current[2]]),
+                np.asarray(center),
+            ]
+            reference = self._carry_reference()
+            current_point = self.ik.point(self.data).copy()
+            q = self.data.qpos[self.offset:self.offset+5].copy()
+            paths = []
+            for waypoint in waypoints:
+                point, _ = self._point_for_center(waypoint, reference, q)
+                path = self._cartesian(current_point, point, q, grip, check=False)
+                paths.append(path)
+                current_point, q = point, path[-1]
+            points = np.vstack(paths)
+            self._check_path(points, float(self.data.qpos[self.offset+5]), True, carry=reference, support=self.base_geom)
+            self._move(stage, points, grip, duration)
+            return
         super()._move_center(stage, center, grip, duration)
 
 
@@ -101,7 +76,7 @@ class PourBottleTask(DinnerTask):
     the shared pour station yet, and it's much too close to the relay point
     for both events to happen at once without the arms colliding. Once told
     (via cleared_to_pour) that the mug is in place, it routes laterally
-    around the plate to it, tilts and pours, then returns to its own
+    around the stationary cup wrist, tilts and pours, then returns to its own
     setting - same as before, just no longer racing the mug for the same
     patch of table."""
     cleared_to_pour = False
@@ -109,6 +84,11 @@ class PourBottleTask(DinnerTask):
     def __init__(self, model, data, layout, mug_body_id=None):
         super().__init__(model, data, layout)
         self.mug_body_id = mug_body_id
+
+    def _select_item(self, side, item):
+        super()._select_item(side, item)
+        self.grip_torque = .65
+        self.metrics['gripper_torque_limit_nm'] = self.grip_torque
 
     def start(self, **kwargs):
         mug_body_id = self.mug_body_id
@@ -136,37 +116,32 @@ class PourBottleTask(DinnerTask):
         super()._move_center(stage, center, grip, duration)
 
     def _begin_pour_approach(self, grip):
-        pour_point = self.data.xpos[self.mug_body_id].copy() + POUR_OFFSET
+        pour_anchor = np.array([MUG_POUR_XY[0], MUG_POUR_XY[1], self.data.xpos[self.mug_body_id][2]])
+        self.pour_target = pour_anchor + POUR_OFFSET
         start = self.ik.point(self.data).copy()
-        # The bottle is grasped near its cap, so it hangs a long way below
-        # the gripper - descending all the way to POUR_OFFSET's low height
-        # (matched to the mug's low hold height) drags the bottle's base
-        # into the table. Stay at the already-proven-safe transit height for
-        # the whole lateral move; only x/y change here. The final approach
-        # to the mug's actual rim height happens in the tilt sequence, which
-        # already re-solves IK once it's hovering directly above the mug.
-        pour_point = pour_point.copy()
-        pour_point[2] = start[2]
-        # A direct straight-line transit clips the plate's rim and the right
-        # arm's wrist camera housing (now planted at the mug hold point).
-        # Route laterally around both, at this same safe Z the whole way -
-        # exactly the detour dinner_autonomy.py's _move_fork_around_plate
-        # already uses for the fork, just chained over two obstacles.
-        plate = next(item for item in self.layout['objects'] if item['id'] == 'plate')
-        plate_center = self.data.xpos[self.model.body(plate['body']).id].copy()
+        # Traverse high, then descend at the cup.  The prior version never
+        # performed this descent: it tilted with the mouth far above and
+        # behind the cup, which looked like a pour but could not pour into it.
+        pour_point = self.pour_target.copy()
+        # Descend at the clear stand-off point before tilting.  The mug is
+        # deliberately staged out of the neck's sweep until tilt completes.
+        pour_point[2] = start[2] - POUR_DESCENT
+        self.pour_target[2] = start[2] - POUR_DESCENT
+        offset_direction = POUR_OFFSET[:2] / np.linalg.norm(POUR_OFFSET[:2])
+        pour_point[:2] = pour_anchor[:2] + offset_direction * POUR_STANDOFF
+        # Escape away from the stationary cup wrist before traversing, rather
+        # than cutting the diagonal corner through its camera housing.
         bottle_radius = self.tube['size_m'][0]/2
-        plate_clearance = plate['size_m'][0]/2 + bottle_radius + .012
-        # Read the camera box pose now, live off the right arm mid-hold - not
-        # at reset/spawn, which is a different pose entirely.
         camera_gid = self.model.geom('right_camera_box2').id
         camera_center = self.data.geom_xpos[camera_gid].copy()
-        camera_half_x, camera_half_y = self.model.geom_size[camera_gid][:2]
-        camera_r = np.hypot(camera_half_x, camera_half_y)
-        camera_clearance = camera_r + bottle_radius + .01
-        route = _route_around_discs(
-            start[:2], pour_point[:2],
-            [(plate_center[:2], plate_clearance), (camera_center[:2], camera_clearance)],
-        )
+        camera_half_y = self.model.geom_size[camera_gid][1]
+        bypass_y = min(start[1], camera_center[1] - camera_half_y - bottle_radius - .015)
+        escape = np.array([start[0], bypass_y])
+        traverse = np.array([pour_point[0], bypass_y])
+        # The bottle stays high above the plate, so validate its real 3-D
+        # geometry below instead of rejecting the final cup approach with a
+        # deliberately conservative 2-D plate footprint.
+        route = [start[:2], escape, traverse, pour_point[:2]]
         reference = self._carry_reference()
         current_point = start
         q = self.data.qpos[self.offset:self.offset+5].copy()
@@ -176,12 +151,14 @@ class PourBottleTask(DinnerTask):
             path = self._cartesian(current_point, target, q, grip, check=False)
             paths.append(path)
             current_point, q = target, path[-1]
+        descent = self._cartesian(current_point, pour_point, q, grip, check=False)
+        paths.append(descent)
         points = np.vstack(paths)
         self._check_path(points, grip, True, carry=reference)
         self._move('pour_approach', points, grip, 4.)
 
     def update(self, targets):
-        if self.stage in ('pour_approach', 'pour_tilt', 'pour_hold', 'pour_return') and self.active:
+        if self.stage in ('pour_approach', 'pour_tilt', 'await_cup', 'pour_hold', 'pour_return') and self.active:
             self._pour_update(targets)
             return
         super().update(targets)
@@ -207,19 +184,21 @@ class PourBottleTask(DinnerTask):
             q = self.data.qpos[self.offset:self.offset+5].copy()
             point = self.ik.point(self.data).copy()
             if self.stage == 'pour_approach' and done:
-                self.ik.axis_target = np.array([math.sin(POUR_TILT_RAD), 0., math.cos(POUR_TILT_RAD)])
+                toward_cup = np.asarray(MUG_POUR_XY) - point[:2]
+                toward_cup /= np.linalg.norm(toward_cup)
+                self.ik.axis_target = np.array([
+                    math.sin(POUR_TILT_RAD) * toward_cup[0],
+                    math.sin(POUR_TILT_RAD) * toward_cup[1],
+                    math.cos(POUR_TILT_RAD),
+                ])
                 end = self.ik.solve(point, q)
                 path = np.linspace(q, end, 60)
                 self._check_path(path, CLOSED, True, carry=self._carry_reference())
                 self._move('pour_tilt', path, CLOSED, 2.5)
             elif self.stage == 'pour_tilt' and done:
-                self._move('pour_hold', np.array([q, q]), CLOSED, 1.5)
+                self._move('await_cup', np.array([q, q]), CLOSED, 30.)
             elif self.stage == 'pour_hold' and done:
-                self.ik.axis_target = np.array([0., 0., 1.])
-                end = self.ik.solve(point, q)
-                path = np.linspace(q, end, 60)
-                self._check_path(path, CLOSED, True, carry=self._carry_reference())
-                self._move('pour_return', path, CLOSED, 2.5)
+                self._move('await_cup_clear', np.array([q, q]), CLOSED, 30.)
             elif self.stage == 'pour_return' and done:
                 self.poured = True
                 center, grip, duration = self._final_align
@@ -228,9 +207,18 @@ class PourBottleTask(DinnerTask):
             targets[:] = self.data.qpos[:12]
             self._finish('failed', str(exc)+' Physics paused for inspection.', True)
 
+    def begin_pour_return(self):
+        q = self.data.qpos[self.offset:self.offset+5].copy()
+        point = self.ik.point(self.data).copy()
+        self.ik.axis_target = np.array([0., 0., 1.])
+        end = self.ik.solve(point, q)
+        path = np.linspace(q, end, 60)
+        self._check_path(path, CLOSED, True, carry=self._carry_reference())
+        self._move('pour_return', path, CLOSED, 2.5)
+
 
 class PourWaterTask(DinnerSequence):
-    """'Put water': relay the cup right -> left, pour right -> left, return."""
+    """Relay bottle right-to-left, hold cup still, pour left-to-right, return."""
 
     HOLD_VERIFIED_S = 1.6
 
@@ -239,30 +227,35 @@ class PourWaterTask(DinnerSequence):
             raise ValueError('Cancel the current goal first.')
         if self.layout['dinner_preset'] != 'task':
             raise ValueError('Load Task start before running a dinner goal.')
-        layout = _with_object_at_relay_point(self.layout, 'mug', CUP_RELAY_POINT)
+        layout = _with_bottle_at_relay_point(self.layout)
         self.__init__(self.model, self.data, layout)
         self.kind = 'pour_water'
         self.status = 'running'
-        self._start_cup_donor()
+        self._start_bottle_donor()
 
-    def _start_cup_donor(self):
-        self.phase = 'cup_relay'
-        self.child = CupDonorTask(self.model, self.data, self.layout)
-        self.child.start(side='right', object_id='mug')
+    def _start_bottle_donor(self):
+        self.phase = 'bottle_relay'
+        self.child = BottleDonorTask(self.model, self.data, self.layout)
+        self.child.start(side='right', object_id='bottle')
         self.stage = self.child.stage
 
-    def _start_left_hold_cup(self):
+    def _start_left_lift_bottle(self):
+        self.phase = 'left_lift_bottle'
+        self.child = PourBottleTask(self.model, self.data, self.layout)
+        self.child.start(side='left', object_id='bottle')
+        # Hold the bottle around its full-width body.  This is tighter than
+        # the former neck grasp and leaves enough bottle above the fingers
+        # for the mouth to reach the cup without colliding the two wrists.
+        self.child.grasp_local_override = np.array([0., 0., .105])
+        self.stage = self.child.stage
+
+    def _start_hold_mug(self):
         self.phase = 'hold_mug'
+        self.bottle_child = self.child
         self.child = HoldTask(self.model, self.data, self.layout)
         self.child.hold_point = np.array([MUG_HOLD_XY[0], MUG_HOLD_XY[1], self.layout['table_z']+MUG_HOLD_HEIGHT])
         self.child.start(side='right', object_id='mug')
-        self.stage = self.child.stage
-
-    def _start_right_lift_bottle(self):
-        self.phase = 'right_lift_bottle'
-        self.mug_child = self.child
-        self.child = PourBottleTask(self.model, self.data, self.layout)
-        self.child.start(side='right', object_id='bottle')
+        self.child.preferred_grasp_directions = [np.array([1., 0.])]
         self.child.require_home_start = False
         self.child.other_arm_tolerance_deg = 180.
         self.stage = self.child.stage
@@ -271,14 +264,52 @@ class PourWaterTask(DinnerSequence):
         return self.child.stage == 'align' and self.child.motion is not None and self.child._done_motion()
 
     def _start_pour(self):
+        self.mug_child = self.child
+        self.mug_child.others.pop('bottle', None)
         self.phase = 'pour'
+        self.child = self.bottle_child
         self.child.mug_body_id = self.mug_child.body
+        self.child.others.pop('mug', None)
         self.child.cleared_to_pour = True
         self.child.other_arm_tolerance_deg = 180.  # the right arm is deliberately holding the mug, not parked
         try:
             self.child._begin_pour_approach(CLOSED)
         except (PlanningError, ValueError) as exc:
             self.child._finish('failed', str(exc)+' Physics paused for inspection.', True)
+        self.stage = self.child.stage
+
+    def _start_present_mug(self):
+        """Move the already-grasped mug under the measured bottle outlet."""
+        self.bottle_child = self.child
+        bottle_rotation = self.data.xmat[self.bottle_child.body].reshape(3, 3)
+        mouth = self.data.xpos[self.bottle_child.body] + bottle_rotation @ np.array([0., 0., .16])
+        # Keep the outlet inside the opening while biasing the cup 14 mm
+        # toward the right arm, which keeps its wrist clear of the neck.
+        self.mug_child.hold_point = np.array([mouth[0] + .014, mouth[1], self.layout['table_z'] + MUG_HOLD_HEIGHT])
+        self.mug_child._move_center('align', self.mug_child.hold_point, CLOSED, 2.)
+        self.child = self.mug_child
+        self.phase = 'present_mug'
+        self.stage = 'pour_insert'
+
+    def _start_pour_hold(self):
+        self.child = self.bottle_child
+        self.phase = 'pour'
+        q = self.data.qpos[self.child.offset:self.child.offset+5].copy()
+        self.child._move('pour_hold', np.array([q, q]), CLOSED, 1.5)
+        self.stage = self.child.stage
+
+    def _start_retract_mug(self):
+        self.bottle_child = self.child
+        self.mug_child.hold_point = np.array([MUG_HOLD_XY[0], MUG_HOLD_XY[1], self.layout['table_z'] + MUG_HOLD_HEIGHT])
+        self.mug_child._move_center('align', self.mug_child.hold_point, CLOSED, 2.)
+        self.child = self.mug_child
+        self.phase = 'retract_mug'
+        self.stage = 'cup_clear'
+
+    def _start_pour_return(self):
+        self.child = self.bottle_child
+        self.phase = 'pour'
+        self.child.begin_pour_return()
         self.stage = self.child.stage
 
     def _mug_settled_at_hold_point(self):
@@ -290,23 +321,38 @@ class PourWaterTask(DinnerSequence):
         self.child.update(targets)
         self.stage, self.message = self.child.stage, self.child.message
         self.side, self.tube = self.child.side, self.child.tube
+        if self.phase == 'left_lift_bottle' and self.child.active:
+            if self._bottle_parked():
+                self._start_hold_mug()
+            return
         if self.phase == 'hold_mug' and self.child.active:
             if self._mug_settled_at_hold_point():
-                self._start_right_lift_bottle()
-            return
-        if self.phase == 'right_lift_bottle' and self.child.active:
-            if self._bottle_parked():
                 self._start_pour()
+            return
+        if self.phase == 'pour' and self.child.active and self.child.stage == 'await_cup':
+            self._start_present_mug()
+            return
+        if self.phase == 'present_mug' and self.child.active:
+            if self._mug_settled_at_hold_point():
+                self._start_pour_hold()
+            return
+        if self.phase == 'pour' and self.child.active and self.child.stage == 'await_cup_clear':
+            self._start_retract_mug()
+            return
+        if self.phase == 'retract_mug' and self.child.active:
+            if self._mug_settled_at_hold_point():
+                self._start_pour_return()
             return
         if self.child.active:
             return
         if self.child.status != 'succeeded':
             self._finish(self.child.status, self.child.message, True)
             return
-        if self.phase == 'cup_relay':
-            self._start_left_hold_cup()
+        if self.phase == 'bottle_relay':
+            self._start_left_lift_bottle()
         elif self.phase == 'pour':
             self.mug_child.cleared_to_place = True
+            self.mug_child.stage_started = float(self.data.time)
             self.child = self.mug_child
             self.phase = 'place_mug'
         elif self.phase == 'place_mug':
@@ -314,8 +360,8 @@ class PourWaterTask(DinnerSequence):
 
     def apply_gripper_limit(self, targets):
         ctrl = self.child.apply_gripper_limit(targets) if self.child else targets.copy()
-        if self.phase == 'right_lift_bottle' and getattr(self, 'mug_child', None):
-            ctrl = self.mug_child.apply_gripper_limit(ctrl)
+        if self.phase in ('hold_mug', 'present_mug', 'retract_mug') and getattr(self, 'bottle_child', None):
+            ctrl = self.bottle_child.apply_gripper_limit(ctrl)
         if self.phase == 'pour' and getattr(self, 'mug_child', None):
             ctrl = self.mug_child.apply_gripper_limit(ctrl)
         return ctrl
@@ -323,8 +369,8 @@ class PourWaterTask(DinnerSequence):
     def cancel(self, targets):
         if self.active:
             self.child.cancel(targets)
-            if self.phase == 'right_lift_bottle' and getattr(self, 'mug_child', None):
-                self.mug_child.cancel(targets)
+            if self.phase == 'hold_mug' and getattr(self, 'bottle_child', None):
+                self.bottle_child.cancel(targets)
             if self.phase == 'pour' and getattr(self, 'mug_child', None):
                 self.mug_child.cancel(targets)
             self.status, self.message = self.child.status, self.child.message
@@ -336,7 +382,7 @@ class PourWaterTask(DinnerSequence):
         result.update(status=self.status, active=self.active, kind=self.kind, message=self.message,
                       elapsed_s=round(float(self.data.time)-self.started, 2) if self.active else getattr(self, 'elapsed', 0.),
                       phase=getattr(self, 'phase', None),
-                      cooperation='The cup is relayed right-to-left through a table-supported shared point; '
-                                  'the left arm holds the cup while the right arm pours; both objects return to '
+                      cooperation='The bottle is relayed right-to-left through a table-supported point; '
+                                  'the right cup arm remains fixed while the left bottle arm pours; both return to '
                                   'their table settings.')
         return result
