@@ -51,6 +51,11 @@ class ServerContractTests(unittest.TestCase):
         ):
             self.assertIn(criterion, html)
 
+    def test_demo_target_reference_images_are_shipped(self):
+        media = Path(__file__).parents[1] / 'simulation_lab' / 'web' / 'media'
+        self.assertTrue((media / 'target_arrangement.jpg').is_file())
+        self.assertTrue((media / 'target_arrangement_side.jpg').is_file())
+
     def test_expert_gallery_requires_table_arrangement_before_pour(self):
         """The manifest must supply the five ordered steps that gate the pour."""
         manifest = Path(__file__).parents[1] / 'simulation_lab' / 'web' / 'media' / 'expert' / 'manifest.json'
