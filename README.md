@@ -59,6 +59,18 @@ committed to this repo:
 python -c "from huggingface_hub import snapshot_download; snapshot_download('pjmorales04/duet-smolvla-v2', local_dir='models/duet-smolvla-v2')"
 ```
 
+To download the LeRobot training data used for the fine-tune as well:
+
+```powershell
+python -c "from huggingface_hub import snapshot_download; snapshot_download('pjmorales04/duet-micro-v1', repo_type='dataset', local_dir='datasets/duet-micro-v1')"
+```
+
+The dataset contains the verified teacher episodes (placement and pour data),
+while the model repository contains the trained SmolVLA checkpoint and its
+parity-checked OpenVINO vision runtime. Both downloads are optional for simply
+running the already-trained demo; the dataset is needed for inspection,
+conversion or retraining.
+
 `simulation_lab/vla_task.py` prefers `models/duet-smolvla-v2` and falls back to
 `v1`; set `DUET_VLA_CHECKPOINT` to point at any other checkpoint directory.
 
