@@ -3,66 +3,232 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Duet 2 judge demo: expert teacher policy gallery and live bimanual VLA.">
-  <title>Duet 2 · Demo dashboard</title>
-  <link rel="stylesheet" href="/static/demo.css">
-  <script type="module" src="/static/demo.js"></script>
+  <meta name="description" content="Duet 2 — bimanual dinner-table manipulation with two SO-101 arms in MuJoCo: verified expert teacher, live SmolVLA policy, OpenVINO on Intel Core Ultra.">
+  <title>Duet 2 · Bimanual dinner service</title>
+  <link rel="stylesheet" href="/static/demo.css?v=6">
+  <script type="module" src="/static/demo.js?v=6"></script>
 </head>
 <body>
-  <header class="hero">
-    <h1>Duet 2 — Coordinated dinner service</h1>
-    <p>Two SO-101 arms set a dinner table from a cluttered cabinet zone. This page has two parts: the <strong>expert teacher policy</strong> we built and hardened first, and the <strong>live VLA</strong> we are fine-tuning on top of it.</p>
-  </header>
 
-  <section class="target-panel">
-    <img src="/media/target_arrangement.jpg" alt="Target table arrangement: plate, side plate, mug, glass, bottle, fork and spoon in their final places">
-    <div>
-      <h2>Target layout</h2>
-      <p>Every seed below starts from a scrambled cabinet and is judged against this same final arrangement: plate + side plate set, mug and glass placed, fork and spoon beside the plate, carafe in the serving area.</p>
+<header class="masthead">
+  <div class="masthead-inner">
+    <p class="eyebrow">Intel Physical AI Online Challenge · Bimanual VLA Manipulation</p>
+    <h1>Duet&nbsp;2</h1>
+    <p class="tagline">Two SO-101 arms read a natural-language instruction, look at the table through their own cameras, and set a scrambled dinner table together — including a genuine two-arm hand-off where one arm holds the mug while the other pours.</p>
+    <ul class="chips">
+      <li>Dual SO-101 · MuJoCo</li>
+      <li>Two-arm hand-off + pour</li>
+      <li>10 randomized seeds</li>
+      <li>SmolVLA fine-tune (LeRobot)</li>
+      <li>OpenVINO on Intel Core Ultra</li>
+    </ul>
+    <div class="stats">
+      <div><strong>6</strong><span>skills: bottle, plate, mug, fork, spoon, pour</span></div>
+      <div><strong>10 / 10</strong><span>seeds complete the pour hand-off</span></div>
+      <div><strong>60</strong><span>verified demonstration episodes</span></div>
+      <div><strong>2</strong><span>arms coordinated in one shared workspace</span></div>
+    </div>
+  </div>
+</header>
+
+<nav class="tabs" role="tablist">
+  <button class="tab selected" data-tab="expert" role="tab" aria-selected="true">Live expert demo <small>verified teacher policy</small></button>
+  <button class="tab" data-tab="vla" role="tab" aria-selected="false">Live VLA demo <small>fine-tuned SmolVLA checkpoint</small></button>
+</nav>
+
+<main id="panel-expert" class="tab-panel">
+  <p class="lede">Ten messy seeds, each with its own randomized item placement, table tint and lighting — not ten copies of one table. Pick a seed to drive it live, or open its recorded HD run.</p>
+
+  <section id="hero-seed" class="hero-grid">
+    <div class="col">
+      <h3 class="col-head">Randomized seeds</h3>
+      <div id="hero-seedlist" class="hero-seedlist"><p class="loading-note">Loading seed list…</p></div>
+    </div>
+
+    <div class="hero-live">
+      <div class="frame-wrap">
+        <img id="hero-frame" src="/stream" alt="Live MuJoCo camera feed">
+        <div id="hero-loading" class="hero-loading" hidden><div class="spinner"></div><span>Loading…</span></div>
+      </div>
+      <div class="progress-track"><div id="hero-progress" class="progress-fill"></div></div>
+      <p id="hero-status" role="status">Setting up the table…</p>
+      <div class="live-actions">
+        <button id="hero-target-btn" class="ghost">Show expected final table</button>
+        <button id="hero-stop" class="stop" disabled>Stop run</button>
+      </div>
+      <div id="hero-target-ref" class="target-ref" hidden>
+        <figure><img data-zoom src="/media/target_arrangement.jpg" alt="Expected final arrangement, top view"><figcaption>Expected result · top</figcaption></figure>
+        <figure><img data-zoom src="/media/target_arrangement_side.jpg" alt="Expected final arrangement, side angle"><figcaption>Expected result · side</figcaption></figure>
+      </div>
+    </div>
+
+    <div class="hero-arms">
+      <div class="arm-box">
+        <h4>Right arm</h4>
+        <div id="hero-right-list" class="hero-instructions"></div>
+      </div>
+      <div class="arm-box">
+        <h4>Left arm</h4>
+        <div id="hero-left-list" class="hero-instructions"></div>
+      </div>
+      <div class="arm-box duet">
+        <h4>Both arms together</h4>
+        <div id="hero-duet-list" class="hero-instructions"></div>
+        <p class="arm-note">Unlocks once the table is set: the right arm relays the bottle, the left arm lifts it, the right arm grips and holds the mug still, the left arm tilts and pours.</p>
+      </div>
     </div>
   </section>
 
-  <nav class="tabs" role="tablist">
-    <button class="tab selected" data-tab="expert" role="tab" aria-selected="true">Expert demo · teacher policy</button>
-    <button class="tab" data-tab="vla" role="tab" aria-selected="false">Live VLA demo</button>
-  </nav>
-
-  <main id="panel-expert" class="tab-panel">
-    <p class="lede">10 seeds, each with its own randomized item positions, table tint and lighting — not 10 copies of the same layout. Watch the recorded run, or press <strong>Try live</strong> to have the actual physics teacher run that seed right now.</p>
+  <figure class="collage">
     <img class="diff-collage" src="/media/expert/seed_diff_collage.png" alt="Side-by-side comparison of all 10 seeds' spawn arrangement, table tint and lighting">
-    <div id="seed-grid" class="seed-grid"><p class="loading-note">Loading gallery…</p></div>
+    <figcaption>All ten seeds side by side — object placement, table tint and lighting all vary.</figcaption>
+  </figure>
 
-    <section class="generalize-panel">
-      <h2>Generalization check</h2>
-      <p>Not one of the ten above — a fresh random seed the policy has never been shown a recording of. Randomize the table, then ask the teacher to arrange it live.</p>
-      <div class="generalize-actions">
-        <button id="randomize-btn" class="primary">Randomize a new table</button>
-        <button id="arrange-btn" disabled>Arrange table</button>
-        <span id="generalize-seed" class="seed-tag"></span>
-      </div>
-    </section>
-
-    <section id="live-viewer" class="live-viewer" hidden>
-      <div class="live-viewer-head">
-        <strong id="live-viewer-title">Live simulator</strong>
-        <button id="live-viewer-close">Close</button>
-      </div>
-      <img id="live-frame" src="/stream" alt="Live MuJoCo camera feed">
-      <p id="live-status" role="status"></p>
-    </section>
-  </main>
-
-  <main id="panel-vla" class="tab-panel" hidden>
-    <div class="coming-soon">
-      <h2>Live SmolVLA demo</h2>
-      <p>Fine-tuned on the expert's demonstrations (1000 steps, duet-micro-v1). Type an instruction and watch the policy control both arms live, from raw camera pixels, with no scripted motion. Reset the scene first if the table isn't in its starting layout.</p>
-      <label for="vla-instruction">Instruction</label>
-      <textarea id="vla-instruction" rows="2" placeholder="Place the fork beside the plate.">Place the fork beside the plate.</textarea>
-      <button id="vla-run" class="primary">Run instruction</button>
-      <p id="vla-status" role="status"></p>
+  <section class="generalize-panel">
+    <h2>Generalization check</h2>
+    <p>Not one of the ten above — a brand-new messy table with a seed the policy has no recording of. Randomize it, then ask the teacher to set it for dining, live.</p>
+    <div class="generalize-actions">
+      <button id="randomize-btn" class="primary">Randomize a new messy table</button>
+      <button id="arrange-btn" disabled>Set the table</button>
+      <span id="generalize-seed" class="seed-tag"></span>
     </div>
-  </main>
+    <div class="progress-track"><div id="generalize-progress" class="progress-fill"></div></div>
+  </section>
 
-  <footer><span>SO-101 × 2 · MuJoCo simulator · Intel Bimanual VLA track</span></footer>
+  <section id="live-viewer" class="live-viewer" hidden>
+    <div class="live-viewer-head">
+      <strong id="live-viewer-title">Live simulator</strong>
+      <button id="live-viewer-close">Close</button>
+    </div>
+    <img id="live-frame" src="/stream" alt="Live MuJoCo camera feed">
+    <p id="live-status" role="status"></p>
+  </section>
+</main>
+
+<main id="panel-vla" class="tab-panel" hidden>
+  <p class="lede">The actual fine-tuned SmolVLA checkpoint, driven by raw camera pixels and free-text instructions — no scripted motion and no privileged simulator state.</p>
+
+  <div class="honesty-note">
+    <strong>Honest disclaimer.</strong> Under hackathon time constraints this checkpoint was fine-tuned on a small
+    dataset — 50 placement episodes across the same 10 seeds on the Expert tab. It has not been evaluated for
+    generalization beyond those seeds, and that little data is not enough to master every skill reliably: some
+    attempts will miss the target. What you're watching is genuine per-step VLA inference (pixels + language →
+    motor targets, no scripted fallback), not a recording.
+    <details>
+      <summary>Training details</summary>
+      <ul>
+        <li>Base model: <code>lerobot/smolvla_base</code> (SmolVLM2-500M backbone + flow-matching action expert), fine-tuned end to end</li>
+        <li>Steps: 7&nbsp;000 · batch size 32 · no AMP (bf16/GradScaler incompatibility on the training GPU)</li>
+        <li>Dataset: <a href="https://huggingface.co/datasets/pjmorales04/duet-micro-v1" target="_blank" rel="noopener">pjmorales04/duet-micro-v1</a></li>
+        <li>Checkpoint: <a href="https://huggingface.co/pjmorales04/duet-smolvla-v2" target="_blank" rel="noopener">pjmorales04/duet-smolvla-v2</a></li>
+        <li>Inference here: CPU, 5 flow-matching denoising steps (down from 10) for live latency</li>
+      </ul>
+    </details>
+  </div>
+
+  <section id="vla-hero" class="hero-grid">
+    <div class="col">
+      <h3 class="col-head">Randomized seeds</h3>
+      <div id="vla-seedlist" class="hero-seedlist"><p class="loading-note">Loading…</p></div>
+    </div>
+
+    <div class="hero-live">
+      <div class="frame-wrap">
+        <img id="vla-frame" src="" alt="Live MuJoCo camera feed of the VLA-controlled scene">
+        <div id="vla-loading" class="hero-loading" hidden><div class="spinner"></div><span>Running the checkpoint — CPU inference, please wait…</span></div>
+      </div>
+      <div class="progress-track"><div id="vla-progress" class="progress-fill"></div></div>
+      <p id="vla-status" role="status">Not started.</p>
+      <div class="live-actions">
+        <button id="vla-target-btn" class="ghost">Show expected final table</button>
+        <button id="vla-stop" class="stop" disabled>Stop run</button>
+      </div>
+      <div id="vla-target-ref" class="target-ref" hidden>
+        <figure><img data-zoom src="/media/target_arrangement.jpg" alt="Expected final arrangement, top view"><figcaption>Expected result · top</figcaption></figure>
+        <figure><img data-zoom src="/media/target_arrangement_side.jpg" alt="Expected final arrangement, side angle"><figcaption>Expected result · side</figcaption></figure>
+      </div>
+    </div>
+
+    <div class="hero-arms">
+      <div class="arm-box">
+        <h4>Right arm</h4>
+        <div id="vla-right-list" class="hero-instructions"></div>
+      </div>
+      <div class="arm-box">
+        <h4>Left arm</h4>
+        <div id="vla-left-list" class="hero-instructions"></div>
+      </div>
+      <div class="arm-box duet">
+        <h4>Both arms together</h4>
+        <div id="vla-duet-list" class="hero-instructions"></div>
+        <p class="arm-note">The pour hand-off is not in this checkpoint's training split — it runs on the Expert tab.</p>
+      </div>
+    </div>
+  </section>
+
+  <details class="freeform-vla">
+    <summary>Or type any instruction (free text, not graded against a target)</summary>
+    <label for="vla-instruction">Instruction</label>
+    <textarea id="vla-instruction" rows="2" placeholder="Place the fork beside the plate.">Place the fork beside the plate.</textarea>
+    <button id="vla-run" class="primary">Run instruction</button>
+  </details>
+</main>
+
+<section class="logbook">
+  <div class="logbook-head">
+    <h2>Engineering log</h2>
+    <p>Everything we tried to get here, including what did not work. Ordered the way the pipeline runs: build a verified teacher, record data from it, fine-tune a policy on that data, then optimize the policy for Intel hardware.</p>
+  </div>
+
+  <div class="log-cols">
+    <article class="log-card">
+      <h3><span class="dot sim"></span>Simulator &amp; expert teacher</h3>
+      <ol class="log-list">
+        <li><strong>Pose-aware cabinet workflow.</strong> Items spawn scrambled in a cabinet zone with randomized pose; the grasp is planned from the live object pose rather than a fixed hard-coded pick point.</li>
+        <li><strong>Fixed skill ordering.</strong> Skills run bottle → plate → mug → fork → spoon. This is not cosmetic: the fork and spoon approach paths physically cross where the plate lands, so an out-of-order run fails real path-clearance checks. The UI unlocks one skill at a time to match.</li>
+        <li><strong>Two-arm pour hand-off.</strong> Right arm relays the bottle to a shared point, left arm re-grips and lifts it, right arm grips the mug and holds it still, left arm tilts ~51° and pours. Verified by grasp force, cup stillness and bottle-mouth-in-cup geometry — not by a timer.</li>
+        <li><strong>Mug target position, second attempt.</strong> A revised mug position estimated from an overhead screenshot looked right but broke the pour: 2 of 3 pour tests failed with the gripper outside the arm's useful reach. Reverted to the measured position that passes 3/3 pour tests and 7/7 layout tests. Screenshot geometry is a hypothesis; the physics test is the answer.</li>
+        <li><strong>10-seed robustness sweep.</strong> Every seed randomizes spawn offsets, object rotation, lighting brightness and table tint. Pour succeeds on 10/10 after the table is set.</li>
+        <li><strong>HD gallery by replay.</strong> Recorded runs are re-rendered at 1280×960 by replaying the saved action trajectory from the saved initial physics state, so the HD video is the same run you can drive live, not a separate take.</li>
+      </ol>
+      <div class="trial-strip">
+        <p class="trial-label">Sample recorded trials — click to watch</p>
+        <div id="trial-thumbs" class="trial-thumbs"></div>
+      </div>
+    </article>
+
+    <article class="log-card">
+      <h3><span class="dot intel"></span>Policy training &amp; Intel optimization</h3>
+      <ol class="log-list">
+        <li><strong>Dataset from the verified teacher.</strong> Only episodes the teacher's physical checks marked successful are kept. 50 placement episodes (5 skills × 10 seeds), then 10 pour episodes added — 60 episodes / 7&nbsp;151 frames, published as <code>duet-micro-v1</code> in LeRobot format.</li>
+        <li><strong>SmolVLA fine-tune, v1 → v2.</strong> <code>lerobot/smolvla_base</code> fine-tuned end to end, 7&nbsp;000 steps at batch 32. AMP had to be disabled — bf16 and GradScaler were incompatible on the training GPU — which cost throughput but kept the run stable.</li>
+        <li><strong>CPU inference tuning.</strong> Flow-matching denoising steps cut from 10 to 5, torch threads pinned to cores − 2 so the physics loop keeps its own core, and the checkpoint is preloaded at server start. Before preloading, the first click always failed: the cold model load outran the task-submission timeout.</li>
+        <li><strong>OpenVINO IR conversion, attempt 1 — failed.</strong> <code>openvino.convert_model</code> with the legacy TorchScript tracer died inside <code>transformers</code>' attention-mask builder (<code>sdpa_mask</code>, <code>IndexError: tuple index out of range</code>) while tracing the SmolVLM vision encoder. Not our model's bug — a tracer/library incompatibility.</li>
+        <li><strong>OpenVINO IR conversion, attempt 2 — in progress.</strong> Re-running through <code>torch.export</code> (<code>dynamo=True</code>) instead of the legacy tracer, on the Intel Core Ultra machine that is also the deployment target. The action-chunk model is wrapped behind a flat seven-tensor interface (two images, two image masks, language tokens, language mask, state) captured from a real inference call, so example inputs are measured rather than guessed.</li>
+        <li><strong>Honest status.</strong> Conversion is still being validated at the time of writing. The bar we set for calling it done is not "the converter returned without an error" — it is that the IR model reproduces the PyTorch checkpoint's action output on identical input. Until that comparison passes, this page will not claim it.</li>
+      </ol>
+    </article>
+  </div>
+
+  <article class="log-card wide">
+    <h3><span class="dot note"></span>Why the expert demo is further along than the VLA</h3>
+    <p>They are two stages of one pipeline, not two competing entries. The expert teacher is a scripted controller with real physical verification at every step — grasp force, contact, clearance, final-pose geometry — and it exists first because it is what <em>generates</em> trustworthy training data. Only runs it certifies as successful become episodes.</p>
+    <p>The VLA is trained on that output, and it has had one small dataset and one short fine-tune. It reproduces the teacher's motion style and responds to language and pixels for real, but 60 episodes is not enough for reliable millimetre placement, so it misses targets that the teacher hits every time. That gap is the honest current state, and it is a data-and-training-time gap rather than an architectural one: the same pipeline scales by recording more teacher episodes.</p>
+    <p>Judging aid: the <strong>Expert tab</strong> is where to look for end-to-end task completion and the two-arm pour hand-off. The <strong>VLA tab</strong> is where to look for genuine language-and-vision-conditioned control. Both run live in this browser against the same MuJoCo simulator — nothing on this page is a recording unless it is explicitly labelled as one.</p>
+  </article>
+</section>
+
+<div id="modal" class="modal" hidden>
+  <div class="modal-inner">
+    <div class="modal-head">
+      <strong id="modal-title">Recorded run</strong>
+      <button id="modal-close">Close</button>
+    </div>
+    <video id="modal-player" controls hidden></video>
+    <img id="modal-image" alt="" hidden>
+  </div>
+</div>
+
+<footer><span>Duet 2 · dual SO-101 · MuJoCo · LeRobot SmolVLA · OpenVINO on Intel Core Ultra</span></footer>
 </body>
 </html>
