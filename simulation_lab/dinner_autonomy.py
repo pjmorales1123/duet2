@@ -112,7 +112,8 @@ class DinnerTask(LiftReturn):
         base = np.array([-.25 if self.side == 'left' else .25, -.235])
         toward_object = self.origin[:2]-base
         norm = np.linalg.norm(toward_object)
-        candidates = [toward_object/norm] if norm > 1e-6 else []
+        candidates = [np.asarray(direction, dtype=float) for direction in getattr(self, 'preferred_grasp_directions', [])]
+        candidates += [toward_object/norm] if norm > 1e-6 else []
         candidates += [np.array([np.cos(a), np.sin(a)]) for a in np.linspace(-np.pi, np.pi, 12, endpoint=False)]
         last_exc = None
         for xy in candidates:
@@ -167,6 +168,8 @@ class DinnerTask(LiftReturn):
             try:
                 self._select_item(side, item)
                 self.grasp = self.data.site(item['grasp_site']).xpos.copy()
+                if getattr(self, 'grasp_local_override', None) is not None:
+                    self.grasp = self.origin + self.data.xmat[self.body].reshape(3, 3) @ self.grasp_local_override
                 if self.sideways:
                     self.grasp = self.origin + self.ik.axis_target*.070
                 if item['id'] in ('fork','spoon'):

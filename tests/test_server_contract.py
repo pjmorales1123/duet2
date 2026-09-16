@@ -1,11 +1,22 @@
 """Ensure cabinet browser requests match the local server's strict schemas."""
 import unittest
+import json
 from pathlib import Path
 from pydantic import ValidationError
-from simulation_lab.server import LanguageCommand, Reset, TaskCommand
+from simulation_lab.server import Control, LanguageCommand, Reset, TaskCommand
+from simulation_lab.rendering import render_profile
 
 
 class ServerContractTests(unittest.TestCase):
+    def test_fast_preview_control_is_explicit(self):
+        self.assertEqual(Control(preview_mode='fast').preview_mode, 'fast')
+        with self.assertRaises(ValidationError):
+            Control(preview_mode='low')
+
+    def test_fast_preview_reduces_camera_work_without_changing_physics(self):
+        self.assertEqual(render_profile('hd', 960, 540, True), (960, 540, True, 4))
+        self.assertEqual(render_profile('fast', 960, 540, True), (480, 270, False, 0))
+
     def test_browser_instruction_accepts_recording_flag(self):
         request = LanguageCommand(text='set the table', mode='programmed', record=False)
         self.assertFalse(request.record)
@@ -24,6 +35,31 @@ class ServerContractTests(unittest.TestCase):
         for control in ('drawer-open', 'drawer-status', 'drawer-value'):
             self.assertNotIn(control, html)
             self.assertNotIn(control, script)
+
+    def test_demo_has_honest_rubric_evidence_for_all_six_criteria(self):
+        html = (Path(__file__).parents[1]/'simulation_lab'/'web'/'demo.html').read_text(encoding='utf-8')
+        for criterion in (
+            'End-to-End Task Completion &amp; Bimanual Manipulation',
+            'VLA / Multi-Modal Reasoning',
+            'Robustness &amp; Generalization',
+            'OpenVINO &amp; Intel Core Ultra Optimization',
+            'Technical Quality &amp; Reproducibility',
+            'Innovation &amp; Technical Demonstration',
+            'Verified evidence',
+            'Experimental',
+            'In progress',
+        ):
+            self.assertIn(criterion, html)
+
+    def test_expert_gallery_requires_table_arrangement_before_pour(self):
+        """The manifest must supply the five ordered steps that gate the pour."""
+        manifest = Path(__file__).parents[1] / 'simulation_lab' / 'web' / 'media' / 'expert' / 'manifest.json'
+        entries = json.loads(manifest.read_text(encoding='utf-8'))
+        expected = ('bottle', 'plate', 'mug', 'fork', 'spoon')
+        self.assertEqual(len(entries), 10)
+        for entry in entries:
+            self.assertEqual(tuple(entry['instructions']), expected)
+            self.assertEqual(entry['skills'], list(expected) + ['pour'])
 
 
 if __name__ == '__main__':

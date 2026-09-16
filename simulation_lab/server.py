@@ -50,6 +50,7 @@ class Control(BaseModel):
     camera: Literal["center", "overview", "overhead", "opposite", "left_wrist_cam", "right_wrist_cam"] | None = None
     running: bool | None = None
     shadows: bool | None = None
+    preview_mode: Literal["hd", "fast"] | None = None
     preset: Literal["home", "gentle"] | None = None
     arm: Literal["left", "right"] | None = None
     targets_deg: list[float] | None = Field(default=None, min_length=6, max_length=6)

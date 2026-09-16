@@ -58,7 +58,7 @@ class LabEngine:
         self.render_stopping = context.Event()
         self.render_process = context.Process(target=render_worker, args=(self.render_inputs, self.render_outputs, self.render_stopping, width, height, fps, render_delay_s), name="benchlab-camera", daemon=True)
         self.render_stats = {"fps": 0., "frame_work_ms": 0., "frame_simulation_time_s": 0.}
-        self.running, self.camera, self.shadows = True, "center", True
+        self.running, self.camera, self.shadows, self.preview_mode = True, "center", True, "hd"
         self.motion_started: float | None = None
         self.generation = 0
         self.real_time_factor = 1.
@@ -180,6 +180,10 @@ class LabEngine:
             raise ValueError("Pause the simulation before single stepping.")
         if payload.get("shadows") is not None:
             self.shadows = payload["shadows"]
+        if payload.get("preview_mode") is not None:
+            if payload["preview_mode"] not in ("hd", "fast"):
+                raise ValueError("Unknown preview mode.")
+            self.preview_mode = payload["preview_mode"]
         if payload.get("camera") is not None:
             if payload["camera"] not in CAMERAS:
                 raise ValueError("Unknown camera.")
@@ -398,8 +402,8 @@ class LabEngine:
             location = assignments.get(tube["id"])
             tubes.append({"id": tube["id"], "rack": location["rack"] if location else None, "slot": location["id"] if location else None,
                           "initial_rack": tube["rack"], "position_m": body.xpos.tolist(), "upright": bool(body.xmat[8] > math.cos(math.radians(20))), "on_table": bool(body.xpos[2] > TABLE_Z)})
-        snapshot = {"ready": True, "engine": "MuJoCo " + mujoco.__version__, "seed": self.layout["seed"], "running": self.running, "idle": idle, "camera": self.camera, "camera_label": CAMERAS[self.camera], "cameras": CAMERAS, "simulation_time_s": round(float(self.data.time), 3), "physics_timestep_s": float(self.model.opt.timestep), "contacts": int(self.data.ncon), "rack_count": len(self.layout["racks"]), "racks": self.layout["racks"], "tube_count": len(tubes), "upright_count": sum(t["upright"] and t["on_table"] for t in tubes), "tubes": tubes, "arms": arms, "motion_test": self.motion_started is not None, "resolution": [self.width, self.height], "controller": "ground_truth_ik" if self.task.active else "manual_joint_targets", "task": self.task.snapshot(), "practice": self.layout["practice"], "scene_version": self.generation, "shadows": self.shadows, "control_hz": 200, "real_time_factor": round(self.real_time_factor, 3), "dropped_wall_time_s": round(self.dropped_wall_time, 3)}
-        job = (self.xml, self.generation, self.data.qpos.copy(), self.data.qvel.copy(), self.data.ctrl.copy(), float(self.data.time), self.camera, self.shadows, idle)
+        snapshot = {"ready": True, "engine": "MuJoCo " + mujoco.__version__, "seed": self.layout["seed"], "running": self.running, "idle": idle, "camera": self.camera, "camera_label": CAMERAS[self.camera], "cameras": CAMERAS, "simulation_time_s": round(float(self.data.time), 3), "physics_timestep_s": float(self.model.opt.timestep), "contacts": int(self.data.ncon), "rack_count": len(self.layout["racks"]), "racks": self.layout["racks"], "tube_count": len(tubes), "upright_count": sum(t["upright"] and t["on_table"] for t in tubes), "tubes": tubes, "arms": arms, "motion_test": self.motion_started is not None, "resolution": [self.width, self.height], "controller": "ground_truth_ik" if self.task.active else "manual_joint_targets", "task": self.task.snapshot(), "practice": self.layout["practice"], "scene_version": self.generation, "shadows": self.shadows, "preview_mode": self.preview_mode, "control_hz": 200, "real_time_factor": round(self.real_time_factor, 3), "dropped_wall_time_s": round(self.dropped_wall_time, 3)}
+        job = (self.xml, self.generation, self.data.qpos.copy(), self.data.qvel.copy(), self.data.ctrl.copy(), float(self.data.time), self.camera, self.shadows, self.preview_mode, idle)
         snapshot.update(racks=racks, slots=self.slots_cache, transfer_side=self.layout["transfer_side"],
                         scenario=self.layout.get("scenario", "chemistry"),
                         recording=self.recorder.snapshot() if self.recorder else {"id": None, "status": "idle", "busy": False})

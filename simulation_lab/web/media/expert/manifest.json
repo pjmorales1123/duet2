@@ -6,10 +6,12 @@
       "plate",
       "mug",
       "fork",
-      "spoon"
+      "spoon",
+      "pour"
     ],
     "video": "seed-30261005.mp4",
-    "changes": "side_plate spawn shifted 6.5 cm, rotations up to 25\u00b0, lighting at 77% brightness, unique table tint."
+    "changes": "side_plate spawn shifted 6.5 cm, rotations up to 25\u00b0, lighting at 77% brightness, unique table tint.",
+    "instructions": {"bottle": "Place the bottle on the table.", "plate": "Place the dinner plate.", "mug": "Place the mug above the plate.", "fork": "Place the fork beside the plate.", "spoon": "Place the spoon beside the plate."}
   },
   {
     "seed": "30261007",
@@ -18,22 +20,26 @@
       "plate",
       "mug",
       "fork",
-      "spoon"
+      "spoon",
+      "pour"
     ],
     "video": "seed-30261007.mp4",
-    "changes": "bottle spawn shifted 5.9 cm, rotations up to 19\u00b0, lighting at 123% brightness, unique table tint."
+    "changes": "bottle spawn shifted 5.9 cm, rotations up to 19\u00b0, lighting at 123% brightness, unique table tint.",
+    "instructions": {"bottle": "Place the bottle on the table.", "plate": "Place the dinner plate.", "mug": "Place the mug above the plate.", "fork": "Place the fork beside the plate.", "spoon": "Place the spoon beside the plate."}
   },
   {
-    "seed": "30261008",
+    "seed": "30261009",
     "skills": [
       "bottle",
       "plate",
       "mug",
       "fork",
-      "spoon"
+      "spoon",
+      "pour"
     ],
-    "video": "seed-30261008.mp4",
-    "changes": "plate spawn shifted 7.4 cm, rotations up to 22\u00b0, lighting at 141% brightness, unique table tint."
+    "video": "seed-30261009.mp4",
+    "changes": "glass spawn shifted 7.5 cm, rotations up to 20\u00b0, lighting at 101% brightness, unique table tint.",
+    "instructions": {"bottle": "Place the bottle on the table.", "plate": "Place the dinner plate.", "mug": "Place the mug above the plate.", "fork": "Place the fork beside the plate.", "spoon": "Place the spoon beside the plate."}
   },
   {
     "seed": "30261016",
@@ -42,10 +48,12 @@
       "plate",
       "mug",
       "fork",
-      "spoon"
+      "spoon",
+      "pour"
     ],
     "video": "seed-30261016.mp4",
-    "changes": "side_plate spawn shifted 5.8 cm, rotations up to 18\u00b0, lighting at 76% brightness, unique table tint."
+    "changes": "side_plate spawn shifted 5.8 cm, rotations up to 18\u00b0, lighting at 76% brightness, unique table tint.",
+    "instructions": {"bottle": "Place the bottle on the table.", "plate": "Place the dinner plate.", "mug": "Place the mug above the plate.", "fork": "Place the fork beside the plate.", "spoon": "Place the spoon beside the plate."}
   },
   {
     "seed": "30261017",
@@ -54,10 +62,12 @@
       "plate",
       "mug",
       "fork",
-      "spoon"
+      "spoon",
+      "pour"
     ],
     "video": "seed-30261017.mp4",
-    "changes": "mug spawn shifted 5.6 cm, rotations up to 25\u00b0, lighting at 62% brightness, unique table tint."
+    "changes": "mug spawn shifted 5.6 cm, rotations up to 25\u00b0, lighting at 62% brightness, unique table tint.",
+    "instructions": {"bottle": "Place the bottle on the table.", "plate": "Place the dinner plate.", "mug": "Place the mug above the plate.", "fork": "Place the fork beside the plate.", "spoon": "Place the spoon beside the plate."}
   },
   {
     "seed": "30261022",
@@ -66,10 +76,12 @@
       "plate",
       "mug",
       "fork",
-      "spoon"
+      "spoon",
+      "pour"
     ],
     "video": "seed-30261022.mp4",
-    "changes": "bottle spawn shifted 5.7 cm, rotations up to 15\u00b0, lighting at 119% brightness, unique table tint."
+    "changes": "bottle spawn shifted 5.7 cm, rotations up to 15\u00b0, lighting at 119% brightness, unique table tint.",
+    "instructions": {"bottle": "Place the bottle on the table.", "plate": "Place the dinner plate.", "mug": "Place the mug above the plate.", "fork": "Place the fork beside the plate.", "spoon": "Place the spoon beside the plate."}
   },
   {
     "seed": "30261024",
@@ -78,10 +90,12 @@
       "plate",
       "mug",
       "fork",
-      "spoon"
+      "spoon",
+      "pour"
     ],
     "video": "seed-30261024.mp4",
-    "changes": "glass spawn shifted 6.5 cm, rotations up to 25\u00b0, lighting at 153% brightness, unique table tint."
+    "changes": "glass spawn shifted 6.5 cm, rotations up to 25\u00b0, lighting at 153% brightness, unique table tint.",
+    "instructions": {"bottle": "Place the bottle on the table.", "plate": "Place the dinner plate.", "mug": "Place the mug above the plate.", "fork": "Place the fork beside the plate.", "spoon": "Place the spoon beside the plate."}
   },
   {
     "seed": "30261025",
@@ -90,10 +104,12 @@
       "plate",
       "mug",
       "fork",
-      "spoon"
+      "spoon",
+      "pour"
     ],
     "video": "seed-30261025.mp4",
-    "changes": "plate spawn shifted 6.3 cm, rotations up to 26\u00b0, lighting at 79% brightness, unique table tint."
+    "changes": "plate spawn shifted 6.3 cm, rotations up to 26\u00b0, lighting at 79% brightness, unique table tint.",
+    "instructions": {"bottle": "Place the bottle on the table.", "plate": "Place the dinner plate.", "mug": "Place the mug above the plate.", "fork": "Place the fork beside the plate.", "spoon": "Place the spoon beside the plate."}
   },
   {
     "seed": "30261027",
@@ -102,10 +118,12 @@
       "plate",
       "mug",
       "fork",
-      "spoon"
+      "spoon",
+      "pour"
     ],
     "video": "seed-30261027.mp4",
-    "changes": "side_plate spawn shifted 6.6 cm, rotations up to 25\u00b0, lighting at 101% brightness, unique table tint."
+    "changes": "side_plate spawn shifted 6.6 cm, rotations up to 25\u00b0, lighting at 101% brightness, unique table tint.",
+    "instructions": {"bottle": "Place the bottle on the table.", "plate": "Place the dinner plate.", "mug": "Place the mug above the plate.", "fork": "Place the fork beside the plate.", "spoon": "Place the spoon beside the plate."}
   },
   {
     "seed": "30261029",
@@ -114,9 +132,11 @@
       "plate",
       "mug",
       "fork",
-      "spoon"
+      "spoon",
+      "pour"
     ],
     "video": "seed-30261029.mp4",
-    "changes": "plate spawn shifted 5.5 cm, rotations up to 25\u00b0, lighting at 72% brightness, unique table tint."
+    "changes": "plate spawn shifted 5.5 cm, rotations up to 25\u00b0, lighting at 72% brightness, unique table tint.",
+    "instructions": {"bottle": "Place the bottle on the table.", "plate": "Place the dinner plate.", "mug": "Place the mug above the plate.", "fork": "Place the fork beside the plate.", "spoon": "Place the spoon beside the plate."}
   }
 ]
