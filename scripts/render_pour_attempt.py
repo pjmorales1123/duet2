@@ -1,5 +1,6 @@
 """Render a fast HD end-to-end physical dinner and pour demonstration."""
 from pathlib import Path
+import argparse
 
 import imageio
 import mujoco
@@ -37,11 +38,15 @@ def run_task(task, model, data, targets, renderer, writer, *, limit, record=Fals
 
 
 def main():
-    output = Path(".run/two-arm-pour-hd-fast.mp4")
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--seed", type=int, default=1000)
+    parser.add_argument("--output", type=Path, default=Path(".run/two-arm-pour-hd-fast.mp4"))
+    args = parser.parse_args()
+    output = args.output
     output.parent.mkdir(exist_ok=True)
     if output.exists():
         output.unlink()
-    model, data, layout = load(seed=1000)
+    model, data, layout = load(seed=args.seed)
     for _ in range(200):
         mujoco.mj_step(model, data)
     data.time = 0.0
